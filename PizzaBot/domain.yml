@@ -1,0 +1,114 @@
+version: "3.1"
+
+intents:
+#General
+  - welcome_greet
+  - goodbye
+  - help
+  - response_negative
+  - response_positive
+  - out_of_scope
+
+#TASK 1 order pizza
+  - init_request
+  - inform
+#  - menu_information
+#  - order_confirm_negative
+#  - order_confirm_positive
+#  - order_take_home
+#  - order_delivery
+#  - order_time
+#  - response_name
+#  - response_phone
+#  - response_address
+#
+##TASK 2 ask for pizza info and suggestion
+#  - init_pizza_question
+#  - pizza_price_question
+#  - pizza_ingredient_question
+#  - ask_pizza_suggestion
+#  - pizza_suggestion_ingredient
+#  - pizza_suggestion_without_ingredient
+#  - pizza_suggestion_basic
+#
+#
+##TASK 3 modify previously made order
+#  - init_modify_order
+#  - modify_order
+#  - add_pizza
+#  - remove_pizza
+#  - add_drink
+#  - remove_drink
+#  - change_pizza
+#  - change_address
+#  - change_time
+
+entities:
+- pizza_size
+- pizza_type
+#- pizza_amount
+#- toppings
+#- client_name
+#- phone_number
+#- order_number
+#- address_street
+#- address_number
+#- address_city
+#- time
+
+slots:
+  pizza_size:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: pizza_size
+  pizza_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: pizza_type
+
+
+responses:
+  utter_welcome_greet:
+  - text: "Hi! This is SmartPizza, your pizza ordering chatbot. How can I help you?"
+
+  utter_goodbye:
+  - text: "Thank you for using SmartPizza. See you soon!"
+
+  utter_help:
+    - text: "With this bot, you can easily place orders for pizza delivery. Try saying 'I want to order a pizza', or 'Suggest me a pizza' to get started."
+
+  utter_error:
+    - text: "Sorry, I am afraid I didn’t understand that. Can you please retype it?"
+
+  utter_submit_pizza:
+    - text: "A {pizza_size} {pizza_type} was added to your order."
+
+  utter_ask_pizza_type:
+    - text: "What type of pizza would you like to order?"
+
+  utter_ask_pizza_size:
+    - text: "What size would you want to order?"
+
+  utter_out_of_scope:
+    - text: "I'm really sorry, but I am afraid I can't help you with that."
+
+  utter_extra_order:
+    - text: "Would you like to order anything else?"
+
+actions:
+  - validate_pizza_order_form
+
+forms:
+  pizza_order_form:
+    required_slots:
+    #- pizza_amount
+    - pizza_type
+    - pizza_size
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

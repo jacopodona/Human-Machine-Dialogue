@@ -1,0 +1,107 @@
+version: "3.1"
+
+#When putting sentences with entities, use format "I want [Marinara](pizza_type)" to label entities
+
+
+nlu:
+- intent: welcome_greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: response_positive
+  examples: |
+    - yes
+    - y
+    - yeah
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - exactly
+
+- intent: response_negative
+  examples: |
+    - no
+    - n
+    - nope
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: help
+  examples: |
+    - I don't understand
+    - What can I do
+    - Help
+    - What can you do
+    - Help me
+    - I dont understand
+    - I need help
+    - How can I order a pizza
+    - What can I say
+    - What actions I can do
+    - I need some assistance
+    - I'm confused
+    - How can I order a pizza
+    - Can you show me how to get started?
+
+- intent: out_of_scope
+  examples: |
+    - What is 2 + 2?
+    - Who's the US President?
+    - do you have shoes
+    - what is your name
+    - are you real
+    - do you have a sister
+    - book a flight from milan to ny
+    - how far is the square
+    - give me the directions to time square
+
+- intent: init_request
+  examples: |
+    - Can I make an order?
+    - I would like to make an order
+    - I would like to order some pizzas
+    - I want to order a pizza
+    - I want to make an order
+    - I want to place an order
+    - Can I place an order?
+    - Can we order some pizzas?
+    - Can I place an order?
+    
+- intent: inform
+  examples: |
+    - I want to order a [Margherita](pizza_type)
+    - I would like a [Marinara](pizza_type)
+    - I'd like a [large](pizza_size) pizza
+    - I want to order a [large](pizza_size) pizza
+    - I want a [small](pizza_size) [Margherita](pizza_type)
+    - I would like a [medium](pizza_size) pizza
+    - I want to order a [Pepperoni](pizza_type) pizza

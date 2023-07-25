@@ -1,0 +1,40 @@
+version: "3.1"
+
+#From stories the model learns what the flow of the conversation should look like.
+#Start from optimal stories and then make some stories with interruptions and changes
+#https://www.youtube.com/watch?v=8gvGh6H2NO0&list=PL75e0qA87dlEjGAc9j9v3a5h1mxI2Z9fi&index=4
+
+#You can use OR statements to trigger the action with multiple intents
+
+#Have small stories that aren't full conversation
+
+stories:
+
+- story: welcome path
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - intent: help
+  - action: utter_help
+  - intent: goodbye
+  - action: utter_goodbye
+
+#- story: sad path 1
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: mood_unhappy
+#  - action: utter_cheer_up
+#  - action: utter_did_that_help
+#  - intent: affirm
+#  - action: utter_happy
+#
+#- story: sad path 2
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: mood_unhappy
+#  - action: utter_cheer_up
+#  - action: utter_did_that_help
+#  - intent: deny
+#  - action: utter_goodbye
