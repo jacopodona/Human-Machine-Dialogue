@@ -11,7 +11,11 @@ intents:
 
 #TASK 1 order pizza
   - init_request
-  - inform
+  - ask_drink_list
+  - ask_drink_price
+  #- init_request_with_entity
+  #- say_pizza_type
+  #- say_pizza_size
 #  - menu_information
 #  - order_confirm_negative
 #  - order_confirm_positive
@@ -46,6 +50,7 @@ intents:
 entities:
 - pizza_size
 - pizza_type
+- drink_name
 #- pizza_amount
 #- toppings
 #- client_name
@@ -93,6 +98,9 @@ responses:
   utter_ask_pizza_size:
     - text: "What size would you want to order?"
 
+  utter_give_drink_list:
+    - text: "Sure! Here is the list of drinks we offer:"
+
   utter_out_of_scope:
     - text: "I'm really sorry, but I am afraid I can't help you with that."
 
@@ -100,6 +108,8 @@ responses:
     - text: "Would you like to order anything else?"
 
 actions:
+  - action_tell_drink_list
+  - action_tell_drink_price
   - validate_pizza_order_form
 
 forms:

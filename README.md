@@ -17,3 +17,24 @@ Pizza ordering bot
   - Order recap
   - Specify delivery or takeaway
 - Modify order (TODO)
+
+### Training the model
+
+```
+Look! You can see my backticks.
+```
+
+A pretrained model is also available in /models
+
+### Running the code
+
+Open two terminals, on one type:
+
+```
+rasa run actions
+```
+to start the action server. In the other type:
+```
+rasa shell
+```
+to start the conversational agent.

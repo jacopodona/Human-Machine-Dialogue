@@ -10,7 +10,7 @@ version: "3.1"
 
 stories:
 
-- story: welcome path
+- story: greet help and goodbye
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
@@ -19,22 +19,55 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-#- story: sad path 1
+- story: ask for pizza order
+  steps:
+  - intent: init_request
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+  - active_loop: null
+  - action: utter_submit_pizza
+  #- action: add_pizza_to_order
+  #- action: utter_slots_values
+  #- checkpoint: pizza_form_no_entity
+
+#- story: Start form with more detailed intent (pizza_type provided)
 #  steps:
-#  - intent: greet
-#  - action: utter_greet
-#  - intent: mood_unhappy
-#  - action: utter_cheer_up
-#  - action: utter_did_that_help
-#  - intent: affirm
-#  - action: utter_happy
-#
-#- story: sad path 2
+#  - intent: init_request_with_entity
+#    entities:
+#    - entity: pizza_type
+#      value: "margherita"
+#  - action: pizza_order_form
+#  - active_loop: pizza_order_form
+#  - slot_was_set:
+#    - pizza_type: "margherita"
+#  - action: utter_ask_pizza_size
+
+#- story: interactive_story_1
 #  steps:
-#  - intent: greet
-#  - action: utter_greet
-#  - intent: mood_unhappy
-#  - action: utter_cheer_up
-#  - action: utter_did_that_help
-#  - intent: deny
-#  - action: utter_goodbye
+#  - intent: init_request_with_entity
+#    entities:
+#    - pizza_type: margherita
+#  - slot_was_set:
+#    - pizza_type: margherita
+#  - action: pizza_order_form
+#  - active_loop: pizza_order_form
+#  - slot_was_set:
+#    - pizza_type: margherita
+#  - slot_was_set:
+#    - requested_slot: pizza_size
+#  - intent: response_positive
+#    entities:
+#    - pizza_size: large
+#  - slot_was_set:
+#    - pizza_size: large
+#  - action: pizza_order_form
+#  - slot_was_set:
+#    - pizza_size: large
+#  - slot_was_set:
+#    - requested_slot: null
+#  - active_loop: null
+#  - action: utter_submit_pizza
+#  - intent: welcome_greet

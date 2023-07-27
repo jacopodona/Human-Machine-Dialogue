@@ -39,4 +39,16 @@ rules:
     - action: utter_submit_pizza
     #- action: utter_pizza_slots
 
+- rule: Tell the drink menu
+  steps:
+    - intent: ask_drink_list
+    #- action: utter_give_drink_list
+    - action: action_tell_drink_list
+
+- rule: Tell price of a drink
+  steps:
+    - intent: ask_drink_price
+    - action: action_tell_drink_price
+
+
 

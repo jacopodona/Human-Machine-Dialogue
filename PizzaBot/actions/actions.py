@@ -28,11 +28,68 @@ from rasa_sdk.types import DomainDict
 #
 #         return []
 
+drink_menu={
+    "water": 1,
+    "tea": 2,
+    "coke": 3,
+    "beer": 5,
+    "sprite": 3,
+}
+
+def getDrinks():
+    return list(drink_menu.keys())
 def getPizzaSizes():
     return ["small","medium","large"]
 
 def getPizzaTypes():
     return ["margherita","marinara","pepperoni"]
+
+
+class ActionTellDrinkList(Action):
+
+    def name(self) -> Text:
+        return "action_tell_drink_list"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        drinks = getDrinks()
+
+        if len(drinks)==0:
+            msg = "Looks like we are out of beverages, we have none available at the moment"
+        else:
+            last_two_drinks = " and ".join(drinks[-2:])
+            other_drinks = ", ".join(drinks[:-2])
+
+            # Concatenate the two parts
+            result = other_drinks + ", " + last_two_drinks
+            msg= "We currently offer "+result
+        dispatcher.utter_message(text=msg)
+
+        return []
+
+class ActionTellDrinkList(Action):
+
+    def name(self) -> Text:
+        return "action_tell_drink_price"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        key_to_find = next(tracker.get_latest_entity_values("drink_name"), None)
+
+        if key_to_find is None:
+            dispatcher.utter_message(response="I did not understand, could you ask me again please?")
+        else:
+            drink_price = value = drink_menu.get(key_to_find, None)
+            if drink_price is None:
+                msg = f"I'm afraid we do not have {key_to_find} in our menu. You can get a list of available drinks by asking 'What drinks do you have?'"
+            else:
+                msg = f"A {key_to_find} costs {str(drink_price)} €"
+            dispatcher.utter_message(text=msg)
+        return []
 
 class ValidatePizzaOrderForm(FormValidationAction):
     def name(self) -> Text:

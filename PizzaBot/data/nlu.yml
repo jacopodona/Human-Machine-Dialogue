@@ -54,6 +54,10 @@ nlu:
     - don't like that
     - no way
     - not really
+    - wrong
+    - not correct
+    - not what i meant
+    - incorrect
 
 - intent: help
   examples: |
@@ -94,14 +98,83 @@ nlu:
     - I want to place an order
     - Can I place an order?
     - Can we order some pizzas?
-    - Can I place an order?
-    
-- intent: inform
+
+- intent: ask_drink_list
   examples: |
-    - I want to order a [Margherita](pizza_type)
-    - I would like a [Marinara](pizza_type)
+    - What drinks do you guys have on the menu?
+    - What kind of beverages do you serve here?"
+    - Do you have a menu for the drinks?
+    - What beverages do you have?
+    - Give me the list of available drinks
+    - Give me the list of beverages
+    - What do you have to drink
+    - What's the drink selection like?
+    - Could you show me the list of drinks you've got?
+    - What types of drinks you offer?
+
+- intent: ask_drink_price
+  examples: |
+    - How much for a [coke](drink_name)
+    - What is the price of [water](drink_name)?
+    - Can you tell me the [coke](drink_name) price?
+    - Tell me the cost of [tea](drink_name).
+    - How much does [coke](drink_name) cost?
+    - Price of [beer](drink_name)?
+    - Can you give me the price for [coke](drink_name)?
+    - I'd like to know the cost of a [beer](drink_name).
+    - What's the price for [sprite](drink_name)?
+    - Please tell me the price of [coke](drink_name).
+    - How much is [sprite](drink_name)?
+    - Could you inform me about the price of [tea](drink_name)?
+
+- intent: init_request_with_entity
+  examples: |
+    - I want to order a [margherita](pizza_type)
+    - I would like a [marinara](pizza_type)
     - I'd like a [large](pizza_size) pizza
     - I want to order a [large](pizza_size) pizza
-    - I want a [small](pizza_size) [Margherita](pizza_type)
+    - I want a [small](pizza_size)
     - I would like a [medium](pizza_size) pizza
     - I want to order a [Pepperoni](pizza_type) pizza
+
+- lookup: pizza_size
+  examples: |
+    - small
+    - medium
+    - large
+- lookup: pizza_type
+  examples: |
+    - margherita
+    - marinara
+    - pepperoni
+- lookup: drink_name
+  examples: |
+    - water
+    - tea
+    - sprite
+    - coke
+    - beer
+
+#- intent: say_pizza_type
+#  examples: |
+#    - I want a [margherita](pizza_type)
+#    - I would like a [marinara](pizza_type)
+#    - For me a [margherita](pizza_type)
+#    - Give me a [margherita](pizza_type)
+#    - [margherita](pizza_type)
+#    - [pepperoni](pizza_type)
+#    - Can you please make me a [margherita]
+#    - A [marinara](pizza_type)
+#    - I want to order a [large](pizza_size) pizza
+#    - I want to order a [pepperoni](pizza_type) pizza
+#
+#- intent: say_pizza_size
+#  examples: |
+#    - I'd like a [large](pizza_size) pizza
+#    - A [medium](pizza_size)
+#    - [small](pizza_size)
+#    - Get me a [large](pizza_size) one
+#    - I want to order a [large](pizza_size) pizza
+#    - I want a [small](pizza_size)
+#    - I would like a [medium](pizza_size) pizza
+#    - [small](pizza_size) will do
