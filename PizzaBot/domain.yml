@@ -101,6 +101,9 @@ responses:
   utter_give_drink_list:
     - text: "Sure! Here is the list of drinks we offer:"
 
+  utter_accept_request:
+    - text: "Sure!"
+
   utter_out_of_scope:
     - text: "I'm really sorry, but I am afraid I can't help you with that."
 

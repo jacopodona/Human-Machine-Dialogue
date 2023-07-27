@@ -19,9 +19,21 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
+- story: ask for drink list and price
+  steps:
+  - intent: ask_drink_list
+  - action: action_tell_drink_list
+  - intent: ask_drink_price
+    entities:
+    - entity: drink_name
+      value: "coke"
+  - action: action_tell_drink_price
+
+
 - story: ask for pizza order
   steps:
   - intent: init_request
+  - action: utter_accept_request
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:

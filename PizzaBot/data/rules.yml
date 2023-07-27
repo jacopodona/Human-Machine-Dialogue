@@ -25,6 +25,7 @@ rules:
 - rule: Activate pizza form
   steps:
   - intent: init_request
+  - action: utter_accept_request
   - action: pizza_order_form
   - active_loop: pizza_order_form
 
