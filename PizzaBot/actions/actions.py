@@ -11,23 +11,28 @@ from typing import Any, Text, Dict, List
 from rasa.shared.core.events import AllSlotsReset
 from rasa_sdk import Action, Tracker,FormValidationAction
 
-from rasa_sdk.events import EventType, SlotSet,AllSlotsReset
+from rasa_sdk.events import EventType, SlotSet,AllSlotsReset,ActionExecuted,FollowupAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
+
+# Declare the knowledge base
+class Pizza:
+    def __init__(self, name, price, ingredients):
+        self.name = name
+        self.price = price
+        self.ingredients=ingredients
+
+class OrderedPizza():
+    def __init__(self, pizza, size, toppings):
+        self.pizza=pizza
+        self.size=size
+        price=pizza.price
+        if(size=="small"):
+            price-=2
+        elif(size=="large"):
+            price+=2
+        self.price=price+len(toppings)
+        self.extras=toppings
 
 drink_menu={
     "water": 1,
@@ -37,16 +42,71 @@ drink_menu={
     "sprite": 3,
 }
 
+pizza_menu=[
+    Pizza(name="margherita",price=6,ingredients=["tomato sauce","mozzarella"]),
+    Pizza(name="marinara",price=6,ingredients=["tomato sauce","garlic"]),
+    Pizza(name="pepperoni", price=7, ingredients=["tomato sauce", "mozzarella", "pepperoni"]),
+    Pizza(name="capricciosa", price=8, ingredients=["tomato sauce", "mozzarella","ham", "mushrooms"]),
+    Pizza(name="hawaiian", price=9, ingredients=["tomato sauce", "mozzarella", "ham", "pineapple"]),
+    Pizza(name="vegetarian", price=8, ingredients=["tomato sauce", "mozzarella", "zucchini", "bell peppers", "eggplant"]),
+    Pizza(name="pub", price=8, ingredients=["tomato sauce", "mozzarella", "wurstel", "potatoes"]),
+    Pizza(name="rustic", price=8, ingredients=["tomato sauce", "mozzarella", "sausage", "potatoes"]),
+    Pizza(name="chicken", price=9, ingredients=["BBQ sauce", "mozzarella", "grilled chicken"]),
+    Pizza(name="cheesey", price=8, ingredients=["tomato sauce", "mozzarella", "cheddar", "parmesan", "gorgonzola"]),
+    Pizza(name="light", price=8, ingredients=["mozzarella", "spinach", "feta"]),
+    Pizza(name="pesto", price=7, ingredients=["mozzarella", "pesto", "tomatoes"])
+]
+
+pizza_sizes=["small","medium","large"]
+
+toppings=["tomato sauce","mozzarella","pepperoni","ham","spinach","onions","olives","mushrooms","wurstel", "hot dog",
+          "grilled_chicken","sausage"]
+
 order=[]
+
+def getPizzaFromMenuByName(pizza_name):
+    for pizza in pizza_menu:
+        if pizza_name==pizza.name:
+            return pizza
+
+def resetOrder():
+    global order
+    order=[]
+
+def getOrderRecap():
+    message="Your order currently contains "
+    print(order)
+    for i in range(len(order)):
+        print(message)
+        pizza_in_order=order[i]
+        print(pizza_in_order.pizza.name)
+        message+="a "+pizza_in_order.size+" "+pizza_in_order.pizza.name
+        if len(pizza_in_order.extras)!=0:
+            message+=" with "+pizza_in_order.extras
+        if(i!=len(order)-1):
+            message+=", "
+    return message+". "
 
 def getDrinks():
     return list(drink_menu.keys())
 def getPizzaSizes():
-    return ["small","medium","large"]
+    return pizza_sizes
+
+def getPizzaIngredient(pizza:Pizza):
+    return pizza.ingredients
 
 def getPizzaTypes():
-    return ["margherita","marinara","pepperoni"]
+    return [pizza.name for pizza in pizza_menu]
 
+def computeOrderPrice(order):
+    sum=0
+    print("Order:", order)
+    for pizza in order:
+        print("Pizza price:",pizza.price)
+        sum+=pizza.price
+    return sum
+
+# Declare Actions
 
 class ActionTellDrinkList(Action):
 
@@ -130,20 +190,22 @@ class ActionResponsePositive(Action):
                 dispatcher.utter_message("Perfect! It was added to your order.")
                 pizza_type = tracker.slots['pizza_type']
                 pizza_size = tracker.slots['pizza_size']
-                order.append(pizza_size+" "+pizza_type)
-                #dispatcher.utter_message(text="Would you like anything else?")
-                #pizza_type = tracker.slots['pizza_type']
-                #pizza_size = tracker.slots['pizza_size']
-                #tracker._set_slot(pizza_type.value, None)
-                #tracker._set_slot(pizza_size.value, None)
-                #return[AllSlotsReset()]
-                message = "Your order currently contains " + " , ".join(order)
+                #TODO extras
+                pizza_to_add=OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type),size=pizza_size,toppings=[])
+                print("Adding the "+pizza_to_add.pizza.name+" to the order")
+                order.append(pizza_to_add)
+                #message = "Your order currently contains " + " , ".join(order)
+                print("Printing recap...")
+                message=getOrderRecap()
                 dispatcher.utter_message(text=message)
-                return[SlotSet("pizza_type",None),SlotSet("pizza_size",None)]
-            elif(bot_event['metadata']['utter_action'] == 'utter_anything_else'):
-                print("The user wants something else")
+                #dispatcher.utter_message(template="utter_anything_else_order")
+                return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None)]
+            elif(bot_event['metadata']['utter_action'] == "utter_anything_else_order"):
+                #The user wants something else"
+                dispatcher.utter_message("What would you like to add to your order?")
+                return []
             else:
-                dispatcher.utter_message("Sorry, can you repeat that?")
+                dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except:
             dispatcher.utter_message("Sorry, can you repeat that?")
         return []
@@ -155,12 +217,28 @@ class ActionResponseNegative(Action):
     def run(self, dispatcher, tracker, domain):
         try:
             bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
-            if(bot_event['metadata']['utter_action'] == 'utter_anything_else'):
+            print(bot_event)
+            previous_action=bot_event['metadata']['utter_action']
+            print(previous_action)
+            print(previous_action=="utter_anything_else_order")
+            if(previous_action == "utter_anything_else_order"):
+                print("User does not want anything more --> checkout")
                 message="Ok, checking out your order...\n"
-                message+="Your order contains "+" , ".join(order)
+                print("Building message...")
+                message+=getOrderRecap()
+                print("Computing price...")
+                price=computeOrderPrice(order)
+                print("Prepare message for user")
+                message+="The total price is: "+str(price)+" €"
                 dispatcher.utter_message(text=message)
+                print("Printed message")
+                resetOrder()
+                print("Resetted order")
+                return [FollowupAction("utter_ask_delivery_method")]
             else:
-                dispatcher.utter_message("Sorry, can you repeat that?")
+                dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except:
             dispatcher.utter_message("Sorry, can you repeat that?")
         return []
+
+

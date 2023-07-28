@@ -107,8 +107,11 @@ responses:
   utter_out_of_scope:
     - text: "I'm really sorry, but I am afraid I can't help you with that."
 
-  utter_anything_else:
-    - text: "Can I help you with anything else?"
+  utter_anything_else_order:
+    - text: "Would you like anything else?"
+
+  utter_ask_delivery_method:
+    - text: "Ok see you later. Bye."
 
 actions:
   - action_tell_drink_list
@@ -116,7 +119,6 @@ actions:
   - validate_pizza_order_form
   - action_response_positive
   - action_response_negative
-  - utter_anything_else
 
 forms:
   pizza_order_form:

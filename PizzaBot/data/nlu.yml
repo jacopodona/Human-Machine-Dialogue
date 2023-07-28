@@ -100,20 +100,24 @@ nlu:
     - Can we order some pizzas?
     - I want to order another pizza
     - Order pizza
-    - 
+    - i want to add another pizza
+    - I want a pizza
 
 - intent: ask_drink_list
   examples: |
     - What drinks do you guys have on the menu?
-    - What kind of beverages do you serve here?"
+    - What kind of beverages do you serve here?
     - Do you have a menu for the drinks?
     - What beverages do you have?
     - Give me the list of available drinks
     - Give me the list of beverages
-    - What do you have to drink
+    - What do you have to drink?
     - What's the drink selection like?
     - Could you show me the list of drinks you've got?
     - What types of drinks you offer?
+    - list of beverages
+    - list of drinks
+    - give the the drinks you have
 
 - intent: ask_drink_price
   examples: |

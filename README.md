@@ -5,6 +5,8 @@ Pizza ordering bot
 
 ### Available Actions
 - Order pizza(s)
+  - make the intent contain the pizza slot (TODO)
+  - make the form flexible to unhappy user paths (TODO)
 - Order drink(s) (TODO)
 - Customize pizza (TODO)
 - Ask for price of pizza/drink (TODO)
