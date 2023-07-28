@@ -98,6 +98,9 @@ nlu:
     - I want to place an order
     - Can I place an order?
     - Can we order some pizzas?
+    - I want to order another pizza
+    - Order pizza
+    - 
 
 - intent: ask_drink_list
   examples: |
@@ -127,15 +130,7 @@ nlu:
     - How much is [sprite](drink_name)?
     - Could you inform me about the price of [tea](drink_name)?
 
-- intent: init_request_with_entity
-  examples: |
-    - I want to order a [margherita](pizza_type)
-    - I would like a [marinara](pizza_type)
-    - I'd like a [large](pizza_size) pizza
-    - I want to order a [large](pizza_size) pizza
-    - I want a [small](pizza_size)
-    - I would like a [medium](pizza_size) pizza
-    - I want to order a [Pepperoni](pizza_type) pizza
+
 
 - lookup: pizza_size
   examples: |
@@ -155,26 +150,26 @@ nlu:
     - coke
     - beer
 
-#- intent: say_pizza_type
-#  examples: |
-#    - I want a [margherita](pizza_type)
-#    - I would like a [marinara](pizza_type)
-#    - For me a [margherita](pizza_type)
-#    - Give me a [margherita](pizza_type)
-#    - [margherita](pizza_type)
-#    - [pepperoni](pizza_type)
-#    - Can you please make me a [margherita]
-#    - A [marinara](pizza_type)
-#    - I want to order a [large](pizza_size) pizza
-#    - I want to order a [pepperoni](pizza_type) pizza
-#
-#- intent: say_pizza_size
-#  examples: |
-#    - I'd like a [large](pizza_size) pizza
-#    - A [medium](pizza_size)
-#    - [small](pizza_size)
-#    - Get me a [large](pizza_size) one
-#    - I want to order a [large](pizza_size) pizza
-#    - I want a [small](pizza_size)
-#    - I would like a [medium](pizza_size) pizza
-#    - [small](pizza_size) will do
+- intent: say_pizza_type
+  examples: |
+    - I want a [margherita](pizza_type)
+    - I would like a [marinara](pizza_type)
+    - For me a [margherita](pizza_type)
+    - Give me a [margherita](pizza_type)
+    - [margherita](pizza_type)
+    - [pepperoni](pizza_type)
+    - Can you please make me a [margherita]
+    - A [marinara](pizza_type)
+    - I want to order a [large](pizza_size) pizza
+    - I want to order a [pepperoni](pizza_type) pizza
+
+- intent: say_pizza_size
+  examples: |
+    - I'd like a [large](pizza_size) pizza
+    - A [medium](pizza_size)
+    - [small](pizza_size)
+    - Get me a [large](pizza_size) one
+    - I want to order a [large](pizza_size) pizza
+    - I want a [small](pizza_size)
+    - I would like a [medium](pizza_size) pizza
+    - [small](pizza_size) will do

@@ -29,16 +29,26 @@ rules:
   - action: pizza_order_form
   - active_loop: pizza_order_form
 
-- rule: Submit pizza form
-  condition:
-  - active_loop: pizza_order_form
+#- rule: Submit pizza form
+#  condition:
+#  - active_loop: pizza_order_form
+#  steps:
+#    - action: pizza_order_form
+#    - active_loop: null
+#    - slot_was_set:
+#        - requested_slot: null
+#    - action: utter_submit_pizza
+#    #- action: utter_pizza_slots
+
+- rule: Answer to positive response
   steps:
-    - action: pizza_order_form
-    - active_loop: null
-    - slot_was_set:
-        - requested_slot: null
-    - action: utter_submit_pizza
-    #- action: utter_pizza_slots
+    - intent: response_positive
+    - action: action_response_positive
+
+- rule: Answer to negative response
+  steps:
+    - intent: response_negative
+    - action: action_response_negative
 
 - rule: Tell the drink menu
   steps:

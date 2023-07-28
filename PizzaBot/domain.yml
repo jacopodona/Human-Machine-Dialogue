@@ -13,9 +13,9 @@ intents:
   - init_request
   - ask_drink_list
   - ask_drink_price
-  #- init_request_with_entity
-  #- say_pizza_type
-  #- say_pizza_size
+#  - init_request_with_entity
+  - say_pizza_type
+  - say_pizza_size
 #  - menu_information
 #  - order_confirm_negative
 #  - order_confirm_positive
@@ -90,7 +90,7 @@ responses:
     - text: "Sorry, I am afraid I didn’t understand that. Can you please retype it?"
 
   utter_submit_pizza:
-    - text: "A {pizza_size} {pizza_type} was added to your order."
+    - text: "A {pizza_size} {pizza_type} was added to your order. Is this correct?"
 
   utter_ask_pizza_type:
     - text: "What type of pizza would you like to order?"
@@ -107,13 +107,16 @@ responses:
   utter_out_of_scope:
     - text: "I'm really sorry, but I am afraid I can't help you with that."
 
-  utter_extra_order:
-    - text: "Would you like to order anything else?"
+  utter_anything_else:
+    - text: "Can I help you with anything else?"
 
 actions:
   - action_tell_drink_list
   - action_tell_drink_price
   - validate_pizza_order_form
+  - action_response_positive
+  - action_response_negative
+  - utter_anything_else
 
 forms:
   pizza_order_form:

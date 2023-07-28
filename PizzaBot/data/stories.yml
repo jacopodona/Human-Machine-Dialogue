@@ -41,9 +41,27 @@ stories:
     - pizza_type
   - active_loop: null
   - action: utter_submit_pizza
+  - intent: response_positive
+  - action: action_response_positive
+  - checkpoint: pizza_added_to_order
   #- action: add_pizza_to_order
   #- action: utter_slots_values
   #- checkpoint: pizza_form_no_entity
+
+- story: add another pizza
+  steps:
+  - checkpoint: pizza_added_to_order
+  - intent: init_request
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+  - active_loop: null
+  - action: utter_submit_pizza
+  - intent: response_positive
+  - action: action_response_positive
 
 #- story: Start form with more detailed intent (pizza_type provided)
 #  steps:
