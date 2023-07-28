@@ -16,7 +16,9 @@ intents:
 #  - init_request_with_entity
   - say_pizza_type
   - say_pizza_size
-#  - menu_information
+  - ask_pizza_menu
+  - ask_pizza_price
+  - ask_pizza_ingredients
 #  - order_confirm_negative
 #  - order_confirm_positive
 #  - order_take_home
@@ -110,6 +112,9 @@ responses:
   utter_anything_else_order:
     - text: "Would you like anything else?"
 
+  utter_topping_and_size_price:
+    - text: "Each topping costs 1€ each. A small size costs 2€ less, a large variant costs 2€ more."
+
   utter_ask_delivery_method:
     - text: "Ok see you later. Bye."
 
@@ -119,6 +124,9 @@ actions:
   - validate_pizza_order_form
   - action_response_positive
   - action_response_negative
+  - action_tell_pizza_menu
+  - action_tell_pizza_price
+  - action_tell_pizza_ingredients
 
 forms:
   pizza_order_form:

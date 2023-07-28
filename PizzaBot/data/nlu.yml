@@ -103,6 +103,22 @@ nlu:
     - i want to add another pizza
     - I want a pizza
 
+- intent: ask_pizza_menu
+  examples: |
+    - What pizzas do you guys have on the menu?
+    - What kind of pizzas do you serve here?
+    - Do you have a menu for the pizzas?
+    - What pizzas do you have?
+    - Give me the list of available pizzas
+    - Give me the list of pizzas
+    - What are the pizzas?
+    - What's the pizzas selection like?
+    - Could you show me the list of pizzas you've got?
+    - What types of pizzas you offer?
+    - list of pizzas
+    - give the pizzas you have
+
+
 - intent: ask_drink_list
   examples: |
     - What drinks do you guys have on the menu?
@@ -117,7 +133,33 @@ nlu:
     - What types of drinks you offer?
     - list of beverages
     - list of drinks
-    - give the the drinks you have
+    - give the drinks you have
+
+- intent: ask_pizza_price
+  examples: |
+    - What's the price of a [margherita](pizza_type)?
+    - How much does a [marinara](pizza_type) cost?
+    - Can you tell me the price of a [pepperoni](pizza_type)?
+    - I want to know the price of a [marinara](pizza_type).
+    - What is the cost of a [pepperoni](pizza_type)?
+    - How expensive is a [margherita](pizza_type)?
+    - How much for a [pepperoni](pizza_type)?
+    - How much do you charge for a [marinara](pizza_type)?
+    - Please provide the price of a [margherita](pizza_type).
+    - Tell me the price of a [marinara](pizza_type).
+
+- intent: ask_pizza_ingredients
+  examples: |
+    - What are the ingredients of a [margherita](pizza_type)?
+    - Can you tell me the [pepperoni](pizza_type) ingredients?
+    - I want to know what's in a [marinara](pizza_type).
+    - What's the recipe for a [margherita](pizza_type)?
+    - Please list the ingredients of a [pepperoni](pizza_type).
+    - Tell me the toppings on a [margherita](pizza_type).
+    - What goes into a [pepperoni](pizza_type)?
+    - How is a [margherita](pizza_type) made?
+    - What do you put on a [marinara](pizza_type)?
+    - Which ingredients are in a [margherita](pizza_type)?
 
 - intent: ask_drink_price
   examples: |
@@ -133,7 +175,6 @@ nlu:
     - Please tell me the price of [coke](drink_name).
     - How much is [sprite](drink_name)?
     - Could you inform me about the price of [tea](drink_name)?
-
 
 
 - lookup: pizza_size

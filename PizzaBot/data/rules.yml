@@ -53,13 +53,26 @@ rules:
 - rule: Tell the drink menu
   steps:
     - intent: ask_drink_list
-    #- action: utter_give_drink_list
     - action: action_tell_drink_list
+
+- rule: Tell the pizza menu
+  steps:
+    - intent: ask_pizza_menu
+    - action: action_tell_pizza_menu
+
+- rule: Tell the price of a pizza
+  steps:
+    - intent: ask_pizza_price
+    - action: action_tell_pizza_price
 
 - rule: Tell price of a drink
   steps:
     - intent: ask_drink_price
     - action: action_tell_drink_price
 
+- rule: Tell the ingredients of a pizza
+  steps:
+    - intent: ask_pizza_ingredients
+    - action: action_tell_pizza_ingredients
 
 

@@ -68,6 +68,7 @@ def getPizzaFromMenuByName(pizza_name):
     for pizza in pizza_menu:
         if pizza_name==pizza.name:
             return pizza
+    return None
 
 def resetOrder():
     global order
@@ -132,7 +133,33 @@ class ActionTellDrinkList(Action):
 
         return []
 
-class ActionTellDrinkList(Action):
+class ActionTellPizzaMenu(Action):
+
+    def name(self) -> Text:
+        return "action_tell_pizza_menu"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        pizzas = getPizzaTypes()
+
+        if len(pizzas)==0:
+            msg = "Looks like we are out of pizzas, we have none available at the moment"
+        else:
+            #Format the message such as a list of pizzas separated by commas is printed, except for the last two which are separated by and
+            #Example "margherita, marinara, pepperoni and capricciosa
+            last_two_pizzas = " and ".join(pizzas[-2:])
+            other_pizzas = ", ".join(pizzas[:-2])
+
+            # Concatenate the two parts
+            result = other_pizzas + ", " + last_two_pizzas
+            msg= "Our pizzas are "+result
+        dispatcher.utter_message(text=msg)
+
+        return []
+
+class ActionTellDrinkPrice(Action):
 
     def name(self) -> Text:
         return "action_tell_drink_price"
@@ -146,13 +173,65 @@ class ActionTellDrinkList(Action):
         if key_to_find is None:
             dispatcher.utter_message(text="I did not understand, could you ask me again please?")
         else:
-            drink_price = value = drink_menu.get(key_to_find, None)
+            drink_price = drink_menu.get(key_to_find, None)
             if drink_price is None:
                 msg = f"I'm afraid we do not have {key_to_find} in our menu. You can get a list of available drinks by asking 'What drinks do you have?'"
             else:
                 msg = f"A {key_to_find} costs {str(drink_price)} €"
             dispatcher.utter_message(text=msg)
         return []
+
+class ActionTellPizzaPrice(Action):
+
+    def name(self) -> Text:
+        return "action_tell_pizza_price"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        key_to_find = next(tracker.get_latest_entity_values("pizza_type"), None)
+
+        if key_to_find is None:
+            dispatcher.utter_message(text="I did not understand, could you ask me again please?")
+            return []
+        else:
+            pizza = getPizzaFromMenuByName(key_to_find)
+            if pizza is None:
+                msg = f"I'm afraid we do not have {key_to_find} in our menu. You can get a list of available drinks by asking 'What drinks do you have?'"
+                dispatcher.utter_message(text=msg)
+                return []
+            else:
+                msg = f"A {pizza.name} costs {str(pizza.price)} €\n"
+                dispatcher.utter_message(text=msg)
+                return [FollowupAction("utter_topping_and_size_price")]
+
+class ActionTellPizzaIngredients(Action):
+
+    def name(self) -> Text:
+        return "action_tell_pizza_ingredients"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        key_to_find = next(tracker.get_latest_entity_values("pizza_type"), None)
+
+        if key_to_find is None:
+            dispatcher.utter_message(text="I did not understand, could you ask me again please?")
+            return []
+        else:
+            pizza = getPizzaFromMenuByName(key_to_find)
+            if pizza is None:
+                msg = f"I'm afraid we do not have {key_to_find} in our menu. You can get a list of available drinks by asking 'What drinks do you have?'"
+            else:
+                ingredients=pizza.ingredients
+                last_two_ingredients = " and ".join(ingredients[-2:])
+                other_ingredients = " , ".join(ingredients[:-2])
+                ingredient_list=other_ingredients+", "+last_two_ingredients
+                msg=f"In a {pizza.name} we put {ingredient_list}"
+            dispatcher.utter_message(text=msg)
+            return []
 
 class ValidatePizzaOrderForm(FormValidationAction):
     def name(self) -> Text:
@@ -192,13 +271,9 @@ class ActionResponsePositive(Action):
                 pizza_size = tracker.slots['pizza_size']
                 #TODO extras
                 pizza_to_add=OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type),size=pizza_size,toppings=[])
-                print("Adding the "+pizza_to_add.pizza.name+" to the order")
                 order.append(pizza_to_add)
-                #message = "Your order currently contains " + " , ".join(order)
-                print("Printing recap...")
                 message=getOrderRecap()
                 dispatcher.utter_message(text=message)
-                #dispatcher.utter_message(template="utter_anything_else_order")
                 return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None)]
             elif(bot_event['metadata']['utter_action'] == "utter_anything_else_order"):
                 #The user wants something else"
