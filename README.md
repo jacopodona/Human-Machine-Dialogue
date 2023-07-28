@@ -9,9 +9,9 @@ Pizza ordering bot
   - make the form flexible to unhappy user paths (TODO)
 - Order drink(s) (TODO)
 - Customize pizza (TODO)
-- Ask for price of pizza/drink (TODO)
-- Ask for ingredients in pizza (TODO)
-- Ask for menu (TODO)
+- Ask for price of pizza/drink
+- Ask for ingredients in pizza
+- Ask for menu
 - Ask for pizza recommendation (TODO)
   - Suggest me a pizza with/without (topping)
   - Ask for pizza of the day?
