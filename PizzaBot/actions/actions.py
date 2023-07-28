@@ -78,9 +78,7 @@ def getOrderRecap():
     message="Your order currently contains "
     print(order)
     for i in range(len(order)):
-        print(message)
         pizza_in_order=order[i]
-        print(pizza_in_order.pizza.name)
         message+="a "+pizza_in_order.size+" "+pizza_in_order.pizza.name
         if len(pizza_in_order.extras)!=0:
             message+=" with "+pizza_in_order.extras
@@ -229,7 +227,15 @@ class ActionTellPizzaIngredients(Action):
                 last_two_ingredients = " and ".join(ingredients[-2:])
                 other_ingredients = " , ".join(ingredients[:-2])
                 ingredient_list=other_ingredients+", "+last_two_ingredients
-                msg=f"In a {pizza.name} we put {ingredient_list}"
+                print(ingredients)
+                msg=f"In a {pizza.name} we put "
+                for i in range(len(ingredients)):
+                    ingredient = ingredients[i]
+                    msg += ingredient
+                    print(msg)
+                    if (i < len(ingredients) - 1):
+                        msg += ", "
+                msg+="."
             dispatcher.utter_message(text=msg)
             return []
 

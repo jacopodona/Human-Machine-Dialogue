@@ -29,6 +29,22 @@ stories:
       value: "coke"
   - action: action_tell_drink_price
 
+- story: ask for pizza menu and information on a particular pizza
+  steps:
+  - intent: ask_pizza_menu
+  - action: action_tell_pizza_menu
+  - intent: ask_pizza_ingredients
+    entities:
+    - entity: pizza_type
+      value: "pepperoni"
+  - action: action_tell_pizza_ingredients
+  - intent: ask_pizza_price
+    entities:
+      - entity: pizza_type
+        value: "pepperoni"
+  - action: action_tell_pizza_price
+  - checkpoint: pizza_full_information
+
 
 - story: ask for pizza order
   steps:
