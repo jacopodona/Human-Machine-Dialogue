@@ -106,9 +106,6 @@ responses:
   utter_accept_request:
     - text: "Sure!"
 
-  utter_out_of_scope:
-    - text: "I'm really sorry, but I am afraid I can't help you with that."
-
   utter_anything_else_order:
     - text: "Would you like anything else?"
 
@@ -117,6 +114,12 @@ responses:
 
   utter_ask_delivery_method:
     - text: "Ok see you later. Bye."
+
+  utter_out_of_scope:
+    - text: "I'm really sorry, but I am afraid I can't help you with that."
+
+  utter_fallback:
+  - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
 
 actions:
   - action_tell_drink_list

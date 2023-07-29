@@ -59,7 +59,7 @@ pizza_menu=[
 
 pizza_sizes=["small","medium","large"]
 
-toppings=["tomato sauce","mozzarella","pepperoni","ham","spinach","onions","olives","mushrooms","wurstel", "hot dog",
+toppings=["tomato sauce","mozzarella","pepperoni","ham","spinach","onions","olives","mushrooms","wurstel",
           "grilled_chicken","sausage"]
 
 order=[]
@@ -152,7 +152,7 @@ class ActionTellPizzaMenu(Action):
 
             # Concatenate the two parts
             result = other_pizzas + ", " + last_two_pizzas
-            msg= "Our pizzas are "+result
+            msg= "Here is our menu:\nfor pizzas we have "+result+"."
         dispatcher.utter_message(text=msg)
 
         return []

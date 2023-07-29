@@ -102,6 +102,8 @@ nlu:
     - Order pizza
     - i want to add another pizza
     - I want a pizza
+    - I want a [capricciosa](pizza_type)
+    - I would like a [pepperoni](pizza_type)
 
 - intent: ask_pizza_menu
   examples: |
@@ -117,7 +119,13 @@ nlu:
     - What types of pizzas you offer?
     - list of pizzas
     - give the pizzas you have
-
+    - Can I see the menu?
+    - What menu do you have?
+    - Give me the menu
+    - What is the menu?
+    - Tell me the menu
+    - Could you show me the menu?
+    - What menu do you offer?
 
 - intent: ask_drink_list
   examples: |
@@ -218,3 +226,84 @@ nlu:
     - I want a [small](pizza_size)
     - I would like a [medium](pizza_size) pizza
     - [small](pizza_size) will do
+
+- synonym: margherita
+  examples: |
+    - marghe
+
+- synonym: pepperoni
+  examples: |
+    - peperoni
+    - salamino
+    - diavola
+    - spicy
+
+- synonym: hawaiian
+  examples: |
+    - hawai
+    - hawaii
+    - hawaian
+    - pineapple
+    
+
+- synonym: small
+  examples: |
+    - mini
+    - s
+    - smol
+    - baby
+
+- synonym: medium
+  examples: |
+    - standard
+    - basic
+    - m
+    - normal
+    - classic
+
+- synonym: large
+  examples: |
+    - maxi
+    - l
+    - big
+    - largest
+    - biggest
+    - super
+    - huge
+
+
+- lookup: pizza_type
+  examples: |
+    - margherita
+    - marinara
+    - pepperoni
+    - capricciosa
+    - hawaiian
+    - vegetarian
+    - pub
+    - rustic
+    - chicken
+    - cheesey
+    - light
+    - pesto
+
+
+- lookup: toppings
+  examples: |
+    -tomato sauce
+    -mozzarella
+    -pepperoni
+    -ham
+    -spinach
+    -onions
+    -olives
+    -mushrooms
+    -wurstel
+    -grilled_chicken
+    -sausage
+
+- lookup: pizza_size
+  examples: |
+    - small
+    - large
+    - medium
