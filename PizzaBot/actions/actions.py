@@ -224,17 +224,14 @@ class ActionTellPizzaIngredients(Action):
                 msg = f"I'm afraid we do not have {key_to_find} in our menu. You can get a list of available drinks by asking 'What drinks do you have?'"
             else:
                 ingredients=pizza.ingredients
-                last_two_ingredients = " and ".join(ingredients[-2:])
-                other_ingredients = " , ".join(ingredients[:-2])
-                ingredient_list=other_ingredients+", "+last_two_ingredients
                 print(ingredients)
                 msg=f"In a {pizza.name} we put "
-                for i in range(len(ingredients)):
-                    ingredient = ingredients[i]
-                    msg += ingredient
-                    print(msg)
-                    if (i < len(ingredients) - 1):
-                        msg += ", "
+                if len(ingredients)==2:
+                    msg+=ingredients[0]+" and "+ingredients[1]
+                else:
+                    last_two_ingredients = " and ".join(ingredients[-2:])
+                    other_ingredients = " , ".join(ingredients[:-2])
+                    msg += other_ingredients + ", " + last_two_ingredients
                 msg+="."
             dispatcher.utter_message(text=msg)
             return []
