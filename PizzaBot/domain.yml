@@ -18,22 +18,15 @@ intents:
 #  - init_request_with_entity
   - say_pizza_type
   - say_pizza_size
-  - ask_pizza_menu
-  - ask_pizza_price
-  - ask_pizza_ingredients
-#  - order_confirm_negative
-#  - order_confirm_positive
-#  - order_take_home
-#  - order_delivery
 #  - order_time
 #  - response_name
 #  - response_phone
 #  - response_address
 #
 ##TASK 2 ask for pizza info and suggestion
-#  - init_pizza_question
-#  - pizza_price_question
-#  - pizza_ingredient_question
+  - ask_pizza_menu
+  - ask_pizza_price
+  - ask_pizza_ingredients
 #  - ask_pizza_suggestion
 #  - pizza_suggestion_ingredient
 #  - pizza_suggestion_without_ingredient
@@ -137,7 +130,7 @@ responses:
     - text: "Each topping costs 1€ each. A small size costs 2€ less, a large variant costs 2€ more."
 
   utter_ask_delivery_method:
-    - text: "Your order will be ready in 15 minutes."
+    - text: "Do you prefer to come pick up your order from our pizzeria or we deliver it at your house?"
 
   utter_out_of_scope:
     - text: "I'm really sorry, but I am afraid I can't help you with that."

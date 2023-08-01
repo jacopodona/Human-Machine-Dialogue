@@ -15,35 +15,10 @@ from rasa_sdk.events import EventType, SlotSet,AllSlotsReset,ActionExecuted,Foll
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 
-# Declare the knowledge base
-class Pizza:
-    def __init__(self, name, price, ingredients):
-        self.name = name
-        self.price = price
-        self.ingredients=ingredients
+import sys
+#sys.path.append(os.path.join(sys.path[0],'bar','sub','dir'))
+from actions.classes import Pizza,Drink,OrderedPizza,OrderedDrink
 
-class Drink:
-    def __init__(self, name, price):
-        self.name = name
-        self.price = price
-
-class OrderedPizza():
-    def __init__(self, pizza, size, toppings):
-        self.pizza=pizza
-        self.size=size
-        price=pizza.price
-        if(size=="small"):
-            price-=2
-        elif(size=="large"):
-            price+=2
-        self.price=price+len(toppings)
-        self.extras=toppings
-
-class OrderedDrink():
-    def __init__(self, drink: Drink, amount):
-        self.drink=drink
-        self.amount=amount
-        self.price=int(amount)*self.drink.price
 
 
 drink_menu=[
@@ -319,7 +294,7 @@ class ActionResponsePositive(Action):
         return 'action_response_positive'
 
     def run(self, dispatcher, tracker, domain):
-        print("Read positive intent")
+        #print("Read positive intent")
         try:
             bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
             if (bot_event['metadata']['utter_action'] == 'utter_submit_pizza'):
@@ -331,8 +306,8 @@ class ActionResponsePositive(Action):
                 order.append(pizza_to_add)
                 message=getOrderRecap()
                 dispatcher.utter_message(text=message)
-                dispatcher.utter_message(text="Your order will be ready in 15 minutes.")
-                return[SlotSet("pizza_type",None),SlotSet("pizza_size",None)]
+                #dispatcher.utter_message(response="utter_anything_else_order")
+                return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None)]
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_drink'):
                 drink_name = tracker.slots['drink_name']
                 drink_amount = tracker.slots['drink_amount']
@@ -346,14 +321,13 @@ class ActionResponsePositive(Action):
                 print("Added it. Preparing message")
                 message=getOrderRecap()
                 dispatcher.utter_message(text=message)
-                dispatcher.utter_message(text="Your order will be ready in 15 minutes.")
-                return [SlotSet("drink_name", None), SlotSet("drink_amount", None)]
+                return [FollowupAction("utter_anything_else_order"),SlotSet("drink_name", None), SlotSet("drink_amount", None)]
             elif(bot_event['metadata']['utter_action'] == "utter_anything_else_order"):
                 #The user wants something else"
                 dispatcher.utter_message("What would you like to add to your order?")
                 return []
             else:
-                dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific? In response positive")
+                dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except:
             dispatcher.utter_message("Sorry, can you repeat that?")
         return []
@@ -371,21 +345,15 @@ class ActionResponseNegative(Action):
             print(previous_action)
             print(previous_action=="utter_anything_else_order")
             if(previous_action == "utter_anything_else_order"):
-                print("User does not want anything more --> checkout")
                 message="Ok, checking out your order...\n"
-                print("Building message...")
                 message+=getOrderRecap()
-                print("Computing price...")
                 price=computeOrderPrice(order)
-                print("Prepare message for user")
                 message+="The total price is: "+str(price)+" €"
                 dispatcher.utter_message(text=message)
-                print("Printed message")
                 resetOrder()
-                print("Resetted order")
-                return [FollowupAction("utter_ask_delivery_method")]
+                dispatcher.utter_message(response="utter_ask_delivery_method")
             else:
-                dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific? In response negative")
+                dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except:
             dispatcher.utter_message("Sorry, can you repeat that?")
         return []
