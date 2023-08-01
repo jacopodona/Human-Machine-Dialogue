@@ -22,6 +22,11 @@ class Pizza:
         self.price = price
         self.ingredients=ingredients
 
+class Drink:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
 class OrderedPizza():
     def __init__(self, pizza, size, toppings):
         self.pizza=pizza
@@ -34,13 +39,20 @@ class OrderedPizza():
         self.price=price+len(toppings)
         self.extras=toppings
 
-drink_menu={
-    "water": 1,
-    "tea": 2,
-    "coke": 3,
-    "beer": 5,
-    "sprite": 3,
-}
+class OrderedDrink():
+    def __init__(self, drink: Drink, amount):
+        self.drink=drink
+        self.amount=amount
+        self.price=int(amount)*self.drink.price
+
+
+drink_menu=[
+    Drink(name="water",price=1),
+    Drink(name="tea",price=3),
+    Drink(name="coke",price=3),
+    Drink(name="sprite",price=3),
+    Drink(name="beer",price=5)
+]
 
 pizza_menu=[
     Pizza(name="margherita",price=6,ingredients=["tomato sauce","mozzarella"]),
@@ -70,24 +82,36 @@ def getPizzaFromMenuByName(pizza_name):
             return pizza
     return None
 
+def getDrinkFromMenuByName(drink_name):
+    for drink in drink_menu:
+        if drink_name == drink.name:
+            return drink
+    return None
+
 def resetOrder():
     global order
     order=[]
 
 def getOrderRecap():
     message="Your order currently contains "
-    print(order)
     for i in range(len(order)):
-        pizza_in_order=order[i]
-        message+="a "+pizza_in_order.size+" "+pizza_in_order.pizza.name
-        if len(pizza_in_order.extras)!=0:
-            message+=" with "+pizza_in_order.extras
-        if(i!=len(order)-1):
-            message+=", "
+        item_in_order=order[i]
+        if isinstance(item_in_order, OrderedPizza):
+            pizza_in_order=item_in_order
+            message+="a "+pizza_in_order.size+" "+pizza_in_order.pizza.name
+            if len(pizza_in_order.extras)!=0:
+                message+=" with "+pizza_in_order.extras
+            if(i!=len(order)-1):
+                message+=", "
+        elif isinstance(item_in_order, OrderedDrink):
+            drink_in_order = item_in_order
+            message += str(drink_in_order.amount)+" bottle(s) of " + drink_in_order.drink.name
+            if (i != len(order) - 1):
+                message += ", "
     return message+". "
 
 def getDrinks():
-    return list(drink_menu.keys())
+    return [drink.name for drink in drink_menu]
 def getPizzaSizes():
     return pizza_sizes
 
@@ -100,9 +124,13 @@ def getPizzaTypes():
 def computeOrderPrice(order):
     sum=0
     print("Order:", order)
-    for pizza in order:
-        print("Pizza price:",pizza.price)
-        sum+=pizza.price
+    for item in order:
+        if isinstance(item,OrderedPizza):
+            sum+=item.price
+            print("Computed price for "+item.pizza.name)
+        elif isinstance(item,OrderedDrink):
+            sum += item.price
+            print("Computed price for " + item.drink.name)
     return sum
 
 # Declare Actions
@@ -261,11 +289,37 @@ class ValidatePizzaOrderForm(FormValidationAction):
         dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
         return {"pizza_type":slot_value}
 
+class ValidateDrinkOrderForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_drink_order_form"
+
+    def validate_drink_name(self,slot_value:Any,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: DomainDict)-> Dict[Text, Any]:
+        """ Validate 'drink_name' value"""
+        if slot_value.lower() not in getDrinks():
+            dispatcher.utter_message(text=f"We don't have {slot_value} in our available drinks, for more indications on the available ones, ask 'What drinks do you have?'")
+            return {"drink_name":None}
+        dispatcher.utter_message(text=f"Ok! You want to have {slot_value}.")
+        return {"drink_name":slot_value}
+
+    def validate_drink_amount(self,slot_value:Any,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: DomainDict)-> Dict[Text, Any]:
+        if str(slot_value).isnumeric():
+            dispatcher.utter_message(text=f"Ok! You want to have {slot_value} bottles.")
+            return {"drink_amount":slot_value}
+        else:
+            dispatcher.utter_message(text="Sorry, I don't recognize that amount, please provide me a valid number.")
+
 class ActionResponsePositive(Action):
     def name(self):
         return 'action_response_positive'
 
     def run(self, dispatcher, tracker, domain):
+        print("Read positive intent")
         try:
             bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
             if (bot_event['metadata']['utter_action'] == 'utter_submit_pizza'):
@@ -277,13 +331,29 @@ class ActionResponsePositive(Action):
                 order.append(pizza_to_add)
                 message=getOrderRecap()
                 dispatcher.utter_message(text=message)
-                return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None)]
+                dispatcher.utter_message(text="Your order will be ready in 15 minutes.")
+                return[SlotSet("pizza_type",None),SlotSet("pizza_size",None)]
+            elif (bot_event['metadata']['utter_action'] == 'utter_submit_drink'):
+                drink_name = tracker.slots['drink_name']
+                drink_amount = tracker.slots['drink_amount']
+                print("Received ",drink_name,drink_amount)
+                dispatcher.utter_message("Perfect! It was added to your order.")
+                print("Searching for the drink in the menu to add...")
+                drink=getDrinkFromMenuByName(drink_name)
+                print("Found it")
+                drink_to_add=OrderedDrink(drink=drink,amount=drink_amount)
+                order.append(drink_to_add)
+                print("Added it. Preparing message")
+                message=getOrderRecap()
+                dispatcher.utter_message(text=message)
+                dispatcher.utter_message(text="Your order will be ready in 15 minutes.")
+                return [SlotSet("drink_name", None), SlotSet("drink_amount", None)]
             elif(bot_event['metadata']['utter_action'] == "utter_anything_else_order"):
                 #The user wants something else"
                 dispatcher.utter_message("What would you like to add to your order?")
                 return []
             else:
-                dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
+                dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific? In response positive")
         except:
             dispatcher.utter_message("Sorry, can you repeat that?")
         return []
@@ -293,6 +363,7 @@ class ActionResponseNegative(Action):
         return 'action_response_negative'
 
     def run(self, dispatcher, tracker, domain):
+        print("Read negative intent")
         try:
             bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
             print(bot_event)
@@ -314,7 +385,7 @@ class ActionResponseNegative(Action):
                 print("Resetted order")
                 return [FollowupAction("utter_ask_delivery_method")]
             else:
-                dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
+                dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific? In response negative")
         except:
             dispatcher.utter_message("Sorry, can you repeat that?")
         return []

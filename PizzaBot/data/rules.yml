@@ -29,6 +29,13 @@ rules:
   - action: pizza_order_form
   - active_loop: pizza_order_form
 
+- rule: Activate drink form
+  steps:
+  - intent: init_drink_request
+  - action: utter_accept_request
+  - action: drink_order_form
+  - active_loop: drink_order_form
+
 #- rule: Submit pizza form
 #  condition:
 #  - active_loop: pizza_order_form

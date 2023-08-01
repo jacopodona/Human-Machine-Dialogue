@@ -5,9 +5,12 @@ Pizza ordering bot
 
 ### Available Actions
 - Order pizza(s)
-  - make the intent contain the pizza slot (TODO)
+  - make the intent contain the pizza slot (to finetune)
+    - try merge say_pizza_type e size
+    - try adding complete requests in init_request
   - make the form flexible to unhappy user paths (TODO)
-- Order drink(s) (TODO)
+- Order drink(s) 
+  - make the intent contain the pizza slot (to finetune)
 - Customize pizza (TODO)
 - Ask for price of pizza/drink
 - Ask for ingredients in pizza

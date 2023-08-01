@@ -104,6 +104,32 @@ nlu:
     - I want a pizza
     - I want a [capricciosa](pizza_type)
     - I would like a [pepperoni](pizza_type)
+    - I want to order a [margherita](pizza_type)
+    - Order a [cheesey](pizza_type)
+    - Give me a [pepperoni](pizza_type)
+    - Get me a [cheesey](pizza_type) pizza
+
+- intent: init_drink_request
+  examples: |
+    - Can I add a drink?
+    - I would like have a drink
+    - I would like to order some drinks
+    - I want to order a drink
+    - I want to add a drink
+    - I want to order another drink
+    - Add drink
+    - i want to add another drink
+    - I want a drink
+    - I want a bottle of [beer](drink_name)
+    - I would like a [beer](drink_name)
+    - I would like a [coke](drink_name)
+    - Can I have a [coke](drink_name)
+    - Can I add a bottle of [water](drink_name)
+    - I want to order a [beer](drink_name)
+    - I want a [coke](drink_name)
+    - I want [2](drink_amount) bottles of [coke](drink_name)
+    - I want [1](drink_amount) [beer](drink_name)
+    - Can I add [2](drink_amount) bottles of [water](drink_name)
 
 - intent: ask_pizza_menu
   examples: |
@@ -205,7 +231,7 @@ nlu:
 
 - intent: say_pizza_type
   examples: |
-    - I want a [margherita](pizza_type)
+    - a [margherita](pizza_type)
     - I would like a [marinara](pizza_type)
     - For me a [margherita](pizza_type)
     - Give me a [margherita](pizza_type)
@@ -213,8 +239,6 @@ nlu:
     - [pepperoni](pizza_type)
     - Can you please make me a [margherita]
     - A [marinara](pizza_type)
-    - I want to order a [large](pizza_size) pizza
-    - I want to order a [pepperoni](pizza_type) pizza
 
 - intent: say_pizza_size
   examples: |
@@ -226,6 +250,14 @@ nlu:
     - I want a [small](pizza_size)
     - I would like a [medium](pizza_size) pizza
     - [small](pizza_size) will do
+
+- intent: say_drink_order
+  examples: |
+    - I want a [beer](drink_name)
+    - I want a bottle of [coke](drink_name)
+    - I want [3](drink_amount) [beer](drink_name)
+    - [1](drink_amount) [coke](drink_name) please
+    - [2](drink_amount) bottles of [water](drink_name)
 
 - synonym: margherita
   examples: |
@@ -270,6 +302,24 @@ nlu:
     - biggest
     - super
     - huge
+
+- synonym: beer
+  examples: |
+    - beers
+
+- synonym: coke
+  examples: |
+    - cokes
+    - coca-cola
+    - coca
+
+- synonym: tea
+  examples: |
+    - teas
+
+- synonym: water
+  examples: |
+    - waters
 
 
 - lookup: pizza_type

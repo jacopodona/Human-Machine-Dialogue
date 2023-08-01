@@ -76,6 +76,20 @@ stories:
   - intent: response_positive
   - action: action_response_positive
 
+- story: ask for drink order
+  steps:
+  - intent: init_drink_request
+  - action: utter_accept_request
+  - action: drink_order_form
+  - active_loop: drink_order_form
+  - slot_was_set:
+    - drink_name
+    - drink_amount
+  - active_loop: null
+  - action: utter_submit_drink
+  - intent: response_positive
+  - action: action_response_positive
+
 #- story: Start form with more detailed intent (pizza_type provided)
 #  steps:
 #  - intent: init_request_with_entity

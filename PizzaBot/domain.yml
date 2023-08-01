@@ -11,6 +11,8 @@ intents:
 
 #TASK 1 order pizza
   - init_request
+  - init_drink_request
+  - say_drink_order
   - ask_drink_list
   - ask_drink_price
 #  - init_request_with_entity
@@ -53,6 +55,7 @@ entities:
 - pizza_size
 - pizza_type
 - drink_name
+- drink_amount
 #- pizza_amount
 #- toppings
 #- client_name
@@ -76,6 +79,18 @@ slots:
     mappings:
       - type: from_entity
         entity: pizza_type
+  drink_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: drink_name
+  drink_amount:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: drink_amount
 
 
 responses:
@@ -92,13 +107,22 @@ responses:
     - text: "Sorry, I am afraid I didn’t understand that. Can you please retype it?"
 
   utter_submit_pizza:
-    - text: "A {pizza_size} {pizza_type} was added to your order. Is this correct?"
+    - text: "I want to add a {pizza_size} {pizza_type} to your order. Is this correct?"
+
+  utter_submit_drink:
+    - text: "I want to add {drink_amount} bottle(s) of {drink_name} to your order. Is this correct?"
 
   utter_ask_pizza_type:
     - text: "What type of pizza would you like to order?"
 
   utter_ask_pizza_size:
     - text: "What size would you want to order?"
+
+  utter_ask_drink_name:
+    - text: "What drink would you like?"
+
+  utter_ask_drink_amount:
+    - text: "How many bottles of {drink_name} you want?"
 
   utter_give_drink_list:
     - text: "Sure! Here is the list of drinks we offer:"
@@ -113,7 +137,7 @@ responses:
     - text: "Each topping costs 1€ each. A small size costs 2€ less, a large variant costs 2€ more."
 
   utter_ask_delivery_method:
-    - text: "Ok see you later. Bye."
+    - text: "Your order will be ready in 15 minutes."
 
   utter_out_of_scope:
     - text: "I'm really sorry, but I am afraid I can't help you with that."
@@ -125,6 +149,7 @@ actions:
   - action_tell_drink_list
   - action_tell_drink_price
   - validate_pizza_order_form
+  - validate_drink_order_form
   - action_response_positive
   - action_response_negative
   - action_tell_pizza_menu
@@ -137,6 +162,10 @@ forms:
     #- pizza_amount
     - pizza_type
     - pizza_size
+  drink_order_form:
+    required_slots:
+      - drink_name
+      - drink_amount
 
 session_config:
   session_expiration_time: 60
