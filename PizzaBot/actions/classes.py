@@ -55,6 +55,7 @@ class Order:
         self.order_time = None
         self.phone = None
 
+
     def addPizza(self, pizza_to_add: OrderedPizza):
         for i in range(len(self.pizzas)):
             ordered_pizza=self.pizzas[i]
@@ -74,12 +75,12 @@ class Order:
         self.drinks.append(drink_to_add) #else, just add a new drink
 
     def setPickupInformation(self, pickup_time, pickup_client):
-        self.method = "pickup"
+        self.delivery_method = "pickup"
         self.order_time = pickup_time
         self.client_name = pickup_client
 
     def setDeliveryInformation(self, delivery_time, delivery_address, delivery_client):
-        self.method = "pickup"
+        self.delivery_method = "delivery"
         self.order_time = delivery_time
         self.client_name = delivery_client
         self.address = delivery_address

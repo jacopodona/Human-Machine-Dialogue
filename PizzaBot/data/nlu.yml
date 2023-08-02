@@ -87,6 +87,54 @@ nlu:
     - book a flight from milan to ny
     - how far is the square
     - give me the directions to time square
+    - what's the best way to clean my oven?
+    - can you recommend a good romantic comedy movie?
+    - how do I change the oil in my car?
+    - what's the weather like today?
+    - can you help me find a plumber?
+    - do you have any recommendations for a good book to read?
+    - how do I fix a leaky faucet?
+    - what's the latest news on the stock market?
+    - can you give me tips on gardening?
+    - how do I train my dog to do tricks?
+    - what's the best way to lose weight?
+    - can you recommend a good hair salon?
+    - how do I program a remote control?
+    - what's the current exchange rate for euros to dollars?
+    - can you help me plan a vacation itinerary?
+    - how do I install a new light fixture?
+    - what's the best way to get rid of ants in my kitchen?
+    - can you suggest a good workout routine?
+    - how do I fix a flat bicycle tire?
+    - what's the recipe for a margarita cocktail?
+    - can you recommend a reliable car mechanic?
+    - how do I set up a Wi-Fi router?
+    - what's the process for getting a passport?
+    - can you help me find a babysitter?
+    - how do I remove a stain from my clothes?
+    - what's the best way to organize my closet?
+    - can you suggest some home decor ideas?
+    - how do I bake chocolate chip cookies?
+    - what's the current price of gold?
+    - can you help me choose a gift for my friend's birthday?
+    - how do I start a compost bin?
+    - what's the best way to clean hardwood floors?
+    - can you recommend a good workout app?
+    - how do I re-pot a houseplant?
+    - what's the process for recycling electronics?
+    - can you help me find a local farmers' market?
+    - how do I tie a tie?
+    - what's the best way to organize digital photos?
+    - can you suggest some home improvement projects?
+    - how do I make a homemade pizza crust?
+    - what's the current traffic situation in my city?
+    - can you help me find a language tutor?
+    - how do I change a flat tire?
+    - what's the best way to remove wallpaper?
+    - can you recommend a good meditation app?
+    - how do I make a reservation at a restaurant?
+    - what's the process for adopting a pet?
+    - can you help me find a local art class?
 
 - intent: init_request
   examples: |
@@ -245,6 +293,26 @@ nlu:
     - I'll come to get it
     - I'll pick it up later
     - I will come get it
+
+- intent: ask_order_info
+  examples: |
+    - Can you remind me what I ordered
+    - What did I order?
+    - Do I have an order?
+    - I can't remember what I ordered
+    - Do you have my order information?
+    - Tell me what I ordered
+    - What was my order
+    - See my order information
+    - I want to see what I ordered
+    - What's my order information
+    - What is my order status?
+    - Tell me my order information
+    - Order information
+    - Info about my order
+    - Repeat my order
+    - Status of my order
+    
 
 - lookup: pizza_size
   examples: |

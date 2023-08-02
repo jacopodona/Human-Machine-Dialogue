@@ -105,6 +105,15 @@ stories:
   - action: utter_submit_pickup
   - intent: response_positive
   - action: action_response_positive
+  - checkpoint: order_complete_pickup
+
+- story: User checks information of his pickup order once complete
+  steps:
+  - checkpoint: order_complete_pickup
+  - intent: ask_order_info
+  - slot_was_set:
+      - order_ready: true
+  - action: action_see_order_information
 
 - story: User provides preferred delivery method, does not have an order ready to be checked-out (unhappy path)
   steps:
@@ -114,3 +123,10 @@ stories:
   - slot_was_set:
     - order_ready: false
   - action: utter_error_order_not_ready
+
+- story: User checks information of his order but has not made one yet
+  steps:
+  - intent: ask_order_info
+  - slot_was_set:
+      - order_ready: false
+  - action: utter_no_user_order

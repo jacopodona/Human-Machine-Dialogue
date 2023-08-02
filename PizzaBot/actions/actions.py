@@ -122,10 +122,12 @@ def computeOrderPrice(order):
 
 def updateExistingOrder(modified_order):
     global orders
+    print(f"Order to insert: {modified_order.__dict__}")
     for i in range(len(orders)):
         order=orders[i]
         if order.id==modified_order.id:
             orders[i]=modified_order
+            print(f"New order in the database: {orders[i].__dict__}")
 
 # Declare Actions
 class ActionTellDrinkList(Action):
@@ -327,7 +329,7 @@ class ValidatePickupOrderForm(FormValidationAction):
         dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
         return {"client_name":slot_value}
 
-class ActionSetOrderReady(Action):
+class ActionCheckOrderReady(Action):
 
     def name(self) -> Text:
         return "action_check_order_ready"
@@ -347,6 +349,43 @@ class ActionSetOrderReady(Action):
             print(f"User {tracker.sender_id} has an order")
             return [SlotSet("order_ready", True)]
 
+
+class ActionSeeOrderInfo(Action):
+
+    def name(self) -> Text:
+        return "action_see_order_information"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        userOrder = getOrderByUserID(tracker.sender_id)
+        if userOrder is None:
+            dispatcher.utter_message(response="utter_error_order_not_ready")
+            return []
+        else:
+            orderRecap=getOrderRecap(userOrder)
+            method=userOrder.delivery_method
+            id=userOrder.id
+            delivery_info =""
+            if method is None:
+                delivery_info="You didn't tell me how you wish to receive your order."
+            elif method=="delivery":
+                name=userOrder.client_name
+                address=userOrder.ad
+                order_time=userOrder.order_time
+                delivery_info=f"Your order will be delivered at {address} around {order_time}, the saved name is {name}."
+            elif method=="pickup":
+                order_time=userOrder.order_time
+                name=userOrder.client_name
+                delivery_info=f"You will come to pickup your order at {order_time}, the saved name is {name}."
+            order_id_information=f"Your order ID is {str(id)}"
+            message=orderRecap+"\n"+delivery_info+"\n"+order_id_information
+            dispatcher.utter_message(message)
+            print(f"Order info to send user: {userOrder.__dict__}")
+            return []
 
 
 class ActionResponsePositive(Action):
@@ -393,8 +432,13 @@ class ActionResponsePositive(Action):
                 dispatcher.utter_message(text=message)
                 return [FollowupAction("utter_anything_else_order"),SlotSet("drink_name", None), SlotSet("drink_amount", None)]
             elif (bot_event['metadata']['utter_action'] == "utter_submit_pickup"):
+                order=getOrderByUserID(tracker.sender_id)
+                client_name = tracker.slots['client_name']
+                order_time = tracker.slots['order_time']
+                order.setPickupInformation(pickup_time=order_time, pickup_client=client_name)
+                updateExistingOrder(order)
                 dispatcher.utter_message(response="utter_order_saved_pickup")
-                return []
+                return [SlotSet("client_name", None), SlotSet("order_time", None)]
             elif(bot_event['metadata']['utter_action'] == "utter_anything_else_order"):
                 #The user wants something else"
                 dispatcher.utter_message("What would you like to add to your order?")
