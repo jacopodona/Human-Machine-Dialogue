@@ -17,9 +17,9 @@ from rasa_sdk.types import DomainDict
 
 import sys
 #sys.path.append(os.path.join(sys.path[0],'bar','sub','dir'))
-from actions.classes import Pizza,Drink,OrderedPizza,OrderedDrink
+from actions.classes import Pizza,Drink,OrderedPizza,OrderedDrink,Order
 
-
+order_id_counter=0
 
 drink_menu=[
     Drink(name="water",price=1),
@@ -49,7 +49,17 @@ pizza_sizes=["small","medium","large"]
 toppings=["tomato sauce","mozzarella","pepperoni","ham","spinach","onions","olives","mushrooms","wurstel",
           "grilled_chicken","sausage"]
 
-order=[]
+orders=[]
+
+def updateOrderIDCounter():
+    global order_id_counter
+    order_id_counter+=1
+def getOrderByUserID(user_id):
+    for order in orders:
+        print(f"DB check: order associated to user {order.user_id}")
+        if user_id==order.user_id:
+            return order
+    return None
 
 def getPizzaFromMenuByName(pizza_name):
     for pizza in pizza_menu:
@@ -63,27 +73,32 @@ def getDrinkFromMenuByName(drink_name):
             return drink
     return None
 
-def resetOrder():
-    global order
-    order=[]
-
-def getOrderRecap():
+def getOrderRecap(order):
     message="Your order currently contains "
-    for i in range(len(order)):
-        item_in_order=order[i]
-        if isinstance(item_in_order, OrderedPizza):
-            pizza_in_order=item_in_order
-            message+="a "+pizza_in_order.size+" "+pizza_in_order.pizza.name
-            if len(pizza_in_order.extras)!=0:
-                message+=" with "+pizza_in_order.extras
-            if(i!=len(order)-1):
-                message+=", "
-        elif isinstance(item_in_order, OrderedDrink):
-            drink_in_order = item_in_order
-            message += str(drink_in_order.amount)+" bottle(s) of " + drink_in_order.drink.name
-            if (i != len(order) - 1):
-                message += ", "
-    return message+". "
+    addDrinkComma=False
+    for i in range(len(order.pizzas)):
+        pizza_in_order=order.pizzas[i]
+        if(i!=0):
+            message+=", "
+        if(pizza_in_order.amount==1):
+            message += "a " + pizza_in_order.size + " " + pizza_in_order.pizza.name
+        else:
+            message += str(pizza_in_order.amount)+" " + pizza_in_order.size + " " + pizza_in_order.pizza.name
+        if len(pizza_in_order.extras) != 0:
+            message += " with " + pizza_in_order.extras
+        addDrinkComma=True
+    for j in range(len(order.drinks)):
+        drink_in_order=order.drinks[j]
+        if(addDrinkComma==True and j==0): #Put commas correctly after items if there are already pizzas in the order
+            message += ", "
+            addDrinkComma=False
+        elif(j!=0):
+            message += ", "
+        if (drink_in_order.amount == 1):
+            message += "a bottle of " + drink_in_order.drink.name
+        else:
+            message += str(drink_in_order.amount)+" bottles of " + drink_in_order.drink.name
+    return message + ". "
 
 def getDrinks():
     return [drink.name for drink in drink_menu]
@@ -98,18 +113,21 @@ def getPizzaTypes():
 
 def computeOrderPrice(order):
     sum=0
-    print("Order:", order)
-    for item in order:
-        if isinstance(item,OrderedPizza):
-            sum+=item.price
-            print("Computed price for "+item.pizza.name)
-        elif isinstance(item,OrderedDrink):
-            sum += item.price
-            print("Computed price for " + item.drink.name)
+    for pizza_in_order in order.pizzas:
+        sum+=pizza_in_order.computePrice()
+    for drink_in_order in order.drinks :
+        sum += drink_in_order.computePrice()
     return sum
 
-# Declare Actions
 
+def updateExistingOrder(modified_order):
+    global orders
+    for i in range(len(orders)):
+        order=orders[i]
+        if order.id==modified_order.id:
+            orders[i]=modified_order
+
+# Declare Actions
 class ActionTellDrinkList(Action):
 
     def name(self) -> Text:
@@ -227,7 +245,6 @@ class ActionTellPizzaIngredients(Action):
                 msg = f"I'm afraid we do not have {key_to_find} in our menu. You can get a list of available drinks by asking 'What drinks do you have?'"
             else:
                 ingredients=pizza.ingredients
-                print(ingredients)
                 msg=f"In a {pizza.name} we put "
                 if len(ingredients)==2:
                     msg+=ingredients[0]+" and "+ingredients[1]
@@ -321,11 +338,15 @@ class ActionSetOrderReady(Action):
         tracker: Tracker,
         domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
-        print("Runned order ready verification. Value=",len(order)>0)
-        if len(order)>0:
-            return[SlotSet("order_ready", True)]
+        print("Running order check")
+        userOrder = getOrderByUserID(tracker.sender_id)
+        if userOrder is None:
+            print(f"User {tracker.sender_id} does not have an order")
+            return [SlotSet("order_ready", False)]
         else:
-            return[SlotSet("order_ready", False)]
+            print(f"User {tracker.sender_id} has an order")
+            return [SlotSet("order_ready", True)]
+
 
 
 class ActionResponsePositive(Action):
@@ -333,17 +354,23 @@ class ActionResponsePositive(Action):
         return 'action_response_positive'
 
     def run(self, dispatcher, tracker, domain):
-        #print("Read positive intent")
         try:
             bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
             if (bot_event['metadata']['utter_action'] == 'utter_submit_pizza'):
                 dispatcher.utter_message("Perfect! It was added to your order.")
                 pizza_type = tracker.slots['pizza_type']
                 pizza_size = tracker.slots['pizza_size']
-                #TODO extras
-                pizza_to_add=OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type),size=pizza_size,toppings=[])
-                order.append(pizza_to_add)
-                message=getOrderRecap()
+                pizza_to_add = OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size, toppings=[],amount=1)
+                order=getOrderByUserID(tracker.sender_id)
+                if order is None: #User does not have an order yet, create it and add pizza
+                    order=Order(id=order_id_counter,user_id=tracker.sender_id)
+                    order.addPizza(pizza_to_add)
+                    orders.append(order)
+                    updateOrderIDCounter()
+                else: #User has already an order, modify it with new pizza
+                    order.addPizza(pizza_to_add)
+                    updateExistingOrder(order)
+                message=getOrderRecap(order)
                 dispatcher.utter_message(text=message)
                 #dispatcher.utter_message(response="utter_anything_else_order")
                 return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None)]
@@ -352,9 +379,17 @@ class ActionResponsePositive(Action):
                 drink_amount = tracker.slots['drink_amount']
                 message="Perfect! It was added to your order.\n"
                 drink=getDrinkFromMenuByName(drink_name)
-                drink_to_add=OrderedDrink(drink=drink,amount=drink_amount)
-                order.append(drink_to_add)
-                message+=getOrderRecap()
+                drink_to_add=OrderedDrink(drink=drink,amount=int(drink_amount))
+                order = getOrderByUserID(tracker.sender_id)
+                if order is None: #User does not have an order yet, create it and add pizza
+                    order=Order(id=order_id_counter,user_id=tracker.sender_id)
+                    order.addDrink(drink_to_add)
+                    orders.append(order)
+                    updateOrderIDCounter()
+                else: #User has already an order, modify it with new pizza
+                    order.addDrink(drink_to_add)
+                    updateExistingOrder(order)
+                message+=getOrderRecap(order)
                 dispatcher.utter_message(text=message)
                 return [FollowupAction("utter_anything_else_order"),SlotSet("drink_name", None), SlotSet("drink_amount", None)]
             elif (bot_event['metadata']['utter_action'] == "utter_submit_pickup"):
@@ -375,16 +410,13 @@ class ActionResponseNegative(Action):
         return 'action_response_negative'
 
     def run(self, dispatcher, tracker, domain):
-        print("Read negative intent")
         try:
             bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
-            print(bot_event)
             previous_action=bot_event['metadata']['utter_action']
-            print(previous_action)
-            print(previous_action=="utter_anything_else_order")
             if(previous_action == "utter_anything_else_order"):
                 message="Ok, checking out your order...\n"
-                message+=getOrderRecap()
+                order=getOrderByUserID(tracker.sender_id)
+                message+=getOrderRecap(order)
                 price=computeOrderPrice(order)
                 message+="The total price is: "+str(price)+" €"
                 dispatcher.utter_message(text=message)

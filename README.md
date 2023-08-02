@@ -10,7 +10,7 @@ Pizza ordering bot
     - try adding complete requests in init_request
   - make the form flexible to unhappy user paths (TODO)
 - Order drink(s) 
-  - make the intent contain the pizza slot (to finetune)
+  - support for text instead of numbers (two vs 2) (TODO)
 - Customize pizza (TODO)
 - Ask for price of pizza/drink
 - Ask for ingredients in pizza
@@ -22,6 +22,14 @@ Pizza ordering bot
   - Order recap
   - Specify delivery or takeaway
 - Modify order (TODO)
+  - Add pizza (TODO)
+  - Remove pizza (TODO)
+  - Change pizza (TODO)
+  - Add drink (TODO)
+  - Remove drink (TODO)
+  - Change drink (TODO)
+  - Change time (TODO)
+  - Change delivery method (TODO)
 
 ### Training the model
 
