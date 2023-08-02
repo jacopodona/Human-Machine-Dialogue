@@ -18,8 +18,10 @@ intents:
 #  - init_request_with_entity
   - say_pizza_type
   - say_pizza_size
-#  - order_time
-#  - response_name
+  - inform_order_delivery
+  - inform_order_pickup
+  - say_order_time
+  - say_full_name
 #  - response_phone
 #  - response_address
 #
@@ -30,18 +32,17 @@ intents:
 #  - ask_pizza_suggestion
 #  - pizza_suggestion_ingredient
 #  - pizza_suggestion_without_ingredient
-#  - pizza_suggestion_basic
 #
 #
 ##TASK 3 modify previously made order
 #  - init_modify_order
-#  - modify_order
 #  - add_pizza
 #  - remove_pizza
 #  - add_drink
 #  - remove_drink
 #  - change_pizza
 #  - change_address
+#  - change_name
 #  - change_time
 
 entities:
@@ -49,6 +50,8 @@ entities:
 - pizza_type
 - drink_name
 - drink_amount
+- client_name
+- order_time
 #- pizza_amount
 #- toppings
 #- client_name
@@ -84,6 +87,24 @@ slots:
     mappings:
       - type: from_entity
         entity: drink_amount
+  client_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: client_name
+  order_time:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: order_time
+  order_ready: #order_ready is a “global slot mappings” https://rasa.com/blog/how-to-use-global-slot-mappings/
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: custom
+        action: action_check_order_ready
 
 
 responses:
@@ -132,6 +153,24 @@ responses:
   utter_ask_delivery_method:
     - text: "Do you prefer to come pick up your order from our pizzeria or we deliver it at your house?"
 
+  utter_error_order_not_ready:
+    - text: "Apologize, but I cannot reference which order you want to check-out. Make an order before expressing your preferred method."
+
+  utter_confirm_order_ready:
+    - text: "Ok, I will now ask you some details to check out the order."
+
+  utter_ask_order_time:
+    - text: "At what time do you wish to come get your order?"
+
+  utter_ask_client_name:
+    - text: "Can you please leave me your full name?"
+
+  utter_submit_pickup:
+    - text: "Ok, I am about to register the order for {client_name} at {order_time}. Is this correct?"
+
+  utter_order_saved_pickup:
+    - text: "Perfect! Your order was correctly submitted, see you later at the pizzeria!"
+
   utter_out_of_scope:
     - text: "I'm really sorry, but I am afraid I can't help you with that."
 
@@ -143,11 +182,13 @@ actions:
   - action_tell_drink_price
   - validate_pizza_order_form
   - validate_drink_order_form
+  - validate_pickup_order_form
   - action_response_positive
   - action_response_negative
   - action_tell_pizza_menu
   - action_tell_pizza_price
   - action_tell_pizza_ingredients
+  - action_check_order_ready
 
 forms:
   pizza_order_form:
@@ -159,6 +200,10 @@ forms:
     required_slots:
       - drink_name
       - drink_amount
+  pickup_form:
+    required_slots:
+    - order_time
+    - client_name
 
 session_config:
   session_expiration_time: 60

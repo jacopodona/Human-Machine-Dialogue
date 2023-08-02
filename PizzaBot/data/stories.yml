@@ -43,7 +43,7 @@ stories:
       - entity: pizza_type
         value: "pepperoni"
   - action: action_tell_pizza_price
-  - checkpoint: pizza_full_information
+#  - checkpoint: pizza_full_information
 
 
 - story: ask for pizza order
@@ -89,3 +89,28 @@ stories:
   - action: utter_submit_drink
   - intent: response_positive
   - action: action_response_positive
+
+- story: User selects pickup option, has an order ready to be checked-out, procede to complete the form (happy path)
+  steps:
+  - intent: inform_order_pickup
+  - slot_was_set:
+    - order_ready: true
+  - action: utter_confirm_order_ready
+  - action: pickup_form
+  - active_loop: pickup_form
+  - slot_was_set:
+      - order_time
+      - client_name
+  - active_loop: null
+  - action: utter_submit_pickup
+  - intent: response_positive
+  - action: action_response_positive
+
+- story: User provides preferred delivery method, does not have an order ready to be checked-out (unhappy path)
+  steps:
+  - or:
+    - intent: inform_order_pickup
+    - intent: inform_order_delivery
+  - slot_was_set:
+    - order_ready: false
+  - action: utter_error_order_not_ready

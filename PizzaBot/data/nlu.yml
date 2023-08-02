@@ -210,6 +210,41 @@ nlu:
     - How much is [sprite](drink_name)?
     - Could you inform me about the price of [tea](drink_name)?
 
+- intent: inform_order_delivery
+  examples: |
+    - I want delivery at home
+    - Delivery
+    - Home delivery, please
+    - Can you send it to my house?
+    - Deliver to my house
+    - I prefer delivery
+    - Send it to my address
+    - Home delivery is fine
+    - I'd like it delivered
+
+- intent: inform_order_pickup
+  examples: |
+    - I'll pick it up at the store
+    - I prefer the pickup option
+    - Pickup, please
+    - I want to pickup the order
+    - I want to pick it up at the store
+    - I want to come pick it up
+    - Pickup
+    - Pick up
+    - I want to pickup
+    - I prefer pickup
+    - I will pickup
+    - I want to pick it up personally 
+    - I will come at the pizzeria
+    - I will come at the store
+    - I want to pick it up myself
+    - I will collect it in person
+    - Store pickup, thanks
+    - I'd like to pick it up
+    - I'll come to get it
+    - I'll pick it up later
+    - I will come get it
 
 - lookup: pizza_size
   examples: |
@@ -259,6 +294,154 @@ nlu:
     - [1](drink_amount) [coke](drink_name) please
     - [2](drink_amount) bottles of [water](drink_name)
 
+- intent: say_full_name
+  examples: |
+    - My name is [Jacopo Donà](client_name).
+    - [Michele Zanetti](client_name), please.
+    - You put [Marco Rossi](client_name).
+    - Please save it for [Giulio Marchi](client_name).
+    - Place it for [Mattia Porti](client_name).
+    - It's [Camilla Nomoli](client_name).
+    - I am [Maria Bianchi](client_name).
+    - [Davide Frutti](client_name).
+    - This is [Simone Alberti](client_name).
+    - The order is for [Francesco Castellani](client_name).
+    - [Giorgio Gaspari](client_name) is the name.
+    - [Alessia Giusi](client_name).
+    - I'm [Giuliano Ricci](client_name).
+    - My name is [Elena Moretti](client_name).
+    - Just call me [Alice Greco](client_name).
+    - I prefer to be called [Francesca Barbieri](client_name).
+    - The name is [Alessandro Russo](client_name).
+    - You can call me [Valentina Marini](client_name).
+    - Please refer to me as [Luca Davirti](client_name).
+    - Call me [Chiara Conti](client_name).
+    - I go by [Matteo Garcia](client_name).
+    - It's [Emily Davis](client_name).
+    - [Christopher Johnson](client_name) here, nice to meet you.
+    - [William Smith](client_name) is my name.
+    - My full name is [Sophie Wilson](client_name).
+    - Just write [Emma Miller](client_name).
+    - You can call me [Emily Martinez](client_name).
+    - This is for [Alexander Anderson](client_name).
+    - I am [Sofia Thomas](client_name).
+    - This is [Leonardo Brown](client_name).
+    - It's [Valentina Davis](client_name).
+    - Ok, I am [Joseph Wilson](client_name).
+    - Sure, my name is [Camilla Martin](client_name).
+    - Just put [Chloe Smith](client_name).
+    - [Emily Taylor](client_name), thanks.
+    - [Andrea Miller](client_name).
+    - [Victoria Johnson](client_name).
+    - [Liam Williams](client_name).
+    - [Arianna Taylor](client_name)
+    - [Francesca Davis](client_name).
+    - [Noah Johnson](client_name)
+    - [Ethan Robinson](client_name) here
+    - [Oliver Garcia](client_name)
+    - [Ethan Martinez](client_name)
+    - [Francesca Davis](client_name)
+    - [Gabriella Martinez](client_name).
+    - [Samuel Johnson](client_name).
+    - [Steve O'Donnel](client_name)
+    - [Giorgia Romano](client_name)
+    - [Antonio Marino](client_name).
+    - [Luisa Santini](client_name)
+    - [Francesco Ricci](client_name)
+    - [Anna Caruso](client_name).
+    - [Giacomo Ferretti](client_name).
+    - [Roberta Morelli](client_name)
+    - [Stefano Rossi](client_name)
+    - [Eleonora Barbieri](client_name)
+    - [Matteo Esposito](client_name)
+    - [Valeria Conti](client_name).
+    - [Sara Comprì](client_name).
+    - [Luca Orsu'](client_name).
+
+- intent: say_order_time
+  examples: |
+    - I want it at [7.30pm](order_time).
+    - At [8pm](order_time).
+    - About [8.30pm](order_time).
+    - Let's do [9pm](order_time).
+    - [8pm](order_time).
+    - [9.30pm](order_time).
+
+- lookup: pizza_type
+  examples: |
+    - margherita
+    - marinara
+    - pepperoni
+    - capricciosa
+    - hawaiian
+    - vegetarian
+    - pub
+    - rustic
+    - chicken
+    - cheesey
+    - light
+    - pesto
+
+
+- lookup: toppings
+  examples: |
+    -tomato sauce
+    -mozzarella
+    -pepperoni
+    -ham
+    -spinach
+    -onions
+    -olives
+    -mushrooms
+    -wurstel
+    -chicken
+    -sausage
+
+- lookup: pizza_size
+  examples: |
+    - small
+    - large
+    - medium
+
+- lookup: order_time
+  examples: |
+    - 7.30pm
+    - 8pm
+    - 8.30pm
+    - 9pm
+
+- synonym: 7.30pm
+  examples: |
+    - 19.30
+    - 7.30
+    - 19:30
+    - 7:30
+
+- synonym: 8pm
+  examples: |
+    - 20
+    - 20.00
+    - 8
+    - 8.00
+    - 8:00
+    - 20:00
+
+- synonym: 8.30pm
+  examples: |
+    - 20.30
+    - 8.30
+    - 20:30
+    - 8:30
+    
+- synonym: 9pm
+  examples: |
+    - 21
+    - 21.00
+    - 9
+    - 9.00
+    - 9:00
+    - 21:00
+
 - synonym: margherita
   examples: |
     - marghe
@@ -276,7 +459,6 @@ nlu:
     - hawaii
     - hawaian
     - pineapple
-    
 
 - synonym: small
   examples: |
@@ -320,40 +502,3 @@ nlu:
 - synonym: water
   examples: |
     - waters
-
-
-- lookup: pizza_type
-  examples: |
-    - margherita
-    - marinara
-    - pepperoni
-    - capricciosa
-    - hawaiian
-    - vegetarian
-    - pub
-    - rustic
-    - chicken
-    - cheesey
-    - light
-    - pesto
-
-
-- lookup: toppings
-  examples: |
-    -tomato sauce
-    -mozzarella
-    -pepperoni
-    -ham
-    -spinach
-    -onions
-    -olives
-    -mushrooms
-    -wurstel
-    -grilled_chicken
-    -sausage
-
-- lookup: pizza_size
-  examples: |
-    - small
-    - large
-    - medium

@@ -289,6 +289,45 @@ class ValidateDrinkOrderForm(FormValidationAction):
         else:
             dispatcher.utter_message(text="Sorry, I don't recognize that amount, please provide me a valid number.")
 
+class ValidatePickupOrderForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_pickup_order_form"
+
+    def validate_order_time(self, slot_value: Any,
+                             dispatcher: CollectingDispatcher,
+                             tracker: Tracker,
+                             domain: DomainDict) -> Dict[Text, Any]:
+        dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+        return {"order_time": slot_value}
+
+    def validate_client_name(self,slot_value:Any,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: DomainDict)-> Dict[Text, Any]:
+        if len(slot_value.split())!=2:
+            dispatcher.utter_message(text="Please, give me your first and last name.")
+            return {"client_name":None}
+        dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+        return {"client_name":slot_value}
+
+class ActionSetOrderReady(Action):
+
+    def name(self) -> Text:
+        return "action_check_order_ready"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        print("Runned order ready verification. Value=",len(order)>0)
+        if len(order)>0:
+            return[SlotSet("order_ready", True)]
+        else:
+            return[SlotSet("order_ready", False)]
+
+
 class ActionResponsePositive(Action):
     def name(self):
         return 'action_response_positive'
@@ -311,17 +350,16 @@ class ActionResponsePositive(Action):
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_drink'):
                 drink_name = tracker.slots['drink_name']
                 drink_amount = tracker.slots['drink_amount']
-                print("Received ",drink_name,drink_amount)
-                dispatcher.utter_message("Perfect! It was added to your order.")
-                print("Searching for the drink in the menu to add...")
+                message="Perfect! It was added to your order.\n"
                 drink=getDrinkFromMenuByName(drink_name)
-                print("Found it")
                 drink_to_add=OrderedDrink(drink=drink,amount=drink_amount)
                 order.append(drink_to_add)
-                print("Added it. Preparing message")
-                message=getOrderRecap()
+                message+=getOrderRecap()
                 dispatcher.utter_message(text=message)
                 return [FollowupAction("utter_anything_else_order"),SlotSet("drink_name", None), SlotSet("drink_amount", None)]
+            elif (bot_event['metadata']['utter_action'] == "utter_submit_pickup"):
+                dispatcher.utter_message(response="utter_order_saved_pickup")
+                return []
             elif(bot_event['metadata']['utter_action'] == "utter_anything_else_order"):
                 #The user wants something else"
                 dispatcher.utter_message("What would you like to add to your order?")
@@ -350,7 +388,6 @@ class ActionResponseNegative(Action):
                 price=computeOrderPrice(order)
                 message+="The total price is: "+str(price)+" €"
                 dispatcher.utter_message(text=message)
-                resetOrder()
                 dispatcher.utter_message(response="utter_ask_delivery_method")
             else:
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
