@@ -90,14 +90,34 @@ stories:
   - intent: response_positive
   - action: action_response_positive
 
+- story: User selects delivery option, has an order ready to be checked-out, procede to complete the form (happy path)
+  steps:
+  - checkpoint: pizza_added_to_order
+  - intent: inform_order_delivery
+  - slot_was_set:
+    - order_ready: true
+  - action: utter_confirm_order_ready_delivery
+  - action: delivery_order_form
+  - active_loop: delivery_order_form
+  - slot_was_set:
+      - address_street
+      - order_time
+      - client_name
+  - active_loop: null
+  - action: utter_submit_delivery
+  - intent: response_positive
+  - action: action_response_positive
+  - checkpoint: order_complete_delivery
+
 - story: User selects pickup option, has an order ready to be checked-out, procede to complete the form (happy path)
   steps:
+  - checkpoint: pizza_added_to_order
   - intent: inform_order_pickup
   - slot_was_set:
     - order_ready: true
-  - action: utter_confirm_order_ready
-  - action: pickup_form
-  - active_loop: pickup_form
+  - action: utter_confirm_order_ready_pickup
+  - action: pickup_order_form
+  - active_loop: pickup_order_form
   - slot_was_set:
       - order_time
       - client_name

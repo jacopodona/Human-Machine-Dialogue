@@ -21,9 +21,17 @@ intents:
   - inform_order_delivery
   - inform_order_pickup
   - say_order_time
-  - say_full_name
+  - say_full_name:
+      use_entities:
+        client_name
+      ignore_entities:
+        address_street
 #  - response_phone
-#  - response_address
+  - say_home_address:
+      use_entities:
+        address_street
+      ignore_entities:
+        client_name
 #
 ##TASK 2 ask for pizza info and suggestion
   - ask_pizza_menu
@@ -53,6 +61,7 @@ entities:
 - drink_amount
 - client_name
 - order_time
+- address_street
 #- pizza_amount
 #- toppings
 #- client_name
@@ -100,6 +109,12 @@ slots:
     mappings:
       - type: from_entity
         entity: order_time
+  address_street:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: address_street
   order_ready: #order_ready is a “global slot mappings” https://rasa.com/blog/how-to-use-global-slot-mappings/
     type: bool
     influence_conversation: true
@@ -157,23 +172,35 @@ responses:
   utter_error_order_not_ready:
     - text: "Apologize, but I cannot reference which order you want to check-out. Make an order before expressing your preferred method."
 
-  utter_confirm_order_ready:
-    - text: "Ok, I will now ask you some details to check out the order."
+  utter_confirm_order_ready_pickup:
+    - text: "Ok, I will now ask you some details about the pickup."
+
+  utter_confirm_order_ready_delivery:
+    - text: "Ok, I will now ask you some details about the delivery."
 
   utter_ask_order_time:
-    - text: "At what time do you wish to come get your order?"
+    - text: "At what time do you wish to set your order?"
 
   utter_ask_client_name:
     - text: "Can you please leave me your full name?"
 
+  utter_ask_address_street:
+    - text: "Could you give me the address you want your order to be delivered to?"
+
   utter_submit_pickup:
     - text: "Ok, I am about to register the order for {client_name} at {order_time}. Is this correct?"
+
+  utter_submit_delivery:
+    - text: "Ok, I am about to register the order for {address_street} at {order_time} for {client_name}. Is this correct?"
 
   utter_no_user_order:
     - text: "It seems like you have not made an order yet."
 
   utter_order_saved_pickup:
     - text: "Perfect! Your order was correctly submitted, see you later at the pizzeria!"
+
+  utter_order_saved_delivery:
+    - text: "Perfect! Your order was correctly submitted, our driver will bring your order. Have a good evening!"
 
   utter_out_of_scope:
     - text: "I'm really sorry, but I am afraid I can't help you with that."
@@ -187,6 +214,7 @@ actions:
   - validate_pizza_order_form
   - validate_drink_order_form
   - validate_pickup_order_form
+  - validate_delivery_order_form
   - action_response_positive
   - action_response_negative
   - action_tell_pizza_menu
@@ -205,10 +233,15 @@ forms:
     required_slots:
       - drink_name
       - drink_amount
-  pickup_form:
+  pickup_order_form:
     required_slots:
     - order_time
     - client_name
+  delivery_order_form:
+    required_slots:
+      - address_street
+      - order_time
+      - client_name
 
 session_config:
   session_expiration_time: 60

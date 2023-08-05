@@ -329,6 +329,35 @@ class ValidatePickupOrderForm(FormValidationAction):
         dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
         return {"client_name":slot_value}
 
+
+class ValidateDeliveryOrderForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_delivery_order_form"
+
+    def validate_address_street(self, slot_value: Any,
+                             dispatcher: CollectingDispatcher,
+                             tracker: Tracker,
+                             domain: DomainDict) -> Dict[Text, Any]:
+        dispatcher.utter_message(text=f"Ok! Registering the address at {slot_value}.")
+        return {"address_street": slot_value}
+
+    def validate_order_time(self, slot_value: Any,
+                             dispatcher: CollectingDispatcher,
+                             tracker: Tracker,
+                             domain: DomainDict) -> Dict[Text, Any]:
+        dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+        return {"order_time": slot_value}
+
+    def validate_client_name(self,slot_value:Any,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: DomainDict)-> Dict[Text, Any]:
+        if len(slot_value.split())!=2:
+            dispatcher.utter_message(text="Please, give me your first and last name.")
+            return {"client_name":None}
+        dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+        return {"client_name":slot_value}
+
 class ActionCheckOrderReady(Action):
 
     def name(self) -> Text:
@@ -374,14 +403,14 @@ class ActionSeeOrderInfo(Action):
                 delivery_info="You didn't tell me how you wish to receive your order."
             elif method=="delivery":
                 name=userOrder.client_name
-                address=userOrder.ad
+                address=userOrder.address
                 order_time=userOrder.order_time
                 delivery_info=f"Your order will be delivered at {address} around {order_time}, the saved name is {name}."
             elif method=="pickup":
                 order_time=userOrder.order_time
                 name=userOrder.client_name
                 delivery_info=f"You will come to pickup your order at {order_time}, the saved name is {name}."
-            order_id_information=f"Your order ID is {str(id)}"
+            order_id_information=f"Your order ID is {str(id)}."
             message=orderRecap+"\n"+delivery_info+"\n"+order_id_information
             dispatcher.utter_message(message)
             print(f"Order info to send user: {userOrder.__dict__}")
@@ -438,7 +467,16 @@ class ActionResponsePositive(Action):
                 order.setPickupInformation(pickup_time=order_time, pickup_client=client_name)
                 updateExistingOrder(order)
                 dispatcher.utter_message(response="utter_order_saved_pickup")
-                return [SlotSet("client_name", None), SlotSet("order_time", None)]
+            elif (bot_event['metadata']['utter_action'] == "utter_submit_delivery"):
+                order = getOrderByUserID(tracker.sender_id)
+                client_name = tracker.slots['client_name']
+                order_time = tracker.slots['order_time']
+                address= tracker.slots['address_street']
+                order.setDeliveryInformation(delivery_time=order_time, delivery_address=address, delivery_client=client_name)
+                print(f"Order {order.id} will be delivered at {address} at {order_time} for the client {client_name}")
+                updateExistingOrder(order)
+                dispatcher.utter_message(response="utter_order_saved_delivery")
+                return [SlotSet("address_street", None),SlotSet("client_name", None), SlotSet("order_time", None)]
             elif(bot_event['metadata']['utter_action'] == "utter_anything_else_order"):
                 #The user wants something else"
                 dispatcher.utter_message("What would you like to add to your order?")

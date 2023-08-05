@@ -86,55 +86,55 @@ nlu:
     - do you have a sister
     - book a flight from milan to ny
     - how far is the square
-    - give me the directions to time square
-    - what's the best way to clean my oven?
-    - can you recommend a good romantic comedy movie?
-    - how do I change the oil in my car?
-    - what's the weather like today?
-    - can you help me find a plumber?
-    - do you have any recommendations for a good book to read?
-    - how do I fix a leaky faucet?
-    - what's the latest news on the stock market?
-    - can you give me tips on gardening?
-    - how do I train my dog to do tricks?
-    - what's the best way to lose weight?
-    - can you recommend a good hair salon?
-    - how do I program a remote control?
-    - what's the current exchange rate for euros to dollars?
-    - can you help me plan a vacation itinerary?
-    - how do I install a new light fixture?
-    - what's the best way to get rid of ants in my kitchen?
-    - can you suggest a good workout routine?
-    - how do I fix a flat bicycle tire?
-    - what's the recipe for a margarita cocktail?
-    - can you recommend a reliable car mechanic?
-    - how do I set up a Wi-Fi router?
-    - what's the process for getting a passport?
-    - can you help me find a babysitter?
-    - how do I remove a stain from my clothes?
-    - what's the best way to organize my closet?
-    - can you suggest some home decor ideas?
-    - how do I bake chocolate chip cookies?
-    - what's the current price of gold?
-    - can you help me choose a gift for my friend's birthday?
-    - how do I start a compost bin?
-    - what's the best way to clean hardwood floors?
-    - can you recommend a good workout app?
-    - how do I re-pot a houseplant?
-    - what's the process for recycling electronics?
-    - can you help me find a local farmers' market?
-    - how do I tie a tie?
-    - what's the best way to organize digital photos?
-    - can you suggest some home improvement projects?
-    - how do I make a homemade pizza crust?
-    - what's the current traffic situation in my city?
-    - can you help me find a language tutor?
-    - how do I change a flat tire?
-    - what's the best way to remove wallpaper?
-    - can you recommend a good meditation app?
-    - how do I make a reservation at a restaurant?
-    - what's the process for adopting a pet?
-    - can you help me find a local art class?
+#    - give me the directions to time square
+#    - what's the best way to clean my oven?
+#    - can you recommend a good romantic comedy movie?
+#    - how do I change the oil in my car?
+#    - what's the weather like today?
+#    - can you help me find a plumber?
+#    - do you have any recommendations for a good book to read?
+#    - how do I fix a leaky faucet?
+#    - what's the latest news on the stock market?
+#    - can you give me tips on gardening?
+#    - how do I train my dog to do tricks?
+#    - what's the best way to lose weight?
+#    - can you recommend a good hair salon?
+#    - how do I program a remote control?
+#    - what's the current exchange rate for euros to dollars?
+#    - can you help me plan a vacation itinerary?
+#    - how do I install a new light fixture?
+#    - what's the best way to get rid of ants in my kitchen?
+#    - can you suggest a good workout routine?
+#    - how do I fix a flat bicycle tire?
+#    - what's the recipe for a margarita cocktail?
+#    - can you recommend a reliable car mechanic?
+#    - how do I set up a Wi-Fi router?
+#    - what's the process for getting a passport?
+#    - can you help me find a babysitter?
+#    - how do I remove a stain from my clothes?
+#    - what's the best way to organize my closet?
+#    - can you suggest some home decor ideas?
+#    - how do I bake chocolate chip cookies?
+#    - what's the current price of gold?
+#    - can you help me choose a gift for my friend's birthday?
+#    - how do I start a compost bin?
+#    - what's the best way to clean hardwood floors?
+#    - can you recommend a good workout app?
+#    - how do I re-pot a houseplant?
+#    - what's the process for recycling electronics?
+#    - can you help me find a local farmers' market?
+#    - how do I tie a tie?
+#    - what's the best way to organize digital photos?
+#    - can you suggest some home improvement projects?
+#    - how do I make a homemade pizza crust?
+#    - what's the current traffic situation in my city?
+#    - can you help me find a language tutor?
+#    - how do I change a flat tire?
+#    - what's the best way to remove wallpaper?
+#    - can you recommend a good meditation app?
+#    - how do I make a reservation at a restaurant?
+#    - what's the process for adopting a pet?
+#    - can you help me find a local art class?
 
 - intent: init_request
   examples: |
@@ -261,14 +261,30 @@ nlu:
 - intent: inform_order_delivery
   examples: |
     - I want delivery at home
-    - Delivery
+    - I want delivery
     - Home delivery, please
     - Can you send it to my house?
     - Deliver to my house
     - I prefer delivery
-    - Send it to my address
-    - Home delivery is fine
+    - send it to my address
+    - jome delivery is fine
     - I'd like it delivered
+    - I guess I want delivery
+    - can you deliver it to my house?
+    - can you deliver it to my address?
+    - can I give you my address and you deliver it?
+    - delivery would be great
+    - I want it delivered at my house
+    - delivery please
+    - I want you to bring it
+    - bring it to my address, thanks
+    - Bring it to my house
+    - I would like it delivered
+    - Delivery thanks
+    - Delivery
+    - delivery
+    - i want it delivered
+    - i want it delivered at my house, thanks
 
 - intent: inform_order_pickup
   examples: |
@@ -276,23 +292,17 @@ nlu:
     - I prefer the pickup option
     - Pickup, please
     - I want to pickup the order
-    - I want to pick it up at the store
     - I want to come pick it up
     - Pickup
-    - Pick up
-    - I want to pickup
     - I prefer pickup
     - I will pickup
     - I want to pick it up personally 
     - I will come at the pizzeria
-    - I will come at the store
     - I want to pick it up myself
-    - I will collect it in person
     - Store pickup, thanks
-    - I'd like to pick it up
-    - I'll come to get it
-    - I'll pick it up later
+    - I think pickup is better
     - I will come get it
+    - I will come and take it
 
 - intent: ask_order_info
   examples: |
@@ -425,6 +435,57 @@ nlu:
     - [Valeria Conti](client_name).
     - [Sara Comprì](client_name).
     - [Luca Orsu'](client_name).
+
+- intent: say_home_address
+  examples: |
+    - My home address is [via Manci](address_street).
+    - The address where I live is [corso Buonarroti](address_street).
+    - [via Torre d'Augusto](address_street) is my home address.
+    - You can find me at [via San Vigilio](address_street).
+    - Send it at [Corso Michelangelo](home_addressaddress_street).
+    - [Piazza Duomo](address_street) is the address.
+    - My home is at [via Belenzani](address_street).
+    - You can reach me at [Corso 3 Novembre](address_street).
+    - The address I'm speaking from is [Via Santa Margherita](address_street).
+    - [Piazza Dante](address_street) is where I call home.
+    - My place is [via Verdi](address_street).
+    - I'm located at [via Maccani](address_street).
+    - The address you can find me at is [Viale Verona](address_street).
+    - [Corso Bettini](address_street) is my home base.
+    - My residence is [Via Roma](address_street).
+    - You can visit me at [Via Calepina](address_street).
+    - [Viale Trento](address_street) is where I'm located.
+    - I live at [Via della Malvasia](address_street).
+    - My home address is [Via Oriola](address_street).
+    - The place I call home is [Viale della Stazione](address_street).
+    - [Via San Pietro](address_street) is where I reside.
+    - You'll find me at [Corso Alpini](address_street).
+    - I'm at [Via Monte Baldo](address_street).
+    - My home is situated at [Viale Rovereto](address_street).
+    - [Piazza Venezia](address_street) is where I'm living.
+    - The address I'm at is [Via dei Colli](address_street).
+    - You can locate me at [Corso Lancia](address_street).
+    - [Via dei Muredei](address_street) is my home.
+    - I'm currently staying at [viale Fiera](address_street).
+    - My home is in [via della Ricerca](address_street).
+    - [Via Rosmini](address_street)
+    - [Piazza Duomo](address_street)
+    - [Via Leopardi](address_street)
+    - [Corso Cavour](address_street)
+    - [Via Diaz](address_street)
+    - [Via Garibaldi](address_street)
+    - [Viale delle Scienze](address_street)
+    - [Corso Cavour](address_street)
+    - [Via Einstein](address_street)
+    - [Via Einstein](address_street)
+    - [Via Ezio Franceschini](address_street)
+    - [Via Caproni](address_street)
+    - [Piazza Centa](address_street)
+    - [Via Jacopo Aconcio](address_street)
+    - [Via Dogana](address_street)
+    - [Via Piave](address_street)
+    - [Via Vittorio Veneto](address_street)
+    
 
 - intent: say_order_time
   examples: |
