@@ -91,4 +91,14 @@ rules:
     - intent: ask_pizza_ingredients
     - action: action_tell_pizza_ingredients
 
+- rule: Tell pizzas without ingredient
+  steps:
+    - intent: ask_pizza_without_ingredient
+    - action: action_tell_pizza_without_ingredient
+
+- rule: Tell pizzas with ingredient
+  steps:
+    - intent: ask_pizza_with_ingredient
+    - action: action_tell_pizza_with_ingredient
+
 

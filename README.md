@@ -18,9 +18,10 @@ Pizza ordering bot
 - Ask for pizza recommendation (TODO)
   - Suggest me a pizza with/without (topping)
   - Ask for pizza of the day?
-- Place order (TODO)
+- Place order
   - Order recap
   - Specify delivery or takeaway
+  - Add error handling (TODO)
 - Modify order (TODO)
   - Add pizza (TODO)
   - Remove pizza (TODO)

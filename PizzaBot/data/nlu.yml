@@ -48,13 +48,18 @@ nlu:
   examples: |
     - no
     - n
+    - No
     - nope
-    - never
+    - Nope
+    - Never
     - I don't think so
     - don't like that
-    - no way
+    - Don't like that
+    - No way
+    - Not really
     - not really
     - wrong
+    - Wrong
     - not correct
     - not what i meant
     - incorrect
@@ -241,7 +246,17 @@ nlu:
     - What goes into a [pepperoni](pizza_type)?
     - How is a [margherita](pizza_type) made?
     - What do you put on a [marinara](pizza_type)?
-    - Which ingredients are in a [margherita](pizza_type)?
+    - Which ingredients are in a [pub](pizza_type)?
+    - What are the ingredients of a [light](pizza_type)?
+    - Can you tell me the [hawaiian](pizza_type) ingredients?
+    - I want to know what's in a [pesto](pizza_type).
+    - What do you put in a [capricciosa](pizza_type).
+    - Please list the ingredients of a [pepperoni](pizza_type).
+    - Tell me the toppings on a [rustic](pizza_type).
+    - What goes into a [chicken](pizza_type)?
+    - How is a [vegetarian](pizza_type) made?
+    - What do you put on a [cheesey](pizza_type)?
+    - Which ingredients are in a [pesto](pizza_type)?
 
 - intent: ask_drink_price
   examples: |
@@ -312,13 +327,14 @@ nlu:
     - Do I have an order?
     - I can't remember what I ordered
     - Do you have my order information?
-    - Tell me what I ordered
-    - What was my order
+    - tell me what I ordered
+    - what was my order
     - See my order information
     - I want to see what I ordered
     - What's my order information
     - What is my order status?
-    - Tell me my order information
+    - what is my order status?
+    - tell me my order information
     - Order information
     - Info about my order
     - Repeat my order
@@ -444,7 +460,7 @@ nlu:
     - The address where I live is [corso Buonarroti](address_street).
     - [via Torre d'Augusto](address_street) is my home address.
     - You can find me at [via San Vigilio](address_street).
-    - Send it at [Corso Michelangelo](home_addressaddress_street).
+    - Send it at [Corso Michelangelo](address_street).
     - [Piazza Duomo](address_street) is the address.
     - My home is at [via Belenzani](address_street).
     - You can reach me at [Corso 3 Novembre](address_street).
@@ -498,6 +514,100 @@ nlu:
     - [8pm](order_time).
     - [9.30pm](order_time).
 
+- intent: ask_pizza_without_ingredient
+  examples: |
+    - do you have pizza with no [tomato sauce](toppings)?
+    - do you have pizza with no [mozzarella](toppings)?
+    - do you have pizza with no [pepperoni](toppings)?
+    - do you have pizza with no [vegetables](ingredient)?
+    - do you have pizza without [mozzarella](ingredient)?
+    - do you have pizza without [cheese](ingredient)?
+    - do you have pizza without [olives](ingredient)?
+    - do you have pizza without [olives](ingredient)?
+    - do you have pizza with no [mushrooms](ingredient) please?
+    - do you have pizza with no [wurstel](ingredient) please?
+    - do you have pizza with no [grilled_chicken](ingredient) please?
+    - do you have pizza with no [grilled chicken](ingredient) please?
+    - do you have pizza without [mushrooms](ingredient) please?
+    - pizza with no [ham](ingredient)?
+    - pizza with no [cheese](ingredient)?
+    - pizza with no [olives](ingredient)?
+    - pizza with no [onions](ingredient)?
+    - pizza without [meat](ingredient)?
+    - pizza without [spinach](ingredient)?
+    - pizza without [olives](ingredient)?
+    - pizza without [onions](ingredient)?
+    - pizza with no [grilled chicken](ingredient) please?
+    - pizza with no [mushrooms](ingredient) please?
+    - pizza with no [olives](ingredient) please?
+    - pizza with no [onions](ingredient) please?
+    - pizza without [ham](ingredient) please?
+    - pizza without [sausage](ingredient) please?
+    - pizza without [pepperoni](ingredient) please?
+    - pizza without [grilled chicken](ingredient) please?
+    - any pizza with no [olives](ingredient)?
+    - any pizza with no [wurstel](ingredient)?
+    - any pizza with no [pepperoni](ingredient)?
+    - any pizza with no [onions](ingredient)?
+    - any pizza without [wurstel](ingredient) please?
+    - any pizza without [mozzarella](ingredient) please?
+    - any pizza without [olives](ingredient) please?
+    - any pizza without [pepperoni](ingredient) please?
+    - what pizzas do you have without [grilled chicken](ingredient)?
+    - what pizzas do you have without [mozzarella](ingredient)?
+    - what pizzas do you have without [onions](ingredient)?
+    - what pizzas do you have without [grilled chicken](ingredient)?
+    - what pizzas do you have with no [olives](ingredient)?
+    - what pizzas do you have with no [grilled chicken](ingredient)?
+    - what pizzas do you have with no [pepperoni](ingredient)?
+
+- intent: ask_pizza_with_ingredient
+  examples: |
+    - do you have pizza with [tomato sauce](toppings)?
+    - do you have pizza with [mozzarella](toppings)?
+    - do you have pizza with [pepperoni](toppings)?
+    - do you have pizza with [vegetables](ingredient)?
+    - do you have pizza wit [mozzarella](ingredient)?
+    - do you have pizza wit [cheese](ingredient)?
+    - do you have pizza wit [olives](ingredient)?
+    - do you have pizza with [olives](ingredient)?
+    - do you have pizza with [mushrooms](ingredient) please?
+    - do you have pizza with [wurstel](ingredient) please?
+    - do you have pizza with [grilled_chicken](ingredient) please?
+    - do you have pizza with [grilled chicken](ingredient) please?
+    - do you have pizza with [mushrooms](ingredient) please?
+    - pizza with [ham](ingredient)?
+    - pizza with [cheese](ingredient)?
+    - pizza with [olives](ingredient)?
+    - pizza with [onions](ingredient)?
+    - pizza with [meat](ingredient)?
+    - pizza with [spinach](ingredient)?
+    - pizza with [olives](ingredient)?
+    - pizza with [onions](ingredient)?
+    - pizza with [grilled chicken](ingredient) please?
+    - pizza with [mushrooms](ingredient) please?
+    - pizza with [olives](ingredient) please?
+    - pizza with [onions](ingredient) please?
+    - pizza with [ham](ingredient) please?
+    - pizza with [sausage](ingredient) please?
+    - pizza with [pepperoni](ingredient) please?
+    - pizza with [grilled chicken](ingredient) please?
+    - any pizza with [olives](ingredient)?
+    - any pizza with [wurstel](ingredient)?
+    - any pizza with [pepperoni](ingredient)?
+    - any pizza with [onions](ingredient)?
+    - any pizza with [wurstel](ingredient) please?
+    - any pizza with [mozzarella](ingredient) please?
+    - any pizza with [olives](ingredient) please?
+    - any pizza with [pepperoni](ingredient) please?
+    - what pizzas do you have with [grilled chicken](ingredient)?
+    - what pizzas do you have with [mozzarella](ingredient)?
+    - what pizzas do you have with [onions](ingredient)?
+    - what pizzas do you have with [grilled chicken](ingredient)?
+    - what pizzas do you have with [olives](ingredient)?
+    - what pizzas do you have with [grilled chicken](ingredient)?
+    - what pizzas do you have with [pepperoni](ingredient)?
+
 - lookup: pizza_type
   examples: |
     - margherita
@@ -514,7 +624,7 @@ nlu:
     - pesto
 
 
-- lookup: toppings
+- lookup: ingredient
   examples: |
     -tomato sauce
     -mozzarella
@@ -589,7 +699,6 @@ nlu:
     - hawai
     - hawaii
     - hawaian
-    - pineapple
 
 - synonym: small
   examples: |

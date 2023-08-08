@@ -150,3 +150,23 @@ stories:
   - slot_was_set:
       - order_ready: false
   - action: utter_no_user_order
+
+- story: User asks for pizzas without ingredient, asks further information on pizzas
+  steps:
+  - intent: ask_pizza_without_ingredient
+  - action: action_tell_pizza_without_ingredient
+  - intent: ask_pizza_ingredients
+    entities:
+      - entity: pizza_type
+        value: "pepperoni"
+  - action: action_tell_pizza_ingredients
+
+- story: User asks for pizzas with ingredient, asks further information on pizzas
+  steps:
+  - intent: ask_pizza_with_ingredient
+  - action: action_tell_pizza_with_ingredient
+  - intent: ask_pizza_ingredients
+    entities:
+      - entity: pizza_type
+        value: "light"
+  - action: action_tell_pizza_ingredients

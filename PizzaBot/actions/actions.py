@@ -51,6 +51,19 @@ toppings=["tomato sauce","mozzarella","pepperoni","ham","spinach","onions","oliv
 
 orders=[]
 
+def getPizzasWithIngredient(ingredient):
+    pizzas_with_ingredient = []
+    for pizza in pizza_menu:
+        if ingredient in pizza.ingredients:
+            pizzas_with_ingredient.append(pizza)
+    return pizzas_with_ingredient
+def getPizzasWithoutIngredient(ingredient):
+    pizzas_without_ingredient=[]
+    for pizza in pizza_menu:
+        if ingredient not in pizza.ingredients:
+            pizzas_without_ingredient.append(pizza)
+    return pizzas_without_ingredient
+
 def updateOrderIDCounter():
     global order_id_counter
     order_id_counter+=1
@@ -257,6 +270,85 @@ class ActionTellPizzaIngredients(Action):
                 msg+="."
             dispatcher.utter_message(text=msg)
             return []
+
+class ActionTellPizzaWithoutIngredient(Action):
+
+    def name(self) -> Text:
+        return "action_tell_pizza_without_ingredient"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        ingredient=tracker.get_slot("ingredient")
+
+        if ingredient is None:
+            dispatcher.utter_message("I didn't not understand, could you repeat please?")
+            return [SlotSet("ingredient",None)]
+        else:
+            ingredient=ingredient.lower() #Send to lowercase
+            if ingredient in toppings:
+                pizzas=getPizzasWithoutIngredient(ingredient)
+                response =""
+                if len(pizzas) == 0:
+                    response += pizzas[0].name
+                    dispatcher.utter_message(f"We don't put {ingredient} in any pizza.")
+                    return [SlotSet("ingredient", None)]
+                else:
+                    if len(pizzas) == 1:
+                        response += pizzas[0].name
+                    elif len(pizzas)== 2:
+                        response += pizzas[0].name+ " and "+pizzas[1].name
+                    else:
+                        pizza_names=[pizza.name for pizza in pizzas]
+                        last_two_pizzas = " and ".join(pizza_names[-2:])
+                        other_pizzas = ", ".join(pizza_names[:-2])
+                        # Concatenate the two parts
+                        response = other_pizzas + ", " + last_two_pizzas
+                    dispatcher.utter_message(f"Our pizzas without {ingredient} are {response}.")
+                    return [SlotSet("ingredient",None)]
+            else:
+                dispatcher.utter_message(f"We don't put {ingredient} in any pizza.")
+                return [SlotSet("ingredient", None)]
+
+class ActionTellPizzaWithoutIngredient(Action):
+
+    def name(self) -> Text:
+        return "action_tell_pizza_with_ingredient"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        ingredient=tracker.get_slot("ingredient")
+
+        if ingredient is None:
+            dispatcher.utter_message("I didn't not understand, could you repeat please?")
+            return [SlotSet("ingredient",None)]
+        else:
+            ingredient=ingredient.lower() #Send to lowercase
+            if ingredient in toppings:
+                pizzas=getPizzasWithIngredient(ingredient)
+                response =""
+                if len(pizzas) == 0:
+                    dispatcher.utter_message(f"We don't put {ingredient} in any pizza.")
+                    return [SlotSet("ingredient", None)]
+                else:
+                    if len(pizzas) == 1:
+                        response += pizzas[0].name
+                    elif len(pizzas)== 2:
+                        response += pizzas[0].name+ " and "+pizzas[1].name
+                    else:
+                        pizza_names=[pizza.name for pizza in pizzas]
+                        last_two_pizzas = " and ".join(pizza_names[-2:])
+                        other_pizzas = ", ".join(pizza_names[:-2])
+                        # Concatenate the two parts
+                        response = other_pizzas + ", " + last_two_pizzas
+                    dispatcher.utter_message(f"Our pizzas with {ingredient} are {response}.")
+                    return [SlotSet("ingredient",None)]
+            else:
+                dispatcher.utter_message(f"We don't put {ingredient} in any pizza.")
+                return [SlotSet("ingredient", None)]
 
 class ValidatePizzaOrderForm(FormValidationAction):
     def name(self) -> Text:
@@ -501,6 +593,7 @@ class ActionResponseNegative(Action):
             if(previous_action == "utter_anything_else_order"):
                 message="Ok, checking out your order...\n"
                 order=getOrderByUserID(tracker.sender_id)
+                print("Checking out the order "+getOrderRecap(order))
                 message+=getOrderRecap(order)
                 price=computeOrderPrice(order)
                 message+="The total price is: "+str(price)+" €"

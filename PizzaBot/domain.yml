@@ -37,8 +37,8 @@ intents:
   - ask_pizza_menu
   - ask_pizza_price
   - ask_pizza_ingredients
-#  - ask_pizza_suggestion
-#  - pizza_suggestion_ingredient
+  - ask_pizza_with_ingredient
+  - ask_pizza_without_ingredient
 #  - pizza_suggestion_without_ingredient
 #
 #
@@ -62,14 +62,11 @@ entities:
 - client_name
 - order_time
 - address_street
+- ingredient
 #- pizza_amount
-#- toppings
-#- client_name
 #- phone_number
 #- order_number
-#- address_street
 #- address_number
-#- address_city
 #- time
 
 slots:
@@ -121,6 +118,12 @@ slots:
     mappings:
       - type: custom
         action: action_check_order_ready
+  ingredient:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: ingredient
 
 
 responses:
@@ -222,6 +225,8 @@ actions:
   - action_tell_pizza_ingredients
   - action_check_order_ready
   - action_see_order_information
+  - action_tell_pizza_without_ingredient
+  - action_tell_pizza_with_ingredient
 
 forms:
   pizza_order_form:
