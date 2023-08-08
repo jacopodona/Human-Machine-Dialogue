@@ -36,16 +36,25 @@ rules:
   - action: drink_order_form
   - active_loop: drink_order_form
 
-#- rule: Submit pizza form
-#  condition:
-#  - active_loop: pizza_order_form
-#  steps:
-#    - action: pizza_order_form
-#    - active_loop: null
-#    - slot_was_set:
-#        - requested_slot: null
-#    - action: utter_submit_pizza
-#    #- action: utter_pizza_slots
+- rule: Submit pizza form
+  condition:
+  - active_loop: pizza_order_form
+  steps:
+    - action: pizza_order_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: utter_submit_pizza
+
+- rule: Submit drink form
+  condition:
+  - active_loop: drink_order_form
+  steps:
+    - action: drink_order_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: utter_submit_drink
 
 - rule: Answer to positive response
   steps:

@@ -34,7 +34,7 @@ Pizza ordering bot
 ### Training the model
 
 ```
-Look! You can see my backticks.
+rasa train
 ```
 
 A pretrained model is also available in /models

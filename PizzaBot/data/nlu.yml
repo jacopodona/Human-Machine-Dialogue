@@ -265,9 +265,10 @@ nlu:
     - Home delivery, please
     - Can you send it to my house?
     - Deliver to my house
+    - Deliver at my house please
     - I prefer delivery
     - send it to my address
-    - jome delivery is fine
+    - home delivery is fine
     - I'd like it delivered
     - I guess I want delivery
     - can you deliver it to my house?
@@ -371,6 +372,7 @@ nlu:
     - I want [3](drink_amount) [beer](drink_name)
     - [1](drink_amount) [coke](drink_name) please
     - [2](drink_amount) bottles of [water](drink_name)
+    - Just [1](drink_amount)
 
 - intent: say_full_name
   examples: |

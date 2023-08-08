@@ -292,21 +292,24 @@ class ValidateDrinkOrderForm(FormValidationAction):
                             tracker: Tracker,
                             domain: DomainDict)-> Dict[Text, Any]:
         """ Validate 'drink_name' value"""
-        if slot_value.lower() not in getDrinks():
-            dispatcher.utter_message(text=f"We don't have {slot_value} in our available drinks, for more indications on the available ones, ask 'What drinks do you have?'")
-            return {"drink_name":None}
-        dispatcher.utter_message(text=f"Ok! You want to have {slot_value}.")
-        return {"drink_name":slot_value}
+        if slot_value is not None:
+            if slot_value.lower() not in getDrinks():
+                dispatcher.utter_message(text=f"We don't have {slot_value} in our available drinks, for more indications on the available ones, ask 'What drinks do you have?'")
+                return {"drink_name":None}
+            dispatcher.utter_message(text=f"Ok! You want to have {slot_value}.")
+            return {"drink_name":slot_value}
 
     def validate_drink_amount(self,slot_value:Any,
                             dispatcher: CollectingDispatcher,
                             tracker: Tracker,
                             domain: DomainDict)-> Dict[Text, Any]:
-        if str(slot_value).isnumeric():
-            dispatcher.utter_message(text=f"Ok! You want to have {slot_value} bottles.")
-            return {"drink_amount":slot_value}
-        else:
-            dispatcher.utter_message(text="Sorry, I don't recognize that amount, please provide me a valid number.")
+
+        if slot_value is not None:
+            if str(slot_value).isnumeric():
+                dispatcher.utter_message(text=f"Ok! You want to have {slot_value} bottles.")
+                return {"drink_amount":slot_value}
+            else:
+                dispatcher.utter_message(text="Sorry, I don't recognize that amount, please provide me a valid number.")
 
 class ValidatePickupOrderForm(FormValidationAction):
     def name(self) -> Text:
@@ -369,7 +372,7 @@ class ActionCheckOrderReady(Action):
         tracker: Tracker,
         domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
-        print("Running order check")
+        print("Running order check, previous value:",tracker.get_slot("order_ready"))
         userOrder = getOrderByUserID(tracker.sender_id)
         if userOrder is None:
             print(f"User {tracker.sender_id} does not have an order")
@@ -503,6 +506,12 @@ class ActionResponseNegative(Action):
                 message+="The total price is: "+str(price)+" €"
                 dispatcher.utter_message(text=message)
                 dispatcher.utter_message(response="utter_ask_delivery_method")
+            elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza'):
+                dispatcher.utter_message(text="Ok, removing this last item.")
+                return[SlotSet("pizza_type",None),SlotSet("pizza_size",None),FollowupAction("pizza_order_form")]
+            elif (bot_event['metadata']['utter_action'] == 'utter_submit_drink'):
+                dispatcher.utter_message(text="Ok, removing this last item.")
+                return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("drink_order_form")]
             else:
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except:
