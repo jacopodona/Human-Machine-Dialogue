@@ -167,7 +167,7 @@ responses:
     - text: "Would you like anything else?"
 
   utter_topping_and_size_price:
-    - text: "Each topping costs 1€ each. A small size costs 2€ less, a large variant costs 2€ more."
+    - text: "Each topping costs 1€ each. A small size costs 1€ less, a large variant costs 2€ more."
 
   utter_ask_delivery_method:
     - text: "Do you prefer to come pick up your order from our pizzeria or we deliver it at your house?"

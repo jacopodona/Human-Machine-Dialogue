@@ -46,8 +46,8 @@ pizza_menu=[
 
 pizza_sizes=["small","medium","large"]
 
-toppings=["tomato sauce","mozzarella","pepperoni","ham","spinach","onions","olives","mushrooms","wurstel",
-          "grilled_chicken","sausage"]
+toppings=["tomato sauce","mozzarella","garlic","pepperoni","ham","pineapple","bell peppers","eggplant","zucchini","spinach","onions",
+          "olives","mushrooms","wurstel","grilled_chicken","sausage","potatoes","BBQ sauce"]
 
 orders=[]
 
@@ -67,12 +67,17 @@ def getPizzasWithoutIngredient(ingredient):
 def updateOrderIDCounter():
     global order_id_counter
     order_id_counter+=1
-def getOrderByUserID(user_id):
+def getOrderByUserID(user):
+    print(f"Searching order for user {user}")
     for order in orders:
-        print(f"DB check: order associated to user {order.user_id}")
-        if user_id==order.user_id:
+        if user==order.user_id:
             return order
     return None
+
+def logOrderDB():
+    for order in orders:
+        message=f"Order id: {order.id} \n {getOrderRecap(order)}\n Checkout method set to {order.delivery_method}"
+        print(message)
 
 def getPizzaFromMenuByName(pizza_name):
     for pizza in pizza_menu:
@@ -207,10 +212,11 @@ class ActionTellDrinkPrice(Action):
         if key_to_find is None:
             dispatcher.utter_message(text="I did not understand, could you ask me again please?")
         else:
-            drink_price = drink_menu.get(key_to_find, None)
-            if drink_price is None:
+            drink=getDrinkFromMenuByName(key_to_find)
+            if drink is None:
                 msg = f"I'm afraid we do not have {key_to_find} in our menu. You can get a list of available drinks by asking 'What drinks do you have?'"
             else:
+                drink_price=drink.price
                 msg = f"A {key_to_find} costs {str(drink_price)} €"
             dispatcher.utter_message(text=msg)
         return []
@@ -464,13 +470,13 @@ class ActionCheckOrderReady(Action):
         tracker: Tracker,
         domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
-        print("Running order check, previous value:",tracker.get_slot("order_ready"))
+        #print("Running order check, previous value:",tracker.get_slot("order_ready"))
         userOrder = getOrderByUserID(tracker.sender_id)
         if userOrder is None:
-            print(f"User {tracker.sender_id} does not have an order")
+            #print(f"User {tracker.sender_id} does not have an order")
             return [SlotSet("order_ready", False)]
         else:
-            print(f"User {tracker.sender_id} has an order")
+            #print(f"User {tracker.sender_id} has an order")
             return [SlotSet("order_ready", True)]
 
 
@@ -485,11 +491,14 @@ class ActionSeeOrderInfo(Action):
         tracker: Tracker,
         domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
+        logOrderDB()
         userOrder = getOrderByUserID(tracker.sender_id)
         if userOrder is None:
-            dispatcher.utter_message(response="utter_error_order_not_ready")
+            print(f"User {tracker.sender_id} does not have an order")
+            dispatcher.utter_message(response="utter_no_user_order")
             return []
         else:
+            print(f"User {tracker.sender_id} has an order")
             orderRecap=getOrderRecap(userOrder)
             method=userOrder.delivery_method
             id=userOrder.id
@@ -605,6 +614,12 @@ class ActionResponseNegative(Action):
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_drink'):
                 dispatcher.utter_message(text="Ok, removing this last item.")
                 return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("drink_order_form")]
+            elif (bot_event['metadata']['utter_action'] == 'utter_submit_delivery'):
+                dispatcher.utter_message(text="Ok, removing these details.")
+                return [SlotSet("address_street", None), SlotSet("order_time", None),SlotSet("client_name", None),FollowupAction("delivery_order_form")]
+            elif (bot_event['metadata']['utter_action'] == 'utter_submit_pickup'):
+                dispatcher.utter_message(text="Ok, removing these details.")
+                return [SlotSet("order_time", None), SlotSet("client_name", None),FollowupAction("pickup_order_form")]
             else:
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except:

@@ -56,6 +56,46 @@ rules:
         - requested_slot: null
     - action: utter_submit_drink
 
+- rule: Start pickup form if user has an order to checkout
+  condition:
+  - slot_was_set:
+    - order_ready: true
+  steps:
+  - intent: inform_order_pickup
+  - action: utter_confirm_order_ready_pickup
+  - action: pickup_order_form
+  - active_loop: pickup_order_form
+
+- rule: Start delivery form if user has an order to checkout
+  condition:
+  - slot_was_set:
+    - order_ready: true
+  steps:
+  - intent: inform_order_delivery
+  - action: utter_confirm_order_ready_delivery
+  - action: delivery_order_form
+  - active_loop: delivery_order_form
+
+- rule: Submit pickup form
+  condition:
+  - active_loop: pickup_order_form
+  steps:
+    - action: pickup_order_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: utter_submit_pickup
+
+- rule: Submit delivery form
+  condition:
+  - active_loop: delivery_order_form
+  steps:
+    - action: delivery_order_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: utter_submit_delivery
+
 - rule: Answer to positive response
   steps:
     - intent: response_positive
