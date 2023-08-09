@@ -21,7 +21,8 @@ Pizza ordering bot
 - Place order
   - Order recap
   - Specify delivery or takeaway
-  - Add error handling (TODO)
+  - Add error handling
+  - make the form flexible to unhappy user paths (TODO)
 - Modify order (TODO)
   - Add pizza (TODO)
   - Remove pizza (TODO)
