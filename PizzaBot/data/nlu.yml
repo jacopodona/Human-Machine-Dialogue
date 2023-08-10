@@ -226,9 +226,11 @@ nlu:
   examples: |
     - What's the price of a [margherita](pizza_type)?
     - How much does a [marinara](pizza_type) cost?
+    - How much for a [light](pizza_type)?
     - Can you tell me the price of a [pepperoni](pizza_type)?
     - I want to know the price of a [marinara](pizza_type).
     - What is the cost of a [pepperoni](pizza_type)?
+    - What is the cost of a [pub](pizza_type)?
     - How expensive is a [margherita](pizza_type)?
     - How much for a [pepperoni](pizza_type)?
     - How much do you charge for a [marinara](pizza_type)?

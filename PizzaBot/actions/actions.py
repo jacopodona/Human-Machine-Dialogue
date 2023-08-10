@@ -215,7 +215,7 @@ class ActionTellDrinkPrice(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        key_to_find = next(tracker.get_latest_entity_values("drink_name"), None)
+        key_to_find=tracker.get_slot("drink_name")
 
         if key_to_find is None:
             dispatcher.utter_message(text="I did not understand, could you ask me again please?")
@@ -227,7 +227,7 @@ class ActionTellDrinkPrice(Action):
                 drink_price=drink.price
                 msg = f"A {key_to_find} costs {str(drink_price)} €"
             dispatcher.utter_message(text=msg)
-        return []
+        return [SlotSet("drink_name",None)]
 
 class ActionTellPizzaPrice(Action):
 
@@ -238,21 +238,21 @@ class ActionTellPizzaPrice(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        key_to_find = next(tracker.get_latest_entity_values("pizza_type"), None)
-
+        key_to_find=tracker.get_slot("pizza_type")
+        print("Key to find:",key_to_find)
         if key_to_find is None:
             dispatcher.utter_message(text="I did not understand, could you ask me again please?")
             return []
         else:
             pizza = getPizzaFromMenuByName(key_to_find)
             if pizza is None:
-                msg = f"I'm afraid we do not have {key_to_find} in our menu. You can get a list of available drinks by asking 'What drinks do you have?'"
+                msg = f"I'm afraid we do not have {key_to_find} in our menu. You can get a list of available pizzas by asking 'What pizzas do you have?'"
                 dispatcher.utter_message(text=msg)
                 return []
             else:
                 msg = f"A {pizza.name} costs {str(pizza.price)} €\n"
                 dispatcher.utter_message(text=msg)
-                return [FollowupAction("utter_topping_and_size_price")]
+                return [SlotSet("pizza_type",None),FollowupAction("utter_topping_and_size_price")]
 
 class ActionTellPizzaIngredients(Action):
 
@@ -263,8 +263,7 @@ class ActionTellPizzaIngredients(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        key_to_find = next(tracker.get_latest_entity_values("pizza_type"), None)
-
+        key_to_find = tracker.get_slot("pizza_type")
         if key_to_find is None:
             dispatcher.utter_message(text="I did not understand, could you ask me again please?")
             return []
@@ -283,7 +282,7 @@ class ActionTellPizzaIngredients(Action):
                     msg += other_ingredients + ", " + last_two_ingredients
                 msg+="."
             dispatcher.utter_message(text=msg)
-            return []
+            return [SlotSet("pizza_type",None)]
 
 class ActionTellPizzaWithoutIngredient(Action):
 
