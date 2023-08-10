@@ -32,13 +32,13 @@ drink_menu=[
 pizza_menu=[
     Pizza(name="margherita",price=6,ingredients=["tomato sauce","mozzarella"]),
     Pizza(name="marinara",price=6,ingredients=["tomato sauce","garlic"]),
-    Pizza(name="pepperoni", price=7, ingredients=["tomato sauce", "mozzarella", "pepperoni"]),
+    Pizza(name="diavola", price=7, ingredients=["tomato sauce", "mozzarella", "pepperoni"]),
     Pizza(name="capricciosa", price=8, ingredients=["tomato sauce", "mozzarella","ham", "mushrooms"]),
     Pizza(name="hawaiian", price=9, ingredients=["tomato sauce", "mozzarella", "ham", "pineapple"]),
     Pizza(name="vegetarian", price=8, ingredients=["tomato sauce", "mozzarella", "zucchini", "bell peppers", "eggplant"]),
     Pizza(name="pub", price=8, ingredients=["tomato sauce", "mozzarella", "wurstel", "potatoes"]),
     Pizza(name="rustic", price=8, ingredients=["tomato sauce", "mozzarella", "sausage", "potatoes"]),
-    Pizza(name="chicken", price=9, ingredients=["BBQ sauce", "mozzarella", "grilled chicken"]),
+    Pizza(name="kebab", price=9, ingredients=["BBQ sauce", "mozzarella", "chicken"]),
     Pizza(name="cheesey", price=8, ingredients=["tomato sauce", "mozzarella", "cheddar", "parmesan", "gorgonzola"]),
     Pizza(name="light", price=8, ingredients=["mozzarella", "spinach", "feta"]),
     Pizza(name="pesto", price=7, ingredients=["mozzarella", "pesto", "tomatoes"])
@@ -47,7 +47,7 @@ pizza_menu=[
 pizza_sizes=["small","medium","large"]
 
 toppings=["tomato sauce","mozzarella","garlic","pepperoni","ham","pineapple","bell peppers","eggplant","zucchini","spinach","onions",
-          "olives","mushrooms","wurstel","grilled_chicken","sausage","potatoes","BBQ sauce"]
+          "olives","mushrooms","wurstel","chicken","sausage","potatoes","BBQ sauce"]
 
 orders=[]
 
@@ -385,7 +385,11 @@ class ValidatePizzaOrderForm(FormValidationAction):
         if slot_value.lower() not in getPizzaTypes():
             dispatcher.utter_message(text=f"I don't recognize that pizza, for more indications on the available pizzas, ask 'What pizzas do you have in the menu?'")
             return {"pizza_type":None}
-        dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
+        ingredient=tracker.get_slot("ingredient")
+        if ingredient is None:
+            dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
+        else:
+            dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza with extra {ingredient}.")
         return {"pizza_type":slot_value}
 
 class ActionSubmitPizza(Action):
@@ -662,6 +666,9 @@ class ActionResponseNegative(Action):
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza'):
                 dispatcher.utter_message(text="Ok, removing this last item.")
                 return[SlotSet("pizza_type",None),SlotSet("pizza_size",None),FollowupAction("pizza_order_form")]
+            elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza_with_topping'):
+                dispatcher.utter_message(text="Ok, removing this last item.")
+                return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None),FollowupAction("pizza_order_form")]
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_drink'):
                 dispatcher.utter_message(text="Ok, removing this last item.")
                 return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("drink_order_form")]

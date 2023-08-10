@@ -156,10 +156,10 @@ nlu:
     - i want to add another pizza
     - I want a pizza
     - I want a [capricciosa](pizza_type)
-    - I would like a [pepperoni](pizza_type)
+    - I would like a [diavola](pizza_type)
     - I want to order a [margherita](pizza_type)
     - Order a [cheesey](pizza_type)
-    - Give me a [pepperoni](pizza_type)
+    - Give me a [diavola](pizza_type)
     - Get me a [cheesey](pizza_type) pizza
 
 - intent: init_drink_request
@@ -227,12 +227,12 @@ nlu:
     - What's the price of a [margherita](pizza_type)?
     - How much does a [marinara](pizza_type) cost?
     - How much for a [light](pizza_type)?
-    - Can you tell me the price of a [pepperoni](pizza_type)?
+    - Can you tell me the price of a [diavola](pizza_type)?
     - I want to know the price of a [marinara](pizza_type).
-    - What is the cost of a [pepperoni](pizza_type)?
+    - What is the cost of a [diavola](pizza_type)?
     - What is the cost of a [pub](pizza_type)?
     - How expensive is a [margherita](pizza_type)?
-    - How much for a [pepperoni](pizza_type)?
+    - How much for a [diavola](pizza_type)?
     - How much do you charge for a [marinara](pizza_type)?
     - Please provide the price of a [margherita](pizza_type).
     - Tell me the price of a [marinara](pizza_type).
@@ -240,12 +240,12 @@ nlu:
 - intent: ask_pizza_ingredients
   examples: |
     - What are the ingredients of a [margherita](pizza_type)?
-    - Can you tell me the [pepperoni](pizza_type) ingredients?
+    - Can you tell me the [diavola](pizza_type) ingredients?
     - I want to know what's in a [marinara](pizza_type).
     - What's the recipe for a [margherita](pizza_type)?
-    - Please list the ingredients of a [pepperoni](pizza_type).
+    - Please list the ingredients of a [diavola](pizza_type).
     - Tell me the toppings on a [margherita](pizza_type).
-    - What goes into a [pepperoni](pizza_type)?
+    - What goes into a [diavola](pizza_type)?
     - How is a [margherita](pizza_type) made?
     - What do you put on a [marinara](pizza_type)?
     - Which ingredients are in a [pub](pizza_type)?
@@ -253,9 +253,9 @@ nlu:
     - Can you tell me the [hawaiian](pizza_type) ingredients?
     - I want to know what's in a [pesto](pizza_type).
     - What do you put in a [capricciosa](pizza_type).
-    - Please list the ingredients of a [pepperoni](pizza_type).
+    - Please list the ingredients of a [diavola](pizza_type).
     - Tell me the toppings on a [rustic](pizza_type).
-    - What goes into a [chicken](pizza_type)?
+    - What goes into a [kebab](pizza_type)?
     - How is a [vegetarian](pizza_type) made?
     - What do you put on a [cheesey](pizza_type)?
     - Which ingredients are in a [pesto](pizza_type)?
@@ -344,24 +344,6 @@ nlu:
     - Status of my order
     
 
-- lookup: pizza_size
-  examples: |
-    - small
-    - medium
-    - large
-- lookup: pizza_type
-  examples: |
-    - margherita
-    - marinara
-    - pepperoni
-- lookup: drink_name
-  examples: |
-    - water
-    - tea
-    - sprite
-    - coke
-    - beer
-
 - intent: say_pizza_type
   examples: |
     - a [margherita](pizza_type)
@@ -369,10 +351,10 @@ nlu:
     - For me a [margherita](pizza_type)
     - Give me a [margherita](pizza_type)
     - [margherita](pizza_type)
-    - [pepperoni](pizza_type)
+    - [diavola](pizza_type)
     - Can you please make me a [margherita]
     - A [marinara](pizza_type)
-    - A [pepperoni](pizza_type) with [garlic](ingredient)
+    - A [diavola](pizza_type) with [garlic](ingredient)
     - a [pub](pizza_type) with [olives](ingredient)
     - a [light](pizza_type) with [ham](ingredient)
     - An [hawaiian](pizza_type) with [potatoes](ingredient)
@@ -525,9 +507,9 @@ nlu:
 
 - intent: ask_pizza_without_ingredient
   examples: |
-    - do you have pizza with no [tomato sauce](toppings)?
-    - do you have pizza with no [mozzarella](toppings)?
-    - do you have pizza with no [pepperoni](toppings)?
+    - do you have pizza with no [tomato sauce](ingredient)?
+    - do you have pizza with no [mozzarella](ingredient)?
+    - do you have pizza with no [pepperoni](ingredient)?
     - do you have pizza with no [vegetables](ingredient)?
     - do you have pizza without [mozzarella](ingredient)?
     - do you have pizza without [cheese](ingredient)?
@@ -535,8 +517,7 @@ nlu:
     - do you have pizza without [olives](ingredient)?
     - do you have pizza with no [mushrooms](ingredient) please?
     - do you have pizza with no [wurstel](ingredient) please?
-    - do you have pizza with no [grilled_chicken](ingredient) please?
-    - do you have pizza with no [grilled chicken](ingredient) please?
+    - do you have pizza with no [chicken](ingredient) please?
     - do you have pizza without [mushrooms](ingredient) please?
     - pizza with no [ham](ingredient)?
     - pizza with no [cheese](ingredient)?
@@ -546,14 +527,14 @@ nlu:
     - pizza without [spinach](ingredient)?
     - pizza without [olives](ingredient)?
     - pizza without [onions](ingredient)?
-    - pizza with no [grilled chicken](ingredient) please?
+    - pizza with no [chicken](ingredient) please?
     - pizza with no [mushrooms](ingredient) please?
     - pizza with no [olives](ingredient) please?
     - pizza with no [onions](ingredient) please?
     - pizza without [ham](ingredient) please?
     - pizza without [sausage](ingredient) please?
     - pizza without [pepperoni](ingredient) please?
-    - pizza without [grilled chicken](ingredient) please?
+    - pizza without [chicken](ingredient) please?
     - any pizza with no [olives](ingredient)?
     - any pizza with no [wurstel](ingredient)?
     - any pizza with no [pepperoni](ingredient)?
@@ -562,19 +543,19 @@ nlu:
     - any pizza without [mozzarella](ingredient) please?
     - any pizza without [olives](ingredient) please?
     - any pizza without [pepperoni](ingredient) please?
-    - what pizzas do you have without [grilled chicken](ingredient)?
+    - what pizzas do you have without [chicken](ingredient)?
     - what pizzas do you have without [mozzarella](ingredient)?
     - what pizzas do you have without [onions](ingredient)?
-    - what pizzas do you have without [grilled chicken](ingredient)?
+    - what pizzas do you have without [chicken](ingredient)?
     - what pizzas do you have with no [olives](ingredient)?
-    - what pizzas do you have with no [grilled chicken](ingredient)?
+    - what pizzas do you have with no [chicken](ingredient)?
     - what pizzas do you have with no [pepperoni](ingredient)?
 
 - intent: ask_pizza_with_ingredient
   examples: |
-    - do you have pizza with [tomato sauce](toppings)?
-    - do you have pizza with [mozzarella](toppings)?
-    - do you have pizza with [pepperoni](toppings)?
+    - do you have pizza with [tomato sauce](ingredient)?
+    - do you have pizza with [mozzarella](ingredient)?
+    - do you have pizza with [pepperoni](ingredient)?
     - do you have pizza with [vegetables](ingredient)?
     - do you have pizza wit [mozzarella](ingredient)?
     - do you have pizza wit [cheese](ingredient)?
@@ -582,25 +563,25 @@ nlu:
     - do you have pizza with [olives](ingredient)?
     - do you have pizza with [mushrooms](ingredient) please?
     - do you have pizza with [wurstel](ingredient) please?
-    - do you have pizza with [grilled_chicken](ingredient) please?
-    - do you have pizza with [grilled chicken](ingredient) please?
+    - do you have pizza with [chicken](ingredient) please?
+    - do you have pizza with [chicken](ingredient) please?
     - do you have pizza with [mushrooms](ingredient) please?
-    - pizza with [ham](ingredient)?
-    - pizza with [cheese](ingredient)?
-    - pizza with [olives](ingredient)?
-    - pizza with [onions](ingredient)?
-    - pizza with [meat](ingredient)?
-    - pizza with [spinach](ingredient)?
-    - pizza with [olives](ingredient)?
-    - pizza with [onions](ingredient)?
-    - pizza with [grilled chicken](ingredient) please?
-    - pizza with [mushrooms](ingredient) please?
-    - pizza with [olives](ingredient) please?
-    - pizza with [onions](ingredient) please?
-    - pizza with [ham](ingredient) please?
-    - pizza with [sausage](ingredient) please?
+    - What pizzas has [ham](ingredient)?
+    - What pizzas has [cheese](ingredient)?
+    - What pizzas has [olives](ingredient)?
+    - What pizzas has [onions](ingredient)?
+    - What pizzas has [meat](ingredient)?
+    - What pizzas has [spinach](ingredient)?
+    - What pizzas has [olives](ingredient)?
+    - What pizzas has [onions](ingredient)?
+    - What pizzas has [chicken](ingredient)?
+    - What pizzas has [mushrooms](ingredient)?
+    - What pizzas has [olives](ingredient)?
+    - What pizzas has [onions](ingredient)?
+    - What pizzas has [ham](ingredient)?
+    - pizza with [sausage](ingredient)?
     - pizza with [pepperoni](ingredient) please?
-    - pizza with [grilled chicken](ingredient) please?
+    - pizza with [chicken](ingredient) please?
     - any pizza with [olives](ingredient)?
     - any pizza with [wurstel](ingredient)?
     - any pizza with [pepperoni](ingredient)?
@@ -609,12 +590,12 @@ nlu:
     - any pizza with [mozzarella](ingredient) please?
     - any pizza with [olives](ingredient) please?
     - any pizza with [pepperoni](ingredient) please?
-    - what pizzas do you have with [grilled chicken](ingredient)?
+    - what pizzas do you have with [chicken](ingredient)?
     - what pizzas do you have with [mozzarella](ingredient)?
     - what pizzas do you have with [onions](ingredient)?
-    - what pizzas do you have with [grilled chicken](ingredient)?
+    - what pizzas do you have with [chicken](ingredient)?
     - what pizzas do you have with [olives](ingredient)?
-    - what pizzas do you have with [grilled chicken](ingredient)?
+    - what pizzas do you have with [chicken](ingredient)?
     - what pizzas do you have with [pepperoni](ingredient)?
 
 - intent: delete_order
@@ -646,13 +627,13 @@ nlu:
   examples: |
     - margherita
     - marinara
-    - pepperoni
+    - diavola
     - capricciosa
     - hawaiian
     - vegetarian
     - pub
     - rustic
-    - chicken
+    - kebab
     - cheesey
     - light
     - pesto
@@ -721,11 +702,9 @@ nlu:
   examples: |
     - marghe
 
-- synonym: pepperoni
+- synonym: diavola
   examples: |
-    - peperoni
     - salamino
-    - diavola
     - spicy
 
 - synonym: hawaiian

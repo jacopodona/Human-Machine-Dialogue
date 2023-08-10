@@ -11,7 +11,7 @@ Pizza ordering bot
   - make the form flexible to unhappy user paths (TODO)
 - Order drink(s) 
   - support for text instead of numbers (two vs 2) (TODO)
-- Customize pizza (TODO)
+- Customize pizza (to finetune)
 - Ask for price of pizza/drink
 - Ask for ingredients in pizza
 - Ask for menu
