@@ -372,6 +372,12 @@ nlu:
     - [pepperoni](pizza_type)
     - Can you please make me a [margherita]
     - A [marinara](pizza_type)
+    - A [pepperoni](pizza_type) with [garlic](ingredient)
+    - a [pub](pizza_type) with [olives](ingredient)
+    - a [light](pizza_type) with [ham](ingredient)
+    - An [hawaiian](pizza_type) with [potatoes](ingredient)
+    - a [cheesey](pizza_type) with [sausage](ingredient)
+    - a [capricciosa](pizza_type) with [olives](ingredient)
 
 - intent: say_pizza_size
   examples: |

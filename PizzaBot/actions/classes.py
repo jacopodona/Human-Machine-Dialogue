@@ -27,6 +27,23 @@ class OrderedPizza:
         elif (self.size == "large"):
             base_price += 2
         return (base_price+len(self.extras))*int(self.amount)
+
+    def printExtras(self):
+        message=""
+        if len(self.extras)==0:
+             message+="no addition"
+        elif len(self.extras)==1:
+             message+=self.extras[0]
+        elif len(self.extras)==2:
+            message+= self.extras[0]+" and "+self.extras[1]
+        else:
+            last_two_extras = " and ".join(self.extras[-2:])
+            other_extras = ", ".join(self.extras[:-2])
+
+            # Concatenate the two parts
+            message += other_extras + ", " + last_two_extras
+        return message
+
     def __eq__(self, other):
         isEqual=(self.pizza.name==other.pizza.name) and (self.extras==other.extras) and (self.size == other.size) #Check all parameters are identical
         return isEqual

@@ -111,7 +111,7 @@ def getOrderRecap(order):
         else:
             message += str(pizza_in_order.amount)+" " + pizza_in_order.size + " " + pizza_in_order.pizza.name
         if len(pizza_in_order.extras) != 0:
-            message += " with " + pizza_in_order.extras
+            message += " with " + pizza_in_order.printExtras()
         addDrinkComma=True
     for j in range(len(order.drinks)):
         drink_in_order=order.drinks[j]
@@ -388,6 +388,23 @@ class ValidatePizzaOrderForm(FormValidationAction):
         dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
         return {"pizza_type":slot_value}
 
+class ActionSubmitPizza(Action):
+
+    def name(self) -> Text:
+        return "action_submit_pizza"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        ingredient=tracker.get_slot("ingredient")
+
+        if ingredient is None:
+            #dispatcher.utter_message(response="utter_submit_pizza")
+            return [FollowupAction("utter_submit_pizza")]
+        else:
+            return [FollowupAction("utter_submit_pizza_with_topping")]
+
 class ValidateDrinkOrderForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_drink_order_form"
@@ -553,6 +570,25 @@ class ActionResponsePositive(Action):
                 dispatcher.utter_message(text=message)
                 #dispatcher.utter_message(response="utter_anything_else_order")
                 return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None)]
+            elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza_with_topping'):
+                pizza_type = tracker.slots['pizza_type']
+                pizza_size = tracker.slots['pizza_size']
+                ingredient = tracker.slots['ingredient']
+                pizza_to_add = OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size, toppings=[ingredient],amount=1)
+                order=getOrderByUserID(tracker.sender_id)
+                if order is None: #User does not have an order yet, create it and add pizza
+                    order=Order(id=order_id_counter,user_id=tracker.sender_id)
+                    order.addPizza(pizza_to_add)
+                    orders.append(order)
+                    updateOrderIDCounter()
+                else: #User has already an order, modify it with new pizza
+                    order.addPizza(pizza_to_add)
+                    updateExistingOrder(order)
+                dispatcher.utter_message("Perfect! It was added to your order.")
+                message=getOrderRecap(order)
+                dispatcher.utter_message(text=message)
+                #dispatcher.utter_message(response="utter_anything_else_order")
+                return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None),SlotSet("ingredient",None)]
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_drink'):
                 drink_name = tracker.slots['drink_name']
                 drink_amount = tracker.slots['drink_amount']
