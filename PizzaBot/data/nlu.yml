@@ -141,6 +141,21 @@ nlu:
 #    - what's the process for adopting a pet?
 #    - can you help me find a local art class?
 
+- intent: stop
+  examples: |
+    - I changed my mind
+    - I dont want to order anymore
+    - I dont want to do delivery
+    - I dont want to do pickup
+    - I changed idea
+    - I dont want it anymore
+    - Stop, I changed my mind
+    - I don't want to do that anymore
+    - I dont want to do it anymore
+    - I dont want delivery anymore
+    - I dont want pickup anymore
+    
+
 - intent: init_request
   examples: |
     - Can I make an order?

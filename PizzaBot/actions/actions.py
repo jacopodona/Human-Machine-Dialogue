@@ -11,7 +11,7 @@ from typing import Any, Text, Dict, List
 from rasa.shared.core.events import AllSlotsReset
 from rasa_sdk import Action, Tracker,FormValidationAction
 
-from rasa_sdk.events import EventType, SlotSet,AllSlotsReset,ActionExecuted,FollowupAction
+from rasa_sdk.events import EventType, SlotSet,AllSlotsReset,ActionExecuted,FollowupAction,ActiveLoop
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 
@@ -532,7 +532,7 @@ class ActionSeeOrderInfo(Action):
             id=userOrder.id
             delivery_info =""
             if method is None:
-                delivery_info="You didn't tell me how you wish to receive your order."
+                delivery_info="You didn't tell me yet how you wish to receive your order."
             elif method=="delivery":
                 name=userOrder.client_name
                 address=userOrder.address
@@ -687,4 +687,12 @@ class ActionResponseNegative(Action):
             dispatcher.utter_message("Sorry, can you repeat that?")
         return []
 
+class ActionDeactivateForm(Action):
+    def name(self):
+        return 'action_deactivate_form'
+
+    def run(self, dispatcher, tracker, domain):
+
+        dispatcher.utter_message(text="Ok, I won't ask you any more questions about it. How can I help you?")
+        return[ActiveLoop(None),AllSlotsReset()]
 

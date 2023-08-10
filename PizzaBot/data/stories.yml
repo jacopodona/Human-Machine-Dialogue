@@ -61,6 +61,28 @@ stories:
   - action: action_response_positive
   - checkpoint: pizza_added_to_order
 
+- story: ask for pizza order but changes idea (unhappy path)
+  steps:
+  - intent: init_request
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - intent: stop
+  - action: action_deactivate_form
+  - active_loop: null
+
+- story: ask for pizza order but changes idea (unhappy path)
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - intent: init_request
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - intent: stop
+  - action: action_deactivate_form
+  - active_loop: null
+
 - story: add another pizza
   steps:
   - checkpoint: pizza_added_to_order
@@ -89,6 +111,16 @@ stories:
   - action: utter_submit_drink
   - intent: response_positive
   - action: action_response_positive
+
+- story: ask for drink order but changes idea (unhappy path)
+  steps:
+  - intent: init_drink_request
+  - action: utter_accept_request
+  - action: drink_order_form
+  - active_loop: drink_order_form
+  - intent: stop
+  - action: action_deactivate_form
+  - active_loop: null
 
 - story: User selects delivery option, has an order ready to be checked-out, procede to complete the form (happy path)
   steps:

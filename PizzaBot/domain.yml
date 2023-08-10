@@ -8,6 +8,7 @@ intents:
   - response_negative
   - response_positive
   - out_of_scope
+  - stop
 
 #TASK 1 order pizza
   - init_request
@@ -242,6 +243,7 @@ actions:
   - action_see_order_information
   - action_tell_pizza_without_ingredient
   - action_tell_pizza_with_ingredient
+  - action_deactivate_form
 
 forms:
   pizza_order_form:

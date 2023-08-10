@@ -8,10 +8,11 @@ Pizza ordering bot
   - make the intent contain the pizza slot (to finetune)
     - try merge say_pizza_type e size
     - try adding complete requests in init_request
-  - make the form flexible to unhappy user paths (TODO)
+  - make the form flexible to unhappy user paths
 - Order drink(s) 
   - support for text instead of numbers (two vs 2) (TODO)
-- Customize pizza (to finetune)
+  - - make the form flexible to unhappy user paths
+- Customize pizza (to finetune)(only 1 topping)
 - Ask for price of pizza/drink
 - Ask for ingredients in pizza
 - Ask for menu
@@ -30,6 +31,7 @@ Pizza ordering bot
   - Add drink (TODO)
   - Remove drink (TODO)
   - Change drink (TODO)
+  - Change address (TODO)
   - Change time (TODO)
   - Change delivery method (TODO)
 
