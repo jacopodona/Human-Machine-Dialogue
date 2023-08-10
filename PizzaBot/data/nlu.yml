@@ -609,6 +609,31 @@ nlu:
     - what pizzas do you have with [grilled chicken](ingredient)?
     - what pizzas do you have with [pepperoni](ingredient)?
 
+- intent: delete_order
+  examples: |
+    - Delete the order
+    - Please cancel my order
+    - I want to remove the order I placed
+    - can you help me delete my order?
+    - I changed my mind, delete my order
+    - remove the order that I ordered last week
+    - I no longer need the order, delete it
+    - cancel my recent order
+    - Please delete the order I made
+    - I've decided not to proceed with order, delete it
+    - Remove the order from my account
+    - I want to cancel the order
+    - delete my order
+    - Cancel the order I placed
+    - I need to delete the order
+    - remove the order
+    - delete my most recent order
+    - cancel the order that I made
+    - I've changed my mind, delete my order
+    - Please remove the order I just made
+    - Actually I changed my mind, please delete the order
+    - I changed idea, delete my order
+
 - lookup: pizza_type
   examples: |
     - margherita

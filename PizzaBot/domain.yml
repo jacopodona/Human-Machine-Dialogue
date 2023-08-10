@@ -44,6 +44,7 @@ intents:
 #
 ##TASK 3 modify previously made order
   - ask_order_info
+  - delete_order
 #  - init_modify_order
 #  - add_pizza
 #  - remove_pizza
@@ -204,6 +205,16 @@ responses:
 
   utter_order_saved_delivery:
     - text: "Perfect! Your order was correctly submitted, our driver will bring your order. Have a good evening!"
+
+  utter_ask_delete_order_confirmation:
+    - text: "I am sorry to hear that. Are you sure you want to delete your order?"
+
+  utter_delete_order_error:
+    - text: "I could not find any order done by you recently to remove."
+
+  utter_order_deleted:
+    - text: "Your order has been successfully removed."
+
 
   utter_out_of_scope:
     - text: "I'm really sorry, but I am afraid I can't help you with that."

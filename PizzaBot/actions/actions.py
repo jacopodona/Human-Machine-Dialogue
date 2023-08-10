@@ -75,8 +75,9 @@ def getOrderByUserID(user):
     return None
 
 def logOrderDB():
+    message="DB orders:"+str(len(orders))
     for order in orders:
-        message=f"Order id: {order.id} \n {getOrderRecap(order)}\n Checkout method set to {order.delivery_method}"
+        message+=f"Order id: {order.id} \n {getOrderRecap(order)}\n Checkout method set to {order.delivery_method}"
         print(message)
 
 def getPizzaFromMenuByName(pizza_name):
@@ -89,6 +90,13 @@ def getDrinkFromMenuByName(drink_name):
     for drink in drink_menu:
         if drink_name == drink.name:
             return drink
+    return None
+
+def removeOrderByUserID(sender_id):
+    for i in range(len(orders)):
+        order=orders[i]
+        if order.user_id==sender_id:
+            return orders.pop(i)
     return None
 
 def getOrderRecap(order):
@@ -571,6 +579,7 @@ class ActionResponsePositive(Action):
                 order.setPickupInformation(pickup_time=order_time, pickup_client=client_name)
                 updateExistingOrder(order)
                 dispatcher.utter_message(response="utter_order_saved_pickup")
+                return[SlotSet("client_name",None),SlotSet("order_time",None)]
             elif (bot_event['metadata']['utter_action'] == "utter_submit_delivery"):
                 order = getOrderByUserID(tracker.sender_id)
                 client_name = tracker.slots['client_name']
@@ -581,6 +590,13 @@ class ActionResponsePositive(Action):
                 updateExistingOrder(order)
                 dispatcher.utter_message(response="utter_order_saved_delivery")
                 return [SlotSet("address_street", None),SlotSet("client_name", None), SlotSet("order_time", None)]
+            elif (bot_event['metadata']['utter_action'] == "utter_ask_delete_order_confirmation"):
+                removed=removeOrderByUserID(tracker.sender_id)
+                if removed is None:
+                    dispatcher.utter_message(response="utter_delete_order_error")
+                else:
+                    dispatcher.utter_message(response="utter_order_deleted")
+                return []
             elif(bot_event['metadata']['utter_action'] == "utter_anything_else_order"):
                 #The user wants something else"
                 dispatcher.utter_message("What would you like to add to your order?")
@@ -620,6 +636,9 @@ class ActionResponseNegative(Action):
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_pickup'):
                 dispatcher.utter_message(text="Ok, removing these details.")
                 return [SlotSet("order_time", None), SlotSet("client_name", None),FollowupAction("pickup_order_form")]
+            elif (bot_event['metadata']['utter_action'] == 'utter_ask_delete_order_confirmation'):
+                dispatcher.utter_message(text="Ok, your order has not been deleted.")
+                return []
             else:
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except:

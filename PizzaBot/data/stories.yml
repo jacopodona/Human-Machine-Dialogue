@@ -131,8 +131,6 @@ stories:
   steps:
   - checkpoint: order_complete_pickup
   - intent: ask_order_info
-  - slot_was_set:
-      - order_ready: true
   - action: action_see_order_information
 
 - story: User provides preferred delivery method, does not have an order ready to be checked-out (unhappy path)
@@ -144,12 +142,6 @@ stories:
     - order_ready: false
   - action: utter_error_order_not_ready
 
-#- story: User checks information of his order but has not made one yet
-#  steps:
-#  - intent: ask_order_info
-#  - slot_was_set:
-#      - order_ready: false
-#  - action: utter_no_user_order
 
 - story: User asks for pizzas without ingredient, asks further information on pizzas
   steps:
