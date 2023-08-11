@@ -528,6 +528,8 @@ class ActionSeeOrderInfo(Action):
         else:
             print(f"User {tracker.sender_id} has an order")
             orderRecap=getOrderRecap(userOrder)
+            price=computeOrderPrice(userOrder)
+            price_info=f"The total price is {str(price)}€."
             method=userOrder.delivery_method
             id=userOrder.id
             delivery_info =""
@@ -543,7 +545,7 @@ class ActionSeeOrderInfo(Action):
                 name=userOrder.client_name
                 delivery_info=f"You will come to pickup your order at {order_time}, the saved name is {name}."
             order_id_information=f"Your order ID is {str(id)}."
-            message=orderRecap+"\n"+delivery_info+"\n"+order_id_information
+            message=orderRecap+"\n"+price_info+"\n"+delivery_info+"\n"+order_id_information
             dispatcher.utter_message(message)
             print(f"Order info to send user: {userOrder.__dict__}")
             return []
