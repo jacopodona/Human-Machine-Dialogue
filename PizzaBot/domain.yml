@@ -40,7 +40,6 @@ intents:
   - ask_pizza_ingredients
   - ask_pizza_with_ingredient
   - ask_pizza_without_ingredient
-#  - pizza_suggestion_without_ingredient
 #
 #
 ##TASK 3 modify previously made order
@@ -135,9 +134,6 @@ responses:
   utter_goodbye:
   - text: "Thank you for using SmartPizza. See you soon!"
 
-  utter_help:
-    - text: "With this bot, you can easily place orders for pizza delivery. Try saying 'I want to order a pizza', or 'Suggest me a pizza' to get started."
-
   utter_error:
     - text: "Sorry, I am afraid I didn’t understand that. Can you please retype it?"
 
@@ -219,7 +215,6 @@ responses:
   utter_order_deleted:
     - text: "Your order has been successfully removed."
 
-
   utter_out_of_scope:
     - text: "I'm really sorry, but I am afraid I can't help you with that."
 
@@ -244,6 +239,7 @@ actions:
   - action_tell_pizza_without_ingredient
   - action_tell_pizza_with_ingredient
   - action_deactivate_form
+  - action_help_user
 
 forms:
   pizza_order_form:

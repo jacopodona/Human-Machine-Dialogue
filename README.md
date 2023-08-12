@@ -24,15 +24,20 @@ Pizza ordering bot
   - Add error handling
   - make the form flexible to unhappy user paths (TODO)
 - Modify order (TODO)
-  - Add pizza (TODO?)
+  - Add pizza
   - Remove pizza (TODO)
   - Change pizza (TODO)
-  - Add drink (TODO?)
+  - Add drink
   - Remove drink (TODO)
   - Change drink (TODO)
   - Change address (TODO)
   - Change time (TODO)
   - Change delivery method (TODO)
+  - Delete order
+- Add stories and test stories(TODO)
+- Add intent "I want to checkout"
+- Make 2nd Configuration file (TODO)
+- Trasform Help in action to assist user based on point in conversation.
 - Deploy on Alexa (TODO)
 
 ### Training the model

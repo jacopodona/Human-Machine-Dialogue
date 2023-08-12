@@ -15,7 +15,7 @@ stories:
   - intent: welcome_greet
   - action: utter_welcome_greet
   - intent: help
-  - action: utter_help
+  - action: action_help_user
   - intent: goodbye
   - action: utter_goodbye
 

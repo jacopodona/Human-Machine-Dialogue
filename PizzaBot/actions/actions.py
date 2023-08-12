@@ -175,9 +175,31 @@ class ActionTellDrinkList(Action):
 
             # Concatenate the two parts
             result = other_drinks + ", " + last_two_drinks
-            msg= "We currently offer "+result
+            msg= "For drinks we currently offer "+result
         dispatcher.utter_message(text=msg)
 
+        return []
+
+class ActionHelpUser(Action):
+
+    def name(self) -> Text:
+        return "action_help_user"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        order_ready=tracker.get_slot("order_ready")
+
+        if order_ready:
+            order=getOrderByUserID(tracker.sender_id)
+            if order.delivery_method is None:
+                dispatcher.utter_message(text="As of now, you can order more food or drinks, or we can procede to checkout.")
+            else:
+                dispatcher.utter_message(text="Your order is all set and ready to be prepared, you can ask me anytime the information about your order to have a quick recap. Additionally, you can also decide to add or remove food or drinks from your order, change the delivery information or delete the order if you need to. ")
+        else:
+            dispatcher.utter_message(text="With this bot, you can easily place orders for pizza delivery. You can start by saying 'I want to order a pizza', to get started and I will help you through it.\n"+
+                                          "You can also ask me about the pizza and drink menu, what is the price of each item, the list of ingredients of a pizza and I can also tell you the list of pizzas that do or do not contain some particular ingredient.")
         return []
 
 class ActionTellPizzaMenu(Action):
@@ -644,7 +666,8 @@ class ActionResponsePositive(Action):
                 return []
             else:
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
-        except:
+        except Exception as e:
+            print(e)
             dispatcher.utter_message("Sorry, can you repeat that?")
         return []
 
@@ -685,7 +708,8 @@ class ActionResponseNegative(Action):
                 return []
             else:
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
-        except:
+        except Exception as e:
+            print(e)
             dispatcher.utter_message("Sorry, can you repeat that?")
         return []
 
