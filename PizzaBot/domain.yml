@@ -19,6 +19,7 @@ intents:
 #  - init_request_with_entity
   - say_pizza_type
   - say_pizza_size
+  - init_checkout_request
   - inform_order_delivery
   - inform_order_pickup
   - say_order_time

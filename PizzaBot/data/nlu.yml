@@ -290,6 +290,22 @@ nlu:
     - How much is [sprite](drink_name)?
     - Could you inform me about the price of [tea](drink_name)?
 
+- intent: init_checkout_request
+  examples: |
+    - I want to checkout
+    - I want to procede to checkout
+    - I'm ready to check out my order
+    - Let's proceed to the checkout
+    - I want to finalize the order
+    - Can you take me to the checkout page?
+    - I want to complete my order
+    - I'm done selecting items, I want to checkout
+    - Where's the button to pay for my order?
+    - I'd like to move forward with the checkout
+    - Let's checkout
+    - I want to finalize the order
+            
+
 - intent: inform_order_delivery
   examples: |
     - I want delivery at home

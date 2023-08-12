@@ -224,3 +224,26 @@ stories:
   - action: utter_ask_delete_order_confirmation
   - intent: response_negative
   - action: action_response_negative
+
+- story: After adding pizza user wants to checkout
+  steps:
+    - checkpoint: pizza_added_to_order
+    - intent: init_checkout_request
+    - slot_was_set:
+        - order_ready: true
+    - action: utter_ask_delivery_method
+
+- story: After adding drink user wants to checkout
+  steps:
+    - checkpoint: drink_added_to_order
+    - intent: init_checkout_request
+    - slot_was_set:
+        - order_ready: true
+    - action: utter_ask_delivery_method
+
+- story: User tries to checkout without having an order
+  steps:
+    - intent: init_checkout_request
+    - slot_was_set:
+        - order_ready: false
+    - action: utter_no_user_order
