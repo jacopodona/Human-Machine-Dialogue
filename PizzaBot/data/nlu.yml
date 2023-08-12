@@ -628,6 +628,8 @@ nlu:
     - Remove the order from my account
     - I want to cancel the order
     - delete my order
+    - I want to delete my order
+    - I want to delete an order
     - Cancel the order I placed
     - I need to delete the order
     - remove the order

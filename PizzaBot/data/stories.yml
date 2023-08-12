@@ -165,6 +165,12 @@ stories:
   - intent: ask_order_info
   - action: action_see_order_information
 
+- story: User checks information of his delivery order once complete
+  steps:
+  - checkpoint: order_complete_delivery
+  - intent: ask_order_info
+  - action: action_see_order_information
+
 - story: User provides preferred delivery method, does not have an order ready to be checked-out (unhappy path)
   steps:
   - or:
@@ -194,3 +200,27 @@ stories:
       - entity: pizza_type
         value: "light"
   - action: action_tell_pizza_ingredients
+
+- story: User deletes his order after having completed delivery form
+  steps:
+  - checkpoint: order_complete_delivery
+  - intent: delete_order
+  - action: utter_ask_delete_order_confirmation
+  - intent: response_positive
+  - action: action_response_positive
+
+- story: User deletes his order after having completed pickup form
+  steps:
+  - checkpoint: order_complete_pickup
+  - intent: delete_order
+  - action: utter_ask_delete_order_confirmation
+  - intent: response_positive
+  - action: action_response_positive
+
+- story: User start delete his order but changes idea
+  steps:
+  - checkpoint: order_complete_pickup
+  - intent: delete_order
+  - action: utter_ask_delete_order_confirmation
+  - intent: response_negative
+  - action: action_response_negative

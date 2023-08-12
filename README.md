@@ -24,10 +24,10 @@ Pizza ordering bot
   - Add error handling
   - make the form flexible to unhappy user paths (TODO)
 - Modify order (TODO)
-  - Add pizza
+  - Add pizza (REMOVE ANYTHING ELSE)
   - Remove pizza (TODO)
   - Change pizza (TODO)
-  - Add drink
+  - Add drink (REMOVE ANYTHING ELSE)
   - Remove drink (TODO)
   - Change drink (TODO)
   - Change address (TODO)
@@ -35,7 +35,8 @@ Pizza ordering bot
   - Change delivery method (TODO)
   - Delete order
 - Add stories and test stories(TODO)
-- Add intent "I want to checkout"
+- Add intent "I want to checkout" (TODO)
+- If user asks "What is in a diavola" inside the form the form will automatically load the slot and continue (TODO)
 - Make 2nd Configuration file (TODO)
 - Trasform Help in action to assist user based on point in conversation.
 - Deploy on Alexa (TODO)
