@@ -333,7 +333,6 @@ nlu:
     - I'd like to move forward with the checkout
     - Let's checkout
     - I want to finalize the order
-            
 
 - intent: inform_order_delivery
   examples: |
@@ -698,6 +697,34 @@ nlu:
     - I want to change the order time
     - Can I modify the order time?
     - Can I change the order time?
+
+- intent: modify_order_name
+  examples: |
+    - I want to modify the name
+    - I want to modify the name of the order
+    - I want to modify the name int the order
+    - I want to modify the name of my order
+    - I want to modify the pickup name
+    - I want to modify the pickup person
+    - I want to modify the delivery name
+    - I want to modify the name for the delivery
+    - I want to modify the bell name for the delivery
+    - I want to change the name
+    - I want to change the name of the order
+    - I want to change the name int the order
+    - I want to change the name of my order
+    - I want to change the pickup name
+    - I want to change the pickup person
+    - I want to change the delivery name
+    - I want to change the name for the delivery
+    - I want to change the bell name for the delivery
+    - Can I modify the order name?
+    - Can I change the order name?
+    - Can I modify the name for the delivery?
+    - Can I modify the bell name for the delivery?
+    - Can I modify the name for the pickup?
+    - Can I modify the person for the delivery?
+    - Can I modify the person for the pickup?
 
 - lookup: pizza_type
   examples: |

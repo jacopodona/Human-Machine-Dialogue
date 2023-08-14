@@ -347,7 +347,7 @@ class ActionTellPizzaWithoutIngredient(Action):
                 dispatcher.utter_message(f"We don't put {ingredient} in any pizza.")
                 return [SlotSet("ingredient", None)]
 
-class ActionTellPizzaWithoutIngredient(Action):
+class ActionTellPizzaWithIngredient(Action):
 
     def name(self) -> Text:
         return "action_tell_pizza_with_ingredient"
@@ -518,8 +518,19 @@ class ValidateChangeTimeForm(FormValidationAction):
                              dispatcher: CollectingDispatcher,
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
-        dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+        dispatcher.utter_message(text=f"Ok! Updating the time to {slot_value}.")
         return {"order_time": slot_value}
+
+class ValidateChangeNameForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_change_name_form"
+
+    def validate_client_name(self, slot_value: Any,
+                             dispatcher: CollectingDispatcher,
+                             tracker: Tracker,
+                             domain: DomainDict) -> Dict[Text, Any]:
+        dispatcher.utter_message(text=f"Ok! Updating the name to the order for {slot_value}.")
+        return {"client_name": slot_value}
 
 class ActionCheckOrderReady(Action):
 
@@ -691,6 +702,13 @@ class ActionResponsePositive(Action):
                 order.order_time=new_order_time
                 updateExistingOrder(order)
                 return [SlotSet("order_time", None)]
+            elif (bot_event['metadata']['utter_action'] == 'utter_submit_name_modification'):
+                dispatcher.utter_message(text="Perfect, the name has been changed correctly.")
+                order = getOrderByUserID(tracker.sender_id)
+                new_client_name = tracker.slots['client_name']
+                order.client_name=new_client_name
+                updateExistingOrder(order)
+                return [SlotSet("client_name", None)]
             elif(bot_event['metadata']['utter_action'] == "utter_anything_else_order"):
                 #The user wants something else"
                 dispatcher.utter_message("What would you like to add to your order?")
@@ -738,6 +756,9 @@ class ActionResponseNegative(Action):
                 dispatcher.utter_message(text="Ok, your order has not been deleted.")
                 return []
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_time_modification'):
+                dispatcher.utter_message(text="Ok, I did not change the order time.")
+                return [SlotSet("order_time", None)]
+            elif (bot_event['metadata']['utter_action'] == 'utter_submit_name_modification'):
                 dispatcher.utter_message(text="Ok, I did not change the order time.")
                 return [SlotSet("order_time", None)]
             else:

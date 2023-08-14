@@ -47,6 +47,7 @@ intents:
   - ask_order_info
   - delete_order
   - modify_order_time
+  - modify_order_name
 #  - init_modify_order
 #  - add_pizza
 #  - remove_pizza
@@ -213,6 +214,9 @@ responses:
   utter_submit_time_modification:
     - text: "Ok, I am about to change the order time to {order_time}. Is this correct?"
 
+  utter_submit_name_modification:
+    - text: "Ok, I am about to change the order name to {client_name}. Is this correct?"
+
   utter_no_user_order:
     - text: "It seems like you have not made an order yet."
 
@@ -247,6 +251,8 @@ actions:
   - validate_drink_order_form
   - validate_pickup_order_form
   - validate_delivery_order_form
+  - validate_change_name_form
+  - validate_change_time_form
   #- action_submit_pizza
   - action_response_positive
   - action_response_negative
@@ -282,6 +288,9 @@ forms:
   change_time_form:
     required_slots:
       - order_time
+  change_name_form:
+    required_slots:
+      - client_name
 
 session_config:
   session_expiration_time: 60

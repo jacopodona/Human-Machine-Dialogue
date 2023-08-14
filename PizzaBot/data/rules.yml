@@ -182,10 +182,38 @@ rules:
         - requested_slot: null
     - action: utter_submit_time_modification
 
+- rule: Activate change name form
+  condition:
+    - slot_was_set:
+        - order_complete: true
+  steps:
+  - intent: modify_order_name
+  - action: utter_accept_request
+  - action: change_name_form
+  - active_loop: change_name_form
+
+- rule: Submit change name form
+  condition:
+  - active_loop: change_name_form
+  steps:
+    - action: change_name_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: utter_submit_name_modification
+
 - rule: Deny change time if order is not completed
   condition:
     - slot_was_set:
         - order_complete: false
   steps:
   - intent: modify_order_time
+  - action: utter_modify_order_error
+
+- rule: Deny change name if order is not completed
+  condition:
+    - slot_was_set:
+        - order_complete: false
+  steps:
+  - intent: modify_order_name
   - action: utter_modify_order_error

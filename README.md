@@ -5,14 +5,14 @@ Pizza ordering bot
 
 ### Available Actions
 - Order pizza(s)
-  - make the intent contain the pizza slot (keep testing)(to finetune)
+  - make the intent contain the pizza slot (keep testing)
     - try merge say_pizza_type e size
     - try adding complete requests in init_request
   - make the form flexible to unhappy user paths
 - Order drink(s) 
   - support for text instead of numbers (two vs 2) (TODO)
   - make the form flexible to unhappy user paths
-- Customize pizza (to finetune)(only 1 topping)
+- Customize pizza (only 1 topping)
 - Ask for price of pizza/drink
 - Ask for ingredients in pizza
 - Ask for menu
@@ -31,8 +31,9 @@ Pizza ordering bot
   - Remove drink (TODO)
   - Change drink (TODO)
   - Change address (TODO)
-  - Change time (TODO)
-  - Change delivery method (TODO)
+  - Change time
+  - Change name
+  - Change delivery method
   - Delete order
 - Add stories and test stories (TODO)
 - Add intent "I want to checkout"
