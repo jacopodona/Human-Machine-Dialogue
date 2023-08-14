@@ -78,7 +78,6 @@ nlu:
     - What actions I can do
     - I need some assistance
     - I'm confused
-    - How can I order a pizza
     - Can you show me how to get started?
 
 - intent: out_of_scope
@@ -154,6 +153,17 @@ nlu:
     - I dont want to do it anymore
     - I dont want delivery anymore
     - I dont want pickup anymore
+    - i changed my mind
+    - i dont want to order anymore
+    - i dont want to do delivery
+    - i dont want to do pickup
+    - i changed idea
+    - i dont want it anymore
+    - stop, i changed my mind
+    - i don't want to do that anymore
+    - i dont want to do it anymore
+    - i dont want delivery anymore
+    - i dont want pickup anymore
     
 
 - intent: init_request
@@ -171,11 +181,30 @@ nlu:
     - i want to add another pizza
     - I want a pizza
     - I want a [capricciosa](pizza_type)
+    - I want a [pub](pizza_type)
+    - I want a [rustic](pizza_type)
+    - I want a [light](pizza_type)
+    - I want a [margherita](pizza_type)
     - I would like a [diavola](pizza_type)
+    - I would like a [marinara](pizza_type)
+    - I would like a [vegetarian](pizza_type)
+    - I would like a [hawaiian](pizza_type)
+    - I would like a [capricciosa](pizza_type)
     - I want to order a [margherita](pizza_type)
+    - I want to order a [light](pizza_type)
+    - I want to order a [kebab](pizza_type)
     - Order a [cheesey](pizza_type)
     - Give me a [diavola](pizza_type)
     - Get me a [cheesey](pizza_type) pizza
+    - I want to order a [large](pizza_size) [margherita](pizza_type)
+    - I want to order a [medium](pizza_size) [marinara](pizza_type)
+    - I want to order a [small](pizza_size) [vegetarian](pizza_type)
+    - I want to order a [medium](pizza_size) [rustic](pizza_type)
+    - I want to order a [small](pizza_size) [margherita](pizza_type)
+    - I want to order a [small](pizza_size) [rustic](pizza_type)
+    - I want to order a [large](pizza_size) [hawaiian](pizza_type)
+    - I want to order a [small](pizza_size) [cheesey](pizza_type)
+
 
 - intent: init_drink_request
   examples: |
@@ -346,7 +375,7 @@ nlu:
     - Pickup
     - I prefer pickup
     - I will pickup
-    - I want to pick it up personally 
+    - I want to pick it up personally
     - I will come at the pizzeria
     - I want to pick it up myself
     - Store pickup, thanks
@@ -377,13 +406,13 @@ nlu:
 
 - intent: say_pizza_type
   examples: |
-    - a [margherita](pizza_type)
-    - I would like a [marinara](pizza_type)
-    - For me a [margherita](pizza_type)
-    - Give me a [margherita](pizza_type)
+    - a [hawaiian](pizza_type)
+    - a [marinara](pizza_type)
     - [margherita](pizza_type)
+    - [marinara](pizza_type)
+    - [rustic](pizza_type)
     - [diavola](pizza_type)
-    - Can you please make me a [margherita]
+    - [pub]
     - A [marinara](pizza_type)
     - A [diavola](pizza_type) with [garlic](ingredient)
     - a [pub](pizza_type) with [olives](ingredient)
@@ -395,13 +424,20 @@ nlu:
 - intent: say_pizza_size
   examples: |
     - I'd like a [large](pizza_size) pizza
+    - I'd like a [medium](pizza_size) pizza
+    - I'd like a [small](pizza_size) pizza
+    - A [small](pizza_size)
     - A [medium](pizza_size)
+    - A [large](pizza_size)
     - [small](pizza_size)
+    - [medium](pizza_size)
+    - [large](pizza_size)
     - Get me a [large](pizza_size) one
-    - I want to order a [large](pizza_size) pizza
     - I want a [small](pizza_size)
     - I would like a [medium](pizza_size) pizza
     - [small](pizza_size) will do
+    - [medium](pizza_size) will do
+    - [large](pizza_size) will do
 
 - intent: say_drink_order
   examples: |
@@ -545,7 +581,6 @@ nlu:
     - do you have pizza without [mozzarella](ingredient)?
     - do you have pizza without [cheese](ingredient)?
     - do you have pizza without [olives](ingredient)?
-    - do you have pizza without [olives](ingredient)?
     - do you have pizza with no [mushrooms](ingredient) please?
     - do you have pizza with no [wurstel](ingredient) please?
     - do you have pizza with no [chicken](ingredient) please?
@@ -577,7 +612,6 @@ nlu:
     - what pizzas do you have without [chicken](ingredient)?
     - what pizzas do you have without [mozzarella](ingredient)?
     - what pizzas do you have without [onions](ingredient)?
-    - what pizzas do you have without [chicken](ingredient)?
     - what pizzas do you have with no [olives](ingredient)?
     - what pizzas do you have with no [chicken](ingredient)?
     - what pizzas do you have with no [pepperoni](ingredient)?
@@ -595,21 +629,17 @@ nlu:
     - do you have pizza with [mushrooms](ingredient) please?
     - do you have pizza with [wurstel](ingredient) please?
     - do you have pizza with [chicken](ingredient) please?
-    - do you have pizza with [chicken](ingredient) please?
-    - do you have pizza with [mushrooms](ingredient) please?
     - What pizzas has [ham](ingredient)?
     - What pizzas has [cheese](ingredient)?
     - What pizzas has [olives](ingredient)?
     - What pizzas has [onions](ingredient)?
     - What pizzas has [meat](ingredient)?
     - What pizzas has [spinach](ingredient)?
-    - What pizzas has [olives](ingredient)?
-    - What pizzas has [onions](ingredient)?
     - What pizzas has [chicken](ingredient)?
     - What pizzas has [mushrooms](ingredient)?
-    - What pizzas has [olives](ingredient)?
+    - What pizzas has [sausage](ingredient)?
     - What pizzas has [onions](ingredient)?
-    - What pizzas has [ham](ingredient)?
+    - What pizzas has [pineapple](ingredient)?
     - pizza with [sausage](ingredient)?
     - pizza with [pepperoni](ingredient) please?
     - pizza with [chicken](ingredient) please?
@@ -624,9 +654,7 @@ nlu:
     - what pizzas do you have with [chicken](ingredient)?
     - what pizzas do you have with [mozzarella](ingredient)?
     - what pizzas do you have with [onions](ingredient)?
-    - what pizzas do you have with [chicken](ingredient)?
     - what pizzas do you have with [olives](ingredient)?
-    - what pizzas do you have with [chicken](ingredient)?
     - what pizzas do you have with [pepperoni](ingredient)?
 
 - intent: delete_order

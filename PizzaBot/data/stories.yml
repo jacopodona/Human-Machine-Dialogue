@@ -61,6 +61,23 @@ stories:
   - action: action_response_positive
   - checkpoint: pizza_added_to_order
 
+- story: ask for pizza order over-informative
+  steps:
+  - intent: init_request
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+      - pizza_size
+      - pizza_type
+  - active_loop: null
+  - action: action_submit_pizza
+  - intent: response_positive
+  - action: action_response_positive
+
 - story: ask for pizza order but changes idea (unhappy path)
   steps:
   - intent: init_request

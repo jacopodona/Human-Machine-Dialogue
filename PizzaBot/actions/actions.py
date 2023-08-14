@@ -581,9 +581,11 @@ class ActionResponsePositive(Action):
         try:
             bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
             if (bot_event['metadata']['utter_action'] == 'utter_submit_pizza'):
+                print("Submit pizza")
                 dispatcher.utter_message("Perfect! It was added to your order.")
                 pizza_type = tracker.slots['pizza_type']
                 pizza_size = tracker.slots['pizza_size']
+                print(pizza_type+pizza_size)
                 pizza_to_add = OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size, toppings=[],amount=1)
                 order=getOrderByUserID(tracker.sender_id)
                 if order is None: #User does not have an order yet, create it and add pizza
@@ -599,9 +601,11 @@ class ActionResponsePositive(Action):
                 #dispatcher.utter_message(response="utter_anything_else_order")
                 return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None)]
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza_with_topping'):
+                print("Submit pizza with topping")
                 pizza_type = tracker.slots['pizza_type']
                 pizza_size = tracker.slots['pizza_size']
                 ingredient = tracker.slots['ingredient']
+                print(pizza_type + pizza_size+ingredient)
                 pizza_to_add = OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size, toppings=[ingredient],amount=1)
                 order=getOrderByUserID(tracker.sender_id)
                 if order is None: #User does not have an order yet, create it and add pizza
