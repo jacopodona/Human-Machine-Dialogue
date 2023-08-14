@@ -600,28 +600,13 @@ class ActionResponsePositive(Action):
                 dispatcher.utter_message("Perfect! It was added to your order.")
                 pizza_type = tracker.slots['pizza_type']
                 pizza_size = tracker.slots['pizza_size']
-                print(pizza_type+pizza_size)
-                pizza_to_add = OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size, toppings=[],amount=1)
-                order=getOrderByUserID(tracker.sender_id)
-                if order is None: #User does not have an order yet, create it and add pizza
-                    order=Order(id=order_id_counter,user_id=tracker.sender_id)
-                    order.addPizza(pizza_to_add)
-                    orders.append(order)
-                    updateOrderIDCounter()
-                else: #User has already an order, modify it with new pizza
-                    order.addPizza(pizza_to_add)
-                    updateExistingOrder(order)
-                message=getOrderRecap(order)
-                dispatcher.utter_message(text=message)
-                #dispatcher.utter_message(response="utter_anything_else_order")
-                return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None)]
-            elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza_with_topping'):
-                print("Submit pizza with topping")
-                pizza_type = tracker.slots['pizza_type']
-                pizza_size = tracker.slots['pizza_size']
                 ingredient = tracker.slots['ingredient']
-                print(pizza_type + pizza_size+ingredient)
-                pizza_to_add = OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size, toppings=[ingredient],amount=1)
+                if ingredient is None:
+                    print(f"Submit {pizza_size} {pizza_type} with no modifications")
+                    pizza_to_add = OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size, toppings=[],amount=1)
+                else:
+                    print(f"Submit {pizza_size} {pizza_type} with {ingredient}")
+                    pizza_to_add = OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size, toppings=[ingredient],amount=1)
                 order=getOrderByUserID(tracker.sender_id)
                 if order is None: #User does not have an order yet, create it and add pizza
                     order=Order(id=order_id_counter,user_id=tracker.sender_id)
@@ -631,11 +616,31 @@ class ActionResponsePositive(Action):
                 else: #User has already an order, modify it with new pizza
                     order.addPizza(pizza_to_add)
                     updateExistingOrder(order)
-                dispatcher.utter_message("Perfect! It was added to your order.")
                 message=getOrderRecap(order)
                 dispatcher.utter_message(text=message)
                 #dispatcher.utter_message(response="utter_anything_else_order")
-                return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None),SlotSet("ingredient",None)]
+                return[SlotSet("pizza_type",None),SlotSet("pizza_size",None),SlotSet("ingredient",None),FollowupAction("utter_anything_else_order")]
+            #elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza_with_topping'):
+                #print("Submit pizza with topping")
+                #pizza_type = tracker.slots['pizza_type']
+                #pizza_size = tracker.slots['pizza_size']
+                #ingredient = tracker.slots['ingredient']
+                #print(pizza_type + pizza_size+ingredient)
+                #pizza_to_add = OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size, toppings=[ingredient],amount=1)
+                #order=getOrderByUserID(tracker.sender_id)
+                #if order is None: #User does not have an order yet, create it and add pizza
+                #    order=Order(id=order_id_counter,user_id=tracker.sender_id)
+                #    order.addPizza(pizza_to_add)
+                #    orders.append(order)
+                #    updateOrderIDCounter()
+                #else: #User has already an order, modify it with new pizza
+                #    order.addPizza(pizza_to_add)
+                #    updateExistingOrder(order)
+                #dispatcher.utter_message("Perfect! It was added to your order.")
+                #message=getOrderRecap(order)
+                #dispatcher.utter_message(text=message)
+                ##dispatcher.utter_message(response="utter_anything_else_order")
+                #return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None),SlotSet("ingredient",None)]
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_drink'):
                 drink_name = tracker.slots['drink_name']
                 drink_amount = tracker.slots['drink_amount']
@@ -653,7 +658,7 @@ class ActionResponsePositive(Action):
                     updateExistingOrder(order)
                 message+=getOrderRecap(order)
                 dispatcher.utter_message(text=message)
-                return [FollowupAction("utter_anything_else_order"),SlotSet("drink_name", None), SlotSet("drink_amount", None)]
+                return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("utter_anything_else_order")]
             elif (bot_event['metadata']['utter_action'] == "utter_submit_pickup"):
                 order=getOrderByUserID(tracker.sender_id)
                 client_name = tracker.slots['client_name']
@@ -716,10 +721,10 @@ class ActionResponseNegative(Action):
                 dispatcher.utter_message(response="utter_ask_delivery_method")
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza'):
                 dispatcher.utter_message(text="Ok, removing this last item.")
-                return[SlotSet("pizza_type",None),SlotSet("pizza_size",None),FollowupAction("pizza_order_form")]
-            elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza_with_topping'):
-                dispatcher.utter_message(text="Ok, removing this last item.")
-                return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None),FollowupAction("pizza_order_form")]
+                return[SlotSet("pizza_type",None),SlotSet("pizza_size",None),SlotSet("ingredient", None),FollowupAction("pizza_order_form")]
+            #elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza_with_topping'):
+                #dispatcher.utter_message(text="Ok, removing this last item.")
+                #return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None),FollowupAction("pizza_order_form")]
             elif (bot_event['metadata']['utter_action'] == 'utter_submit_drink'):
                 dispatcher.utter_message(text="Ok, removing this last item.")
                 return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("drink_order_form")]

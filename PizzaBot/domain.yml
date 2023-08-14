@@ -144,11 +144,17 @@ responses:
   utter_error:
     - text: "Sorry, I am afraid I didn’t understand that. Can you please retype it?"
 
-  utter_submit_pizza:
-    - text: "I want to add a {pizza_size} {pizza_type} to your order. Is this correct?"
+  utter_submit_pizza: #Conditional response variations https://rasa.com/docs/rasa/responses#conditional-response-variations
+    - condition:
+        - type: slot
+          name: ingredient
+          value: null
+      text: "I want to add a {pizza_size} {pizza_type} to your order. Is this correct?"
 
-  utter_submit_pizza_with_topping:
     - text: "I want to add a {pizza_size} {pizza_type} with extra {ingredient} to your order. Is this correct?"
+
+  #utter_submit_pizza_with_topping:
+  #  - text: "I want to add a {pizza_size} {pizza_type} with extra {ingredient} to your order. Is this correct?"
 
   utter_submit_drink:
     - text: "I want to add {drink_amount} bottle(s) of {drink_name} to your order. Is this correct?"
@@ -241,7 +247,7 @@ actions:
   - validate_drink_order_form
   - validate_pickup_order_form
   - validate_delivery_order_form
-  - action_submit_pizza
+  #- action_submit_pizza
   - action_response_positive
   - action_response_negative
   - action_tell_pizza_menu
