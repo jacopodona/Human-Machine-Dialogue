@@ -46,6 +46,7 @@ intents:
 ##TASK 3 modify previously made order
   - ask_order_info
   - delete_order
+  - modify_order_time
 #  - init_modify_order
 #  - add_pizza
 #  - remove_pizza
@@ -120,6 +121,11 @@ slots:
     mappings:
       - type: custom
         action: action_check_order_ready
+  order_complete: #order_complete is mapped in the same action of order_ready
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: custom
   ingredient:
     type: text
     influence_conversation: true
@@ -198,6 +204,9 @@ responses:
   utter_submit_delivery:
     - text: "Ok, I am about to register the order for {address_street} at {order_time} for {client_name}. Is this correct?"
 
+  utter_submit_time_modification:
+    - text: "Ok, I am about to change the order time to {order_time}. Is this correct?"
+
   utter_no_user_order:
     - text: "It seems like you have not made an order yet."
 
@@ -212,6 +221,9 @@ responses:
 
   utter_delete_order_error:
     - text: "I could not find any order done by you recently to remove."
+
+  utter_modify_order_error:
+    - text: "I could not find any complete order done by you to modify. Make sure to complete and order before modifying it."
 
   utter_order_deleted:
     - text: "Your order has been successfully removed."
@@ -261,6 +273,9 @@ forms:
       - address_street
       - order_time
       - client_name
+  change_time_form:
+    required_slots:
+      - order_time
 
 session_config:
   session_expiration_time: 60

@@ -684,6 +684,21 @@ nlu:
     - Actually I changed my mind, please delete the order
     - I changed idea, delete my order
 
+- intent: modify_order_time
+  examples: |
+    - I want to modify the time
+    - I want to modify the order time
+    - I want to modify the time of my order
+    - I want to modify the pickup time
+    - I want to modify the delivery time
+    - I want to change the time of my order
+    - I want to change the pickup time
+    - I want to change the delivery time
+    - I want to change the time
+    - I want to change the order time
+    - Can I modify the order time?
+    - Can I change the order time?
+
 - lookup: pizza_type
   examples: |
     - margherita

@@ -67,6 +67,7 @@ def getPizzasWithoutIngredient(ingredient):
 def updateOrderIDCounter():
     global order_id_counter
     order_id_counter+=1
+
 def getOrderByUserID(user):
     print(f"Searching order for user {user}")
     for order in orders:
@@ -509,6 +510,17 @@ class ValidateDeliveryOrderForm(FormValidationAction):
         dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
         return {"client_name":slot_value}
 
+class ValidateChangeTimeForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_change_time_form"
+
+    def validate_order_time(self, slot_value: Any,
+                             dispatcher: CollectingDispatcher,
+                             tracker: Tracker,
+                             domain: DomainDict) -> Dict[Text, Any]:
+        dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+        return {"order_time": slot_value}
+
 class ActionCheckOrderReady(Action):
 
     def name(self) -> Text:
@@ -524,10 +536,13 @@ class ActionCheckOrderReady(Action):
         userOrder = getOrderByUserID(tracker.sender_id)
         if userOrder is None:
             #print(f"User {tracker.sender_id} does not have an order")
-            return [SlotSet("order_ready", False)]
+            return [SlotSet("order_ready", False),SlotSet("order_complete", False)]
         else:
             #print(f"User {tracker.sender_id} has an order")
-            return [SlotSet("order_ready", True)]
+            if userOrder.delivery_method is None:
+                return [SlotSet("order_ready", True),SlotSet("order_complete", False)]
+            else:
+                return [SlotSet("order_ready", True), SlotSet("order_complete", True)]
 
 
 class ActionSeeOrderInfo(Action):
@@ -664,6 +679,13 @@ class ActionResponsePositive(Action):
                 else:
                     dispatcher.utter_message(response="utter_order_deleted")
                 return []
+            elif (bot_event['metadata']['utter_action'] == 'utter_submit_time_modification'):
+                dispatcher.utter_message(text="Perfect, the time has been changed correctly.")
+                order = getOrderByUserID(tracker.sender_id)
+                new_order_time = tracker.slots['order_time']
+                order.order_time=new_order_time
+                updateExistingOrder(order)
+                return [SlotSet("order_time", None)]
             elif(bot_event['metadata']['utter_action'] == "utter_anything_else_order"):
                 #The user wants something else"
                 dispatcher.utter_message("What would you like to add to your order?")
@@ -710,6 +732,9 @@ class ActionResponseNegative(Action):
             elif (bot_event['metadata']['utter_action'] == 'utter_ask_delete_order_confirmation'):
                 dispatcher.utter_message(text="Ok, your order has not been deleted.")
                 return []
+            elif (bot_event['metadata']['utter_action'] == 'utter_submit_time_modification'):
+                dispatcher.utter_message(text="Ok, I did not change the order time.")
+                return [SlotSet("order_time", None)]
             else:
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except Exception as e:

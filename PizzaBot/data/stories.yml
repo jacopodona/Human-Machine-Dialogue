@@ -100,20 +100,20 @@ stories:
   - action: action_deactivate_form
   - active_loop: null
 
-- story: add another pizza
-  steps:
-  - checkpoint: pizza_added_to_order
-  - intent: init_request
-  - action: utter_accept_request
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - pizza_size
-    - pizza_type
-  - active_loop: null
-  - action: action_submit_pizza
-  - intent: response_positive
-  - action: action_response_positive
+#- story: add another pizza
+#  steps:
+#  - checkpoint: pizza_added_to_order
+#  - intent: init_request
+#  - action: utter_accept_request
+#  - action: pizza_order_form
+#  - active_loop: pizza_order_form
+#  - slot_was_set:
+#    - pizza_size
+#    - pizza_type
+#  - active_loop: null
+#  - action: action_submit_pizza
+#  - intent: response_positive
+#  - action: action_response_positive
 
 - story: ask for drink order
   steps:
@@ -264,3 +264,19 @@ stories:
     - slot_was_set:
         - order_ready: false
     - action: utter_no_user_order
+
+- story: After doing pickup order user changes the time
+  steps:
+  - checkpoint: order_complete_pickup
+  - intent: modify_order_time
+  - slot_was_set:
+    - order_ready: true
+  - action: utter_accept_request
+  - action: change_time_form
+  - active_loop: change_time_form
+  - slot_was_set:
+      - order_time
+  - active_loop: null
+  - action: utter_submit_time_modification
+  - intent: response_positive
+  - action: action_response_positive

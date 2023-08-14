@@ -162,4 +162,30 @@ rules:
   - intent: delete_order
   - action: utter_delete_order_error
 
+- rule: Activate change time form
+  condition:
+    - slot_was_set:
+        - order_complete: true
+  steps:
+  - intent: modify_order_time
+  - action: utter_accept_request
+  - action: change_time_form
+  - active_loop: change_time_form
 
+- rule: Submit change time form
+  condition:
+  - active_loop: change_time_form
+  steps:
+    - action: change_time_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: utter_submit_time_modification
+
+- rule: Deny change time if order is not completed
+  condition:
+    - slot_was_set:
+        - order_complete: false
+  steps:
+  - intent: modify_order_time
+  - action: utter_modify_order_error
