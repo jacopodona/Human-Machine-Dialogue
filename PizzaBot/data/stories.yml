@@ -87,6 +87,7 @@ stories:
   - intent: stop
   - action: action_deactivate_form
   - active_loop: null
+  - checkpoint: add_pizza_change_idea
 
 - story: ask for pizza order but changes idea (unhappy path)
   steps:
@@ -99,6 +100,7 @@ stories:
   - intent: stop
   - action: action_deactivate_form
   - active_loop: null
+  - checkpoint: add_drink_change_idea
 
 #- story: add another pizza
 #  steps:
@@ -253,6 +255,22 @@ stories:
 - story: After adding drink user wants to checkout
   steps:
     - checkpoint: drink_added_to_order
+    - intent: init_checkout_request
+    - slot_was_set:
+        - order_ready: true
+    - action: utter_ask_delivery_method
+
+- story: After stopping pizza form user procede to checkout and order has items
+  steps:
+    - checkpoint: add_pizza_change_idea
+    - intent: init_checkout_request
+    - slot_was_set:
+        - order_ready: true
+    - action: utter_ask_delivery_method
+
+- story: After changing drink idea procede to checkout and order has items
+  steps:
+    - checkpoint: add_drink_change_idea
     - intent: init_checkout_request
     - slot_was_set:
         - order_ready: true

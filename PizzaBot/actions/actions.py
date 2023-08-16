@@ -546,13 +546,15 @@ class ActionCheckOrderReady(Action):
         #print("Running order check, previous value:",tracker.get_slot("order_ready"))
         userOrder = getOrderByUserID(tracker.sender_id)
         if userOrder is None:
-            #print(f"User {tracker.sender_id} does not have an order")
+            print("order_ready: False),(order_complete, False)")
             return [SlotSet("order_ready", False),SlotSet("order_complete", False)]
         else:
             #print(f"User {tracker.sender_id} has an order")
             if userOrder.delivery_method is None:
+                print("order_ready: True),(order_complete, False)")
                 return [SlotSet("order_ready", True),SlotSet("order_complete", False)]
             else:
+                print("order_ready: True),(order_complete, True)")
                 return [SlotSet("order_ready", True), SlotSet("order_complete", True)]
 
 
@@ -629,8 +631,9 @@ class ActionResponsePositive(Action):
                     updateExistingOrder(order)
                 message=getOrderRecap(order)
                 dispatcher.utter_message(text=message)
-                #dispatcher.utter_message(response="utter_anything_else_order")
-                return[SlotSet("pizza_type",None),SlotSet("pizza_size",None),SlotSet("ingredient",None),FollowupAction("utter_anything_else_order")]
+                dispatcher.utter_message(response="utter_anything_else_order")
+                return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None)]
+                #return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None),FollowupAction("utter_anything_else_order")]
             #elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza_with_topping'):
                 #print("Submit pizza with topping")
                 #pizza_type = tracker.slots['pizza_type']
@@ -669,7 +672,9 @@ class ActionResponsePositive(Action):
                     updateExistingOrder(order)
                 message+=getOrderRecap(order)
                 dispatcher.utter_message(text=message)
-                return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("utter_anything_else_order")]
+                dispatcher.utter_message(response="utter_anything_else_order")
+                #return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("utter_anything_else_order")]
+                return [SlotSet("drink_name", None), SlotSet("drink_amount", None)]
             elif (bot_event['metadata']['utter_action'] == "utter_submit_pickup"):
                 order=getOrderByUserID(tracker.sender_id)
                 client_name = tracker.slots['client_name']
@@ -717,7 +722,7 @@ class ActionResponsePositive(Action):
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except Exception as e:
             print(e)
-            dispatcher.utter_message("Sorry, can you repeat that?")
+            dispatcher.utter_message("Something went wrong in handling your request, please ask me again.")
         return []
 
 class ActionResponseNegative(Action):
@@ -765,7 +770,7 @@ class ActionResponseNegative(Action):
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except Exception as e:
             print(e)
-            dispatcher.utter_message("Sorry, can you repeat that?")
+            dispatcher.utter_message("Something went wrong in handling your request, please ask me again.")
         return []
 
 class ActionDeactivateForm(Action):
