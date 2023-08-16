@@ -608,7 +608,8 @@ class ActionResponsePositive(Action):
     def run(self, dispatcher, tracker, domain):
         try:
             bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
-            if (bot_event['metadata']['utter_action'] == 'utter_submit_pizza'):
+            previous_action=bot_event['metadata']['utter_action']
+            if (previous_action == 'utter_submit_pizza'):
                 print("Submit pizza")
                 dispatcher.utter_message("Perfect! It was added to your order.")
                 pizza_type = tracker.slots['pizza_type']
@@ -655,7 +656,7 @@ class ActionResponsePositive(Action):
                 #dispatcher.utter_message(text=message)
                 ##dispatcher.utter_message(response="utter_anything_else_order")
                 #return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None),SlotSet("ingredient",None)]
-            elif (bot_event['metadata']['utter_action'] == 'utter_submit_drink'):
+            elif (previous_action == 'utter_submit_drink'):
                 drink_name = tracker.slots['drink_name']
                 drink_amount = tracker.slots['drink_amount']
                 message="Perfect! It was added to your order.\n"
@@ -675,7 +676,7 @@ class ActionResponsePositive(Action):
                 dispatcher.utter_message(response="utter_anything_else_order")
                 #return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("utter_anything_else_order")]
                 return [SlotSet("drink_name", None), SlotSet("drink_amount", None)]
-            elif (bot_event['metadata']['utter_action'] == "utter_submit_pickup"):
+            elif (previous_action == "utter_submit_pickup"):
                 order=getOrderByUserID(tracker.sender_id)
                 client_name = tracker.slots['client_name']
                 order_time = tracker.slots['order_time']
@@ -683,7 +684,7 @@ class ActionResponsePositive(Action):
                 updateExistingOrder(order)
                 dispatcher.utter_message(response="utter_order_saved_pickup")
                 return[SlotSet("client_name",None),SlotSet("order_time",None)]
-            elif (bot_event['metadata']['utter_action'] == "utter_submit_delivery"):
+            elif (previous_action == "utter_submit_delivery"):
                 order = getOrderByUserID(tracker.sender_id)
                 client_name = tracker.slots['client_name']
                 order_time = tracker.slots['order_time']
@@ -693,28 +694,28 @@ class ActionResponsePositive(Action):
                 updateExistingOrder(order)
                 dispatcher.utter_message(response="utter_order_saved_delivery")
                 return [SlotSet("address_street", None),SlotSet("client_name", None), SlotSet("order_time", None)]
-            elif (bot_event['metadata']['utter_action'] == "utter_ask_delete_order_confirmation"):
+            elif (previous_action == "utter_ask_delete_order_confirmation"):
                 removed=removeOrderByUserID(tracker.sender_id)
                 if removed is None:
                     dispatcher.utter_message(response="utter_delete_order_error")
                 else:
                     dispatcher.utter_message(response="utter_order_deleted")
                 return []
-            elif (bot_event['metadata']['utter_action'] == 'utter_submit_time_modification'):
+            elif (previous_action == 'utter_submit_time_modification'):
                 dispatcher.utter_message(text="Perfect, the time has been changed correctly.")
                 order = getOrderByUserID(tracker.sender_id)
                 new_order_time = tracker.slots['order_time']
                 order.order_time=new_order_time
                 updateExistingOrder(order)
                 return [SlotSet("order_time", None)]
-            elif (bot_event['metadata']['utter_action'] == 'utter_submit_name_modification'):
+            elif (previous_action == 'utter_submit_name_modification'):
                 dispatcher.utter_message(text="Perfect, the name has been changed correctly.")
                 order = getOrderByUserID(tracker.sender_id)
                 new_client_name = tracker.slots['client_name']
                 order.client_name=new_client_name
                 updateExistingOrder(order)
                 return [SlotSet("client_name", None)]
-            elif(bot_event['metadata']['utter_action'] == "utter_anything_else_order"):
+            elif(previous_action == "utter_anything_else_order"):
                 #The user wants something else"
                 dispatcher.utter_message("What would you like to add to your order?")
                 return []
@@ -734,37 +735,41 @@ class ActionResponseNegative(Action):
             bot_event = next(e for e in reversed(tracker.events) if e["event"] == "bot")
             previous_action=bot_event['metadata']['utter_action']
             if(previous_action == "utter_anything_else_order"):
-                message="Ok, checking out your order...\n"
-                order=getOrderByUserID(tracker.sender_id)
-                print("Checking out the order "+getOrderRecap(order))
-                message+=getOrderRecap(order)
-                price=computeOrderPrice(order)
-                message+="The total price is: "+str(price)+" €"
-                dispatcher.utter_message(text=message)
-                dispatcher.utter_message(response="utter_ask_delivery_method")
-            elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza'):
+                order_completed=tracker.get_slot("order_complete")
+                if not order_completed: #User has not given checkout yet, ask for it when he says he does not want to order anything else
+                    message="Ok, checking out your order...\n"
+                    order=getOrderByUserID(tracker.sender_id)
+                    print("Checking out the order "+getOrderRecap(order))
+                    message+=getOrderRecap(order)
+                    price=computeOrderPrice(order)
+                    message+="The total price is: "+str(price)+" €"
+                    dispatcher.utter_message(text=message)
+                    dispatcher.utter_message(response="utter_ask_delivery_method")
+                else: #User has just added an item to an order he already made and does not want anything else. Say goodbye
+                    dispatcher.utter_message(response="utter_goodbye")
+            elif (previous_action == 'utter_submit_pizza'):
                 dispatcher.utter_message(text="Ok, removing this last item.")
                 return[SlotSet("pizza_type",None),SlotSet("pizza_size",None),SlotSet("ingredient", None),FollowupAction("pizza_order_form")]
             #elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza_with_topping'):
                 #dispatcher.utter_message(text="Ok, removing this last item.")
                 #return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None),FollowupAction("pizza_order_form")]
-            elif (bot_event['metadata']['utter_action'] == 'utter_submit_drink'):
+            elif (previous_action == 'utter_submit_drink'):
                 dispatcher.utter_message(text="Ok, removing this last item.")
                 return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("drink_order_form")]
-            elif (bot_event['metadata']['utter_action'] == 'utter_submit_delivery'):
+            elif (previous_action == 'utter_submit_delivery'):
                 dispatcher.utter_message(text="Ok, removing these details.")
                 return [SlotSet("address_street", None), SlotSet("order_time", None),SlotSet("client_name", None),FollowupAction("delivery_order_form")]
-            elif (bot_event['metadata']['utter_action'] == 'utter_submit_pickup'):
+            elif (previous_action == 'utter_submit_pickup'):
                 dispatcher.utter_message(text="Ok, removing these details.")
                 return [SlotSet("order_time", None), SlotSet("client_name", None),FollowupAction("pickup_order_form")]
-            elif (bot_event['metadata']['utter_action'] == 'utter_ask_delete_order_confirmation'):
+            elif (previous_action == 'utter_ask_delete_order_confirmation'):
                 dispatcher.utter_message(text="Ok, your order has not been deleted.")
                 return []
-            elif (bot_event['metadata']['utter_action'] == 'utter_submit_time_modification'):
+            elif (previous_action == 'utter_submit_time_modification'):
                 dispatcher.utter_message(text="Ok, I did not change the order time.")
                 return [SlotSet("order_time", None)]
-            elif (bot_event['metadata']['utter_action'] == 'utter_submit_name_modification'):
-                dispatcher.utter_message(text="Ok, I did not change the order time.")
+            elif (previous_action == 'utter_submit_name_modification'):
+                dispatcher.utter_message(text="Ok, I did not change the order name.")
                 return [SlotSet("order_time", None)]
             else:
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")

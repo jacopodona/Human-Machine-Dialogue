@@ -16,7 +16,6 @@ intents:
   - say_drink_order
   - ask_drink_list
   - ask_drink_price
-#  - init_request_with_entity
   - say_pizza_type
   - say_pizza_size
   - init_checkout_request
@@ -49,14 +48,9 @@ intents:
   - modify_order_time
   - modify_order_name
 #  - init_modify_order
-#  - add_pizza
 #  - remove_pizza
-#  - add_drink
 #  - remove_drink
-#  - change_pizza
 #  - change_address
-#  - change_name
-#  - change_time
 
 entities:
 - pizza_size
@@ -71,7 +65,6 @@ entities:
 #- phone_number
 #- order_number
 #- address_number
-#- time
 
 slots:
   pizza_size:

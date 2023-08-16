@@ -5,9 +5,9 @@ Pizza ordering bot
 
 ### Available Actions
 - Order pizza(s)
-  - make the intent contain the pizza slot (keep testing)
+  - make the intent contain the pizza slot
     - try merge say_pizza_type e size
-    - try adding complete requests in init_request
+    - try adding complete requests in init_request (TODO with topping)
   - make the form flexible to unhappy user paths
 - Order drink(s) 
   - support for text instead of numbers (two vs 2) (TODO)
@@ -24,19 +24,16 @@ Pizza ordering bot
   - Add error handling
   - make the form flexible to unhappy user paths (TODO)
 - Modify order (TODO)
-  - Add pizza (REMOVE ANYTHING ELSE)
+  - Add pizza
   - Remove pizza (TODO)
-  - Change pizza (TODO)
-  - Add drink (REMOVE ANYTHING ELSE)
+  - Add drink 
   - Remove drink (TODO)
-  - Change drink (TODO)
   - Change address (TODO)
   - Change time
   - Change name
   - Change delivery method
   - Delete order
 - Add stories and test stories (TODO)
-- Add intent "I want to checkout"
 - If user asks "What is in a diavola" inside the form the form will automatically load the slot and continue (TODO)
 - Make 2nd Configuration file (TODO)
 - Trasform Help in action to assist user based on point in conversation.
