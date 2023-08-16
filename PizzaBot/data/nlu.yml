@@ -78,7 +78,9 @@ nlu:
     - What actions I can do
     - I need some assistance
     - I'm confused
+    - What do I need to do?
     - Can you show me how to get started?
+    - What should I do now?
 
 - intent: out_of_scope
   examples: |

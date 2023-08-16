@@ -181,27 +181,27 @@ class ActionTellDrinkList(Action):
 
         return []
 
-class ActionHelpUser(Action):
-
-    def name(self) -> Text:
-        return "action_help_user"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        order_ready=tracker.get_slot("order_ready")
-
-        if order_ready:
-            order=getOrderByUserID(tracker.sender_id)
-            if order.delivery_method is None:
-                dispatcher.utter_message(text="As of now, you can order more food or drinks, or we can procede to checkout.")
-            else:
-                dispatcher.utter_message(text="Your order is all set and ready to be prepared, you can ask me anytime the information about your order to have a quick recap. Additionally, you can also decide to add or remove food or drinks from your order, change the delivery information or delete the order if you need to. ")
-        else:
-            dispatcher.utter_message(text="With this bot, you can easily place orders for pizza delivery. You can start by saying 'I want to order a pizza', to get started and I will help you through it.\n"+
-                                          "You can also ask me about the pizza and drink menu, what is the price of each item, the list of ingredients of a pizza and I can also tell you the list of pizzas that do or do not contain some particular ingredient.")
-        return []
+#class ActionHelpUser(Action):
+#
+#    def name(self) -> Text:
+#        return "action_help_user"
+#
+#    def run(self, dispatcher: CollectingDispatcher,
+#            tracker: Tracker,
+#            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#
+#        order_ready=tracker.get_slot("order_ready")
+#
+#        if order_ready:
+#            order=getOrderByUserID(tracker.sender_id)
+#            if order.delivery_method is None:
+#                dispatcher.utter_message(text="As of now, you can order more food or drinks, or we can procede to checkout.")
+#            else:
+#                dispatcher.utter_message(text="Your order is all set and ready to be prepared, you can ask me anytime the information about your order to have a quick recap. Additionally, you can also decide to add or remove food or drinks from your order, change the delivery information or delete the order if you need to. ")
+#        else:
+#            dispatcher.utter_message(text="With this bot, you can easily place orders for pizza delivery. You can start by saying 'I want to order a pizza', to get started and I will help you through it.\n"+
+#                                          "You can also ask me about the pizza and drink menu, what is the price of each item, the list of ingredients of a pizza and I can also tell you the list of pizzas that do or do not contain some particular ingredient.")
+#        return []
 
 class ActionTellPizzaMenu(Action):
 
@@ -415,22 +415,22 @@ class ValidatePizzaOrderForm(FormValidationAction):
             dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza with extra {ingredient}.")
         return {"pizza_type":slot_value}
 
-class ActionSubmitPizza(Action):
-
-    def name(self) -> Text:
-        return "action_submit_pizza"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        ingredient=tracker.get_slot("ingredient")
-
-        if ingredient is None:
-            #dispatcher.utter_message(response="utter_submit_pizza")
-            return [FollowupAction("utter_submit_pizza")]
-        else:
-            return [FollowupAction("utter_submit_pizza_with_topping")]
+#class ActionSubmitPizza(Action):
+#
+#    def name(self) -> Text:
+#        return "action_submit_pizza"
+#
+#    def run(self, dispatcher: CollectingDispatcher,
+#            tracker: Tracker,
+#            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#
+#        ingredient=tracker.get_slot("ingredient")
+#
+#        if ingredient is None:
+#            #dispatcher.utter_message(response="utter_submit_pizza")
+#            return [FollowupAction("utter_submit_pizza")]
+#        else:
+#            return [FollowupAction("utter_submit_pizza_with_topping")]
 
 class ValidateDrinkOrderForm(FormValidationAction):
     def name(self) -> Text:

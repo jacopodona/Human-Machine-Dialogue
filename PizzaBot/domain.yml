@@ -142,6 +142,28 @@ responses:
   utter_goodbye:
   - text: "Thank you for using SmartPizza. See you soon!"
 
+  utter_help_user:
+    - condition:
+        - type: slot
+          name: order_ready
+          value: true
+        - type: slot
+          name: order_complete
+          value: false
+      text: "As of now, you can order more food or drinks, or we can procede to checkout."
+
+    - condition:
+        - type: slot
+          name: order_ready
+          value: true
+        - type: slot
+          name: order_complete
+          value: true
+      text: "Your order is all set and ready to be prepared, you can ask me anytime the information about your order to have a quick recap. Additionally, you can also decide to add or remove food or drinks from your order, change the delivery information or delete the order if you need to."
+
+    - text: "With this bot, you can easily place orders for pizza delivery. You can start by saying 'I want to order a pizza', to get started and I will help you through it. You can also ask me about the pizza and drink menu, what is the price of each item, the list of ingredients of a pizza and I can also tell you the list of pizzas that do or do not contain some particular ingredient."
+
+
   utter_error:
     - text: "Sorry, I am afraid I didn’t understand that. Can you please retype it?"
 
@@ -264,7 +286,7 @@ actions:
   - action_tell_pizza_without_ingredient
   - action_tell_pizza_with_ingredient
   - action_deactivate_form
-  - action_help_user
+  #- action_help_user
 
 forms:
   pizza_order_form:

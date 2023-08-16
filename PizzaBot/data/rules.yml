@@ -15,7 +15,7 @@ rules:
 - rule: Say guide sentence when user asks for help
   steps:
   - intent: help
-  - action: action_help_user
+  - action: utter_help_user
 
 - rule: Say error message when user says something out of scope
   steps:
