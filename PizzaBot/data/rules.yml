@@ -59,7 +59,7 @@ rules:
 - rule: Start pickup form if user has an order to checkout
   condition:
   - slot_was_set:
-    - order_ready: true
+    - order_has_items: true
   steps:
   - intent: inform_order_pickup
   - action: utter_confirm_order_ready_pickup
@@ -69,7 +69,7 @@ rules:
 - rule: Start delivery form if user has an order to checkout
   condition:
   - slot_was_set:
-    - order_ready: true
+    - order_has_items: true
   steps:
   - intent: inform_order_delivery
   - action: utter_confirm_order_ready_delivery
@@ -149,7 +149,7 @@ rules:
 - rule: Ask confirmation for order removal with an order present
   condition:
   - slot_was_set:
-    - order_ready: true
+    - order_has_items: true
   steps:
   - intent: delete_order
   - action: utter_ask_delete_order_confirmation
@@ -157,7 +157,7 @@ rules:
 - rule: Ask confirmation for order removal with an order present, throw error
   condition:
   - slot_was_set:
-    - order_ready: false
+    - order_has_items: false
   steps:
   - intent: delete_order
   - action: utter_delete_order_error
@@ -221,7 +221,7 @@ rules:
 - rule: Deny remove drink if order does not have items
   condition:
     - slot_was_set:
-        - order_ready: false
+        - order_has_items: false
   steps:
   - intent: remove_drink
   - action: utter_remove_order_error
@@ -229,7 +229,7 @@ rules:
 - rule: Activate remove drink form
   condition:
     - slot_was_set:
-        - order_ready: true
+        - order_has_items: true
   steps:
   - intent: remove_drink
   - action: utter_accept_request
@@ -249,7 +249,7 @@ rules:
 - rule: Deny remove pizza if order does not have items
   condition:
     - slot_was_set:
-        - order_ready: false
+        - order_has_items: false
   steps:
   - intent: remove_pizza
   - action: utter_remove_order_error
@@ -257,7 +257,7 @@ rules:
 - rule: Activate remove pizza form
   condition:
     - slot_was_set:
-        - order_ready: true
+        - order_has_items: true
   steps:
   - intent: remove_pizza
   - action: utter_accept_request

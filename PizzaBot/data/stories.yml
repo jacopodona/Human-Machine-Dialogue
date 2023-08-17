@@ -135,7 +135,7 @@ stories:
   - checkpoint: pizza_added_to_order
   - intent: inform_order_delivery
   - slot_was_set:
-    - order_ready: true
+    - order_has_items: true
   - action: utter_confirm_order_ready_delivery
   - action: delivery_order_form
   - active_loop: delivery_order_form
@@ -154,7 +154,7 @@ stories:
   - checkpoint: pizza_added_to_order
   - intent: inform_order_pickup
   - slot_was_set:
-    - order_ready: true
+    - order_has_items: true
   - action: utter_confirm_order_ready_pickup
   - action: pickup_order_form
   - active_loop: pickup_order_form
@@ -185,7 +185,7 @@ stories:
     - intent: inform_order_pickup
     - intent: inform_order_delivery
   - slot_was_set:
-    - order_ready: false
+    - order_has_items: false
   - action: utter_error_order_not_ready
 
 
@@ -238,7 +238,7 @@ stories:
     - checkpoint: pizza_added_to_order
     - intent: init_checkout_request
     - slot_was_set:
-        - order_ready: true
+        - order_has_items: true
     - action: utter_ask_delivery_method
 
 - story: After adding drink user wants to checkout
@@ -246,7 +246,7 @@ stories:
     - checkpoint: drink_added_to_order
     - intent: init_checkout_request
     - slot_was_set:
-        - order_ready: true
+        - order_has_items: true
     - action: utter_ask_delivery_method
 
 - story: After stopping pizza form user procede to checkout and order has items
@@ -254,7 +254,7 @@ stories:
     - checkpoint: add_pizza_change_idea
     - intent: init_checkout_request
     - slot_was_set:
-        - order_ready: true
+        - order_has_items: true
     - action: utter_ask_delivery_method
 
 - story: After changing drink idea procede to checkout and order has items
@@ -262,14 +262,14 @@ stories:
     - checkpoint: add_drink_change_idea
     - intent: init_checkout_request
     - slot_was_set:
-        - order_ready: true
+        - order_has_items: true
     - action: utter_ask_delivery_method
 
 - story: User tries to checkout without having an order
   steps:
     - intent: init_checkout_request
     - slot_was_set:
-        - order_ready: false
+        - order_has_items: false
     - action: utter_no_user_order
 
 - story: After doing pickup order user changes the time
@@ -309,7 +309,7 @@ stories:
     - checkpoint: drink_added_to_order
     - intent: remove_drink
     - slot_was_set:
-        - order_ready: true
+        - order_has_items: true
     - action: utter_accept_request
     - action: remove_drink_form
     - active_loop: remove_drink_form
@@ -326,7 +326,7 @@ stories:
     - checkpoint: pizza_added_to_order
     - intent: remove_pizza
     - slot_was_set:
-        - order_ready: true
+        - order_has_items: true
     - action: utter_accept_request
     - action: remove_pizza_form
     - active_loop: remove_pizza_form

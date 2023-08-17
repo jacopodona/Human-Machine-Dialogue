@@ -111,13 +111,13 @@ slots:
     mappings:
       - type: from_entity
         entity: address_street
-  order_ready: #order_ready is a “global slot mappings” https://rasa.com/blog/how-to-use-global-slot-mappings/
+  order_has_items: #order_has_items is a “global slot mappings” https://rasa.com/blog/how-to-use-global-slot-mappings/
     type: bool
     influence_conversation: true
     mappings:
       - type: custom
         action: action_check_order_ready
-  order_complete: #order_complete is mapped in the same action of order_ready
+  order_complete: #order_complete is mapped in the same action of order_has_items
     type: bool
     influence_conversation: true
     mappings:
@@ -140,7 +140,7 @@ responses:
   utter_help_user:
     - condition:
         - type: slot
-          name: order_ready
+          name: order_has_items
           value: true
         - type: slot
           name: order_complete
@@ -149,7 +149,7 @@ responses:
 
     - condition:
         - type: slot
-          name: order_ready
+          name: order_has_items
           value: true
         - type: slot
           name: order_complete
