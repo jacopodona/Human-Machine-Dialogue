@@ -156,6 +156,25 @@ def updateExistingOrder(modified_order):
             orders[i]=modified_order
             print(f"New order in the database: {orders[i].__dict__}")
 
+def getOrderWithRemovedDrink(order,drink_to_remove, drink_to_remove_amount):
+    for i in range(len(order.drinks)):
+        drink_in_order=order.drinks[i]
+        if drink_to_remove.name==drink_in_order.drink.name:
+            if int(drink_in_order.amount)<=int(drink_to_remove_amount):
+                order.drinks.pop(i)
+            else:
+                updated_drink=drink_in_order
+                updated_drink.amount=int(updated_drink.amount)-int(drink_to_remove_amount)
+                order.drinks[i]=updated_drink
+            return order
+    return None
+
+def checkOrderIsEmpty(order):
+    if len(order.pizzas)==0 and len(order.drinks)==0:
+        return True
+    else:
+        return False
+
 # Declare Actions
 class ActionTellDrinkList(Action):
 
@@ -532,6 +551,37 @@ class ValidateChangeNameForm(FormValidationAction):
         dispatcher.utter_message(text=f"Ok! Updating the name to the order for {slot_value}.")
         return {"client_name": slot_value}
 
+class ValidateRemoveDrinkForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_remove_drink_form"
+
+    def validate_drink_name(self, slot_value: Any,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: DomainDict) -> Dict[Text, Any]:
+        if slot_value is not None:
+            order=getOrderByUserID(tracker.sender_id)
+            drinks_in_order = [obj.drink.name for obj in order.drinks]
+            if slot_value.lower() not in drinks_in_order:
+                dispatcher.utter_message(
+                    text=f"You don't have {slot_value} in your order. Please select a drink you ordered you want to remove.")
+                return {"drink_name": None}
+            else:
+                dispatcher.utter_message(text=f"Ok! You want to remove {slot_value} and you have it in your order.")
+                return {"drink_name": slot_value}
+
+    def validate_drink_amount(self, slot_value: Any,
+                              dispatcher: CollectingDispatcher,
+                              tracker: Tracker,
+                              domain: DomainDict) -> Dict[Text, Any]:
+
+        if slot_value is not None:
+            if str(slot_value).isnumeric():
+                dispatcher.utter_message(text=f"Ok! You want to remove {slot_value} bottles.")
+                return {"drink_amount": slot_value}
+            else:
+                dispatcher.utter_message(text="Sorry, I don't recognize that amount, please provide me a valid number.")
+
 class ActionCheckOrderReady(Action):
 
     def name(self) -> Text:
@@ -715,6 +765,29 @@ class ActionResponsePositive(Action):
                 order.client_name=new_client_name
                 updateExistingOrder(order)
                 return [SlotSet("client_name", None)]
+            elif (previous_action == 'utter_submit_drink_removal'):
+                drink_name = tracker.slots['drink_name']
+                drink_amount=tracker.slots['drink_amount']
+                drink_to_remove=getDrinkFromMenuByName(drink_name)
+                #
+                order=getOrderByUserID(tracker.sender_id)
+                found_object = None
+                for obj in order.drinks:
+                    if obj.drink == drink_to_remove:
+                        found_object = obj
+                if int(drink_amount)>found_object.amount:
+                    drink_amount=found_object.amount
+                    dispatcher.utter_message(text=f"I only removed {found_object.amount}, since you don't have more in the order.")
+                else:
+                    dispatcher.utter_message(text="Perfect, it was removed correctly.")
+                updatedOrder=getOrderWithRemovedDrink(order=order,drink_to_remove=drink_to_remove,drink_to_remove_amount=drink_amount)
+                if checkOrderIsEmpty(updatedOrder):
+                    removeOrderByUserID(updatedOrder.user_id)
+                    dispatcher.utter_message(text="Since your order does not contain items anymore, I also deleted your order.")
+                else:
+                    updateExistingOrder(updatedOrder)
+                    dispatcher.utter_message(text=getOrderRecap(order))
+                return [SlotSet("drink_name", None), SlotSet("drink_amount", None)]
             elif(previous_action == "utter_anything_else_order"):
                 #The user wants something else"
                 dispatcher.utter_message("What would you like to add to your order?")
@@ -771,6 +844,9 @@ class ActionResponseNegative(Action):
             elif (previous_action == 'utter_submit_name_modification'):
                 dispatcher.utter_message(text="Ok, I did not change the order name.")
                 return [SlotSet("order_time", None)]
+            elif (previous_action == 'utter_submit_drink_removal'):
+                dispatcher.utter_message(text="Ok, I did not remove that.")
+                return [SlotSet("drink_name", None), SlotSet("drink_amount", None)]
             else:
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except Exception as e:

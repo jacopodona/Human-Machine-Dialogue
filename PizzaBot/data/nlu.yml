@@ -219,9 +219,17 @@ nlu:
     - Add drink
     - i want to add another drink
     - I want a drink
+    - I want some [tea](drink_name)
+    - I want some [beer](drink_name)
+    - I want some [water](drink_name)
     - I want a bottle of [beer](drink_name)
+    - I want a bottle of [sprite](drink_name)
+    - I want a bottle of [water](drink_name)
     - I would like a [beer](drink_name)
     - I would like a [coke](drink_name)
+    - I want to drink [beer](drink_name)
+    - I want to drink [coke](drink_name)
+    - I want to drink [sprite](drink_name)
     - Can I have a [coke](drink_name)
     - Can I add a bottle of [water](drink_name)
     - I want to order a [beer](drink_name)
@@ -440,14 +448,57 @@ nlu:
     - [medium](pizza_size) will do
     - [large](pizza_size) will do
 
-- intent: say_drink_order
+- intent: say_drink_amount
   examples: |
-    - I want a [beer](drink_name)
-    - I want a bottle of [coke](drink_name)
-    - I want [3](drink_amount) [beer](drink_name)
-    - [1](drink_amount) [coke](drink_name) please
-    - [2](drink_amount) bottles of [water](drink_name)
+    - I want [1](drink_amount)
+    - I want [2](drink_amount)
+    - I want [3](drink_amount)
+    - I want [4](drink_amount)
+    - I want [5](drink_amount)
+    - Give me [1](drink_amount)
+    - Give me [2](drink_amount)
+    - Give me [3](drink_amount)
+    - Give me [4](drink_amount)
+    - Give me [5](drink_amount)
     - Just [1](drink_amount)
+    - Just [2](drink_amount)
+    - [1](drink_amount)
+    - [2](drink_amount)
+    - [3](drink_amount)
+    - [4](drink_amount)
+    - [5](drink_amount)
+    - I want [1](drink_amount) bottles
+    - I want [2](drink_amount) bottles
+    - I want [3](drink_amount) bottles
+    - I want [4](drink_amount) bottles
+    - I want [5](drink_amount) bottles
+
+- intent: say_drink_name
+  examples: |
+    - [beer](drink_name)
+    - [coke](drink_name)
+    - [tea](drink_name)
+    - [water](drink_name)
+    - [sprite](drink_name)
+    - A [beer](drink_name)
+    - A [coke](drink_name)
+    - A [tea](drink_name)
+    - A [water](drink_name)
+    - A [sprite](drink_name)
+    - Some [beer](drink_name)
+    - Some [coke](drink_name)
+    - Some [tea](drink_name)
+    - Some [water](drink_name)
+    - Some [sprite](drink_name)
+    
+
+#- intent: say_drink_order
+#  examples: |
+#    - I want a [beer](drink_name)
+#    - I want a bottle of [coke](drink_name)
+#    -  [beer](drink_name)
+#    - [1](drink_amount) [coke](drink_name) please
+#    - [2](drink_amount) bottles of [water](drink_name)
 
 - intent: say_full_name
   examples: |
@@ -727,6 +778,34 @@ nlu:
     - Can I modify the name for the pickup?
     - Can I modify the person for the delivery?
     - Can I modify the person for the pickup?
+
+- intent: remove_drink
+  examples: |
+    - Can I remove a drink?
+    - I would like to remove a drink
+    - I would like to remove some drinks
+    - I want to remove a drink
+    - I want to delete a drink
+    - I want to remove another drink
+    - Delete drink
+    - Remove drink
+    - i want to delete another drink
+    - I want to cancel drink
+    - I want to delete a bottle of [beer](drink_name)
+    - I would to delete a [beer](drink_name)
+    - I would to remove a [coke](drink_name)
+    - I would to remove a [tea](drink_name)
+    - Can I remove a [coke](drink_name)
+    - Can I remove a bottle of [water](drink_name)
+    - I want to delete a [beer](drink_name)
+    - I want to delete [coke](drink_name)
+    - I want [2](drink_amount) bottles of [coke](drink_name) removed from the order
+    - I want [1](drink_amount) [beer](drink_name) removed from the order
+    - I want [2](drink_amount) bottles of [coke](drink_name) removed from my order
+    - I want [1](drink_amount) [beer](drink_name) removed from my order
+    - Can I remove [2](drink_amount) bottles of [water](drink_name)?
+    - Can I delete [3](drink_amount) bottles of [tea](drink_name)?
+
 
 - lookup: pizza_type
   examples: |

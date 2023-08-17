@@ -217,3 +217,32 @@ rules:
   steps:
   - intent: modify_order_name
   - action: utter_modify_order_error
+
+- rule: Deny remove drink if order does not have items
+  condition:
+    - slot_was_set:
+        - order_ready: false
+  steps:
+  - intent: remove_drink
+  - action: utter_remove_order_error
+
+- rule: Activate remove drink form
+  condition:
+    - slot_was_set:
+        - order_ready: true
+  steps:
+  - intent: remove_drink_form
+  - action: utter_accept_request
+  - action: remove_drink_form
+  - active_loop: remove_drink_form
+
+- rule: Submit remove drink form
+  condition:
+  - active_loop: remove_drink_form
+  steps:
+    - action: remove_drink_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: utter_submit_drink_removal
+

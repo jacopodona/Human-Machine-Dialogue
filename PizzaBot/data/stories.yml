@@ -303,3 +303,20 @@ stories:
   - action: utter_submit_name_modification
   - intent: response_positive
   - action: action_response_positive
+
+- story: After ordering user removes drink
+  steps:
+    - checkpoint: drink_added_to_order
+    - intent: remove_drink
+    - slot_was_set:
+        - order_ready: true
+    - action: utter_accept_request
+    - action: remove_drink_form
+    - active_loop: remove_drink_form
+    - slot_was_set:
+        - drink_name
+        - drink_amount
+    - active_loop: null
+    - action: utter_submit_drink_removal
+    - intent: response_positive
+    - action: action_response_positive
