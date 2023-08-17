@@ -114,11 +114,13 @@ slots:
   order_has_items: #order_has_items is a “global slot mappings” https://rasa.com/blog/how-to-use-global-slot-mappings/
     type: bool
     influence_conversation: true
+    initial_value: false
     mappings:
       - type: custom
         action: action_check_order_ready
   order_complete: #order_complete is mapped in the same action of order_has_items
     type: bool
+    initial_value: false
     influence_conversation: true
     mappings:
       - type: custom
