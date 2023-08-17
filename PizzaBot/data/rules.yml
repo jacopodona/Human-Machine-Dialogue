@@ -231,7 +231,7 @@ rules:
     - slot_was_set:
         - order_ready: true
   steps:
-  - intent: remove_drink_form
+  - intent: remove_drink
   - action: utter_accept_request
   - action: remove_drink_form
   - active_loop: remove_drink_form
@@ -245,4 +245,32 @@ rules:
     - slot_was_set:
         - requested_slot: null
     - action: utter_submit_drink_removal
+
+- rule: Deny remove pizza if order does not have items
+  condition:
+    - slot_was_set:
+        - order_ready: false
+  steps:
+  - intent: remove_pizza
+  - action: utter_remove_order_error
+
+- rule: Activate remove pizza form
+  condition:
+    - slot_was_set:
+        - order_ready: true
+  steps:
+  - intent: remove_pizza
+  - action: utter_accept_request
+  - action: remove_pizza_form
+  - active_loop: remove_pizza_form
+
+- rule: Submit remove pizza form
+  condition:
+  - active_loop: remove_pizza_form
+  steps:
+    - action: remove_pizza_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: utter_submit_pizza_removal
 

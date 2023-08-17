@@ -50,7 +50,7 @@ intents:
   - modify_order_time
   - modify_order_name
 #  - init_modify_order
-#  - remove_pizza
+  - remove_pizza
   - remove_drink
 #  - change_address
 
@@ -177,11 +177,17 @@ responses:
   utter_submit_drink:
     - text: "I want to add {drink_amount} bottle(s) of {drink_name} to your order. Is this correct?"
 
-  utter_ask_pizza_type:
+  utter_ask_pizza_order_form_pizza_type:
     - text: "What type of pizza would you like to order?"
 
-  utter_ask_pizza_size:
+  utter_ask_pizza_order_form_pizza_size:
     - text: "What size would you want to order?"
+
+  utter_ask_remove_pizza_form_pizza_type:
+    - text: "What pizza would you like to remove?"
+
+  utter_ask_remove_pizza_form_pizza_size:
+    - text: "What is the size of the pizza you want to remove?"
 
   utter_ask_drink_order_form_drink_name:
     - text: "What drink would you like?"
@@ -255,6 +261,15 @@ responses:
   utter_submit_drink_removal:
     - text: "I am about to remove {drink_amount} bottle(s) of {drink_name} from your order. Is this correct?"
 
+  utter_submit_pizza_removal:
+    - condition:
+        - type: slot
+          name: ingredient
+          value: null
+      text: "I am about to remove a {pizza_size} {pizza_type} from your order. Is this correct?"
+
+    - text: "I am about to remove a {pizza_size} {pizza_type} with extra {ingredient} from your order. Is this correct?"
+
   utter_delete_order_error:
     - text: "I could not find any order done by you recently to remove."
 
@@ -283,6 +298,7 @@ actions:
   - validate_change_name_form
   - validate_change_time_form
   - validate_remove_drink_form
+  - validate_remove_pizza_form
   #- action_submit_pizza
   - action_response_positive
   - action_response_negative
@@ -325,6 +341,10 @@ forms:
     required_slots:
       - drink_name
       - drink_amount
+  remove_pizza_form:
+    required_slots:
+      - pizza_type
+      - pizza_size
 
 session_config:
   session_expiration_time: 60

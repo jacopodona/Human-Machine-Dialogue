@@ -792,11 +792,11 @@ nlu:
     - i want to delete another drink
     - I want to cancel drink
     - I want to delete a bottle of [beer](drink_name)
-    - I would to delete a [beer](drink_name)
-    - I would to remove a [coke](drink_name)
-    - I would to remove a [tea](drink_name)
-    - Can I remove a [coke](drink_name)
-    - Can I remove a bottle of [water](drink_name)
+    - I would like to delete a [beer](drink_name)
+    - I would like to remove a [coke](drink_name)
+    - I would like to remove a [tea](drink_name)
+    - Can I remove a [coke](drink_name)?
+    - Can I remove a bottle of [water](drink_name)?
     - I want to delete a [beer](drink_name)
     - I want to delete [coke](drink_name)
     - I want [2](drink_amount) bottles of [coke](drink_name) removed from the order
@@ -805,6 +805,33 @@ nlu:
     - I want [1](drink_amount) [beer](drink_name) removed from my order
     - Can I remove [2](drink_amount) bottles of [water](drink_name)?
     - Can I delete [3](drink_amount) bottles of [tea](drink_name)?
+
+- intent: remove_pizza
+  examples: |
+    - Can I remove a pizza?
+    - I would like to remove a pizza
+    - I would like to remove one pizza
+    - I want to remove a pizza
+    - I want to delete a pizza
+    - I want to remove another pizza
+    - Delete pizza
+    - Remove pizza
+    - i want to delete another pizza
+    - I want to cancel pizza
+    - I want to delete a [margherita](pizza_type)
+    - I would like to delete a [diavola](pizza_type)
+    - I would like to remove a [pub](pizza_type)
+    - I would like to remove a [rustic](pizza_type)
+    - Can I remove a [vegetarian](pizza_type)?
+    - Can I remove an [hawaiian](pizza_type)?
+    - I want to delete a [capricciosa](pizza_type)
+    - I want to delete [marinara](pizza_type)
+    - I want the [small](pizza_size) [diavola](pizza_type) removed from the order
+    - I want a [large](pizza_size) [margherita](pizza_type) removed from the order
+    - I want one [medium](pizza_size) [cheesey](pizza_type) removed from my order
+    - I want the [small](pizza_size) [kebab](pizza_type) removed from my order
+    - Can I remove the [large](pizza_size) [pesto](pizza_type) pizza?
+    - Can I delete [medium](pizza_size) [light](pizza_type) pizza?
 
 
 - lookup: pizza_type

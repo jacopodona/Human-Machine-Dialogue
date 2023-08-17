@@ -7,7 +7,7 @@ Pizza ordering bot
 - Order pizza(s)
   - make the intent contain the pizza slot
     - try adding complete requests in init_request (TODO with topping)
-    - If user asks "What is in a diavola" inside the form the form will automatically load the slot and continue (TODO)
+    - If user asks "What is in a diavola" inside the form, the form will automatically load the slot and continue (TODO)
     - make the form flexible to unhappy user paths
 - Order drink(s) 
   - support for text instead of numbers (two vs 2) (TODO)
@@ -22,18 +22,24 @@ Pizza ordering bot
 - Place order
   - Order recap
   - Specify delivery or takeaway
-  - Add error handling
+    - add street number to delivery (TODO)
   - make the form flexible to unhappy user paths (TODO)
 - Modify order (TODO)
   - Add pizza
-  - Remove pizza (TODO)
+  - Remove pizza
+    -  add stop (TODO)
+    - add topping to request (TODO)
   - Add drink 
   - Remove drink
+    - add stop (TODO)
   - Change address (TODO)
   - Change time
   - Change name
   - Change delivery method
   - Delete order
+- Rename order_ready slot to order_has_item (TODO)
+- Try removing the global action to speed up time (TODO)
+  - make order complete and order_ready start at false by default at conversation start (TODO)
 - Add stories and test stories (TODO)
 - Make 2nd Configuration file (TODO)
 - Deploy on Alexa (TODO)
@@ -44,7 +50,7 @@ Pizza ordering bot
 rasa train
 ```
 
-A pretrained model is also available in /models
+A pretrained model is also available in /models folder.
 
 ### Running the code
 

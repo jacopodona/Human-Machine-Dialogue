@@ -320,3 +320,20 @@ stories:
     - action: utter_submit_drink_removal
     - intent: response_positive
     - action: action_response_positive
+
+- story: After ordering user removes pizza
+  steps:
+    - checkpoint: pizza_added_to_order
+    - intent: remove_pizza
+    - slot_was_set:
+        - order_ready: true
+    - action: utter_accept_request
+    - action: remove_pizza_form
+    - active_loop: remove_pizza_form
+    - slot_was_set:
+        - pizza_type
+        - pizza_size
+    - active_loop: null
+    - action: utter_submit_pizza_removal
+    - intent: response_positive
+    - action: action_response_positive

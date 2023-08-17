@@ -75,6 +75,30 @@ def getOrderByUserID(user):
             return order
     return None
 
+def getPizzasInOrderByDescription(order, pizza_name,ingredient):
+    """
+    Returns the pizza in the order that match the name and ingredient given. If ambiguity is found all the pizzas are added and then filtered based on which one matches the description.
+    (example: pizza name is given but not ingredient, adds every pizza with the name even if it has some extra ingredient), form validation deals with ambiguities.
+    (example: pizza name is given with ingredient, adds the exact pizza matching the description)
+    :param order:
+    :param pizza_name:
+    :param ingredient:
+    :return:
+    """
+    pizzas_to_return=[]
+    for i in range(len(order.pizzas)):
+        item=order.pizzas[i]
+        if item.pizza.name==pizza_name:
+            if ingredient is not None:
+                if ingredient in item.extras:
+                    pizzas_to_return.append(item)
+            else:
+                if len(item.extras)==0:
+                    pizzas_to_return.append(item)
+    if len(pizzas_to_return)>1: #Ambiguities happen if user has multiple pizzas with identical name-extras but different sizes, not a problem in pizza_type and ingredient validation
+        pizzas_to_return=[pizzas_to_return[0]]
+    return pizzas_to_return
+
 def logOrderDB():
     message="DB orders:"+str(len(orders))
     for order in orders:
@@ -157,7 +181,7 @@ def updateExistingOrder(modified_order):
             print(f"New order in the database: {orders[i].__dict__}")
 
 def getOrderWithRemovedDrink(order,drink_to_remove, drink_to_remove_amount):
-    for i in range(len(order.drinks)):
+    for i in range(len(order.drinks)-1,-1,-1):#For loop in reversed order to avoid index error after the pop
         drink_in_order=order.drinks[i]
         if drink_to_remove.name==drink_in_order.drink.name:
             if int(drink_in_order.amount)<=int(drink_to_remove_amount):
@@ -168,6 +192,17 @@ def getOrderWithRemovedDrink(order,drink_to_remove, drink_to_remove_amount):
                 order.drinks[i]=updated_drink
             return order
     return None
+
+def getOrderWithRemovedPizza(order,pizza_to_remove):
+    for i in range(len(order.pizzas)-1,-1,-1):#For loop in reversed order to avoid index error after the pop
+        pizza_in_order=order.pizzas[i]
+        if pizza_to_remove == pizza_in_order:
+            if pizza_in_order.amount==1: #If there is only one, pop delete its entry
+                order.pizzas.pop(i)
+            else:
+                pizza_in_order.amount=pizza_in_order.amount-1
+                order.pizzas[i]=pizza_in_order
+    return order
 
 def checkOrderIsEmpty(order):
     if len(order.pizzas)==0 and len(order.drinks)==0:
@@ -582,6 +617,53 @@ class ValidateRemoveDrinkForm(FormValidationAction):
             else:
                 dispatcher.utter_message(text="Sorry, I don't recognize that amount, please provide me a valid number.")
 
+class ValidatePizzaOrderForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_remove_pizza_form"
+
+    def validate_pizza_size(self,slot_value:Any,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: DomainDict)-> Dict[Text, Any]:
+        if slot_value.lower() not in getPizzaSizes():
+            dispatcher.utter_message(text=f"We only accept pizza sizes : small/medium/large")
+            return {"pizza_size":None}
+        order = getOrderByUserID(tracker.sender_id)
+        ordered_sizes=[obj.size for obj in order.pizzas]
+        if slot_value in ordered_sizes:
+            dispatcher.utter_message(text=f"Ok! You want to remove a {slot_value} pizza and you have it.")
+            return {"pizza_size":slot_value}
+        else:
+            dispatcher.utter_message(text=f"You did not order {slot_value} sized pizzas, please select a size you ordered you want to remove.")
+            return {"pizza_size": None}
+
+    def validate_pizza_type(self,slot_value:Any,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: DomainDict)-> Dict[Text, Any]:
+        if slot_value is not None:
+            if slot_value.lower() not in getPizzaTypes():
+                dispatcher.utter_message(text=f"I don't recognize that pizza.")
+                return {"pizza_type":None}
+            order=getOrderByUserID(tracker.sender_id)
+            ingredient=tracker.get_slot("ingredient")
+            ordered_pizzas=getPizzasInOrderByDescription(order,pizza_name=slot_value.lower(),ingredient=ingredient)
+            if len(ordered_pizzas)==0: #If user gives pizza-ingredient combination that is not in the order ask again
+                if ingredient is None:
+                    dispatcher.utter_message(text=f"You don't have {slot_value} in your order. Please select a pizza you ordered you want to remove.")
+                else:
+                    dispatcher.utter_message(text=f"You don't have {slot_value} with {ingredient} in your order. Please select a pizza you ordered you want to remove.")
+                return {"pizza_type": None,"ingredient": None}
+            elif len(ordered_pizzas)==1: #If user gives pizza-ingredient combination that is in the order with no ambiguities remove the pizza
+                if ingredient is None:
+                    dispatcher.utter_message(text=f"Ok! You want to remove {slot_value} and you have it in your order.")
+                else:
+                    dispatcher.utter_message(text=f"Ok! You want to remove a {slot_value} with {ingredient} and you have it in your order.")
+                return {"pizza_type": slot_value}
+            else: #There are ambiguities, happens if you don't give an ingredient but have multiple pizzas with ingredient (example: user asks to remove margherita, search finds margherita with olives and margherita with ham)
+                dispatcher.utter_message(text=f"I found multiple {slot_value} and they all have ingredients, please be more specific on which one to remove.")
+                return {"pizza_type": None}
+
 class ActionCheckOrderReady(Action):
 
     def name(self) -> Text:
@@ -788,6 +870,38 @@ class ActionResponsePositive(Action):
                     updateExistingOrder(updatedOrder)
                     dispatcher.utter_message(text=getOrderRecap(order))
                 return [SlotSet("drink_name", None), SlotSet("drink_amount", None)]
+            elif (previous_action == 'utter_submit_pizza_removal'):
+                #I already dealt with
+                pizza_type=tracker.slots['pizza_type']
+                pizza_size=tracker.slots['pizza_size']
+                ingredient=tracker.slots['ingredient']
+                order=getOrderByUserID(tracker.sender_id)
+                if ingredient is None:
+                    pizza_to_remove=OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size, toppings=[],amount=1)
+                else:
+                    pizza_to_remove = OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size,toppings=[ingredient], amount=1)
+                found=False
+                for i in range(len(order.pizzas)):
+                    item=order.pizzas[i]
+                    if item==pizza_to_remove:
+                        found=True
+                if found:
+                    updatedOrder = getOrderWithRemovedPizza(order,pizza_to_remove)
+                    dispatcher.utter_message(text="Perfect, it was removed correctly.")
+                    if checkOrderIsEmpty(updatedOrder):
+                        removeOrderByUserID(updatedOrder.user_id)
+                        dispatcher.utter_message(text="Since your order does not contain items anymore, I also deleted your order.")
+                    else:
+                        updateExistingOrder(updatedOrder)
+                        dispatcher.utter_message(text=getOrderRecap(order))
+                    return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None)]
+                else:
+                    if ingredient is None:
+                        dispatcher.utter_message(text=f"I could not find a {pizza_size} {pizza_type} in your order to remove.")
+                    else:
+                        dispatcher.utter_message(
+                            text=f"I could not find a {pizza_size} {pizza_type} with {ingredient} in your order to remove.")
+                    return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None)]
             elif(previous_action == "utter_anything_else_order"):
                 #The user wants something else"
                 dispatcher.utter_message("What would you like to add to your order?")
@@ -847,6 +961,9 @@ class ActionResponseNegative(Action):
             elif (previous_action == 'utter_submit_drink_removal'):
                 dispatcher.utter_message(text="Ok, I did not remove that.")
                 return [SlotSet("drink_name", None), SlotSet("drink_amount", None)]
+            elif (previous_action == 'utter_submit_pizza_removal'):
+                dispatcher.utter_message(text="Ok, I did not remove that.")
+                return [SlotSet("pizza_type", None), SlotSet("pizza_size", None),SlotSet("ingredient", None)]
             else:
                 dispatcher.utter_message("I don't understand what are you referring to, could you please be more specific?")
         except Exception as e:
