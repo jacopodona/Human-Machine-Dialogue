@@ -812,14 +812,14 @@ class ActionResponsePositive(Action):
                     dispatcher.utter_message(response="utter_order_deleted")
                 return []
             elif (previous_action == 'utter_submit_time_modification'):
-                dispatcher.utter_message(text="Perfect, the time has been changed correctly.")
+                dispatcher.utter_message(text="Perfect, the time of your order has been updated correctly.")
                 order = getOrderByUserID(tracker.sender_id)
                 new_order_time = tracker.slots['order_time']
                 order.order_time=new_order_time
                 updateExistingOrder(order)
                 return [SlotSet("order_time", None)]
             elif (previous_action == 'utter_submit_name_modification'):
-                dispatcher.utter_message(text="Perfect, the name has been changed correctly.")
+                dispatcher.utter_message(text="Perfect, the name of your order has been updated correctly.")
                 order = getOrderByUserID(tracker.sender_id)
                 new_client_name = tracker.slots['client_name']
                 order.client_name=new_client_name
@@ -954,7 +954,9 @@ class ActionDeactivateForm(Action):
         return 'action_deactivate_form'
 
     def run(self, dispatcher, tracker, domain):
-
+        """Deactivate form, forces to exit the active loop and sets all the non global slots to none"""
         dispatcher.utter_message(text="Ok, I won't ask you any more questions about it. How can I help you?")
-        return[ActiveLoop(None),AllSlotsReset()]
+        return[ActiveLoop(None),SlotSet("ingredient",None),SlotSet("pizza_type",None),SlotSet("pizza_size",None),
+               SlotSet("drink_name",None),SlotSet("drink_amount",None),SlotSet("drink_amount",None),SlotSet("address_street",None),
+               SlotSet("order_time",None),SlotSet("client_name",None)]
 
