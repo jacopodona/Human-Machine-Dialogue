@@ -149,7 +149,6 @@ nlu:
     - I dont want to do delivery
     - I dont want to do pickup
     - I changed idea
-    - Never mind
     - I dont want it anymore
     - Stop, I changed my mind
     - I don't want to do that anymore
@@ -222,44 +221,22 @@ nlu:
     - I want a drink
     - I want some [tea](drink_name)
     - I want some [beer](drink_name)
-    - I want some [sprite](drink_name)
-    - I want a bottle of [water](drink_name)
-    - I want a bottle of [tea](drink_name)
+    - I want some [water](drink_name)
     - I want a bottle of [beer](drink_name)
-    - I would like a [water](drink_name)
-    - I would like a [tea](drink_name)
+    - I want a bottle of [sprite](drink_name)
+    - I want a bottle of [water](drink_name)
+    - I would like a [beer](drink_name)
     - I would like a [coke](drink_name)
-    - I would like a [sprite](drink_name)
-    - I want to drink [water](drink_name)
-    - I want to drink [coke](drink_name)
     - I want to drink [beer](drink_name)
+    - I want to drink [coke](drink_name)
     - I want to drink [sprite](drink_name)
-    - Can I have some [water](drink_name)
-    - Can I have some [tea](drink_name)
-    - Can I have some [coke](drink_name)
-    - Can I have some [beer](drink_name)
-    - Can I have some [sprite](drink_name)
-    - I would like to add some [tea](drink_name)
-    - I would like to add some [coke](drink_name)
-    - I would like to add some [beer](drink_name)
-    - I would like to add some [sprite](drink_name)
-    - I want to order [water](drink_name)
-    - I want to order [tea](drink_name)
-    - I want to order [coke](drink_name)
-    - I want to order [beer](drink_name)
-    - I want to order [sprite](drink_name)
-    - I want [1](drink_amount) bottle of [water](drink_name)
-    - I want [2](drink_amount) bottle of [beer](drink_name)
-    - I want [2](drink_amount) [waters](drink_name)
-    - I want [3](drink_amount) [teas](drink_name)
-    - I want [3](drink_amount) [cokes](drink_name)
-    - I want [3](drink_amount) [beers](drink_name)
-    - I want [4](drink_amount) bottles of [sprites](drink_name)
-    - I want [4](drink_amount) bottles of [beers](drink_name)
-    - I want [4](drink_amount) bottles of [coke](drink_name)
-    - I would like [5](drink_amount) bottles of [tea](drink_name)
-    - I would like [5](drink_amount) bottles of [coke](drink_name)
-    - I would like [5](drink_amount) bottles of [beer](drink_name)
+    - Can I have a [coke](drink_name)
+    - Can I add a bottle of [water](drink_name)
+    - I want to order a [beer](drink_name)
+    - I want a [coke](drink_name)
+    - I want [2](drink_amount) bottles of [coke](drink_name)
+    - I want [1](drink_amount) [beer](drink_name)
+    - Can I add [2](drink_amount) bottles of [water](drink_name)
 
 - intent: ask_pizza_menu
   examples: |
@@ -438,35 +415,13 @@ nlu:
 
 - intent: say_pizza_type
   examples: |
+    - a [hawaiian](pizza_type)
+    - a [marinara](pizza_type)
     - [margherita](pizza_type)
     - [marinara](pizza_type)
-    - [diavola](pizza_type)
-    - [capricciosa](pizza_type)
-    - [hawaiian](pizza_type)
-    - [vegetarian](pizza_type)
-    - [pub](pizza_type)
     - [rustic](pizza_type)
-    - a [pub](pizza_type)
-    - a [rustic](pizza_type)
-    - a [kebab](pizza_type)
-    - a [cheesey](pizza_type)
-    - a [light](pizza_type)
-    - a [pesto](pizza_type)
-    - the [capricciosa](pizza_type)
-    - the [hawaiian](pizza_type)
-    - the [vegetarian](pizza_type)
-    - the [pub](pizza_type)
-    - the [rustic](pizza_type)
-    - the [kebab](pizza_type)
-    - the [cheesey](pizza_type)
-    - one [margherita](pizza_type)
-    - one [marinara](pizza_type)
-    - one [diavola](pizza_type)
-    - one [capricciosa](pizza_type)
-    - one [kebab](pizza_type)
-    - one [cheesey](pizza_type)
-    - one [light](pizza_type)
-    - one [pesto](pizza_type)
+    - [diavola](pizza_type)
+    - [pub]
     - A [marinara](pizza_type)
     - A [diavola](pizza_type) with [garlic](ingredient)
     - a [pub](pizza_type) with [olives](ingredient)
@@ -474,15 +429,7 @@ nlu:
     - An [hawaiian](pizza_type) with [potatoes](ingredient)
     - a [cheesey](pizza_type) with [sausage](ingredient)
     - a [capricciosa](pizza_type) with [olives](ingredient)
-    - a [rustic](pizza_type) with [chicken](ingredient)
-    - A [pesto](pizza_type) with [sausage](ingredient)
-    - A [light](pizza_type) with [zucchini](ingredient)
-    - A [kebab](pizza_type) with [ham](ingredient)
-    - a [hawaiian](pizza_type) with [zucchini](ingredient)
-    - a [diavola](pizza_type) with [spinach](ingredient)
-    - a [marinara](pizza_type) with [BBQ sauce](ingredient)
-    - a [rustic](pizza_type) with [ham](ingredient)
-    - a [kebab](pizza_type) with [tomato sauce](ingredient)
+
 - intent: say_pizza_size
   examples: |
     - I'd like a [large](pizza_size) pizza
@@ -508,13 +455,11 @@ nlu:
     - I want [3](drink_amount)
     - I want [4](drink_amount)
     - I want [5](drink_amount)
-    - I want [6](drink_amount)
     - Give me [1](drink_amount)
     - Give me [2](drink_amount)
     - Give me [3](drink_amount)
     - Give me [4](drink_amount)
     - Give me [5](drink_amount)
-    - Give me [6](drink_amount)
     - Just [1](drink_amount)
     - Just [2](drink_amount)
     - [1](drink_amount)
@@ -522,13 +467,11 @@ nlu:
     - [3](drink_amount)
     - [4](drink_amount)
     - [5](drink_amount)
-    - [6](drink_amount)
     - I want [1](drink_amount) bottles
     - I want [2](drink_amount) bottles
     - I want [3](drink_amount) bottles
     - I want [4](drink_amount) bottles
     - I want [5](drink_amount) bottles
-    - I want [6](drink_amount) bottles
 
 - intent: say_drink_name
   examples: |
@@ -547,6 +490,15 @@ nlu:
     - Some [tea](drink_name)
     - Some [water](drink_name)
     - Some [sprite](drink_name)
+    
+
+#- intent: say_drink_order
+#  examples: |
+#    - I want a [beer](drink_name)
+#    - I want a bottle of [coke](drink_name)
+#    -  [beer](drink_name)
+#    - [1](drink_amount) [coke](drink_name) please
+#    - [2](drink_amount) bottles of [water](drink_name)
 
 - intent: say_full_name
   examples: |
@@ -671,52 +623,6 @@ nlu:
     - Let's do [9pm](order_time).
     - [8pm](order_time).
     - [9.30pm](order_time).
-    - at [7.30pm](order_time)
-    - at [19.30](order_time)
-    - at [7.30](order_time)
-    - at [19:30](order_time)
-    - at [7:30](order_time)
-    - at [8pm](order_time)
-    - at [20](order_time)
-    - at [20.00](order_time)
-    - at [8](order_time)
-    - at [8.00](order_time)
-    - at [8:00](order_time)
-    - at [20:00](order_time)
-    - at [8.30pm](order_time)
-    - at [20.30](order_time)
-    - at [8.30](order_time)
-    - at [20:30](order_time)
-    - at [8:30](order_time)
-    - at [9pm](order_time)
-    - at [21](order_time)
-    - at [21.00](order_time)
-    - at [9](order_time)
-    - at [9:00](order_time)
-    - at [21:00](order_time)
-    - [7.30pm](order_time)
-    - [19.30](order_time)
-    - [7.30](order_time)
-    - [19:30](order_time)
-    - [7:30](order_time)
-    - [8pm](order_time)
-    - [20](order_time)
-    - [20.00](order_time)
-    - [8](order_time)
-    - [8.00](order_time)
-    - [8:00](order_time)
-    - [20:00](order_time)
-    - [8.30pm](order_time)
-    - [20.30](order_time)
-    - [8.30](order_time)
-    - [20:30](order_time)
-    - [8:30](order_time)
-    - [9pm](order_time)
-    - [21](order_time)
-    - [21.00](order_time)
-    - [9](order_time)
-    - [9:00](order_time)
-    - [21:00](order_time)
 
 - intent: ask_pizza_without_ingredient
   examples: |
@@ -788,13 +694,10 @@ nlu:
     - What pizzas has [pineapple](ingredient)?
     - pizza with [sausage](ingredient)?
     - pizza with [pepperoni](ingredient) please?
-    - pizza with [BBQ sauce](ingredient) please?
-    - pizza with [potatoes](ingredient) please?
-    - pizza with [spinach](ingredient) please?
+    - pizza with [chicken](ingredient) please?
     - any pizza with [olives](ingredient)?
     - any pizza with [wurstel](ingredient)?
     - any pizza with [pepperoni](ingredient)?
-    - any pizza with [tomato sauce](ingredient)?
     - any pizza with [onions](ingredient)?
     - any pizza with [wurstel](ingredient) please?
     - any pizza with [mozzarella](ingredient) please?
@@ -916,8 +819,6 @@ nlu:
     - i want to delete another pizza
     - I want to cancel pizza
     - I want to delete a [margherita](pizza_type)
-    - I want to delete a [cheesey](pizza_type)
-    - I want to delete a [rustic](pizza_type)
     - I would like to delete a [diavola](pizza_type)
     - I would like to remove a [pub](pizza_type)
     - I would like to remove a [rustic](pizza_type)
@@ -951,24 +852,17 @@ nlu:
 
 - lookup: ingredient
   examples: |
-    - tomato sauce
-    - mozzarella
-    - garlic
-    - pepperoni
-    - ham
-    - pineapple
-    - bell peppers
-    - eggplant
-    - zucchini
-    - spinach
-    - onions
-    - olives
-    - mushrooms
-    - wurstel
-    - chicken
-    - sausage
-    - potatoes
-    - BBQ sauce
+    -tomato sauce
+    -mozzarella
+    -pepperoni
+    -ham
+    -spinach
+    -onions
+    -olives
+    -mushrooms
+    -wurstel
+    -chicken
+    -sausage
 
 - lookup: pizza_size
   examples: |
@@ -982,15 +876,6 @@ nlu:
     - 8pm
     - 8.30pm
     - 9pm
-
-- lookup: drink_amount
-  examples: |
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    - 6
 
 - synonym: 7.30pm
   examples: |

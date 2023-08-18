@@ -38,7 +38,7 @@ pizza_menu=[
     Pizza(name="vegetarian", price=8, ingredients=["tomato sauce", "mozzarella", "zucchini", "bell peppers", "eggplant"]),
     Pizza(name="pub", price=8, ingredients=["tomato sauce", "mozzarella", "wurstel", "potatoes"]),
     Pizza(name="rustic", price=8, ingredients=["tomato sauce", "mozzarella", "sausage", "potatoes"]),
-    Pizza(name="kebab", price=9, ingredients=["bbq sauce", "mozzarella", "chicken"]),
+    Pizza(name="kebab", price=9, ingredients=["BBQ sauce", "mozzarella", "chicken"]),
     Pizza(name="cheesey", price=8, ingredients=["tomato sauce", "mozzarella", "cheddar", "parmesan", "gorgonzola"]),
     Pizza(name="light", price=8, ingredients=["mozzarella", "spinach", "feta"]),
     Pizza(name="pesto", price=7, ingredients=["mozzarella", "pesto", "tomatoes"])
@@ -47,7 +47,7 @@ pizza_menu=[
 pizza_sizes=["small","medium","large"]
 
 toppings=["tomato sauce","mozzarella","garlic","pepperoni","ham","pineapple","bell peppers","eggplant","zucchini","spinach","onions",
-          "olives","mushrooms","wurstel","chicken","sausage","potatoes","bbq sauce"]
+          "olives","mushrooms","wurstel","chicken","sausage","potatoes","BBQ sauce"]
 
 orders=[]
 

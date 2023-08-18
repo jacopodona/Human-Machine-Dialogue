@@ -35,6 +35,8 @@ Pizza ordering bot
   - Change name
   - Change delivery method
   - Delete order
+- Try removing the global action to speed up time (TODO)
+  - make order complete and order_ready start at false by default at conversation start
 - Add stories and test stories (TODO)
 - Make 2nd Configuration file (TODO)
 - Deploy on Alexa (TODO)
