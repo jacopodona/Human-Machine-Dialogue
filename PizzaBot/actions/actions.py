@@ -428,25 +428,29 @@ class ValidatePizzaOrderForm(FormValidationAction):
                             tracker: Tracker,
                             domain: DomainDict)-> Dict[Text, Any]:
         """ Validate 'pizza_size' value"""
-        if slot_value.lower() not in getPizzaSizes():
-            dispatcher.utter_message(text=f"We only accept pizza sizes : small/medium/large")
-            return {"pizza_size":None}
-        dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
-        return {"pizza_size":slot_value}
+        if slot_value is not None:
+            if slot_value.lower() not in getPizzaSizes():
+                dispatcher.utter_message(text=f"We only accept pizza sizes : small/medium/large")
+                return {"pizza_size":None}
+            dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
+            return {"pizza_size":slot_value}
+        return {"pizza_size":None}
 
     def validate_pizza_type(self,slot_value:Any,
                             dispatcher: CollectingDispatcher,
                             tracker: Tracker,
                             domain: DomainDict)-> Dict[Text, Any]:
-        if slot_value.lower() not in getPizzaTypes():
-            dispatcher.utter_message(text=f"I don't recognize that pizza, for more indications on the available pizzas, ask 'What pizzas do you have in the menu?'")
-            return {"pizza_type":None}
-        ingredient=tracker.get_slot("ingredient")
-        if ingredient is None:
-            dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
-        else:
-            dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza with extra {ingredient}.")
-        return {"pizza_type":slot_value}
+        if slot_value is not None:
+            if slot_value.lower() not in getPizzaTypes():
+                dispatcher.utter_message(text=f"I don't recognize that pizza, for more indications on the available pizzas, ask 'What pizzas do you have in the menu?'")
+                return {"pizza_type":None}
+            ingredient=tracker.get_slot("ingredient")
+            if ingredient is None:
+                dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
+            else:
+                dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza with extra {ingredient}.")
+            return {"pizza_type":slot_value}
+        return {"pizza_type": None}
 
 #class ActionSubmitPizza(Action):
 #
@@ -480,6 +484,7 @@ class ValidateDrinkOrderForm(FormValidationAction):
                 return {"drink_name":None}
             dispatcher.utter_message(text=f"Ok! You want to have {slot_value}.")
             return {"drink_name":slot_value}
+        return {"drink_name":None}
 
     def validate_drink_amount(self,slot_value:Any,
                             dispatcher: CollectingDispatcher,
@@ -492,6 +497,7 @@ class ValidateDrinkOrderForm(FormValidationAction):
                 return {"drink_amount":slot_value}
             else:
                 dispatcher.utter_message(text="Sorry, I don't recognize that amount, please provide me a valid number.")
+        return {"drink_amount": None}
 
 class ValidatePickupOrderForm(FormValidationAction):
     def name(self) -> Text:
@@ -501,18 +507,22 @@ class ValidatePickupOrderForm(FormValidationAction):
                              dispatcher: CollectingDispatcher,
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
-        dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
-        return {"order_time": slot_value}
+        if slot_value is not None:
+            dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+            return {"order_time": slot_value}
+        return {"order_time": None}
 
     def validate_client_name(self,slot_value:Any,
                             dispatcher: CollectingDispatcher,
                             tracker: Tracker,
                             domain: DomainDict)-> Dict[Text, Any]:
-        if len(slot_value.split())!=2:
-            dispatcher.utter_message(text="Please, give me your first and last name.")
-            return {"client_name":None}
-        dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
-        return {"client_name":slot_value}
+        if slot_value is not None:
+            if len(slot_value.split())!=2:
+                dispatcher.utter_message(text="Please, give me your first and last name.")
+                return {"client_name":None}
+            dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+            return {"client_name":slot_value}
+        return {"client_name":None}
 
 
 class ValidateDeliveryOrderForm(FormValidationAction):
@@ -523,25 +533,31 @@ class ValidateDeliveryOrderForm(FormValidationAction):
                              dispatcher: CollectingDispatcher,
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
-        dispatcher.utter_message(text=f"Ok! Registering the address at {slot_value}.")
-        return {"address_street": slot_value}
+        if slot_value is not None:
+            dispatcher.utter_message(text=f"Ok! Registering the address at {slot_value}.")
+            return {"address_street": slot_value}
+        return {"address_street": None}
 
     def validate_order_time(self, slot_value: Any,
                              dispatcher: CollectingDispatcher,
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
-        dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
-        return {"order_time": slot_value}
+        if slot_value is not None:
+            dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+            return {"order_time": slot_value}
+        return {"order_time": None}
 
     def validate_client_name(self,slot_value:Any,
                             dispatcher: CollectingDispatcher,
                             tracker: Tracker,
                             domain: DomainDict)-> Dict[Text, Any]:
-        if len(slot_value.split())!=2:
-            dispatcher.utter_message(text="Please, give me your first and last name.")
-            return {"client_name":None}
-        dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
-        return {"client_name":slot_value}
+        if slot_value is not None:
+            if len(slot_value.split())!=2:
+                dispatcher.utter_message(text="Please, give me your first and last name.")
+                return {"client_name":None}
+            dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+            return {"client_name":slot_value}
+        return {"client_name":None}
 
 class ValidateChangeTimeForm(FormValidationAction):
     def name(self) -> Text:
@@ -551,8 +567,10 @@ class ValidateChangeTimeForm(FormValidationAction):
                              dispatcher: CollectingDispatcher,
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
-        dispatcher.utter_message(text=f"Ok! Updating the time to {slot_value}.")
-        return {"order_time": slot_value}
+        if slot_value is not None:
+            dispatcher.utter_message(text=f"Ok! Updating the time to {slot_value}.")
+            return {"order_time": slot_value}
+        return {"order_time": None}
 
 class ValidateChangeNameForm(FormValidationAction):
     def name(self) -> Text:
@@ -562,8 +580,10 @@ class ValidateChangeNameForm(FormValidationAction):
                              dispatcher: CollectingDispatcher,
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
-        dispatcher.utter_message(text=f"Ok! Updating the name to the order for {slot_value}.")
-        return {"client_name": slot_value}
+        if slot_value is not None:
+            dispatcher.utter_message(text=f"Ok! Updating the name to the order for {slot_value}.")
+            return {"client_name": slot_value}
+        return {"client_name":None}
 
 class ValidateRemoveDrinkForm(FormValidationAction):
     def name(self) -> Text:
@@ -583,6 +603,7 @@ class ValidateRemoveDrinkForm(FormValidationAction):
             else:
                 dispatcher.utter_message(text=f"Ok! You want to remove {slot_value} and you have it in your order.")
                 return {"drink_name": slot_value}
+        return {"drink_name": None}
 
     def validate_drink_amount(self, slot_value: Any,
                               dispatcher: CollectingDispatcher,
@@ -595,6 +616,7 @@ class ValidateRemoveDrinkForm(FormValidationAction):
                 return {"drink_amount": slot_value}
             else:
                 dispatcher.utter_message(text="Sorry, I don't recognize that amount, please provide me a valid number.")
+        return {"drink_amount": None}
 
 class ValidatePizzaRemoveForm(FormValidationAction):
     def name(self) -> Text:
@@ -604,17 +626,19 @@ class ValidatePizzaRemoveForm(FormValidationAction):
                             dispatcher: CollectingDispatcher,
                             tracker: Tracker,
                             domain: DomainDict)-> Dict[Text, Any]:
-        if slot_value.lower() not in getPizzaSizes():
-            dispatcher.utter_message(text=f"We only accept pizza sizes : small/medium/large")
-            return {"pizza_size":None}
-        order = getOrderByUserID(tracker.sender_id)
-        ordered_sizes=[obj.size for obj in order.pizzas]
-        if slot_value in ordered_sizes:
-            dispatcher.utter_message(text=f"Ok! You want to remove a {slot_value} pizza and you have it.")
-            return {"pizza_size":slot_value}
-        else:
-            dispatcher.utter_message(text=f"You did not order {slot_value} sized pizzas, please select a size you ordered you want to remove.")
-            return {"pizza_size": None}
+        if slot_value is not None:
+            if slot_value.lower() not in getPizzaSizes():
+                dispatcher.utter_message(text=f"We only accept pizza sizes : small/medium/large")
+                return {"pizza_size":None}
+            order = getOrderByUserID(tracker.sender_id)
+            ordered_sizes=[obj.size for obj in order.pizzas]
+            if slot_value in ordered_sizes:
+                dispatcher.utter_message(text=f"Ok! You want to remove a {slot_value} pizza and you have it.")
+                return {"pizza_size":slot_value}
+            else:
+                dispatcher.utter_message(text=f"You did not order {slot_value} sized pizzas, please select a size you ordered you want to remove.")
+                return {"pizza_size": None}
+        return {"pizza_size": None}
 
     def validate_pizza_type(self,slot_value:Any,
                             dispatcher: CollectingDispatcher,
@@ -642,6 +666,7 @@ class ValidatePizzaRemoveForm(FormValidationAction):
             else: #There are ambiguities, happens if you don't give an ingredient but have multiple pizzas with ingredient (example: user asks to remove margherita, search finds margherita with olives and margherita with ham)
                 dispatcher.utter_message(text=f"I found multiple {slot_value} and they all have ingredients, please be more specific on which one to remove.")
                 return {"pizza_type": None}
+        return {"pizza_type": None}
 
 #class ActionCheckOrderReady(Action):
 #
