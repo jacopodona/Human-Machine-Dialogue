@@ -117,7 +117,7 @@ slots:
     initial_value: false
     mappings:
       - type: custom
-        action: action_check_order_ready
+        #action: action_check_order_ready
   order_complete: #order_complete is mapped in the same action of order_has_items
     type: bool
     initial_value: false
@@ -307,7 +307,7 @@ actions:
   - action_tell_pizza_menu
   - action_tell_pizza_price
   - action_tell_pizza_ingredients
-  - action_check_order_ready
+  #- action_check_order_ready
   - action_see_order_information
   - action_tell_pizza_without_ingredient
   - action_tell_pizza_with_ingredient
@@ -317,7 +317,6 @@ actions:
 forms:
   pizza_order_form:
     required_slots:
-    #- pizza_amount
     - pizza_type
     - pizza_size
   drink_order_form:

@@ -23,15 +23,13 @@ Pizza ordering bot
   - Order recap
   - Specify delivery or takeaway
     - add street number to delivery (TODO)
-  - make the form flexible to unhappy user paths (TODO)
+  - make the form flexible to unhappy user paths
 - Modify order (TODO)
   - Add pizza
   - Remove pizza
-    -  add stop (TODO)
     - add topping to request (TODO)
   - Add drink 
   - Remove drink
-    - add stop (TODO)
   - Change address (TODO)
   - Change time
   - Change name
