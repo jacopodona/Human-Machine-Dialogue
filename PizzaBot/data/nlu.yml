@@ -486,7 +486,7 @@ nlu:
     - Just [1](drink_amount)
     - Just [2](drink_amount)
     - Just [one](drink_amount)
-    - Just [two](drink_amount)+
+    - Just [two](drink_amount)
     - [1](drink_amount)
     - [2](drink_amount)
     - [3](drink_amount)
@@ -648,7 +648,42 @@ nlu:
     - [Via Dogana](address_street)
     - [Via Piave](address_street)
     - [Via Vittorio Veneto](address_street)
-    
+
+- intent: say_address_number
+  examples: |
+    - number [1](address_number)
+    - number [12](address_number)
+    - number [18](address_number)
+    - number [30](address_number)
+    - number [16](address_number)
+    - number [52](address_number) 
+    - number [20](address_number)
+    - number [21](address_number)
+    - Number [46](address_number)
+    - Number [15](address_number)
+    - Number [8](address_number)
+    - Number [64](address_number)
+    - Number [13](address_number)
+    - Number [64](address_number)
+    - [1](address_number) is my address number
+    - [25](address_number) is my address number
+    - [36](address_number) is my address number
+    - [70](address_number) is my address number
+    - [51](address_number) is my address number
+    - my address number is [35](address_number)
+    - my address number is [33](address_number)
+    - my address number is [37](address_number)
+    - my address number is [4](address_number)
+    - my address number is [16](address_number)
+    - the address number is [6](address_number)
+    - the address number is [13](address_number)
+    - the address number is [4](address_number)
+    - the address number is [35](address_number)
+    - my home address number is [8](address_number)
+    - my home address number is [6](address_number)
+    - my home address number is [12](address_number)
+    - my home address number is [19](address_number)
+    - my home address number is [7](address_number)
 
 - intent: say_order_time
   examples: |

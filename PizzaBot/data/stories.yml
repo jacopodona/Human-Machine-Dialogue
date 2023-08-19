@@ -141,6 +141,7 @@ stories:
   - active_loop: delivery_order_form
   - slot_was_set:
       - address_street
+      - address_number
       - order_time
       - client_name
   - active_loop: null

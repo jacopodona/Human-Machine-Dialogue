@@ -10,7 +10,7 @@ Pizza ordering bot
     - If user asks "What is in a diavola" inside the form, the form will automatically load the slot and continue (TODO)
     - make the form flexible to unhappy user paths
 - Order drink(s) 
-  - support for text instead of numbers (two vs 2) (TODO)
+  - support for text instead of numbers (two vs 2)
   - make the form flexible to unhappy user paths
   - ignore some intents within the form (TODO)
 - Customize pizza (only 1 topping)
@@ -22,7 +22,7 @@ Pizza ordering bot
 - Place order
   - Order recap
   - Specify delivery or takeaway
-    - add street number to delivery (TODO)
+    - add street number to delivery
   - make the form flexible to unhappy user paths
 - Modify order (TODO)
   - Add pizza
@@ -35,9 +35,9 @@ Pizza ordering bot
   - Change name
   - Change delivery method
   - Delete order
-- Try removing the global action to speed up time (TODO)
+- Try removing the global action to speed up time
   - make order complete and order_ready start at false by default at conversation start
-- Add stories and test stories (TODO)
+- Add test stories (TODO)
 - Make 2nd Configuration file (TODO)
 - Deploy on Alexa (TODO)
 

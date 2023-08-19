@@ -538,6 +538,18 @@ class ValidateDeliveryOrderForm(FormValidationAction):
             return {"address_street": slot_value}
         return {"address_street": None}
 
+    def validate_address_number(self, slot_value: Any,
+                             dispatcher: CollectingDispatcher,
+                             tracker: Tracker,
+                             domain: DomainDict) -> Dict[Text, Any]:
+        if slot_value is not None:
+            if str(slot_value).isnumeric():
+                dispatcher.utter_message(text=f"Ok! The address number is {slot_value}.")
+                return {"address_number": slot_value}
+            else:
+                dispatcher.utter_message(text="Sorry, I don't recognize that, please provide me a valid street number.")
+        return {"address_number": None}
+
     def validate_order_time(self, slot_value: Any,
                              dispatcher: CollectingDispatcher,
                              tracker: Tracker,
@@ -828,7 +840,7 @@ class ActionResponsePositive(Action):
                 print(f"Order {order.id} will be delivered at {address} at {order_time} for the client {client_name}")
                 updateExistingOrder(order)
                 dispatcher.utter_message(response="utter_order_saved_delivery")
-                return [SlotSet("address_street", None),SlotSet("client_name", None), SlotSet("order_time", None),SlotSet("order_complete",True)]
+                return [SlotSet("address_street", None),SlotSet("address_number",None),SlotSet("client_name", None), SlotSet("order_time", None),SlotSet("order_complete",True)]
             elif (previous_action == "utter_ask_delete_order_confirmation"):
                 removed=removeOrderByUserID(tracker.sender_id)
                 if removed is None:
@@ -952,7 +964,7 @@ class ActionResponseNegative(Action):
                 return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("drink_order_form")]
             elif (previous_action == 'utter_submit_delivery'):
                 dispatcher.utter_message(text="Ok, removing these details.")
-                return [SlotSet("address_street", None), SlotSet("order_time", None),SlotSet("client_name", None),FollowupAction("delivery_order_form")]
+                return [SlotSet("address_street", None),SlotSet("address_number",None), SlotSet("order_time", None),SlotSet("client_name", None),FollowupAction("delivery_order_form")]
             elif (previous_action == 'utter_submit_pickup'):
                 dispatcher.utter_message(text="Ok, removing these details.")
                 return [SlotSet("order_time", None), SlotSet("client_name", None),FollowupAction("pickup_order_form")]
@@ -987,5 +999,5 @@ class ActionDeactivateForm(Action):
         dispatcher.utter_message(text="Ok, I won't ask you any more questions about it. How can I help you?")
         return[ActiveLoop(None),SlotSet("ingredient",None),SlotSet("pizza_type",None),SlotSet("pizza_size",None),
                SlotSet("drink_name",None),SlotSet("drink_amount",None),SlotSet("drink_amount",None),SlotSet("address_street",None),
-               SlotSet("order_time",None),SlotSet("client_name",None)]
+               SlotSet("address_number",None),SlotSet("order_time",None),SlotSet("client_name",None)]
 

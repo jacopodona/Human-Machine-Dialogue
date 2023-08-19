@@ -29,12 +29,16 @@ intents:
         client_name
       ignore_entities:
         address_street
-#  - response_phone
   - say_home_address:
       use_entities:
         address_street
       ignore_entities:
         client_name
+  - say_address_number:
+      use_entities:
+        address_number
+      ignore_entities:
+        drink_amount
 #
 ##TASK 2 ask for pizza info and suggestion
   - ask_pizza_menu
@@ -62,6 +66,7 @@ entities:
 - client_name
 - order_time
 - address_street
+- address_number
 - ingredient
 #- pizza_amount
 #- phone_number
@@ -111,6 +116,12 @@ slots:
     mappings:
       - type: from_entity
         entity: address_street
+  address_number:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: address_number
   order_has_items: #order_has_items is a “global slot mappings” https://rasa.com/blog/how-to-use-global-slot-mappings/
     type: bool
     influence_conversation: true
@@ -158,7 +169,7 @@ responses:
           value: true
       text: "Your order is all set and ready to be prepared, you can ask me anytime the information about your order to have a quick recap. Additionally, you can also decide to add or remove food or drinks from your order, change the delivery information or delete the order if you need to."
 
-    - text: "With this bot, you can easily place orders for pizza delivery. You can start by saying 'I want to order a pizza', to get started and I will help you through it. You can also ask me about the pizza and drink menu, what is the price of each item, the list of ingredients of a pizza and I can also tell you the list of pizzas that do or do not contain some particular ingredient."
+    - text: "With this bot, you can easily place orders for pizza delivery. You can start by saying 'I want to order a pizza' and I will help you through it. You can also ask me about the pizza and drink menu, what is the price of each item, the list of ingredients of a pizza and I can also tell you the list of pizzas that do or do not contain some particular ingredient. You can also order drinks."
 
 
   utter_error:
@@ -236,11 +247,14 @@ responses:
   utter_ask_address_street:
     - text: "Could you give me the address you want your order to be delivered to?"
 
+  utter_ask_address_number:
+    - text: "Could you give me the street number of your address?"
+
   utter_submit_pickup:
     - text: "Ok, I am about to register the order for {client_name} at {order_time}. Is this correct?"
 
   utter_submit_delivery:
-    - text: "Ok, I am about to register the order for {address_street} at {order_time} for {client_name}. Is this correct?"
+    - text: "Ok, I am about to register the order for {address_street} {address_number}, at {order_time} for {client_name}. Is this correct?"
 
   utter_submit_time_modification:
     - text: "Ok, I am about to change the order time to {order_time}. Is this correct?"
@@ -330,6 +344,7 @@ forms:
   delivery_order_form:
     required_slots:
       - address_street
+      - address_number
       - order_time
       - client_name
   change_time_form:
