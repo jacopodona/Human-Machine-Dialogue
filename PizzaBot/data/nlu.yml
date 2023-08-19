@@ -836,6 +836,24 @@ nlu:
     - what pizzas do you have with [olives](ingredient)?
     - what pizzas do you have with [pepperoni](ingredient)?
 
+- intent: ask_pizzeria_location
+  examples: |
+    - where are you guys located?
+    - what is your address?
+    - what address does your pizzeria have?
+    - where is the pizzeria situated?
+    - could you inform me where the pizzeria is?
+    - where is it located?
+    - where is the pizzeria situated?
+    - where is the pizzeria?
+    - could you tell me your address?
+    - can you let me know where the pizzeria is?
+    - could you let me know where the pizzeria is located?
+    - can you provide me with the address of the pizzeria?
+    - could you please tell me the location of the pizzeria?
+    - could you tell me where the pizzeria is
+    - can you share the location of the pizzeria?
+
 - intent: delete_order
   examples: |
     - Delete the order
@@ -1025,6 +1043,7 @@ nlu:
     - 7.30
     - 19:30
     - 7:30
+    - 7.30 pm
 
 - synonym: 8pm
   examples: |
@@ -1034,6 +1053,7 @@ nlu:
     - 8.00
     - 8:00
     - 20:00
+    - 8 pm
 
 - synonym: 8.30pm
   examples: |
@@ -1041,6 +1061,7 @@ nlu:
     - 8.30
     - 20:30
     - 8:30
+    - 8.30 pm
     
 - synonym: 9pm
   examples: |
@@ -1050,6 +1071,7 @@ nlu:
     - 9.00
     - 9:00
     - 21:00
+    - 9 pm
 
 - synonym: margherita
   examples: |

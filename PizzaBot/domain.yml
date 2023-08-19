@@ -46,6 +46,7 @@ intents:
   - ask_pizza_ingredients
   - ask_pizza_with_ingredient
   - ask_pizza_without_ingredient
+  - ask_pizzeria_location
 #
 #
 ##TASK 3 modify previously made order
@@ -294,6 +295,9 @@ responses:
 
   utter_remove_order_error:
     - text: "I could not find any order done by you to modify. Make sure to order some items before asking for removals."
+
+  utter_say_pizzeria_location:
+    - text: "Our pizzeria is located at Via Rosmini, 1."
 
   utter_order_deleted:
     - text: "Your order has been successfully removed."
