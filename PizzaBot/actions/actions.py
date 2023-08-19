@@ -741,8 +741,8 @@ class ActionSeeOrderInfo(Action):
                 order_time=userOrder.order_time
                 name=userOrder.client_name
                 delivery_info=f"You will come to pickup your order at {order_time}, the saved name is {name}."
-            order_id_information=f"Your order ID is {str(id)}."
-            message=orderRecap+"\n"+price_info+"\n"+delivery_info+"\n"+order_id_information
+            #order_id_information=f"Your order ID is {str(id)}."
+            message=orderRecap+"\n"+price_info+"\n"+delivery_info#+"\n"+order_id_information
             dispatcher.utter_message(message)
             print(f"Order info to send user: {userOrder.__dict__}")
             return []

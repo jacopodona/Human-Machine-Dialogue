@@ -211,6 +211,17 @@ nlu:
     - I want to order a [small](pizza_size) [rustic](pizza_type)
     - I want to order a [large](pizza_size) [hawaiian](pizza_type)
     - I want to order a [small](pizza_size) [cheesey](pizza_type)
+    - I want a [light](pizza_type) with [onions](ingredient)
+    - I want a [margherita](pizza_type) with [onions](ingredient)
+    - I want a [cheesey](pizza_type) with [ham](ingredient)
+    - I want a [rustic](pizza_type) with [eggplant](ingredient)
+    - I want a [pub](pizza_type) with [bell peppers](ingredient)
+    - Add a [large](pizza_size) [kebab](pizza_type) with [tomato sauce](ingredient)
+    - Add a [medium](pizza_size) [rustic](pizza_type) with [zucchini](ingredient)
+    - Add a [small](pizza_size) [pesto](pizza_type) with [onions](ingredient)
+    - Add a [medium](pizza_size) [kebab](pizza_type) with [tomato sauce](ingredient)
+    - Add a [large](pizza_size) [hawaiian](pizza_type) with [potatoes](ingredient)
+    
 
 
 - intent: init_drink_request

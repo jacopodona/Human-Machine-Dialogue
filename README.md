@@ -6,7 +6,6 @@ Pizza ordering bot
 ### Available Actions
 - Order pizza(s)
   - make the intent contain the pizza slot
-    - try adding complete requests in init_request (TODO with topping)
     - If user asks "What is in a diavola" inside the form, the form will automatically load the slot and continue (TODO)
     - make the form flexible to unhappy user paths
 - Order drink(s) 
