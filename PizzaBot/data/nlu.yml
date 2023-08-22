@@ -676,6 +676,12 @@ nlu:
     - Number [64](address_number)
     - Number [13](address_number)
     - Number [64](address_number)
+    - # [14](address_number)
+    - # [67](address_number)
+    - # [52](address_number)
+    - # [78](address_number)
+    - # [81](address_number)
+    - # [30](address_number)
     - [1](address_number) is my address number
     - [25](address_number) is my address number
     - [36](address_number) is my address number
@@ -1044,6 +1050,7 @@ nlu:
     - 19:30
     - 7:30
     - 7.30 pm
+    - 7.30 p.m.
 
 - synonym: 8pm
   examples: |
@@ -1054,6 +1061,7 @@ nlu:
     - 8:00
     - 20:00
     - 8 pm
+    - 8 p.m.
 
 - synonym: 8.30pm
   examples: |
@@ -1062,6 +1070,7 @@ nlu:
     - 20:30
     - 8:30
     - 8.30 pm
+    - 8.30 p.m.
     
 - synonym: 9pm
   examples: |
@@ -1072,6 +1081,7 @@ nlu:
     - 9:00
     - 21:00
     - 9 pm
+    - 9 p.m.
 
 - synonym: margherita
   examples: |
