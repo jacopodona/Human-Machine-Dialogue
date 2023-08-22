@@ -623,32 +623,33 @@ nlu:
     - My home address is [Via Oriola](address_street).
     - The place I call home is [Viale della Stazione](address_street).
     - [Via San Pietro](address_street) is where I reside.
-    - You'll find me at [Corso Alpini](address_street).
+    - You'll find me at [corso Alpini](address_street).
     - I'm at [Via Monte Baldo](address_street).
     - My home is situated at [Viale Rovereto](address_street).
-    - [Piazza Venezia](address_street) is where I'm living.
+    - [piazza Venezia](address_street) is where I'm living.
     - The address I'm at is [Via dei Colli](address_street).
-    - You can locate me at [Corso Lancia](address_street).
+    - You can locate me at [corso Lancia](address_street).
     - [Via dei Muredei](address_street) is my home.
     - I'm currently staying at [viale Fiera](address_street).
     - My home is in [via della Ricerca](address_street).
     - [Via Rosmini](address_street)
-    - [Piazza Duomo](address_street)
+    - [piazza Duomo](address_street)
     - [Via Leopardi](address_street)
     - [Corso Cavour](address_street)
     - [Via Diaz](address_street)
     - [Via Garibaldi](address_street)
     - [Viale delle Scienze](address_street)
     - [Corso Cavour](address_street)
-    - [Via Einstein](address_street)
-    - [Via Einstein](address_street)
-    - [Via Ezio Franceschini](address_street)
-    - [Via Caproni](address_street)
-    - [Piazza Centa](address_street)
-    - [Via Jacopo Aconcio](address_street)
-    - [Via Dogana](address_street)
-    - [Via Piave](address_street)
-    - [Via Vittorio Veneto](address_street)
+    - [via Einstein](address_street)
+    - [via Sommarive](address_street)
+    - [via Ezio Franceschini](address_street)
+    - [via Caproni](address_street)
+    - [piazza Centa](address_street)
+    - [Piazza Fiera](address_street)
+    - [via Jacopo Aconcio](address_street)
+    - [via Dogana](address_street)
+    - [via Piave](address_street)
+    - [via Vittorio Veneto](address_street)
 
 - intent: say_address_number
   examples: |

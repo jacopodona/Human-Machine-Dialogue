@@ -5,37 +5,31 @@ Pizza ordering bot
 
 ### Available Actions
 - Order pizza(s)
-  - make the intent contain the pizza slot
-    - If user asks "What is in a diavola" inside the form, the form will automatically load the slot and continue (TODO)
-    - make the form flexible to unhappy user paths
+  - If user asks "What is in a diavola" inside the form, the form will automatically load the slot and continue (TODO)
+  - Customize pizza by adding a topping
 - Order drink(s) 
   - support for text instead of numbers (two vs 2)
   - make the form flexible to unhappy user paths
   - ignore some intents within the form (TODO)
-- Customize pizza (only 1 topping)
+- Place order
+  - Order recap
+  - Specify delivery or takeaway
 - Ask for price of pizza/drink
 - Ask for ingredients in pizza
 - Ask for menu
 - Ask for pizza recommendation
-  - Suggest me pizzas with/without topping
-- Place order
-  - Order recap
-  - Specify delivery or takeaway
-    - add street number to delivery
-  - make the form flexible to unhappy user paths
-- Modify order (TODO)
+- Ask for pizzeria location
+- Ask for timings of pizzeria (TODO)
+  - Suggest pizzas with/without topping
+- Modify order
   - Add pizza
   - Remove pizza
-    - add topping to request (TODO)
   - Add drink 
   - Remove drink
-  - Change address (TODO)
   - Change time
   - Change name
   - Change delivery method
   - Delete order
-- Try removing the global action to speed up time
-  - make order complete and order_ready start at false by default at conversation start
 - Add test stories (TODO)
 - Make 2nd Configuration file
 - Deploy on Alexa
@@ -48,7 +42,7 @@ rasa train
 
 A pretrained model is also available in /models folder.
 
-### Running the code
+### Running the bot locally
 
 Open two terminals, on one type:
 

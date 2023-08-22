@@ -51,6 +51,8 @@ toppings=["tomato sauce","mozzarella","garlic","pepperoni","ham","pineapple","be
 
 orders=[]
 
+available_time_slots=["7.30pm","8pm","8.30pm","9pm"]
+
 def getPizzasWithIngredient(ingredient):
     pizzas_with_ingredient = []
     for pizza in pizza_menu:
@@ -512,8 +514,10 @@ class ValidatePickupOrderForm(FormValidationAction):
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
         if slot_value is not None:
-            #dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
-            return {"order_time": slot_value}
+            if slot_value in available_time_slots:
+                #dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+                return {"order_time": slot_value}
+            dispatcher.utter_message(text="We prepare orders only for the following time slots: 7.30pm, 8pm, 8.30pm, 9pm.")
         return {"order_time": None}
 
     def validate_client_name(self,slot_value:Any,
@@ -539,7 +543,11 @@ class ValidateDeliveryOrderForm(FormValidationAction):
                              domain: DomainDict) -> Dict[Text, Any]:
         if slot_value is not None:
             #dispatcher.utter_message(text=f"Ok! Registering the address at {slot_value}.")
-            return {"address_street": slot_value}
+            lowercase=slot_value.lower()
+            if ("via" in lowercase) or ("piazza" in lowercase) or ("viale" in lowercase) or ("corso" in lowercase):
+                return {"address_street": slot_value}
+            else:
+                dispatcher.utter_message(text="Please, insert the full address.")
         return {"address_street": None}
 
     def validate_address_number(self, slot_value: Any,
@@ -559,8 +567,10 @@ class ValidateDeliveryOrderForm(FormValidationAction):
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
         if slot_value is not None:
-            #dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
-            return {"order_time": slot_value}
+            if slot_value in available_time_slots:
+                #dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+                return {"order_time": slot_value}
+            dispatcher.utter_message(text="We prepare orders only for the following time slots: 7.30pm, 8pm, 8.30pm, 9pm.")
         return {"order_time": None}
 
     def validate_client_name(self,slot_value:Any,
@@ -584,8 +594,10 @@ class ValidateChangeTimeForm(FormValidationAction):
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
         if slot_value is not None:
-            #dispatcher.utter_message(text=f"Ok! Updating the time to {slot_value}.")
-            return {"order_time": slot_value}
+            if slot_value in available_time_slots:
+                #dispatcher.utter_message(text=f"Ok! Updating the time to {slot_value}.")
+                return {"order_time": slot_value}
+            dispatcher.utter_message(text="We prepare orders only for the following time slots: 7.30pm, 8pm, 8.30pm, 9pm.")
         return {"order_time": None}
 
 class ValidateChangeNameForm(FormValidationAction):
