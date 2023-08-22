@@ -432,7 +432,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
             if slot_value.lower() not in getPizzaSizes():
                 dispatcher.utter_message(text=f"We only accept pizza sizes : small/medium/large")
                 return {"pizza_size":None}
-            dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
+            #dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
             return {"pizza_size":slot_value}
         return {"pizza_size":None}
 
@@ -445,10 +445,13 @@ class ValidatePizzaOrderForm(FormValidationAction):
                 dispatcher.utter_message(text=f"I don't recognize that pizza, for more indications on the available pizzas, ask 'What pizzas do you have in the menu?'")
                 return {"pizza_type":None}
             ingredient=tracker.get_slot("ingredient")
-            if ingredient is None:
-                dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
-            else:
-                dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza with extra {ingredient}.")
+            if ingredient not in toppings:
+                dispatcher.utter_message(text=f"We do not have {ingredient} as an extra topping.")
+                return {"pizza_type": None, "ingredient":None}
+            #if ingredient is None:
+            #    dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
+            #else:
+            #    dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza with extra {ingredient}.")
             return {"pizza_type":slot_value}
         return {"pizza_type": None}
 
@@ -482,7 +485,7 @@ class ValidateDrinkOrderForm(FormValidationAction):
             if slot_value.lower() not in getDrinks():
                 dispatcher.utter_message(text=f"We don't have {slot_value} in our available drinks, for more indications on the available ones, ask 'What drinks do you have?'")
                 return {"drink_name":None}
-            dispatcher.utter_message(text=f"Ok! You want to have {slot_value}.")
+            #dispatcher.utter_message(text=f"Ok! You want to have {slot_value}.")
             return {"drink_name":slot_value}
         return {"drink_name":None}
 
@@ -493,7 +496,7 @@ class ValidateDrinkOrderForm(FormValidationAction):
 
         if slot_value is not None:
             if str(slot_value).isnumeric():
-                dispatcher.utter_message(text=f"Ok! You want to have {slot_value} bottles.")
+                #dispatcher.utter_message(text=f"Ok! You want to have {slot_value} bottles.")
                 return {"drink_amount":slot_value}
             else:
                 dispatcher.utter_message(text="Sorry, I don't recognize that amount, please provide me a valid number.")
@@ -508,7 +511,7 @@ class ValidatePickupOrderForm(FormValidationAction):
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
         if slot_value is not None:
-            dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+            #dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
             return {"order_time": slot_value}
         return {"order_time": None}
 
@@ -520,7 +523,7 @@ class ValidatePickupOrderForm(FormValidationAction):
             if len(slot_value.split())!=2:
                 dispatcher.utter_message(text="Please, give me your first and last name.")
                 return {"client_name":None}
-            dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+            #dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
             return {"client_name":slot_value}
         return {"client_name":None}
 
@@ -534,7 +537,7 @@ class ValidateDeliveryOrderForm(FormValidationAction):
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
         if slot_value is not None:
-            dispatcher.utter_message(text=f"Ok! Registering the address at {slot_value}.")
+            #dispatcher.utter_message(text=f"Ok! Registering the address at {slot_value}.")
             return {"address_street": slot_value}
         return {"address_street": None}
 
@@ -544,7 +547,7 @@ class ValidateDeliveryOrderForm(FormValidationAction):
                              domain: DomainDict) -> Dict[Text, Any]:
         if slot_value is not None:
             if str(slot_value).isnumeric():
-                dispatcher.utter_message(text=f"Ok! The address number is {slot_value}.")
+                #dispatcher.utter_message(text=f"Ok! The address number is {slot_value}.")
                 return {"address_number": slot_value}
             else:
                 dispatcher.utter_message(text="Sorry, I don't recognize that, please provide me a valid street number.")
@@ -555,7 +558,7 @@ class ValidateDeliveryOrderForm(FormValidationAction):
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
         if slot_value is not None:
-            dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+            #dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
             return {"order_time": slot_value}
         return {"order_time": None}
 
@@ -567,7 +570,7 @@ class ValidateDeliveryOrderForm(FormValidationAction):
             if len(slot_value.split())!=2:
                 dispatcher.utter_message(text="Please, give me your first and last name.")
                 return {"client_name":None}
-            dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
+            #dispatcher.utter_message(text=f"Ok! Registering the order for {slot_value}.")
             return {"client_name":slot_value}
         return {"client_name":None}
 
@@ -580,7 +583,7 @@ class ValidateChangeTimeForm(FormValidationAction):
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
         if slot_value is not None:
-            dispatcher.utter_message(text=f"Ok! Updating the time to {slot_value}.")
+            #dispatcher.utter_message(text=f"Ok! Updating the time to {slot_value}.")
             return {"order_time": slot_value}
         return {"order_time": None}
 
@@ -593,7 +596,7 @@ class ValidateChangeNameForm(FormValidationAction):
                              tracker: Tracker,
                              domain: DomainDict) -> Dict[Text, Any]:
         if slot_value is not None:
-            dispatcher.utter_message(text=f"Ok! Updating the name to the order for {slot_value}.")
+            #dispatcher.utter_message(text=f"Ok! Updating the name to the order for {slot_value}.")
             return {"client_name": slot_value}
         return {"client_name":None}
 
@@ -613,7 +616,7 @@ class ValidateRemoveDrinkForm(FormValidationAction):
                     text=f"You don't have {slot_value} in your order. Please select a drink you ordered you want to remove.")
                 return {"drink_name": None}
             else:
-                dispatcher.utter_message(text=f"Ok! You want to remove {slot_value} and you have it in your order.")
+                #dispatcher.utter_message(text=f"Ok! You want to remove {slot_value} and you have it in your order.")
                 return {"drink_name": slot_value}
         return {"drink_name": None}
 
@@ -624,7 +627,7 @@ class ValidateRemoveDrinkForm(FormValidationAction):
 
         if slot_value is not None:
             if str(slot_value).isnumeric():
-                dispatcher.utter_message(text=f"Ok! You want to remove {slot_value} bottles.")
+                #dispatcher.utter_message(text=f"Ok! You want to remove {slot_value} bottles.")
                 return {"drink_amount": slot_value}
             else:
                 dispatcher.utter_message(text="Sorry, I don't recognize that amount, please provide me a valid number.")
@@ -645,7 +648,7 @@ class ValidatePizzaRemoveForm(FormValidationAction):
             order = getOrderByUserID(tracker.sender_id)
             ordered_sizes=[obj.size for obj in order.pizzas]
             if slot_value in ordered_sizes:
-                dispatcher.utter_message(text=f"Ok! You want to remove a {slot_value} pizza and you have it.")
+                #dispatcher.utter_message(text=f"Ok! You want to remove a {slot_value} pizza and you have it.")
                 return {"pizza_size":slot_value}
             else:
                 dispatcher.utter_message(text=f"You did not order {slot_value} sized pizzas, please select a size you ordered you want to remove.")
@@ -670,10 +673,10 @@ class ValidatePizzaRemoveForm(FormValidationAction):
                     dispatcher.utter_message(text=f"You don't have {slot_value} with {ingredient} in your order. Please select a pizza you ordered you want to remove.")
                 return {"pizza_type": None,"ingredient": None}
             elif len(ordered_pizzas)==1: #If user gives pizza-ingredient combination that is in the order with no ambiguities remove the pizza
-                if ingredient is None:
-                    dispatcher.utter_message(text=f"Ok! You want to remove {slot_value} and you have it in your order.")
-                else:
-                    dispatcher.utter_message(text=f"Ok! You want to remove a {slot_value} with {ingredient} and you have it in your order.")
+                #if ingredient is None:
+                #    dispatcher.utter_message(text=f"Ok! You want to remove {slot_value} and you have it in your order.")
+                #else:
+                #    dispatcher.utter_message(text=f"Ok! You want to remove a {slot_value} with {ingredient} and you have it in your order.")
                 return {"pizza_type": slot_value}
             else: #There are ambiguities, happens if you don't give an ingredient but have multiple pizzas with ingredient (example: user asks to remove margherita, search finds margherita with olives and margherita with ham)
                 dispatcher.utter_message(text=f"I found multiple {slot_value} and they all have ingredients, please be more specific on which one to remove.")
