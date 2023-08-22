@@ -38,7 +38,7 @@ Pizza ordering bot
   - make order complete and order_ready start at false by default at conversation start
 - Add test stories (TODO)
 - Make 2nd Configuration file
-- Deploy on Alexa (TODO)
+- Deploy on Alexa
 
 ### Training the model
 

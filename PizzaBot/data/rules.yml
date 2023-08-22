@@ -226,15 +226,15 @@ rules:
 - rule: Deny remove drink if order does not have items
   condition:
     - slot_was_set:
-        - order_has_items: false
+        - order_has_drink: false
   steps:
   - intent: remove_drink
-  - action: utter_remove_order_error
+  - action: utter_remove_drink_error
 
 - rule: Activate remove drink form
   condition:
     - slot_was_set:
-        - order_has_items: true
+        - order_has_drink: true
   steps:
   - intent: remove_drink
   - action: utter_accept_request
@@ -251,18 +251,18 @@ rules:
         - requested_slot: null
     - action: utter_submit_drink_removal
 
-- rule: Deny remove pizza if order does not have items
+- rule: Deny remove pizza if order does not have pizza
   condition:
     - slot_was_set:
-        - order_has_items: false
+        - order_has_pizza: false
   steps:
   - intent: remove_pizza
-  - action: utter_remove_order_error
+  - action: utter_remove_pizza_error
 
 - rule: Activate remove pizza form
   condition:
     - slot_was_set:
-        - order_has_items: true
+        - order_has_pizza: true
   steps:
   - intent: remove_pizza
   - action: utter_accept_request

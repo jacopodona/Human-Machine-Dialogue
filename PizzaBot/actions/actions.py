@@ -306,7 +306,7 @@ class ActionTellPizzaPrice(Action):
                 dispatcher.utter_message(text=msg)
                 return []
             else:
-                msg = f"A {pizza.name} costs {str(pizza.price)} €\n"
+                msg = f"A {pizza.name} costs {str(pizza.price)} €.\n"
                 dispatcher.utter_message(text=msg)
                 return [SlotSet("pizza_type",None),FollowupAction("utter_topping_and_size_price")]
 
@@ -445,9 +445,10 @@ class ValidatePizzaOrderForm(FormValidationAction):
                 dispatcher.utter_message(text=f"I don't recognize that pizza, for more indications on the available pizzas, ask 'What pizzas do you have in the menu?'")
                 return {"pizza_type":None}
             ingredient=tracker.get_slot("ingredient")
-            if ingredient not in toppings:
-                dispatcher.utter_message(text=f"We do not have {ingredient} as an extra topping.")
-                return {"pizza_type": None, "ingredient":None}
+            if ingredient is not None:
+                if ingredient not in toppings:
+                    dispatcher.utter_message(text=f"We do not have {ingredient} as an extra topping.")
+                    return {"pizza_type": None, "ingredient":None}
             #if ingredient is None:
             #    dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
             #else:
@@ -783,7 +784,7 @@ class ActionResponsePositive(Action):
                 message=getOrderRecap(order)
                 dispatcher.utter_message(text=message)
                 dispatcher.utter_message(response="utter_anything_else_order")
-                return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None),SlotSet("order_has_items",True)]
+                return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None),SlotSet("order_has_items",True),SlotSet("order_has_pizza",True)]
                 #return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None),FollowupAction("utter_anything_else_order")]
             #elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza_with_topping'):
                 #print("Submit pizza with topping")
@@ -825,7 +826,7 @@ class ActionResponsePositive(Action):
                 dispatcher.utter_message(text=message)
                 dispatcher.utter_message(response="utter_anything_else_order")
                 #return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("utter_anything_else_order")]
-                return [SlotSet("drink_name", None), SlotSet("drink_amount", None),SlotSet("order_has_items",True)]
+                return [SlotSet("drink_name", None), SlotSet("drink_amount", None),SlotSet("order_has_items",True),SlotSet("order_has_drink",True)]
             elif (previous_action == "utter_submit_pickup"):
                 order=getOrderByUserID(tracker.sender_id)
                 client_name = tracker.slots['client_name']
@@ -851,7 +852,7 @@ class ActionResponsePositive(Action):
                     return []
                 else:
                     dispatcher.utter_message(response="utter_order_deleted")
-                    return [SlotSet("order_has_items", False), SlotSet("order_complete", False)]
+                    return [SlotSet("order_has_items", False),SlotSet("order_has_pizza",False),SlotSet("order_has_drink",False), SlotSet("order_complete", False)]
             elif (previous_action == 'utter_submit_time_modification'):
                 dispatcher.utter_message(text="Perfect, the time of your order has been updated correctly.")
                 order = getOrderByUserID(tracker.sender_id)
@@ -885,10 +886,12 @@ class ActionResponsePositive(Action):
                 if checkOrderIsEmpty(updatedOrder):
                     removeOrderByUserID(updatedOrder.user_id)
                     dispatcher.utter_message(text="Since your order does not contain items anymore, I also deleted your order.")
-                    return [SlotSet("drink_name", None), SlotSet("drink_amount", None),SlotSet("order_has_items",False),SlotSet("order_complete",False)]
+                    return [SlotSet("drink_name", None), SlotSet("drink_amount", None),SlotSet("order_has_items",False),SlotSet("order_has_pizza",False),SlotSet("order_has_drink",False),SlotSet("order_complete",False)]
                 else:
                     updateExistingOrder(updatedOrder)
                     dispatcher.utter_message(text=getOrderRecap(order))
+                    if len(updatedOrder.drinks)==0:
+                        return [SlotSet("drink_name", None), SlotSet("drink_amount", None),SlotSet("order_has_drink",False)]
                 return [SlotSet("drink_name", None), SlotSet("drink_amount", None)]
             elif (previous_action == 'utter_submit_pizza_removal'):
                 #I already dealt with
@@ -912,10 +915,12 @@ class ActionResponsePositive(Action):
                         removeOrderByUserID(updatedOrder.user_id)
                         dispatcher.utter_message(text="Since your order does not contain items anymore, I also deleted your order.")
                         return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None),
-                                SlotSet("order_has_items", False), SlotSet("order_complete", False)]
+                                SlotSet("order_has_items", False),SlotSet("order_has_pizza", False),SlotSet("order_has_drink", False), SlotSet("order_complete", False)]
                     else:
                         updateExistingOrder(updatedOrder)
                         dispatcher.utter_message(text=getOrderRecap(order))
+                        if len(updatedOrder.pizzas) == 0:
+                            return [SlotSet("pizza_type", None), SlotSet("pizza_size", None),SlotSet("order_has_pizza", False)]
                     return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None)]
                 else:
                     if ingredient is None:

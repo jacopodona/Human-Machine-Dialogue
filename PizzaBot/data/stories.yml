@@ -362,7 +362,7 @@ stories:
     - checkpoint: drink_added_to_order
     - intent: remove_drink
     - slot_was_set:
-        - order_has_items: true
+        - order_has_drink: true
     - action: utter_accept_request
     - action: remove_drink_form
     - active_loop: remove_drink_form
@@ -379,7 +379,7 @@ stories:
     - checkpoint: drink_added_to_order
     - intent: remove_drink
     - slot_was_set:
-        - order_has_items: true
+        - order_has_drink: true
     - action: utter_accept_request
     - action: remove_drink_form
     - active_loop: remove_drink_form
@@ -392,7 +392,7 @@ stories:
     - checkpoint: pizza_added_to_order
     - intent: remove_pizza
     - slot_was_set:
-        - order_has_items: true
+        - order_has_pizza: true
     - action: utter_accept_request
     - action: remove_pizza_form
     - active_loop: remove_pizza_form
@@ -409,7 +409,7 @@ stories:
     - checkpoint: pizza_added_to_order
     - intent: remove_pizza
     - slot_was_set:
-        - order_has_items: true
+        - order_has_pizza: true
     - action: utter_accept_request
     - action: remove_pizza_form
     - active_loop: remove_pizza_form

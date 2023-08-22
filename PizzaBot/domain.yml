@@ -123,14 +123,25 @@ slots:
     mappings:
       - type: from_entity
         entity: address_number
-  order_has_items: #order_has_items is a “global slot mappings” https://rasa.com/blog/how-to-use-global-slot-mappings/
+  order_has_items:
     type: bool
     influence_conversation: true
     initial_value: false
     mappings:
       - type: custom
-        #action: action_check_order_ready
-  order_complete: #order_complete is mapped in the same action of order_has_items
+  order_has_pizza:
+    type: bool
+    influence_conversation: true
+    initial_value: false
+    mappings:
+      - type: custom
+  order_has_drink:
+    type: bool
+    influence_conversation: true
+    initial_value: false
+    mappings:
+      - type: custom
+  order_complete: #order_complete is a slot for checking if an order has items and has a checkout method provided
     type: bool
     initial_value: false
     influence_conversation: true
@@ -225,7 +236,7 @@ responses:
     - text: "Would you like anything else?"
 
   utter_topping_and_size_price:
-    - text: "Each topping costs 1€ each. A small size costs 1€ less, a large variant costs 2€ more."
+    - text: "Each topping costs 1€. A small size costs 1€ less, a large variant costs 2€ more."
 
   utter_ask_delivery_method:
     - text: "Do you prefer to come pick up your order from our pizzeria or we deliver it at your house?"
@@ -295,6 +306,12 @@ responses:
 
   utter_remove_order_error:
     - text: "I could not find any order done by you to modify. Make sure to order some items before asking for removals."
+
+  utter_remove_pizza_error:
+    - text: "Your order does not contain any pizza. Make sure to order some pizzas before asking for removals."
+
+  utter_remove_drink_error:
+    - text: "Your order does not contain any drink. Make sure to order some drinks before asking for removals."
 
   utter_say_pizzeria_location:
     - text: "Our pizzeria is located at Via Rosmini, 1."
