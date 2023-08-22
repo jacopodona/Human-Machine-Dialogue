@@ -414,6 +414,15 @@ nlu:
     - I think pickup is better
     - I will come get it
     - I will come and take it
+    - I want to do takeaway
+    - I think I'll do takeaway
+    - Takeaway
+    - I choose takeaway
+    - Let's do takeaway
+    - I will do takeaway
+    - I want to do take away
+    - Take away
+    - I will do takeaway myself
 
 - intent: ask_order_info
   examples: |
