@@ -37,7 +37,7 @@ Pizza ordering bot
 - Try removing the global action to speed up time
   - make order complete and order_ready start at false by default at conversation start
 - Add test stories (TODO)
-- Make 2nd Configuration file (TODO)
+- Make 2nd Configuration file
 - Deploy on Alexa (TODO)
 
 ### Training the model
@@ -60,3 +60,32 @@ to start the action server. In the other type:
 rasa shell
 ```
 to start the conversational agent.
+
+### Deploy on alexa
+
+Open two terminals, on one type:
+
+```
+rasa run actions
+```
+to start the action server. In the other type:
+```
+rasa run -m models --endpoints endpoints.yml -p 5005 --credentials credentials.yml
+```
+to start the conversational agent.
+
+Open ngrok and run 
+```
+ngrok http 5005
+```
+It should give an https url, go to the alexa skill endpoint and copy the URL, appending the suffix "/webhooks/alexa_assistant/webhook"
+
+To Alexa, say "Start Pizza Bot"
+### Testing the model
+
+#### NLU
+
+This command test the 2 configurations on performing Intent Classification and Entity Extraction on the nlu.yml file by performing cross validation using 5 folds.
+```
+rasa test nlu --nlu data/nlu.yml --config config_1.yml config_2.yml --cross-validation --folds 5
+```
