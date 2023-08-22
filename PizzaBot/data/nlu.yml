@@ -92,55 +92,53 @@ nlu:
     - do you have a sister
     - book a flight from milan to ny
     - how far is the square
-#    - give me the directions to time square
-#    - what's the best way to clean my oven?
-#    - can you recommend a good romantic comedy movie?
-#    - how do I change the oil in my car?
-#    - what's the weather like today?
-#    - can you help me find a plumber?
-#    - do you have any recommendations for a good book to read?
-#    - how do I fix a leaky faucet?
-#    - what's the latest news on the stock market?
-#    - can you give me tips on gardening?
-#    - how do I train my dog to do tricks?
-#    - what's the best way to lose weight?
-#    - can you recommend a good hair salon?
-#    - how do I program a remote control?
-#    - what's the current exchange rate for euros to dollars?
-#    - can you help me plan a vacation itinerary?
-#    - how do I install a new light fixture?
-#    - what's the best way to get rid of ants in my kitchen?
-#    - can you suggest a good workout routine?
-#    - how do I fix a flat bicycle tire?
-#    - what's the recipe for a margarita cocktail?
-#    - can you recommend a reliable car mechanic?
-#    - how do I set up a Wi-Fi router?
-#    - what's the process for getting a passport?
-#    - can you help me find a babysitter?
-#    - how do I remove a stain from my clothes?
-#    - what's the best way to organize my closet?
-#    - can you suggest some home decor ideas?
-#    - how do I bake chocolate chip cookies?
-#    - what's the current price of gold?
-#    - can you help me choose a gift for my friend's birthday?
-#    - how do I start a compost bin?
-#    - what's the best way to clean hardwood floors?
-#    - can you recommend a good workout app?
-#    - how do I re-pot a houseplant?
-#    - what's the process for recycling electronics?
-#    - can you help me find a local farmers' market?
-#    - how do I tie a tie?
-#    - what's the best way to organize digital photos?
-#    - can you suggest some home improvement projects?
-#    - how do I make a homemade pizza crust?
-#    - what's the current traffic situation in my city?
-#    - can you help me find a language tutor?
-#    - how do I change a flat tire?
-#    - what's the best way to remove wallpaper?
-#    - can you recommend a good meditation app?
-#    - how do I make a reservation at a restaurant?
-#    - what's the process for adopting a pet?
-#    - can you help me find a local art class?
+    - give me the directions to time square
+    - what's the best way to clean my oven?
+    - can you recommend a good romantic comedy movie?
+    - how do I change the oil in my car?
+    - what's the weather like today?
+    - can you help me find a plumber?
+    - do you have any recommendations for a good book to read?
+    - how do I fix a leaky faucet?
+    - what's the latest news on the stock market?
+    - can you give me tips on gardening?
+    - how do I train my dog to do tricks?
+    - what's the best way to lose weight?
+    - can you recommend a good hair salon?
+    - how do I program a remote control?
+    - what's the current exchange rate for euros to dollars?
+    - can you help me plan a vacation itinerary?
+    - how do I install a new light fixture?
+    - what's the best way to get rid of ants in my kitchen?
+    - can you suggest a good workout routine?
+    - how do I fix a flat bicycle tire?
+    - what's the recipe for a margarita cocktail?
+    - can you recommend a reliable car mechanic?
+    - how do I set up a Wi-Fi router?
+    - what's the process for getting a passport?
+    - can you help me find a babysitter?
+    - how do I remove a stain from my clothes?
+    - what's the best way to organize my closet?
+    - can you suggest some home decor ideas?
+    - how do I bake chocolate chip cookies?
+    - what's the current price of gold?
+    - can you help me choose a gift for my friend's birthday?
+    - how do I start a compost bin?
+    - what's the best way to clean hardwood floors?
+    - can you recommend a good workout app?
+    - how do I re-pot a houseplant?
+    - what's the process for recycling electronics?
+    - can you help me find a local farmers' market?
+    - how do I tie a tie?
+    - what's the best way to organize digital photos?
+    - can you suggest some home improvement projects?
+    - what's the current traffic situation in my city?
+    - can you help me find a language tutor?
+    - how do I change a flat tire?
+    - what's the best way to remove wallpaper?
+    - can you recommend a good meditation app?
+    - what's the process for adopting a pet?
+    - can you help me find a local art class?
 
 - intent: stop
   examples: |
@@ -536,79 +534,71 @@ nlu:
     - Some [tea](drink_name)
     - Some [water](drink_name)
     - Some [sprite](drink_name)
-    
 
-#- intent: say_drink_order
-#  examples: |
-#    - I want a [beer](drink_name)
-#    - I want a bottle of [coke](drink_name)
-#    -  [beer](drink_name)
-#    - [1](drink_amount) [coke](drink_name) please
-#    - [2](drink_amount) bottles of [water](drink_name)
 
 - intent: say_full_name
   examples: |
-    - My name is [Jacopo Donà](client_name).
-    - [Michele Zanetti](client_name), please.
-    - You put [Marco Rossi](client_name).
-    - Please save it for [Giulio Marchi](client_name).
-    - Place it for [Mattia Porti](client_name).
-    - It's [Camilla Nomoli](client_name).
-    - I am [Maria Bianchi](client_name).
-    - [Davide Frutti](client_name).
-    - This is [Simone Alberti](client_name).
-    - The order is for [Francesco Castellani](client_name).
-    - [Giorgio Gaspari](client_name) is the name.
-    - [Alessia Giusi](client_name).
-    - I'm [Giuliano Ricci](client_name).
-    - My name is [Elena Moretti](client_name).
-    - Just call me [Alice Greco](client_name).
-    - I prefer to be called [Francesca Barbieri](client_name).
-    - The name is [Alessandro Russo](client_name).
-    - You can call me [Valentina Marini](client_name).
-    - Please refer to me as [Luca Davirti](client_name).
-    - Call me [Chiara Conti](client_name).
-    - I go by [Matteo Garcia](client_name).
-    - It's [Emily Davis](client_name).
-    - [Christopher Johnson](client_name) here, nice to meet you.
-    - [William Smith](client_name) is my name.
-    - My full name is [Sophie Wilson](client_name).
-    - Just write [Emma Miller](client_name).
-    - You can call me [Emily Martinez](client_name).
-    - This is for [Alexander Anderson](client_name).
-    - I am [Sofia Thomas](client_name).
-    - This is [Leonardo Brown](client_name).
-    - It's [Valentina Davis](client_name).
-    - Ok, I am [Joseph Wilson](client_name).
-    - Sure, my name is [Camilla Martin](client_name).
-    - Just put [Chloe Smith](client_name).
-    - [Emily Taylor](client_name), thanks.
-    - [Andrea Miller](client_name).
-    - [Victoria Johnson](client_name).
-    - [Liam Williams](client_name).
-    - [Arianna Taylor](client_name)
-    - [Francesca Davis](client_name).
-    - [Noah Johnson](client_name)
+    - My name is [Jacopo Donà](client_name)
+    - [Michele Zanetti](client_name), please
+    - You put [Marco Rossi](client_name)
+    - Please save it for [Giulio Marchi](client_name)
+    - Place it for [Mattia Porti](client_name)
+    - It's [Camilla Nomoli](client_name)
+    - I am [Maria Bianchi](client_name)
+    - [Davide Frutti](client_name)
+    - This is [Simone Alberti](client_name)
+    - The order is for [Francesco Castellani](client_name)
+    - [Giorgio Gaspari](client_name) is the name
+    - [Alessia Giusi](client_name)
+    - I'm [Giuliano Ricci](client_name)
+    - My name is [Elena Moretti](client_name)
+    - Just call me [Alice Greco](client_name)
+    - I prefer to be called [Francesca Barbieri](client_name)
+    - The name is [Alessandro Russo](client_name)
+    - put [Valentina Marini](client_name)
+    - Please refer to me as [Luca Davirti](client_name)
+    - Call me [Chiara Conti](client_name)
+    - I go by [Matteo Garcia](client_name)
+    - It's [Emily Davis](client_name)
+    - [Christopher Johnson](client_name) here
+    - [William Smith](client_name) is my name
+    - My full name is [Sophie Wilson](client_name)
+    - Just write [Emma Miller](client_name)
+    - Put [Emily Martinez](client_name)
+    - This is for [Alexander Anderson](client_name)
+    - I am [Sofia Thomas](client_name)
+    - This is [Leonardo Brown](client_name)
+    - It's [Valentina Davis](client_name)
+    - Ok, I am [Joseph Wilson](client_name)
+    - Sure, my name is [Camilla Martin](client_name)
+    - Just put [Chloe Smith](client_name)
+    - [Emily Taylor](client_name), thanks
+    - [Andrea Miller](client_name)
+    - [Victoria Johnson](client_name)
+    - [Liam Williams](client_name)
+    - [Arianna Taylor](client_name
+    - [Francesca Davis](client_name)
+    - [Noah Johnson](client_name
     - [Ethan Robinson](client_name) here
     - [Oliver Garcia](client_name)
     - [Ethan Martinez](client_name)
     - [Francesca Davis](client_name)
-    - [Gabriella Martinez](client_name).
-    - [Samuel Johnson](client_name).
-    - [Steve O'Donnel](client_name)
-    - [Giorgia Romano](client_name)
-    - [Antonio Marino](client_name).
-    - [Luisa Santini](client_name)
-    - [Francesco Ricci](client_name)
-    - [Anna Caruso](client_name).
-    - [Giacomo Ferretti](client_name).
+    - [Gabriella Martinez](client_name)
+    - [Samuel Johnson](client_name)
+    - [Steve O'Donnel](client_name
+    - [Giorgia Romano](client_name
+    - [Antonio Marino](client_name)
+    - [Luisa Santini](client_name
+    - [Francesco Ricci](client_name
+    - [Anna Caruso](client_name)
+    - [Giacomo Ferretti](client_name)
     - [Roberta Morelli](client_name)
     - [Stefano Rossi](client_name)
     - [Eleonora Barbieri](client_name)
     - [Matteo Esposito](client_name)
-    - [Valeria Conti](client_name).
-    - [Sara Comprì](client_name).
-    - [Luca Orsu'](client_name).
+    - [Valeria Conti](client_name)
+    - [Sara Comprì](client_name)
+    - [Luca Orsu'](client_name)
 
 - intent: say_home_address
   examples: |
