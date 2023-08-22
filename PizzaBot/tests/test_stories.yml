@@ -1,0 +1,209 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: greet and ask for help
+  steps:
+  - user: |
+      hello there!
+    intent: welcome_greet
+  - action: utter_welcome_greet
+  - user: |
+      I need assistance
+    intent: help
+  - action: utter_help_user
+
+- story: make pizza order and confirm
+  steps:
+  - user: |
+      I want to order a [large]{"entity": "pizza_size"} [diavola]{"entity": "pizza_type"} with some [mushrooms]{"entity": "ingredient"}
+    intent: init_request
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - ingredient
+  - active_loop: null
+  - action: utter_submit_pizza
+  - intent: response_positive
+  - action: action_response_positive
+
+- story: make pizza order but no confirm
+  steps:
+  - user: |
+      I want to order a [small]{"entity": "pizza_size"} [pub]{"entity": "pizza_type"} with some [zucchini]{"entity": "ingredient"}
+    intent: init_request
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - slot_was_set:
+      - pizza_size
+      - pizza_type
+  - active_loop: null
+  - action: utter_submit_pizza
+  - intent: response_negative
+  - action: action_response_negative
+
+- story: try cancel order with no order active
+  steps:
+    - user: |
+        Can I delete my order?
+      intent: delete_order
+    - action: utter_delete_order_error
+
+- story: order pizza and delete order
+  steps:
+  - user: |
+      I want to order a [small]{"entity": "pizza_size"} [cheesey]{"entity": "pizza_type"}
+    intent: init_request
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+  - active_loop: null
+  - action: utter_submit_pizza
+  - intent: response_positive
+  - action: action_response_positive
+  - slot_was_set:
+      - order_has_items: true
+      - order_has_pizza: true
+  - user: |
+      I want to delete my order
+    intent: delete_order
+  - action: utter_ask_delete_order_confirmation
+  - user: |
+      Yes
+    intent: response_positive
+  - action: action_response_positive
+
+- story: order pizza and checkout pickup
+  steps:
+  - user: |
+      I want a [medium]{"entity": "pizza_size"} [hawaiian]{"entity": "pizza_type"}
+    intent: init_request
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+  - active_loop: null
+  - action: utter_submit_pizza
+  - intent: response_positive
+  - action: action_response_positive
+  - slot_was_set:
+      - order_has_items: true
+      - order_has_pizza: true
+  - user: |
+      I want to checkout
+    intent: init_checkout_request
+  - action: utter_ask_delivery_method
+  - user: |
+      I will do takeaway
+    intent: inform_order_pickup
+  - action: utter_confirm_order_ready_pickup
+  - action: pickup_order_form
+  - active_loop: pickup_order_form
+  - user: |
+      at [9pm]{"entity": "order_time"}
+    intent: say_order_time
+  - slot_was_set:
+      - order_time
+  - action: pickup_order_form
+  - user: |
+      the name is [Michele Rossi]{"entity": "client_name"}
+    intent: say_full_name
+  - action: pickup_order_form
+  - slot_was_set:
+      - client_name
+  - active_loop: null
+  - action: utter_submit_pickup
+  - intent: response_positive
+  - action: action_response_positive
+  - slot_was_set:
+      - order_complete: True
+
+- story: order pizza and delivery order
+  steps:
+  - user: |
+      I want a [large]{"entity": "pizza_size"} [vegetarian]{"entity": "pizza_type"} with [garlic]{"entity": "ingredient"}
+    intent: init_request
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - ingredient
+  - active_loop: null
+  - action: utter_submit_pizza
+  - intent: response_positive
+  - action: action_response_positive
+  - slot_was_set:
+      - order_has_items: true
+      - order_has_pizza: true
+  - user: |
+      I want to checkout
+    intent: init_checkout_request
+  - action: utter_ask_delivery_method
+  - user: |
+      I prefer home delivery
+    intent: inform_order_delivery
+  - action: utter_confirm_order_ready_delivery
+  - action: delivery_order_form
+  - active_loop: delivery_order_form
+  - user: |
+      The address is [via Mancini]{"entity": "address_street"}
+    intent: say_home_address
+  - slot_was_set:
+      - address_street
+  - action: delivery_order_form
+  - user: |
+      Number [26]{"entity": "address_number"}
+    intent: say_address_number
+  - slot_was_set:
+      - address_number
+  - action: delivery_order_form
+  - user: |
+      at [8.30pm]{"entity": "order_time"}
+    intent: say_order_time
+  - slot_was_set:
+      - order_time
+  - action: delivery_order_form
+  - user: |
+      the name is [Francesco Gabbani]{"entity": "client_name"}
+    intent: say_full_name
+  - action: delivery_order_form
+  - slot_was_set:
+      - client_name
+  - active_loop: null
+  - action: utter_submit_delivery
+  - intent: response_positive
+  - action: action_response_positive
+  - slot_was_set:
+      - order_complete: True
+
+#- story: make pizza order and delete
+#  steps:
+#    - user: |
+#        I want to order a pizza
+#      intent: init_request
+#    - action: utter_accept_request
+#    - action: pizza_order_form
+#    - active_loop: pizza_order_form
+#    - user: |
+#        A [margherita]{"entity": "pizza_type"}
+#      intent: say_pizza_type
+#    - slot_was_set:
+#        - pizza_type: margherita
+#    - action: pizza_order_form
+#    - user: |
+#        [medium]{"entity": "pizza_size"}
+#      intent: say_pizza_size
+#    - slot_was_set:
+#        - pizza_size
+#    - active_loop: null
+#    - action: utter_submit_pizza
+#    - user: |
+#        Yes
+#      intent: response_positive
+#    - action: action_response_positive
