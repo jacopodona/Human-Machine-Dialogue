@@ -752,7 +752,7 @@ class ActionSeeOrderInfo(Action):
                 name=userOrder.client_name
                 address=userOrder.address
                 order_time=userOrder.order_time
-                delivery_info=f"Your order will be delivered at {address} around {order_time}, the saved name is {name}."
+                delivery_info=f"Your order will be delivered at {address} at {order_time}, the saved name is {name}."
             elif method=="pickup":
                 order_time=userOrder.order_time
                 name=userOrder.client_name
@@ -797,28 +797,6 @@ class ActionResponsePositive(Action):
                 dispatcher.utter_message(text=message)
                 dispatcher.utter_message(response="utter_anything_else_order")
                 return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None),SlotSet("order_has_items",True),SlotSet("order_has_pizza",True)]
-                #return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("ingredient", None),FollowupAction("utter_anything_else_order")]
-            #elif (bot_event['metadata']['utter_action'] == 'utter_submit_pizza_with_topping'):
-                #print("Submit pizza with topping")
-                #pizza_type = tracker.slots['pizza_type']
-                #pizza_size = tracker.slots['pizza_size']
-                #ingredient = tracker.slots['ingredient']
-                #print(pizza_type + pizza_size+ingredient)
-                #pizza_to_add = OrderedPizza(pizza=getPizzaFromMenuByName(pizza_type), size=pizza_size, toppings=[ingredient],amount=1)
-                #order=getOrderByUserID(tracker.sender_id)
-                #if order is None: #User does not have an order yet, create it and add pizza
-                #    order=Order(id=order_id_counter,user_id=tracker.sender_id)
-                #    order.addPizza(pizza_to_add)
-                #    orders.append(order)
-                #    updateOrderIDCounter()
-                #else: #User has already an order, modify it with new pizza
-                #    order.addPizza(pizza_to_add)
-                #    updateExistingOrder(order)
-                #dispatcher.utter_message("Perfect! It was added to your order.")
-                #message=getOrderRecap(order)
-                #dispatcher.utter_message(text=message)
-                ##dispatcher.utter_message(response="utter_anything_else_order")
-                #return[FollowupAction("utter_anything_else_order"),SlotSet("pizza_type",None),SlotSet("pizza_size",None),SlotSet("ingredient",None)]
             elif (previous_action == 'utter_submit_drink'):
                 drink_name = tracker.slots['drink_name']
                 drink_amount = tracker.slots['drink_amount']
@@ -837,7 +815,6 @@ class ActionResponsePositive(Action):
                 message+=getOrderRecap(order)
                 dispatcher.utter_message(text=message)
                 dispatcher.utter_message(response="utter_anything_else_order")
-                #return [SlotSet("drink_name", None), SlotSet("drink_amount", None),FollowupAction("utter_anything_else_order")]
                 return [SlotSet("drink_name", None), SlotSet("drink_amount", None),SlotSet("order_has_items",True),SlotSet("order_has_drink",True)]
             elif (previous_action == "utter_submit_pickup"):
                 order=getOrderByUserID(tracker.sender_id)
@@ -851,7 +828,7 @@ class ActionResponsePositive(Action):
                 order = getOrderByUserID(tracker.sender_id)
                 client_name = tracker.slots['client_name']
                 order_time = tracker.slots['order_time']
-                address= tracker.slots['address_street']
+                address= tracker.slots['address_street'] +" "+ tracker.slots['address_number']
                 order.setDeliveryInformation(delivery_time=order_time, delivery_address=address, delivery_client=client_name)
                 print(f"Order {order.id} will be delivered at {address} at {order_time} for the client {client_name}")
                 updateExistingOrder(order)
