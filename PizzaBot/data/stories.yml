@@ -284,7 +284,7 @@ stories:
         - order_has_items: true
     - action: utter_ask_delivery_method
 
-- story: After changing drink idea procede to checkout and order has items
+- story: After stopping drink form user procede to checkout and order has items
   steps:
     - checkpoint: add_drink_change_idea
     - intent: init_checkout_request
