@@ -996,7 +996,7 @@ class ActionResponseNegative(Action):
                 return [SlotSet("order_time", None)]
             elif (previous_action == 'utter_submit_name_modification'):
                 dispatcher.utter_message(text="Ok, I did not change the order name.")
-                return [SlotSet("order_name", None)]
+                return [SlotSet("client_name", None)]
             elif (previous_action == 'utter_submit_drink_removal'):
                 dispatcher.utter_message(text="Ok, I did not remove that.")
                 return [SlotSet("drink_name", None), SlotSet("drink_amount", None)]
