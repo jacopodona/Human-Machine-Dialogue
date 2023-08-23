@@ -26,8 +26,90 @@ stories:
     - ingredient
   - active_loop: null
   - action: utter_submit_pizza
-  - intent: response_positive
+  - user: |
+      correct
+    intent: response_positive
   - action: action_response_positive
+
+- story: make pizza order under-informative and confirm
+  steps:
+    - user: |
+        I want to order a pizza
+      intent: init_request
+    - action: utter_accept_request
+    - action: pizza_order_form
+    - active_loop: pizza_order_form
+    - user: |
+        A [margherita]{"entity": "pizza_type"}
+      intent: say_pizza_type
+    - action: pizza_order_form
+    - slot_was_set:
+        - pizza_type: margherita
+    - user: |
+        [medium]{"entity": "pizza_size"}
+      intent: say_pizza_size
+    - action: pizza_order_form
+    - slot_was_set:
+        - pizza_size
+    - active_loop: null
+    - action: utter_submit_pizza
+    - user: |
+        Yes
+      intent: response_positive
+    - action: action_response_positive
+
+- story: ask menu, pizza ingredient and make pizza order
+  steps:
+  - user: |
+      Can you show me your menu?
+    intent: ask_pizza_menu
+  - action: action_tell_pizza_menu
+  - user: |
+      What ingredients do you put in a [rustic]{"entity": "pizza_type"}?
+    intent: ask_pizza_ingredients
+  - action: action_tell_pizza_ingredients
+  - user: |
+      I think I will order a [medium]{"entity": "pizza_size"} [rustic]{"entity": "pizza_type"}
+    intent: init_request
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - ingredient
+  - active_loop: null
+  - action: utter_submit_pizza
+  - user: |
+      yes
+    intent: response_positive
+  - action: action_response_positive
+
+- story: ask for pizza without ingredient, cost and make pizza order
+  steps:
+  - user: |
+      What pizza do you have without [mushrooms]{"entity": "ingredient"}
+    intent: ask_pizza_without_ingredient
+  - action: action_tell_pizza_without_ingredient
+  - user: |
+      How much for a [marinara]{"entity": "pizza_type"}?
+    intent: ask_pizza_price
+  - action: action_tell_pizza_price
+  - user: |
+      I want to order a [medium]{"entity": "pizza_size"} [marinara]{"entity": "pizza_type"}
+    intent: init_request
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size
+    - pizza_type
+    - ingredient
+  - active_loop: null
+  - action: utter_submit_pizza
+  - user: |
+      yeah
+    intent: response_positive
+  - action: action_response_positive
+
 
 - story: make pizza order but no confirm
   steps:
@@ -41,7 +123,9 @@ stories:
       - pizza_type
   - active_loop: null
   - action: utter_submit_pizza
-  - intent: response_negative
+  - user: |
+      No
+    intent: response_negative
   - action: action_response_negative
 
 - story: try cancel order with no order active
@@ -50,6 +134,13 @@ stories:
         Can I delete my order?
       intent: delete_order
     - action: utter_delete_order_error
+
+- story: try checkout order with no order active
+  steps:
+    - user: |
+        Let's procede to checkout
+      intent: init_checkout_request
+    - action: utter_no_user_order
 
 - story: order pizza and delete order
   steps:
@@ -118,12 +209,14 @@ stories:
       - client_name
   - active_loop: null
   - action: utter_submit_pickup
-  - intent: response_positive
+  - user: |
+      correct
+    intent: response_positive
   - action: action_response_positive
   - slot_was_set:
       - order_complete: True
 
-- story: order pizza and delivery order
+- story: order pizza and checkout delivery
   steps:
   - user: |
       I want a [large]{"entity": "pizza_size"} [vegetarian]{"entity": "pizza_type"} with [garlic]{"entity": "ingredient"}
@@ -182,28 +275,47 @@ stories:
   - slot_was_set:
       - order_complete: True
 
-#- story: make pizza order and delete
-#  steps:
-#    - user: |
-#        I want to order a pizza
-#      intent: init_request
-#    - action: utter_accept_request
-#    - action: pizza_order_form
-#    - active_loop: pizza_order_form
-#    - user: |
-#        A [margherita]{"entity": "pizza_type"}
-#      intent: say_pizza_type
-#    - slot_was_set:
-#        - pizza_type: margherita
-#    - action: pizza_order_form
-#    - user: |
-#        [medium]{"entity": "pizza_size"}
-#      intent: say_pizza_size
-#    - slot_was_set:
-#        - pizza_size
-#    - active_loop: null
-#    - action: utter_submit_pizza
-#    - user: |
-#        Yes
-#      intent: response_positive
-#    - action: action_response_positive
+- story: order pizza, remove the ordered pizza
+  steps:
+    - user: |
+        I want a [medium]{"entity": "pizza_size"} [marinara]{"entity": "pizza_type"}
+      intent: init_request
+    - action: utter_accept_request
+    - action: pizza_order_form
+    - slot_was_set:
+        - pizza_size
+        - pizza_type
+    - active_loop: null
+    - action: utter_submit_pizza
+    - intent: response_positive
+    - action: action_response_positive
+    - slot_was_set:
+      - order_has_pizza: True
+    - user: |
+        I want to remove the [medium]{"entity": "pizza_size"} [marinara]{"entity": "pizza_type"}
+      intent: remove_pizza
+    - action: utter_accept_request
+    - action: remove_pizza_form
+    - slot_was_set:
+        - pizza_size
+        - pizza_type
+    - active_loop: null
+    - action: utter_submit_pizza_removal
+    - user: |
+        exactly
+      intent: response_positive
+    - action: action_response_positive
+
+- story: try change order name with no order active
+  steps:
+    - user: |
+        I want to change the name of the pickup person
+      intent: modify_order_name
+    - action: utter_modify_order_error
+
+- story: try change order time with no order active
+  steps:
+    - user: |
+        I want to change the time of my order
+      intent: modify_order_time
+    - action: utter_modify_order_error
