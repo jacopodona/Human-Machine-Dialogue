@@ -13,7 +13,6 @@ intents:
 #TASK 1 order pizza and drinks
   - init_request
   - init_drink_request
-  #- say_drink_order
   - ask_drink_list
   - ask_drink_price
   - say_pizza_type
@@ -54,10 +53,8 @@ intents:
   - delete_order
   - modify_order_time
   - modify_order_name
-#  - init_modify_order
   - remove_pizza
   - remove_drink
-#  - change_address
 
 entities:
 - pizza_size
@@ -69,10 +66,6 @@ entities:
 - address_street
 - address_number
 - ingredient
-#- pizza_amount
-#- phone_number
-#- order_number
-#- address_number
 
 slots:
   pizza_size:
@@ -196,17 +189,19 @@ responses:
 
     - text: "I want to add a {pizza_size} {pizza_type} with extra {ingredient} to your order. Is this correct?"
 
-  #utter_submit_pizza_with_topping:
-  #  - text: "I want to add a {pizza_size} {pizza_type} with extra {ingredient} to your order. Is this correct?"
-
   utter_submit_drink:
-    - text: "I want to add {drink_amount} bottle(s) of {drink_name} to your order. Is this correct?"
+    - condition:
+        - type: slot
+          name: drink_amount
+          value: '1'
+      text: "I want to add {drink_amount} bottle of {drink_name} to your order. Is this correct?"
+    - text: "I want to add {drink_amount} bottles of {drink_name} to your order. Is this correct?"
 
   utter_ask_pizza_order_form_pizza_type:
     - text: "What type of pizza would you like to order?"
 
   utter_ask_pizza_order_form_pizza_size:
-    - text: "What size would you want to order?"
+    - text: "What size would you like to order?"
 
   utter_ask_remove_pizza_form_pizza_type:
     - text: "What pizza would you like to remove?"
@@ -287,7 +282,13 @@ responses:
     - text: "I am sorry to hear that. Are you sure you want to delete your order?"
 
   utter_submit_drink_removal:
-    - text: "I am about to remove {drink_amount} bottle(s) of {drink_name} from your order. Is this correct?"
+    - condition:
+        - type: slot
+          name: drink_amount
+          value: '1'
+      text: "I am about to remove {drink_amount} bottle of {drink_name} from your order. Is this correct?"
+
+    - text: "I am about to remove {drink_amount} bottles of {drink_name} from your order. Is this correct?"
 
   utter_submit_pizza_removal:
     - condition:
@@ -336,18 +337,15 @@ actions:
   - validate_change_time_form
   - validate_remove_drink_form
   - validate_remove_pizza_form
-  #- action_submit_pizza
   - action_response_positive
   - action_response_negative
   - action_tell_pizza_menu
   - action_tell_pizza_price
   - action_tell_pizza_ingredients
-  #- action_check_order_ready
   - action_see_order_information
   - action_tell_pizza_without_ingredient
   - action_tell_pizza_with_ingredient
   - action_deactivate_form
-  #- action_help_user
 
 forms:
   pizza_order_form:
