@@ -159,13 +159,29 @@ rules:
   - intent: delete_order
   - action: utter_ask_delete_order_confirmation
 
-- rule: Ask confirmation for order removal with an order present, throw error
+- rule: Ask for order removal without an order present, throw error
   condition:
   - slot_was_set:
     - order_has_items: false
   steps:
   - intent: delete_order
   - action: utter_delete_order_error
+
+- rule: Deny checkout request if user has no order
+  condition:
+    - slot_was_set:
+      - order_has_items: false
+  steps:
+    - intent: init_checkout_request
+    - action: utter_no_user_order
+
+- rule: Ask for delivery option when user starts checkout and has order
+  condition:
+    - slot_was_set:
+      - order_has_items: true
+  steps:
+    - intent: init_checkout_request
+    - action: utter_ask_delivery_method
 
 - rule: Activate change time form
   condition:
