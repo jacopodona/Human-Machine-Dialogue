@@ -46,6 +46,8 @@ intents:
   - ask_pizza_with_ingredient
   - ask_pizza_without_ingredient
   - ask_pizzeria_location
+  - ask_time_slots
+  - ask_pizza_sizes
 #
 #
 ##TASK 3 modify previously made order
@@ -316,6 +318,12 @@ responses:
 
   utter_say_pizzeria_location:
     - text: "Our pizzeria is located at Via Rosmini, 1."
+
+  utter_say_pizza_sizes:
+    - text: "We can prepare every pizza in small, medium, or large size."
+
+  utter_say_time_slots:
+    - text: "The time slots we have for pizza orders are 7.30pm, 8pm, 8.30pm and 9pm."
 
   utter_order_deleted:
     - text: "Your order has been successfully removed."

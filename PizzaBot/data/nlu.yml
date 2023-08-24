@@ -32,6 +32,9 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - thanks bye
+    - thank you bye
+    - bye
 
 - intent: response_positive
   examples: |
@@ -81,6 +84,8 @@ nlu:
     - What do I need to do?
     - Can you show me how to get started?
     - What should I do now?
+    - Can you help me?
+    - Can you tell me what should I do?
 
 - intent: out_of_scope
   examples: |
@@ -164,6 +169,9 @@ nlu:
     - i dont want to do it anymore
     - i dont want delivery anymore
     - i dont want pickup anymore
+    - i dont want the pizza anymore
+    - i dont want to order the drink anymore
+    - i dont want to order the pizza anymore
     
 
 - intent: init_request
@@ -219,7 +227,6 @@ nlu:
     - Add a [small](pizza_size) [pesto](pizza_type) with [onions](ingredient)
     - Add a [medium](pizza_size) [kebab](pizza_type) with [tomato sauce](ingredient)
     - Add a [large](pizza_size) [hawaiian](pizza_type) with [potatoes](ingredient)
-    
 
 
 - intent: init_drink_request
@@ -282,6 +289,29 @@ nlu:
     - Tell me the menu
     - Could you show me the menu?
     - What menu do you offer?
+    - Could you tell me the pizzas you have available?
+    - Is it possible to see the menu?
+    - I'd like to see the menu, can you show me?
+    - Could I have the menu, please?
+
+- intent: ask_pizza_sizes
+  examples: |
+    - What are the available sizes?
+    - What sizes do you have?
+    - What sizes do the pizzas have?
+    - What size options do you offer for your pizzas?
+    - What sizes do you have?
+    - What are the size choices available for your pizzas?
+    - Could you please let me know the different sizes of pizzas you have?
+    - Can you provide me with information about the pizza sizes on your menu?
+    - I'd like to know the sizes I can choose from for the pizzas. Could you give me the details?
+    - What's the selection of pizza sizes that I can order?
+    - Could you break down the pizza sizes you have available?
+    - Do you offer pizzas in various sizes?
+    - Could you tell me about the different sizes you offer?
+    - Can you help me understand the size options for your pizzas?
+    - Before I place my order, I'd like to know more about the sizes of your pizzas. Can you provide some details?
+    - What can you tell me about the size selections for your pizzas?
 
 - intent: ask_drink_list
   examples: |
@@ -437,13 +467,14 @@ nlu:
     - I want to see what I ordered
     - What's my order information
     - What is my order status?
-    - what is my order status?
+    - what's my order status?
     - tell me my order information
     - Order information
     - Info about my order
     - Repeat my order
     - Status of my order
-    
+    - Recap my order
+    - Remind me what I ordered
 
 - intent: say_pizza_type
   examples: |
@@ -562,12 +593,12 @@ nlu:
     - I'm [Giuliano Ricci](client_name)
     - My name is [Elena Moretti](client_name)
     - Just call me [Alice Greco](client_name)
-    - I prefer to be called [Francesca Barbieri](client_name)
+    - Please leave it for [Francesca Barbieri](client_name)
     - The name is [Alessandro Russo](client_name)
     - put [Valentina Marini](client_name)
-    - Please refer to me as [Luca Davirti](client_name)
-    - Call me [Chiara Conti](client_name)
-    - I go by [Matteo Garcia](client_name)
+    - Put [Luca Davirti](client_name)
+    - The name is [Chiara Conti](client_name)
+    - The bell name is  [Matteo Garcia](client_name)
     - It's [Emily Davis](client_name)
     - [Christopher Johnson](client_name) here
     - [William Smith](client_name) is my name
@@ -620,17 +651,17 @@ nlu:
     - My home is at [via Belenzani](address_street).
     - You can reach me at [Corso 3 Novembre](address_street).
     - The address I'm speaking from is [Via Santa Margherita](address_street).
-    - [Piazza Dante](address_street) is where I call home.
+    - It's [piazza Dante](address_street).
     - My place is [via Verdi](address_street).
     - I'm located at [via Maccani](address_street).
     - The address you can find me at is [Viale Verona](address_street).
     - [Corso Bettini](address_street) is my home base.
     - My residence is [Via Roma](address_street).
-    - You can visit me at [Via Calepina](address_street).
+    - The street is [Via Calepina](address_street).
     - [Viale Trento](address_street) is where I'm located.
     - I live at [Via della Malvasia](address_street).
     - My home address is [Via Oriola](address_street).
-    - The place I call home is [Viale della Stazione](address_street).
+    - My place is in [Viale della Stazione](address_street).
     - [Via San Pietro](address_street) is where I reside.
     - You'll find me at [corso Alpini](address_street).
     - I'm at [Via Monte Baldo](address_street).
@@ -716,9 +747,7 @@ nlu:
     - at [19:30](order_time)
     - at [7:30](order_time)
     - at [8pm](order_time)
-    - at [20](order_time)
     - at [20.00](order_time)
-    - at [8](order_time)
     - at [8.00](order_time)
     - at [8:00](order_time)
     - at [20:00](order_time)
@@ -728,9 +757,7 @@ nlu:
     - at [20:30](order_time)
     - at [8:30](order_time)
     - at [9pm](order_time)
-    - at [21](order_time)
     - at [21.00](order_time)
-    - at [9](order_time)
     - at [9:00](order_time)
     - at [21:00](order_time)
     - [7.30pm](order_time)
@@ -739,9 +766,7 @@ nlu:
     - [19:30](order_time)
     - [7:30](order_time)
     - [8pm](order_time)
-    - [20](order_time)
     - [20.00](order_time)
-    - [8](order_time)
     - [8.00](order_time)
     - [8:00](order_time)
     - [20:00](order_time)
@@ -753,7 +778,6 @@ nlu:
     - [9pm](order_time)
     - [21](order_time)
     - [21.00](order_time)
-    - [9](order_time)
     - [9:00](order_time)
     - [21:00](order_time)
 
@@ -807,24 +831,21 @@ nlu:
     - do you have pizza with [mozzarella](ingredient)?
     - do you have pizza with [pepperoni](ingredient)?
     - do you have pizza with [vegetables](ingredient)?
-    - do you have pizza wit [mozzarella](ingredient)?
-    - do you have pizza wit [cheese](ingredient)?
-    - do you have pizza wit [olives](ingredient)?
     - do you have pizza with [olives](ingredient)?
     - do you have pizza with [mushrooms](ingredient) please?
     - do you have pizza with [wurstel](ingredient) please?
     - do you have pizza with [chicken](ingredient) please?
-    - What pizzas has [ham](ingredient)?
-    - What pizzas has [cheese](ingredient)?
-    - What pizzas has [olives](ingredient)?
-    - What pizzas has [onions](ingredient)?
-    - What pizzas has [meat](ingredient)?
-    - What pizzas has [spinach](ingredient)?
-    - What pizzas has [chicken](ingredient)?
-    - What pizzas has [mushrooms](ingredient)?
-    - What pizzas has [sausage](ingredient)?
-    - What pizzas has [onions](ingredient)?
-    - What pizzas has [pineapple](ingredient)?
+    - what pizza has [ham](ingredient)?
+    - what pizza has [cheese](ingredient)?
+    - what pizza has [olives](ingredient)?
+    - what pizza has [onions](ingredient)?
+    - what pizza has [meat](ingredient)?
+    - what pizzas have [spinach](ingredient)?
+    - what pizzas have [chicken](ingredient)?
+    - what pizzas have [mushrooms](ingredient)?
+    - what pizzas have [sausage](ingredient)?
+    - what pizzas have [onions](ingredient)?
+    - what pizzas have [pineapple](ingredient)?
     - pizza with [sausage](ingredient)?
     - pizza with [pepperoni](ingredient) please?
     - pizza with [chicken](ingredient) please?
@@ -860,13 +881,33 @@ nlu:
     - could you tell me where the pizzeria is
     - can you share the location of the pizzeria?
 
+- intent: ask_time_slots
+  examples: |
+    - what are the available time slots?
+    - what are the time slots for takeaway? 
+    - what are the time slots for pickup?
+    - what are the time slots for delivery? 
+    - could you tell me the available timings?
+    - can you let me know when the available time slots are?
+    - what times do you have available?
+    - could you give me the detail on the time slots?
+    - are there specific time options when I can order?
+    - can you fill me in on the available timing choices?
+    - i'm curious about the time slots that I can choose from
+    - what's the range of time slots you have?
+    - could tell me the different time slots you offer?
+    - can you provide me with a list of the time slots that are currently open?
+    - could you let me know about the time options?
+    - could you provide me the available timings?
+    - could you tell me about the available time slots?
+
 - intent: delete_order
   examples: |
     - Delete the order
     - Please cancel my order
     - I want to remove the order I placed
     - can you help me delete my order?
-    - I changed my mind, delete my order
+    - Actually, delete my order
     - remove the order that I ordered last week
     - I no longer need the order, delete it
     - cancel my recent order
@@ -882,10 +923,10 @@ nlu:
     - remove the order
     - delete my most recent order
     - cancel the order that I made
-    - I've changed my mind, delete my order
+    - I want you to delete my order
     - Please remove the order I just made
     - Actually I changed my mind, please delete the order
-    - I changed idea, delete my order
+    - Now that I think about it, delete my order
 
 - intent: modify_order_time
   examples: |
@@ -1054,9 +1095,7 @@ nlu:
 
 - synonym: 8pm
   examples: |
-    - 20
     - 20.00
-    - 8
     - 8.00
     - 8:00
     - 20:00
@@ -1074,9 +1113,7 @@ nlu:
     
 - synonym: 9pm
   examples: |
-    - 21
     - 21.00
-    - 9
     - 9.00
     - 9:00
     - 21:00

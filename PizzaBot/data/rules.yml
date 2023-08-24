@@ -141,6 +141,16 @@ rules:
     - intent: ask_pizza_with_ingredient
     - action: action_tell_pizza_with_ingredient
 
+- rule: Tell pizza sizes
+  steps:
+    - intent: ask_pizza_sizes
+    - action: utter_say_pizza_sizes
+
+- rule: Tell the time slots
+  steps:
+    - intent: ask_time_slots
+    - action: utter_say_time_slots
+
 - rule: User asks for his order information
   steps:
   - intent: ask_order_info

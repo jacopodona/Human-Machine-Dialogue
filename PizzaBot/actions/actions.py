@@ -432,7 +432,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
         """ Validate 'pizza_size' value"""
         if slot_value is not None:
             if slot_value.lower() not in getPizzaSizes():
-                dispatcher.utter_message(text=f"We only accept pizza sizes : small/medium/large")
+                dispatcher.utter_message(text=f"We only prepare pizzas in small, medium or large size")
                 return {"pizza_size":None}
             #dispatcher.utter_message(text=f"Ok! You want to have a {slot_value} pizza.")
             return {"pizza_size":slot_value}
@@ -656,7 +656,7 @@ class ValidatePizzaRemoveForm(FormValidationAction):
                             domain: DomainDict)-> Dict[Text, Any]:
         if slot_value is not None:
             if slot_value.lower() not in getPizzaSizes():
-                dispatcher.utter_message(text=f"We only accept pizza sizes : small/medium/large")
+                dispatcher.utter_message(text=f"We only prepare pizzas in small, medium or large size")
                 return {"pizza_size":None}
             order = getOrderByUserID(tracker.sender_id)
             ordered_sizes=[obj.size for obj in order.pizzas]
