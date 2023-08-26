@@ -1,0 +1,154 @@
+[
+  {
+    "text": "exactly",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "ask_pizzeria_location",
+      "confidence": 0.1288675218820572
+    }
+  },
+  {
+    "text": "see you later",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.45952486991882324
+    }
+  },
+  {
+    "text": "good night",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.42886650562286377
+    }
+  },
+  {
+    "text": "How much is sprite?",
+    "intent": "ask_drink_price",
+    "intent_prediction": {
+      "name": "ask_pizza_price",
+      "confidence": 0.3248039782047272
+    }
+  },
+  {
+    "text": "How much does coke cost?",
+    "intent": "ask_drink_price",
+    "intent_prediction": {
+      "name": "ask_pizza_price",
+      "confidence": 0.4414169490337372
+    }
+  },
+  {
+    "text": "moin",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.2652760446071625
+    }
+  },
+  {
+    "text": "Give me the list of available drinks",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.7926943302154541
+    }
+  },
+  {
+    "text": "What drinks do you guys have on the menu?",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.7248969674110413
+    }
+  },
+  {
+    "text": "What beverages do you have?",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.39002683758735657
+    }
+  },
+  {
+    "text": "a cheesey with sausage",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.47498056292533875
+    }
+  },
+  {
+    "text": "a hawaiian",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.2481498420238495
+    }
+  },
+  {
+    "text": "I'd like a small pizza",
+    "intent": "say_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.5238214135169983
+    }
+  },
+  {
+    "text": "I don't think so",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.7259159088134766
+    }
+  },
+  {
+    "text": "I don't understand",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.5870134234428406
+    }
+  },
+  {
+    "text": "what times do you have available?",
+    "intent": "ask_time_slots",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.35437482595443726
+    }
+  },
+  {
+    "text": "I can't remember what I ordered",
+    "intent": "ask_order_info",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.41944414377212524
+    }
+  },
+  {
+    "text": "What are the pizzas?",
+    "intent": "ask_pizza_menu",
+    "intent_prediction": {
+      "name": "ask_pizza_with_ingredient",
+      "confidence": 0.29340416193008423
+    }
+  },
+  {
+    "text": "21",
+    "intent": "say_order_time",
+    "intent_prediction": {
+      "name": "say_address_number",
+      "confidence": 0.9309886693954468
+    }
+  },
+  {
+    "text": "what's the recipe for a margarita cocktail?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_pizza_ingredients",
+      "confidence": 0.5463802218437195
+    }
+  }
+]

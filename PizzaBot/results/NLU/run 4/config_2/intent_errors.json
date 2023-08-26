@@ -1,0 +1,178 @@
+[
+  {
+    "text": "correct",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.2443387658427965
+    }
+  },
+  {
+    "text": "y",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.10536432705711128
+    }
+  },
+  {
+    "text": "Can you take me to the checkout page?",
+    "intent": "init_checkout_request",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.2017888954625156
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.28247701791979385
+    }
+  },
+  {
+    "text": "goodbye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.27028747581238616
+    }
+  },
+  {
+    "text": "I'd like to know the cost of a beer.",
+    "intent": "ask_drink_price",
+    "intent_prediction": {
+      "name": "ask_pizza_price",
+      "confidence": 0.10879627003418842
+    }
+  },
+  {
+    "text": "Could you show me the list of drinks you've got?",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.17487139715396652
+    }
+  },
+  {
+    "text": "marinara",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.24677396780301095
+    }
+  },
+  {
+    "text": "could you tell me your address?",
+    "intent": "ask_pizzeria_location",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.15869174330287572
+    }
+  },
+  {
+    "text": "I don't think so",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.400702418981887
+    }
+  },
+  {
+    "text": "I'm confused",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "ask_order_info",
+      "confidence": 0.14263856913769543
+    }
+  },
+  {
+    "text": "I dont understand",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.48168029312839544
+    }
+  },
+  {
+    "text": "can you provide me with a list of the time slots that are currently open?",
+    "intent": "ask_time_slots",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.23236515962442306
+    }
+  },
+  {
+    "text": "Can you remind me what I ordered",
+    "intent": "ask_order_info",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.2021299692314933
+    }
+  },
+  {
+    "text": "Let's do takeaway",
+    "intent": "inform_order_pickup",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.19832594823389713
+    }
+  },
+  {
+    "text": "I want four sprites",
+    "intent": "init_drink_request",
+    "intent_prediction": {
+      "name": "say_drink_amount",
+      "confidence": 0.27963767061649275
+    }
+  },
+  {
+    "text": "I want it at 7.30pm.",
+    "intent": "say_order_time",
+    "intent_prediction": {
+      "name": "inform_order_delivery",
+      "confidence": 0.18410567889617308
+    }
+  },
+  {
+    "text": "i want to add another pizza",
+    "intent": "init_request",
+    "intent_prediction": {
+      "name": "remove_pizza",
+      "confidence": 0.2599493421719814
+    }
+  },
+  {
+    "text": "Can we order some pizzas?",
+    "intent": "init_request",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.23767272986743243
+    }
+  },
+  {
+    "text": "what's the current price of gold?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_drink_price",
+      "confidence": 0.30023902936704583
+    }
+  },
+  {
+    "text": "I'm Giuliano Ricci",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "init_checkout_request",
+      "confidence": 0.23208971446734322
+    }
+  },
+  {
+    "text": "Eleonora Barbieri",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.25673726108758427
+    }
+  }
+]

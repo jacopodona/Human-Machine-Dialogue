@@ -1,0 +1,281 @@
+[
+  {
+    "text": "I would like to remove one pizza",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 23,
+        "end": 26,
+        "confidence_entity": 0.7024897933006287,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want four sprites",
+    "entities": [
+      {
+        "start": 7,
+        "end": 11,
+        "value": "four",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 12,
+        "end": 19,
+        "value": "sprites",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 11,
+        "confidence_entity": 0.9888225793838501,
+        "value": "4",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Number 8",
+    "entities": [
+      {
+        "start": 7,
+        "end": 8,
+        "value": "8",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 7,
+        "end": 8,
+        "confidence_entity": 0.49374616146087646,
+        "value": "8",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "1 is my address number",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "1",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.9341389536857605,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 0,
+        "end": 1,
+        "value": "1",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "My place is via Verdi.",
+    "entities": [
+      {
+        "start": 12,
+        "end": 21,
+        "value": "via Verdi",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 12,
+        "end": 15,
+        "confidence_entity": 0.9915648698806763,
+        "value": "via",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "You can locate me at corso Lancia.",
+    "entities": [
+      {
+        "start": 21,
+        "end": 33,
+        "value": "corso Lancia",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 21,
+        "end": 26,
+        "confidence_entity": 0.984635591506958,
+        "value": "corso",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "The address I'm at is Via dei Colli.",
+    "entities": [
+      {
+        "start": 22,
+        "end": 35,
+        "value": "Via dei Colli",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 22,
+        "end": 29,
+        "confidence_entity": 0.8090983629226685,
+        "value": "Via dei",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "how do I install a new light fixture?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 23,
+        "end": 28,
+        "confidence_entity": 0.9858291745185852,
+        "value": "light",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 23,
+        "end": 28,
+        "value": "light",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "can you recommend a good romantic comedy movie?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 25,
+        "end": 33,
+        "confidence_entity": 0.5968707799911499,
+        "value": "romantic",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "how do I re-pot a houseplant?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 12,
+        "end": 15,
+        "confidence_entity": 0.5501367449760437,
+        "value": "pot",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Oliver Garcia",
+    "entities": [
+      {
+        "start": 0,
+        "end": 13,
+        "value": "Oliver Garcia",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "ingredient",
+        "start": 0,
+        "end": 13,
+        "confidence_entity": 0.9793605208396912,
+        "value": "Oliver Garcia",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Victoria Johnson",
+    "entities": [
+      {
+        "start": 0,
+        "end": 16,
+        "value": "Victoria Johnson",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.9809147119522095,
+        "value": "Johnson",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "[Luisa Santini](client_name",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 1,
+        "end": 6,
+        "confidence_entity": 0.9879865050315857,
+        "value": "Luisa",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

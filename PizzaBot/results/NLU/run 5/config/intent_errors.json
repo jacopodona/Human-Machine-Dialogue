@@ -1,0 +1,218 @@
+[
+  {
+    "text": "correct",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "say_address_number",
+      "confidence": 0.1783190369606018
+    }
+  },
+  {
+    "text": "y",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "say_home_address",
+      "confidence": 0.18301887810230255
+    }
+  },
+  {
+    "text": "I want to finalize the order",
+    "intent": "init_checkout_request",
+    "intent_prediction": {
+      "name": "delete_order",
+      "confidence": 0.4041471779346466
+    }
+  },
+  {
+    "text": "see you around",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.14350579679012299
+    }
+  },
+  {
+    "text": "good afternoon",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.18320563435554504
+    }
+  },
+  {
+    "text": "margherita",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.4389135539531708
+    }
+  },
+  {
+    "text": "rustic",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.15026001632213593
+    }
+  },
+  {
+    "text": "[pub]",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.8364213109016418
+    }
+  },
+  {
+    "text": "medium will do",
+    "intent": "say_pizza_size",
+    "intent_prediction": {
+      "name": "inform_order_pickup",
+      "confidence": 0.28405678272247314
+    }
+  },
+  {
+    "text": "incorrect",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "say_address_number",
+      "confidence": 0.20696578919887543
+    }
+  },
+  {
+    "text": "Can you show me how to get started?",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.938335120677948
+    }
+  },
+  {
+    "text": "Can you tell me what should I do?",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "ask_pizzeria_location",
+      "confidence": 0.3774273097515106
+    }
+  },
+  {
+    "text": "What do I need to do?",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.1927076280117035
+    }
+  },
+  {
+    "text": "can you fill me in on the available timing choices?",
+    "intent": "ask_time_slots",
+    "intent_prediction": {
+      "name": "ask_pizza_sizes",
+      "confidence": 0.3343702554702759
+    }
+  },
+  {
+    "text": "I want to know what's in a pesto.",
+    "intent": "ask_pizza_ingredients",
+    "intent_prediction": {
+      "name": "ask_pizza_price",
+      "confidence": 0.35335832834243774
+    }
+  },
+  {
+    "text": "I want to know what's in a marinara.",
+    "intent": "ask_pizza_ingredients",
+    "intent_prediction": {
+      "name": "ask_pizza_price",
+      "confidence": 0.5332303047180176
+    }
+  },
+  {
+    "text": "I can't remember what I ordered",
+    "intent": "ask_order_info",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.39690259099006653
+    }
+  },
+  {
+    "text": "Do I have an order?",
+    "intent": "ask_order_info",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.3961847424507141
+    }
+  },
+  {
+    "text": "Could you tell me the pizzas you have available?",
+    "intent": "ask_pizza_menu",
+    "intent_prediction": {
+      "name": "ask_pizza_sizes",
+      "confidence": 0.860826313495636
+    }
+  },
+  {
+    "text": "I think pickup is better",
+    "intent": "inform_order_pickup",
+    "intent_prediction": {
+      "name": "inform_order_delivery",
+      "confidence": 0.41196203231811523
+    }
+  },
+  {
+    "text": "Takeaway",
+    "intent": "inform_order_pickup",
+    "intent_prediction": {
+      "name": "inform_order_delivery",
+      "confidence": 0.19961149990558624
+    }
+  },
+  {
+    "text": "I want 5 beers",
+    "intent": "init_drink_request",
+    "intent_prediction": {
+      "name": "say_drink_amount",
+      "confidence": 0.3502295911312103
+    }
+  },
+  {
+    "text": "how do I train my dog to do tricks?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_order_info",
+      "confidence": 0.44928181171417236
+    }
+  },
+  {
+    "text": "book a flight from milan to ny",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_pizza_price",
+      "confidence": 0.19113963842391968
+    }
+  },
+  {
+    "text": "how do I change the oil in my car?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "modify_order_name",
+      "confidence": 0.4172063171863556
+    }
+  },
+  {
+    "text": "how do I remove a stain from my clothes?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "remove_pizza",
+      "confidence": 0.6823198795318604
+    }
+  },
+  {
+    "text": "Luca Orsu'",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "say_drink_amount",
+      "confidence": 0.4214836061000824
+    }
+  }
+]

@@ -1,0 +1,311 @@
+{
+  "ask_pizza_price": {
+    "precision": 0.4,
+    "recall": 1.0,
+    "f1-score": 0.5714285714285715,
+    "support": 2,
+    "confused_with": {}
+  },
+  "modify_order_name": {
+    "precision": 0.8333333333333334,
+    "recall": 1.0,
+    "f1-score": 0.9090909090909091,
+    "support": 5,
+    "confused_with": {}
+  },
+  "response_positive": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "say_address_number": 1,
+      "say_home_address": 1
+    }
+  },
+  "say_full_name": {
+    "precision": 0.8461538461538461,
+    "recall": 0.9166666666666666,
+    "f1-score": 0.8799999999999999,
+    "support": 12,
+    "confused_with": {
+      "say_drink_amount": 1
+    }
+  },
+  "init_request": {
+    "precision": 0.8333333333333334,
+    "recall": 1.0,
+    "f1-score": 0.9090909090909091,
+    "support": 10,
+    "confused_with": {}
+  },
+  "response_negative": {
+    "precision": 1.0,
+    "recall": 0.75,
+    "f1-score": 0.8571428571428571,
+    "support": 4,
+    "confused_with": {
+      "say_address_number": 1
+    }
+  },
+  "out_of_scope": {
+    "precision": 0.875,
+    "recall": 0.6363636363636364,
+    "f1-score": 0.7368421052631579,
+    "support": 11,
+    "confused_with": {
+      "ask_order_info": 1,
+      "modify_order_name": 1
+    }
+  },
+  "ask_order_info": {
+    "precision": 0.6666666666666666,
+    "recall": 0.5,
+    "f1-score": 0.5714285714285715,
+    "support": 4,
+    "confused_with": {
+      "init_request": 1,
+      "help": 1
+    }
+  },
+  "init_drink_request": {
+    "precision": 1.0,
+    "recall": 0.875,
+    "f1-score": 0.9333333333333333,
+    "support": 8,
+    "confused_with": {
+      "say_drink_amount": 1
+    }
+  },
+  "say_home_address": {
+    "precision": 0.9090909090909091,
+    "recall": 1.0,
+    "f1-score": 0.9523809523809523,
+    "support": 10,
+    "confused_with": {}
+  },
+  "say_address_number": {
+    "precision": 0.7777777777777778,
+    "recall": 1.0,
+    "f1-score": 0.8750000000000001,
+    "support": 7,
+    "confused_with": {}
+  },
+  "remove_pizza": {
+    "precision": 0.8333333333333334,
+    "recall": 1.0,
+    "f1-score": 0.9090909090909091,
+    "support": 5,
+    "confused_with": {}
+  },
+  "say_order_time": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 9,
+    "confused_with": {}
+  },
+  "remove_drink": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 5,
+    "confused_with": {}
+  },
+  "say_pizza_size": {
+    "precision": 1.0,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.8,
+    "support": 3,
+    "confused_with": {
+      "inform_order_pickup": 1
+    }
+  },
+  "ask_pizza_without_ingredient": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 8,
+    "confused_with": {}
+  },
+  "modify_order_time": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "stop": {
+    "precision": 0.8333333333333334,
+    "recall": 1.0,
+    "f1-score": 0.9090909090909091,
+    "support": 5,
+    "confused_with": {}
+  },
+  "say_drink_name": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "delete_order": {
+    "precision": 0.8,
+    "recall": 1.0,
+    "f1-score": 0.888888888888889,
+    "support": 4,
+    "confused_with": {}
+  },
+  "inform_order_delivery": {
+    "precision": 0.7142857142857143,
+    "recall": 1.0,
+    "f1-score": 0.8333333333333333,
+    "support": 5,
+    "confused_with": {}
+  },
+  "ask_pizza_sizes": {
+    "precision": 0.6,
+    "recall": 1.0,
+    "f1-score": 0.7499999999999999,
+    "support": 3,
+    "confused_with": {}
+  },
+  "ask_drink_price": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2,
+    "confused_with": {}
+  },
+  "ask_drink_list": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "ask_pizza_menu": {
+    "precision": 0.8,
+    "recall": 0.8,
+    "f1-score": 0.8000000000000002,
+    "support": 5,
+    "confused_with": {
+      "ask_pizza_sizes": 1
+    }
+  },
+  "inform_order_pickup": {
+    "precision": 0.75,
+    "recall": 0.6,
+    "f1-score": 0.6666666666666665,
+    "support": 5,
+    "confused_with": {
+      "inform_order_delivery": 2
+    }
+  },
+  "say_pizza_type": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 3,
+    "confused_with": {
+      "say_full_name": 2,
+      "init_request": 1
+    }
+  },
+  "say_drink_amount": {
+    "precision": 0.8181818181818182,
+    "recall": 1.0,
+    "f1-score": 0.9,
+    "support": 9,
+    "confused_with": {}
+  },
+  "init_checkout_request": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 2,
+    "confused_with": {
+      "delete_order": 1
+    }
+  },
+  "goodbye": {
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.6666666666666666,
+    "support": 3,
+    "confused_with": {
+      "ask_pizza_menu": 1
+    }
+  },
+  "ask_time_slots": {
+    "precision": 1.0,
+    "recall": 0.75,
+    "f1-score": 0.8571428571428571,
+    "support": 4,
+    "confused_with": {
+      "ask_pizza_sizes": 1
+    }
+  },
+  "help": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 3,
+    "confused_with": {
+      "stop": 1,
+      "ask_pizzeria_location": 1,
+      "out_of_scope": 1
+    }
+  },
+  "ask_pizza_ingredients": {
+    "precision": 1.0,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.5,
+    "support": 3,
+    "confused_with": {
+      "ask_pizza_price": 2
+    }
+  },
+  "welcome_greet": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 2,
+    "confused_with": {
+      "goodbye": 1
+    }
+  },
+  "ask_pizzeria_location": {
+    "precision": 0.6666666666666666,
+    "recall": 1.0,
+    "f1-score": 0.8,
+    "support": 2,
+    "confused_with": {}
+  },
+  "ask_pizza_with_ingredient": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 7,
+    "confused_with": {}
+  },
+  "accuracy": 0.850828729281768,
+  "macro avg": {
+    "precision": 0.7951062055228723,
+    "recall": 0.7915193602693602,
+    "f1-score": 0.7724986603714675,
+    "support": 181
+  },
+  "weighted avg": {
+    "precision": 0.837749159986729,
+    "recall": 0.850828729281768,
+    "f1-score": 0.8307510971468518,
+    "support": 181
+  },
+  "micro avg": {
+    "precision": 0.850828729281768,
+    "recall": 0.850828729281768,
+    "f1-score": 0.850828729281768,
+    "support": 181
+  }
+}

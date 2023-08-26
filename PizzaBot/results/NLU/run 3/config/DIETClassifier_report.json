@@ -1,0 +1,90 @@
+{
+  "address_number": {
+    "precision": 0.7777777777777778,
+    "recall": 1.0,
+    "f1-score": 0.8750000000000001,
+    "support": 7,
+    "confused_with": {}
+  },
+  "pizza_type": {
+    "precision": 0.9130434782608695,
+    "recall": 1.0,
+    "f1-score": 0.9545454545454545,
+    "support": 21,
+    "confused_with": {}
+  },
+  "drink_name": {
+    "precision": 1.0,
+    "recall": 0.9230769230769231,
+    "f1-score": 0.9600000000000001,
+    "support": 13,
+    "confused_with": {}
+  },
+  "order_time": {
+    "precision": 1.0,
+    "recall": 0.8,
+    "f1-score": 0.888888888888889,
+    "support": 10,
+    "confused_with": {
+      "address_number": 2
+    }
+  },
+  "client_name": {
+    "precision": 0.8636363636363636,
+    "recall": 0.8260869565217391,
+    "f1-score": 0.8444444444444444,
+    "support": 23,
+    "confused_with": {
+      "address_street": 1
+    }
+  },
+  "drink_amount": {
+    "precision": 1.0,
+    "recall": 0.9230769230769231,
+    "f1-score": 0.9600000000000001,
+    "support": 13,
+    "confused_with": {}
+  },
+  "address_street": {
+    "precision": 0.9090909090909091,
+    "recall": 0.8695652173913043,
+    "f1-score": 0.888888888888889,
+    "support": 23,
+    "confused_with": {
+      "pizza_type": 1
+    }
+  },
+  "ingredient": {
+    "precision": 1.0,
+    "recall": 0.9545454545454546,
+    "f1-score": 0.9767441860465117,
+    "support": 22,
+    "confused_with": {}
+  },
+  "pizza_size": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 7,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.9338235294117647,
+    "recall": 0.9136690647482014,
+    "f1-score": 0.9236363636363637,
+    "support": 139
+  },
+  "macro avg": {
+    "precision": 0.940394280973991,
+    "recall": 0.9218168305124826,
+    "f1-score": 0.9276124292015765,
+    "support": 139
+  },
+  "weighted avg": {
+    "precision": 0.9380653579902875,
+    "recall": 0.9136690647482014,
+    "f1-score": 0.9235567064318947,
+    "support": 139
+  },
+  "accuracy": 0.9834710743801653
+}

@@ -1,0 +1,1378 @@
+[
+  {
+    "text": "Could you inform me about the price of tea?",
+    "entities": [
+      {
+        "start": 39,
+        "end": 42,
+        "value": "tea",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 39,
+        "end": 42,
+        "confidence_entity": 0.9852518305007303,
+        "value": "tea",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "How much for a coke",
+    "entities": [
+      {
+        "start": 15,
+        "end": 19,
+        "value": "coke",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 15,
+        "end": 19,
+        "confidence_entity": 0.9994392598227776,
+        "value": "coke",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Some tea",
+    "entities": [
+      {
+        "start": 5,
+        "end": 8,
+        "value": "tea",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.9973712836969871,
+        "value": "tea",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "beer",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "beer",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.9999796722866556,
+        "value": "beer",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "tea",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "tea",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 0,
+        "end": 3,
+        "confidence_entity": 0.9994600737363869,
+        "value": "tea",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Can I delete 3 bottles of tea?",
+    "entities": [
+      {
+        "start": 13,
+        "end": 14,
+        "value": "3",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 26,
+        "end": 29,
+        "value": "tea",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 13,
+        "end": 14,
+        "confidence_entity": 0.9933118350795889,
+        "value": "3",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_name",
+        "start": 26,
+        "end": 29,
+        "confidence_entity": 0.9852518307409355,
+        "value": "tea",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 13,
+        "end": 14,
+        "value": "3",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "what pizza has meat?",
+    "entities": [
+      {
+        "start": 15,
+        "end": 19,
+        "value": "meat",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "ingredient",
+        "start": 15,
+        "end": 19,
+        "confidence_entity": 0.9999256276367698,
+        "value": "meat",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "I want four sprites",
+    "entities": [
+      {
+        "start": 7,
+        "end": 11,
+        "value": "four",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 12,
+        "end": 19,
+        "value": "sprites",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 11,
+        "confidence_entity": 0.9998947205355074,
+        "value": "4",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I would like a coke",
+    "entities": [
+      {
+        "start": 15,
+        "end": 19,
+        "value": "coke",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 15,
+        "end": 19,
+        "confidence_entity": 0.9994392600578418,
+        "value": "coke",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want one beer",
+    "entities": [
+      {
+        "start": 7,
+        "end": 10,
+        "value": "one",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 11,
+        "end": 15,
+        "value": "beer",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 10,
+        "confidence_entity": 0.8325968199539827,
+        "value": "1",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_name",
+        "start": 11,
+        "end": 15,
+        "confidence_entity": 0.9999749158564387,
+        "value": "beer",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want 3 bottles of water",
+    "entities": [
+      {
+        "start": 7,
+        "end": 8,
+        "value": "3",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 20,
+        "end": 25,
+        "value": "water",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 8,
+        "confidence_entity": 0.9987891691218206,
+        "value": "3",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_name",
+        "start": 20,
+        "end": 25,
+        "confidence_entity": 0.9997174431663759,
+        "value": "water",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 8,
+        "value": "3",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a bottle of beer",
+    "entities": [
+      {
+        "start": 19,
+        "end": 23,
+        "value": "beer",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 19,
+        "end": 23,
+        "confidence_entity": 0.9999205693914238,
+        "value": "beer",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a bottle of water",
+    "entities": [
+      {
+        "start": 19,
+        "end": 24,
+        "value": "water",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 19,
+        "end": 24,
+        "confidence_entity": 0.9997174431674983,
+        "value": "water",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want some water",
+    "entities": [
+      {
+        "start": 12,
+        "end": 17,
+        "value": "water",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 12,
+        "end": 17,
+        "confidence_entity": 0.9997174452322721,
+        "value": "water",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "number 16",
+    "entities": [
+      {
+        "start": 7,
+        "end": 9,
+        "value": "16",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.999839641101916,
+        "value": "16",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "70 is my address number",
+    "entities": [
+      {
+        "start": 0,
+        "end": 2,
+        "value": "70",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.999993362987321,
+        "value": "70",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "number 30",
+    "entities": [
+      {
+        "start": 7,
+        "end": 9,
+        "value": "30",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.99904750514127,
+        "value": "30",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "# 14",
+    "entities": [
+      {
+        "start": 2,
+        "end": 4,
+        "value": "14",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 2,
+        "end": 4,
+        "confidence_entity": 0.9974134473919454,
+        "value": "14",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "number 12",
+    "entities": [
+      {
+        "start": 7,
+        "end": 9,
+        "value": "12",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.9996498792928895,
+        "value": "12",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "my address number is 33",
+    "entities": [
+      {
+        "start": 21,
+        "end": 23,
+        "value": "33",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 21,
+        "end": 23,
+        "confidence_entity": 0.9999879351109059,
+        "value": "33",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "my address number is 37",
+    "entities": [
+      {
+        "start": 21,
+        "end": 23,
+        "value": "37",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 21,
+        "end": 23,
+        "confidence_entity": 0.9999469089982144,
+        "value": "37",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "pizza without meat?",
+    "entities": [
+      {
+        "start": 14,
+        "end": 18,
+        "value": "meat",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "ingredient",
+        "start": 14,
+        "end": 18,
+        "confidence_entity": 0.9999268983538525,
+        "value": "meat",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "I want one bottle",
+    "entities": [
+      {
+        "start": 7,
+        "end": 10,
+        "value": "one",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want three",
+    "entities": [
+      {
+        "start": 7,
+        "end": 12,
+        "value": "three",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 12,
+        "confidence_entity": 0.9981297646198076,
+        "value": "3",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Give me five",
+    "entities": [
+      {
+        "start": 8,
+        "end": 12,
+        "value": "five",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 8,
+        "end": 12,
+        "confidence_entity": 0.9999729115407454,
+        "value": "5",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Give me four",
+    "entities": [
+      {
+        "start": 8,
+        "end": 12,
+        "value": "four",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 8,
+        "end": 12,
+        "confidence_entity": 0.9999332988403242,
+        "value": "4",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Give me one",
+    "entities": [
+      {
+        "start": 8,
+        "end": 11,
+        "value": "one",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 8,
+        "end": 11,
+        "confidence_entity": 0.6294233979573811,
+        "value": "1",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "9:00",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "9:00",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.9998861618383488,
+        "value": "9pm",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "at 20:30",
+    "entities": [
+      {
+        "start": 3,
+        "end": 8,
+        "value": "20:30",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 3,
+        "end": 8,
+        "confidence_entity": 0.99240603634112,
+        "value": "8.30pm",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "at 20.30",
+    "entities": [
+      {
+        "start": 3,
+        "end": 8,
+        "value": "20.30",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 3,
+        "end": 8,
+        "confidence_entity": 0.9287420575514933,
+        "value": "8.30pm",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "at 9:00",
+    "entities": [
+      {
+        "start": 3,
+        "end": 7,
+        "value": "9:00",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 3,
+        "end": 7,
+        "confidence_entity": 0.9989332037643289,
+        "value": "9pm",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "20:30",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "20:30",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.9991253190339016,
+        "value": "8.30pm",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "at 8.30",
+    "entities": [
+      {
+        "start": 3,
+        "end": 7,
+        "value": "8.30",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 3,
+        "end": 7,
+        "confidence_entity": 0.9991115851230598,
+        "value": "8.30pm",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "at 7:30",
+    "entities": [
+      {
+        "start": 3,
+        "end": 7,
+        "value": "7:30",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 3,
+        "end": 7,
+        "confidence_entity": 0.9814092904145347,
+        "value": "7.30pm",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "7.30",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "7.30",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.9998371804261408,
+        "value": "7.30pm",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "My place is in Viale della Stazione.",
+    "entities": [
+      {
+        "start": 15,
+        "end": 35,
+        "value": "Viale della Stazione",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 15,
+        "end": 35,
+        "confidence_entity": 0.915594068149497,
+        "value": "Viale della Stazione",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "via Jacopo Aconcio",
+    "entities": [
+      {
+        "start": 0,
+        "end": 18,
+        "value": "via Jacopo Aconcio",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 18,
+        "confidence_entity": 0.3518452650585435,
+        "value": "via Jacopo Aconcio",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "via Sommarive",
+    "entities": [
+      {
+        "start": 0,
+        "end": 13,
+        "value": "via Sommarive",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 13,
+        "confidence_entity": 0.9259836070468194,
+        "value": "via Sommarive",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "The address I'm speaking from is Via Santa Margherita.",
+    "entities": [
+      {
+        "start": 33,
+        "end": 53,
+        "value": "Via Santa Margherita",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 33,
+        "end": 36,
+        "confidence_entity": 0.9430983925425385,
+        "value": "Via",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 43,
+        "end": 53,
+        "confidence_entity": 0.5709156065509813,
+        "value": "margherita",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 43,
+        "end": 53,
+        "value": "margherita",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "piazza Centa",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "piazza Centa",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 12,
+        "confidence_entity": 0.8465751070815324,
+        "value": "piazza Centa",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "It's piazza Dante.",
+    "entities": [
+      {
+        "start": 5,
+        "end": 17,
+        "value": "piazza Dante",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 5,
+        "end": 17,
+        "confidence_entity": 0.9207008704219463,
+        "value": "piazza Dante",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "The address you can find me at is Viale Verona.",
+    "entities": [
+      {
+        "start": 34,
+        "end": 46,
+        "value": "Viale Verona",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 34,
+        "end": 46,
+        "confidence_entity": 0.6823018169476706,
+        "value": "Viale Verona",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "You'll find me at corso Alpini.",
+    "entities": [
+      {
+        "start": 18,
+        "end": 30,
+        "value": "corso Alpini",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 18,
+        "end": 30,
+        "confidence_entity": 0.9895655609039438,
+        "value": "corso Alpini",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "via Piave",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "via Piave",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.9259836070468194,
+        "value": "via Piave",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "The street is Via Calepina.",
+    "entities": [
+      {
+        "start": 14,
+        "end": 26,
+        "value": "Via Calepina",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 14,
+        "end": 26,
+        "confidence_entity": 0.9846539153080259,
+        "value": "Via Calepina",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "how do I install a new light fixture?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 23,
+        "end": 28,
+        "confidence_entity": 0.9914450225387987,
+        "value": "light",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 23,
+        "end": 28,
+        "value": "light",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Eleonora Barbieri",
+    "entities": [
+      {
+        "start": 0,
+        "end": 17,
+        "value": "Eleonora Barbieri",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 17,
+        "confidence_entity": 0.8449660048965031,
+        "value": "Eleonora Barbieri",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Please save it for Giulio Marchi",
+    "entities": [
+      {
+        "start": 19,
+        "end": 32,
+        "value": "Giulio Marchi",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 19,
+        "end": 32,
+        "confidence_entity": 0.6886457758107112,
+        "value": "Giulio Marchi",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Luca Orsu'",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "Luca Orsu'",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.8602023874340226,
+        "value": "Luca Orsu",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "My name is Jacopo Donà",
+    "entities": [
+      {
+        "start": 11,
+        "end": 22,
+        "value": "Jacopo Donà",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 11,
+        "end": 22,
+        "confidence_entity": 0.7002007908111548,
+        "value": "Jacopo Donà",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Just write Emma Miller",
+    "entities": [
+      {
+        "start": 11,
+        "end": 22,
+        "value": "Emma Miller",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 11,
+        "end": 22,
+        "confidence_entity": 0.9916924329019473,
+        "value": "Emma Miller",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "The order is for Francesco Castellani",
+    "entities": [
+      {
+        "start": 17,
+        "end": 37,
+        "value": "Francesco Castellani",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 17,
+        "end": 37,
+        "confidence_entity": 0.6022467345023607,
+        "value": "Francesco Castellani",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Put Luca Davirti",
+    "entities": [
+      {
+        "start": 4,
+        "end": 16,
+        "value": "Luca Davirti",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 4,
+        "end": 16,
+        "confidence_entity": 0.9848190165289966,
+        "value": "Luca Davirti",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Davide Frutti",
+    "entities": [
+      {
+        "start": 0,
+        "end": 13,
+        "value": "Davide Frutti",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 13,
+        "confidence_entity": 0.6507923305976103,
+        "value": "Davide Frutti",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Valeria Conti",
+    "entities": [
+      {
+        "start": 0,
+        "end": 13,
+        "value": "Valeria Conti",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 13,
+        "confidence_entity": 0.9736043797249171,
+        "value": "Valeria Conti",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Ethan Martinez",
+    "entities": [
+      {
+        "start": 0,
+        "end": 14,
+        "value": "Ethan Martinez",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 14,
+        "confidence_entity": 0.9938803365457806,
+        "value": "Ethan Martinez",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Giorgio Gaspari is the name",
+    "entities": [
+      {
+        "start": 0,
+        "end": 15,
+        "value": "Giorgio Gaspari",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 15,
+        "confidence_entity": 0.4895046737521827,
+        "value": "Giorgio Gaspari",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  }
+]

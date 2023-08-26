@@ -1,0 +1,178 @@
+[
+  {
+    "text": "that sounds good",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.17715513706207275
+    }
+  },
+  {
+    "text": "y",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.3113712966442108
+    }
+  },
+  {
+    "text": "Where's the button to pay for my order?",
+    "intent": "init_checkout_request",
+    "intent_prediction": {
+      "name": "ask_order_info",
+      "confidence": 0.2817360758781433
+    }
+  },
+  {
+    "text": "have a nice day",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "say_drink_name",
+      "confidence": 0.1701345145702362
+    }
+  },
+  {
+    "text": "How much for a light?",
+    "intent": "ask_pizza_price",
+    "intent_prediction": {
+      "name": "ask_drink_price",
+      "confidence": 0.28941580653190613
+    }
+  },
+  {
+    "text": "I'd like to know the cost of a beer.",
+    "intent": "ask_drink_price",
+    "intent_prediction": {
+      "name": "init_drink_request",
+      "confidence": 0.22363576292991638
+    }
+  },
+  {
+    "text": "What drinks do you guys have on the menu?",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.5209106802940369
+    }
+  },
+  {
+    "text": "diavola",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "say_home_address",
+      "confidence": 0.2936931848526001
+    }
+  },
+  {
+    "text": "An hawaiian with potatoes",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "say_home_address",
+      "confidence": 0.3034593462944031
+    }
+  },
+  {
+    "text": "n",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.197082057595253
+    }
+  },
+  {
+    "text": "incorrect",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "ask_pizza_price",
+      "confidence": 0.2630980312824249
+    }
+  },
+  {
+    "text": "How can I order a pizza",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.908309817314148
+    }
+  },
+  {
+    "text": "What kind of pizzas do you serve here?",
+    "intent": "ask_pizza_menu",
+    "intent_prediction": {
+      "name": "ask_drink_list",
+      "confidence": 0.37896594405174255
+    }
+  },
+  {
+    "text": "I want the small kebab removed from my order",
+    "intent": "remove_pizza",
+    "intent_prediction": {
+      "name": "delete_order",
+      "confidence": 0.3305198550224304
+    }
+  },
+  {
+    "text": "I want the small diavola removed from the order",
+    "intent": "remove_pizza",
+    "intent_prediction": {
+      "name": "delete_order",
+      "confidence": 0.3680730164051056
+    }
+  },
+  {
+    "text": "how do I bake chocolate chip cookies?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_drink_price",
+      "confidence": 0.27813172340393066
+    }
+  },
+  {
+    "text": "what's the recipe for a margarita cocktail?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_pizza_ingredients",
+      "confidence": 0.6689665913581848
+    }
+  },
+  {
+    "text": "what's the current traffic situation in my city?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_pizza_ingredients",
+      "confidence": 0.34708544611930847
+    }
+  },
+  {
+    "text": "book a flight from milan to ny",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "remove_drink",
+      "confidence": 0.31724271178245544
+    }
+  },
+  {
+    "text": "what's the current exchange rate for euros to dollars?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_time_slots",
+      "confidence": 0.22611188888549805
+    }
+  },
+  {
+    "text": "Luca Orsu'",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.21891441941261292
+    }
+  },
+  {
+    "text": "Davide Frutti",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "say_home_address",
+      "confidence": 0.2397317737340927
+    }
+  }
+]

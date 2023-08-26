@@ -1,0 +1,249 @@
+[
+  {
+    "text": "I would like to remove one pizza",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 23,
+        "end": 26,
+        "confidence_entity": 0.7452494502067566,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "my address number is 4",
+    "entities": [
+      {
+        "start": 21,
+        "end": 22,
+        "value": "4",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 21,
+        "end": 22,
+        "confidence_entity": 0.8352313041687012,
+        "value": "4",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 21,
+        "end": 22,
+        "value": "4",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "21",
+    "entities": [
+      {
+        "start": 0,
+        "end": 2,
+        "value": "21",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.9721608757972717,
+        "value": "21",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "My residence is Via Roma.",
+    "entities": [
+      {
+        "start": 16,
+        "end": 24,
+        "value": "Via Roma",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.9927399754524231,
+        "value": "Via",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "You can reach me at Corso 3 Novembre.",
+    "entities": [
+      {
+        "start": 20,
+        "end": 36,
+        "value": "Corso 3 Novembre",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 20,
+        "end": 25,
+        "confidence_entity": 0.9732427597045898,
+        "value": "Corso",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "drink_amount",
+        "start": 26,
+        "end": 27,
+        "confidence_entity": 0.9288803339004517,
+        "value": "3",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 26,
+        "end": 27,
+        "value": "3",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Viale delle Scienze",
+    "entities": [
+      {
+        "start": 0,
+        "end": 19,
+        "value": "Viale delle Scienze",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 11,
+        "confidence_entity": 0.889034628868103,
+        "value": "Viale delle",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "what's the recipe for a margarita cocktail?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 24,
+        "end": 33,
+        "confidence_entity": 0.5548198223114014,
+        "value": "margarita",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Giorgio Gaspari is the name",
+    "entities": [
+      {
+        "start": 0,
+        "end": 15,
+        "value": "Giorgio Gaspari",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 8,
+        "end": 15,
+        "confidence_entity": 0.8159860968589783,
+        "value": "Gaspari",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "My name is Jacopo Donà",
+    "entities": [
+      {
+        "start": 11,
+        "end": 22,
+        "value": "Jacopo Donà",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 11,
+        "end": 22,
+        "confidence_entity": 0.6666682362556458,
+        "value": "Jacopo Donà",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "[Arianna Taylor](client_name",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 1,
+        "end": 8,
+        "confidence_entity": 0.530925989151001,
+        "value": "Arianna",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Victoria Johnson",
+    "entities": [
+      {
+        "start": 0,
+        "end": 16,
+        "value": "Victoria Johnson",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.9873085618019104,
+        "value": "Johnson",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

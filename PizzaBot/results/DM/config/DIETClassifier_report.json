@@ -1,0 +1,92 @@
+{
+  "pizza_type": {
+    "precision": 0.968421052631579,
+    "recall": 1.0,
+    "f1-score": 0.983957219251337,
+    "support": 92,
+    "confused_with": {}
+  },
+  "client_name": {
+    "precision": 1.0,
+    "recall": 0.9908256880733946,
+    "f1-score": 0.9953917050691244,
+    "support": 109,
+    "confused_with": {}
+  },
+  "ingredient": {
+    "precision": 1.0,
+    "recall": 0.98989898989899,
+    "f1-score": 0.9949238578680203,
+    "support": 99,
+    "confused_with": {}
+  },
+  "address_number": {
+    "precision": 0.9411764705882353,
+    "recall": 0.8421052631578947,
+    "f1-score": 0.8888888888888888,
+    "support": 38,
+    "confused_with": {
+      "drink_amount": 4,
+      "order_time": 2
+    }
+  },
+  "drink_name": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 68,
+    "confused_with": {}
+  },
+  "pizza_size": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 38,
+    "confused_with": {}
+  },
+  "order_time": {
+    "precision": 0.9661016949152542,
+    "recall": 0.9661016949152542,
+    "f1-score": 0.9661016949152542,
+    "support": 59,
+    "confused_with": {
+      "address_number": 2
+    }
+  },
+  "address_street": {
+    "precision": 1.0,
+    "recall": 0.9724770642201835,
+    "f1-score": 0.986046511627907,
+    "support": 109,
+    "confused_with": {
+      "drink_amount": 2,
+      "pizza_type": 1
+    }
+  },
+  "drink_amount": {
+    "precision": 0.8493150684931506,
+    "recall": 1.0,
+    "f1-score": 0.9185185185185185,
+    "support": 62,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.9734904270986745,
+    "recall": 0.9807121661721068,
+    "f1-score": 0.9770879526977088,
+    "support": 674
+  },
+  "macro avg": {
+    "precision": 0.9694460318475799,
+    "recall": 0.9734898555850796,
+    "f1-score": 0.9704253773487833,
+    "support": 674
+  },
+  "weighted avg": {
+    "precision": 0.9755444762181505,
+    "recall": 0.9807121661721068,
+    "f1-score": 0.977335634489554,
+    "support": 674
+  },
+  "accuracy": 0.9955614735907679
+}

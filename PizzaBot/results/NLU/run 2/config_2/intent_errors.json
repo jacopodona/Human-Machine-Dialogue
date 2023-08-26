@@ -1,0 +1,250 @@
+[
+  {
+    "text": "that sounds good",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.15447139548904398
+    }
+  },
+  {
+    "text": "y",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "init_drink_request",
+      "confidence": 0.12766888613142421
+    }
+  },
+  {
+    "text": "Where's the button to pay for my order?",
+    "intent": "init_checkout_request",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.39834326533400644
+    }
+  },
+  {
+    "text": "have a nice day",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.29297470398403513
+    }
+  },
+  {
+    "text": "I'd like to know the cost of a beer.",
+    "intent": "ask_drink_price",
+    "intent_prediction": {
+      "name": "ask_pizza_price",
+      "confidence": 0.11152102005247075
+    }
+  },
+  {
+    "text": "I want to modify the pickup time",
+    "intent": "modify_order_time",
+    "intent_prediction": {
+      "name": "inform_order_pickup",
+      "confidence": 0.19685139693960002
+    }
+  },
+  {
+    "text": "good evening",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.190304452812049
+    }
+  },
+  {
+    "text": "Do you have a menu for the drinks?",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.1963146340847359
+    }
+  },
+  {
+    "text": "What drinks do you guys have on the menu?",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.23624146479087388
+    }
+  },
+  {
+    "text": "diavola",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.2597357771759941
+    }
+  },
+  {
+    "text": "An hawaiian with potatoes",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.151009971418956
+    }
+  },
+  {
+    "text": "Get me a large one",
+    "intent": "say_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.27645147402049486
+    }
+  },
+  {
+    "text": "medium will do",
+    "intent": "say_pizza_size",
+    "intent_prediction": {
+      "name": "inform_order_pickup",
+      "confidence": 0.17419740900054795
+    }
+  },
+  {
+    "text": "sprite",
+    "intent": "say_drink_name",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.07866215608739925
+    }
+  },
+  {
+    "text": "n",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "say_pizza_size",
+      "confidence": 0.10819286302658121
+    }
+  },
+  {
+    "text": "incorrect",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.18686980922795376
+    }
+  },
+  {
+    "text": "How can I order a pizza",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.744464660135955
+    }
+  },
+  {
+    "text": "I need some assistance",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "inform_order_delivery",
+      "confidence": 0.10405226520004605
+    }
+  },
+  {
+    "text": "can you fill me in on the available timing choices?",
+    "intent": "ask_time_slots",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.2541082494148945
+    }
+  },
+  {
+    "text": "I want to know what's in a marinara.",
+    "intent": "ask_pizza_ingredients",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.17805904947484003
+    }
+  },
+  {
+    "text": "I want to know what's in a pesto.",
+    "intent": "ask_pizza_ingredients",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.20748527416949383
+    }
+  },
+  {
+    "text": "Order information",
+    "intent": "ask_order_info",
+    "intent_prediction": {
+      "name": "delete_order",
+      "confidence": 0.4152454864011072
+    }
+  },
+  {
+    "text": "I can't remember what I ordered",
+    "intent": "ask_order_info",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.3096078438395654
+    }
+  },
+  {
+    "text": "What pizzas do you have?",
+    "intent": "ask_pizza_menu",
+    "intent_prediction": {
+      "name": "ask_pizza_without_ingredient",
+      "confidence": 0.19142180779756313
+    }
+  },
+  {
+    "text": "I want one medium cheesey removed from my order",
+    "intent": "remove_pizza",
+    "intent_prediction": {
+      "name": "delete_order",
+      "confidence": 0.10588375335612767
+    }
+  },
+  {
+    "text": "I want the small kebab removed from my order",
+    "intent": "remove_pizza",
+    "intent_prediction": {
+      "name": "delete_order",
+      "confidence": 0.19278725348616574
+    }
+  },
+  {
+    "text": "I want a large margherita removed from the order",
+    "intent": "remove_pizza",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.1008927975472903
+    }
+  },
+  {
+    "text": "I want the small diavola removed from the order",
+    "intent": "remove_pizza",
+    "intent_prediction": {
+      "name": "delete_order",
+      "confidence": 0.18099368343885786
+    }
+  },
+  {
+    "text": "what's the recipe for a margarita cocktail?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_pizza_ingredients",
+      "confidence": 0.3266122675107961
+    }
+  },
+  {
+    "text": "Matteo Esposito",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.2597357771759941
+    }
+  },
+  {
+    "text": "Davide Frutti",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "say_home_address",
+      "confidence": 0.7774462775271067
+    }
+  }
+]

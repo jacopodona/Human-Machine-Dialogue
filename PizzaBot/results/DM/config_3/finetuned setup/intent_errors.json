@@ -1,0 +1,26 @@
+[
+  {
+    "text": "How can I order a pizza",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.2766522765159607
+    }
+  },
+  {
+    "text": "[pub]",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.5104215741157532
+    }
+  },
+  {
+    "text": "I would like a medium pizza",
+    "intent": "say_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.5151587128639221
+    }
+  }
+]

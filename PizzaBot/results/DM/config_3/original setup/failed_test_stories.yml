@@ -1,0 +1,127 @@
+version: "3.1"
+stories:
+- story: order pizza and checkout pickup (.\tests\test_stories.yml)
+  steps:
+  - intent: init_request
+    entities:
+    - pizza_size: medium
+    - pizza_type: hawaiian
+  - slot_was_set:
+    - pizza_size: medium
+  - slot_was_set:
+    - pizza_type: hawaiian
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: filled
+  - slot_was_set:
+    - pizza_type: filled
+  - active_loop: null
+  - action: utter_submit_pizza
+  - intent: response_positive
+  - action: action_response_positive
+  - slot_was_set:
+    - order_has_items: true
+  - slot_was_set:
+    - order_has_pizza: true
+  - intent: init_checkout_request
+  - action: utter_ask_delivery_method  # predicted: utter_no_user_order
+  - intent: inform_order_pickup
+  - action: utter_confirm_order_ready_pickup
+  - action: pickup_order_form
+  - active_loop: pickup_order_form
+  - intent: say_order_time
+    entities:
+    - order_time: 9pm
+  - slot_was_set:
+    - order_time: 9pm
+  - slot_was_set:
+    - order_time: filled
+  - action: pickup_order_form
+  - intent: say_full_name
+    entities:
+    - client_name: Michele Rossi
+  - slot_was_set:
+    - client_name: Michele Rossi
+  - action: pickup_order_form
+  - slot_was_set:
+    - client_name: filled
+  - active_loop: null
+  - action: utter_submit_pickup
+  - intent: response_positive
+  - action: action_response_positive
+  - slot_was_set:
+    - order_complete: true
+- story: order pizza and checkout delivery (.\tests\test_stories.yml)
+  steps:
+  - intent: init_request
+    entities:
+    - pizza_size: large
+    - pizza_type: vegetarian
+    - ingredient: garlic
+  - slot_was_set:
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_type: vegetarian
+  - slot_was_set:
+    - ingredient: garlic
+  - action: utter_accept_request
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: filled
+  - slot_was_set:
+    - pizza_type: filled
+  - slot_was_set:
+    - ingredient: filled
+  - active_loop: null
+  - action: utter_submit_pizza
+  - intent: response_positive
+  - action: action_response_positive
+  - slot_was_set:
+    - order_has_items: true
+  - slot_was_set:
+    - order_has_pizza: true
+  - intent: init_checkout_request
+  - action: utter_ask_delivery_method  # predicted: utter_no_user_order
+  - intent: inform_order_delivery
+  - action: utter_confirm_order_ready_delivery
+  - action: delivery_order_form
+  - active_loop: delivery_order_form
+  - intent: say_home_address
+    entities:
+    - address_street: via Mancini
+  - slot_was_set:
+    - address_street: via Mancini
+  - slot_was_set:
+    - address_street: filled
+  - action: delivery_order_form
+  - intent: say_address_number
+    entities:
+    - address_number: '26'
+  - slot_was_set:
+    - address_number: '26'
+  - slot_was_set:
+    - address_number: filled
+  - action: delivery_order_form
+  - intent: say_order_time
+    entities:
+    - order_time: 8.30pm
+  - slot_was_set:
+    - order_time: 8.30pm
+  - slot_was_set:
+    - order_time: filled
+  - action: delivery_order_form
+  - intent: say_full_name
+    entities:
+    - client_name: Francesco Gabbani
+  - slot_was_set:
+    - client_name: Francesco Gabbani
+  - action: delivery_order_form
+  - slot_was_set:
+    - client_name: filled
+  - active_loop: null
+  - action: utter_submit_delivery
+  - intent: response_positive
+  - action: action_response_positive
+  - slot_was_set:
+    - order_complete: true

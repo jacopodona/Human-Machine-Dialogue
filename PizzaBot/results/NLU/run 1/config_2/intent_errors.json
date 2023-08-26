@@ -1,0 +1,170 @@
+[
+  {
+    "text": "exactly",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.24983455502084503
+    }
+  },
+  {
+    "text": "Can you take me to the checkout page?",
+    "intent": "init_checkout_request",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.24916299684852872
+    }
+  },
+  {
+    "text": "good night",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.2729483086774178
+    }
+  },
+  {
+    "text": "goodbye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.2892203334894132
+    }
+  },
+  {
+    "text": "How much is sprite?",
+    "intent": "ask_drink_price",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.21010313424518365
+    }
+  },
+  {
+    "text": "What drinks do you guys have on the menu?",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.2872167330418482
+    }
+  },
+  {
+    "text": "What beverages do you have?",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.15605320815383936
+    }
+  },
+  {
+    "text": "What sizes do you have?",
+    "intent": "ask_pizza_sizes",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.13222289093025869
+    }
+  },
+  {
+    "text": "I don't think so",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.3121612639780699
+    }
+  },
+  {
+    "text": "can you provide me with a list of the time slots that are currently open?",
+    "intent": "ask_time_slots",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.28290327008968813
+    }
+  },
+  {
+    "text": "what times do you have available?",
+    "intent": "ask_time_slots",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.17238489234690624
+    }
+  },
+  {
+    "text": "I can't remember what I ordered",
+    "intent": "ask_order_info",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.29928861955439706
+    }
+  },
+  {
+    "text": "can you help me delete my order?",
+    "intent": "delete_order",
+    "intent_prediction": {
+      "name": "ask_order_info",
+      "confidence": 0.2087187793741269
+    }
+  },
+  {
+    "text": "I want the small diavola removed from the order",
+    "intent": "remove_pizza",
+    "intent_prediction": {
+      "name": "delete_order",
+      "confidence": 0.1890208443695108
+    }
+  },
+  {
+    "text": "i dont want to order the pizza anymore",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "inform_order_pickup",
+      "confidence": 0.11206121500765735
+    }
+  },
+  {
+    "text": "delivery would be great",
+    "intent": "inform_order_delivery",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.11475064921681721
+    }
+  },
+  {
+    "text": "Deliver to my house",
+    "intent": "inform_order_delivery",
+    "intent_prediction": {
+      "name": "init_checkout_request",
+      "confidence": 0.34614411511391274
+    }
+  },
+  {
+    "text": "21",
+    "intent": "say_order_time",
+    "intent_prediction": {
+      "name": "say_address_number",
+      "confidence": 0.7843154512716417
+    }
+  },
+  {
+    "text": "Viale delle Scienze",
+    "intent": "say_home_address",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.42877836014254883
+    }
+  },
+  {
+    "text": "what's the recipe for a margarita cocktail?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_pizza_ingredients",
+      "confidence": 0.32601450157588946
+    }
+  },
+  {
+    "text": "Eleonora Barbieri",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "say_pizza_type",
+      "confidence": 0.2405444051983391
+    }
+  }
+]

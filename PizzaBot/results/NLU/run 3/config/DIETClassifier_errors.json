@@ -1,0 +1,322 @@
+[
+  {
+    "text": "goodevening",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 11,
+        "confidence_entity": 0.5353185534477234,
+        "value": "goodevening",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want four sprites",
+    "entities": [
+      {
+        "start": 7,
+        "end": 11,
+        "value": "four",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 12,
+        "end": 19,
+        "value": "sprites",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 11,
+        "confidence_entity": 0.9906316995620728,
+        "value": "4",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want one bottle",
+    "entities": [
+      {
+        "start": 7,
+        "end": 10,
+        "value": "one",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "8pm",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "8pm",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 0,
+        "end": 3,
+        "confidence_entity": 0.5244526863098145,
+        "value": "8pm",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "order_time",
+        "start": 0,
+        "end": 3,
+        "value": "8pm",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "The address I'm speaking from is Via Santa Margherita.",
+    "entities": [
+      {
+        "start": 33,
+        "end": 53,
+        "value": "Via Santa Margherita",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 33,
+        "end": 36,
+        "confidence_entity": 0.9883145093917847,
+        "value": "Via",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 43,
+        "end": 53,
+        "confidence_entity": 0.9933502078056335,
+        "value": "margherita",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 43,
+        "end": 53,
+        "value": "margherita",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "The address you can find me at is Viale Verona.",
+    "entities": [
+      {
+        "start": 34,
+        "end": 46,
+        "value": "Viale Verona",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 34,
+        "end": 39,
+        "confidence_entity": 0.9978844523429871,
+        "value": "Viale",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "client_name",
+        "start": 40,
+        "end": 46,
+        "confidence_entity": 0.3598511219024658,
+        "value": "Verona",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want a pub with bell peppers",
+    "entities": [
+      {
+        "start": 9,
+        "end": 12,
+        "value": "pub",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 18,
+        "end": 30,
+        "value": "bell peppers",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 9,
+        "end": 12,
+        "confidence_entity": 0.9096060395240784,
+        "value": "pub",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "ingredient",
+        "start": 23,
+        "end": 30,
+        "confidence_entity": 0.9946664571762085,
+        "value": "peppers",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 9,
+        "end": 12,
+        "value": "pub",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "ingredient",
+        "start": 18,
+        "end": 30,
+        "value": "bell peppers",
+        "extractor": "RegexEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "how do I install a new light fixture?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 23,
+        "end": 28,
+        "confidence_entity": 0.9758599400520325,
+        "value": "light",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 23,
+        "end": 28,
+        "value": "light",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Luca Orsu'",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "Luca Orsu'",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.6056578755378723,
+        "value": "Luca Orsu",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "The order is for Francesco Castellani",
+    "entities": [
+      {
+        "start": 17,
+        "end": 37,
+        "value": "Francesco Castellani",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 27,
+        "end": 37,
+        "confidence_entity": 0.54789799451828,
+        "value": "Castellani",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "[Noah Johnson](client_name",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 1,
+        "end": 26,
+        "confidence_entity": 0.3789786994457245,
+        "value": "Noah Johnson](client_name",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Giorgio Gaspari is the name",
+    "entities": [
+      {
+        "start": 0,
+        "end": 15,
+        "value": "Giorgio Gaspari",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 8,
+        "end": 15,
+        "confidence_entity": 0.5061460137367249,
+        "value": "Gaspari",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

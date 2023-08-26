@@ -1,0 +1,584 @@
+[
+  {
+    "text": "I want to order a small cheesey",
+    "entities": [
+      {
+        "start": 18,
+        "end": 23,
+        "value": "small",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 24,
+        "end": 31,
+        "value": "cheesey",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want a medium hawaiian",
+    "entities": [
+      {
+        "start": 9,
+        "end": 15,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 16,
+        "end": 24,
+        "value": "hawaiian",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "at 9pm",
+    "entities": [
+      {
+        "start": 3,
+        "end": 6,
+        "value": "9pm",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "the name is Michele Rossi",
+    "entities": [
+      {
+        "start": 12,
+        "end": 25,
+        "value": "Michele Rossi",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want a large vegetarian with garlic",
+    "entities": [
+      {
+        "start": 9,
+        "end": 14,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 15,
+        "end": 25,
+        "value": "vegetarian",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 31,
+        "end": 37,
+        "value": "garlic",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "The address is via Mancini",
+    "entities": [
+      {
+        "start": 15,
+        "end": 26,
+        "value": "via Mancini",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Number 26",
+    "entities": [
+      {
+        "start": 7,
+        "end": 9,
+        "value": "26",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "at 8.30pm",
+    "entities": [
+      {
+        "start": 3,
+        "end": 9,
+        "value": "8.30pm",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "the name is Francesco Gabbani",
+    "entities": [
+      {
+        "start": 12,
+        "end": 29,
+        "value": "Francesco Gabbani",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want a medium marinara",
+    "entities": [
+      {
+        "start": 9,
+        "end": 15,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 16,
+        "end": 24,
+        "value": "marinara",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to remove the medium marinara",
+    "entities": [
+      {
+        "start": 21,
+        "end": 27,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 28,
+        "end": 36,
+        "value": "marinara",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order 2 bottles of water",
+    "entities": [
+      {
+        "start": 16,
+        "end": 17,
+        "value": "2",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 29,
+        "end": 34,
+        "value": "water",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Some beer",
+    "entities": [
+      {
+        "start": 5,
+        "end": 9,
+        "value": "beer",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Give me 2",
+    "entities": [
+      {
+        "start": 8,
+        "end": 9,
+        "value": "2",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order 1 beer",
+    "entities": [
+      {
+        "start": 16,
+        "end": 17,
+        "value": "1",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 18,
+        "end": 22,
+        "value": "beer",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order 3 bottles of coke",
+    "entities": [
+      {
+        "start": 16,
+        "end": 17,
+        "value": "3",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 29,
+        "end": 33,
+        "value": "coke",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to remove 1 bottle of coke",
+    "entities": [
+      {
+        "start": 17,
+        "end": 18,
+        "value": "1",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 29,
+        "end": 33,
+        "value": "coke",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order a medium margherita",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 25,
+        "end": 35,
+        "value": "margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want a 1 beer",
+    "entities": [
+      {
+        "start": 9,
+        "end": 10,
+        "value": "1",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 11,
+        "end": 15,
+        "value": "beer",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order a margherita",
+    "entities": [
+      {
+        "start": 18,
+        "end": 28,
+        "value": "margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order some water",
+    "entities": [
+      {
+        "start": 21,
+        "end": 26,
+        "value": "water",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to have a medium marinara with ham",
+    "entities": [
+      {
+        "start": 17,
+        "end": 23,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 24,
+        "end": 32,
+        "value": "marinara",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 38,
+        "end": 41,
+        "value": "ham",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want a large margherita",
+    "entities": [
+      {
+        "start": 9,
+        "end": 14,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 15,
+        "end": 25,
+        "value": "margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "The address is via Montanari",
+    "entities": [
+      {
+        "start": 15,
+        "end": 28,
+        "value": "via Montanari",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "at 7.30pm",
+    "entities": [
+      {
+        "start": 3,
+        "end": 9,
+        "value": "7.30pm",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name is Giuseppe Sassari",
+    "entities": [
+      {
+        "start": 11,
+        "end": 27,
+        "value": "Giuseppe Sassari",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order a large diavola with some mushrooms",
+    "entities": [
+      {
+        "start": 18,
+        "end": 23,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 24,
+        "end": 31,
+        "value": "diavola",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 42,
+        "end": 51,
+        "value": "mushrooms",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "A margherita",
+    "entities": [
+      {
+        "start": 2,
+        "end": 12,
+        "value": "margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "medium",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "medium",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "What pizzas do you have with mushrooms?",
+    "entities": [
+      {
+        "start": 29,
+        "end": 38,
+        "value": "mushrooms",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "a capricciosa",
+    "entities": [
+      {
+        "start": 2,
+        "end": 13,
+        "value": "capricciosa",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "a medium",
+    "entities": [
+      {
+        "start": 2,
+        "end": 8,
+        "value": "medium",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "What ingredients do you put in a rustic?",
+    "entities": [
+      {
+        "start": 33,
+        "end": 39,
+        "value": "rustic",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I think I will order a medium rustic",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 30,
+        "end": 36,
+        "value": "rustic",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "What pizza do you have without mushrooms",
+    "entities": [
+      {
+        "start": 31,
+        "end": 40,
+        "value": "mushrooms",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "How much for a marinara?",
+    "entities": [
+      {
+        "start": 15,
+        "end": 23,
+        "value": "marinara",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order a medium marinara",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 25,
+        "end": 33,
+        "value": "marinara",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order a small pub with some zucchini",
+    "entities": [
+      {
+        "start": 18,
+        "end": 23,
+        "value": "small",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 24,
+        "end": 27,
+        "value": "pub",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 38,
+        "end": 46,
+        "value": "zucchini",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

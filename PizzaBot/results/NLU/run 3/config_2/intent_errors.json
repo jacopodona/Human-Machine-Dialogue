@@ -1,0 +1,202 @@
+[
+  {
+    "text": "of course",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "ask_pizza_price",
+      "confidence": 0.16658372742441058
+    }
+  },
+  {
+    "text": "yeah",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.18096093501385194
+    }
+  },
+  {
+    "text": "Can you take me to the checkout page?",
+    "intent": "init_checkout_request",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.17756085130955926
+    }
+  },
+  {
+    "text": "cu",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "say_order_time",
+      "confidence": 0.26286471288543123
+    }
+  },
+  {
+    "text": "How much for a coke",
+    "intent": "ask_drink_price",
+    "intent_prediction": {
+      "name": "ask_pizza_price",
+      "confidence": 0.43090335237165867
+    }
+  },
+  {
+    "text": "goodevening",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.27927317885688163
+    }
+  },
+  {
+    "text": "Could you show me the list of drinks you've got?",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.19540499083043947
+    }
+  },
+  {
+    "text": "I would like a medium pizza",
+    "intent": "say_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.5167459073931111
+    }
+  },
+  {
+    "text": "what address does your pizzeria have?",
+    "intent": "ask_pizzeria_location",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.29830076071306016
+    }
+  },
+  {
+    "text": "Could you please let me know the different sizes of pizzas you have?",
+    "intent": "ask_pizza_sizes",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.18992705653188865
+    }
+  },
+  {
+    "text": "What sizes do you have?",
+    "intent": "ask_pizza_sizes",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.14229162041681218
+    }
+  },
+  {
+    "text": "I need some assistance",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "ask_order_info",
+      "confidence": 0.11885467228085402
+    }
+  },
+  {
+    "text": "Help",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6529964974865822
+    }
+  },
+  {
+    "text": "can you fill me in on the available timing choices?",
+    "intent": "ask_time_slots",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.16669788975605737
+    }
+  },
+  {
+    "text": "What's the recipe for a margherita?",
+    "intent": "ask_pizza_ingredients",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.6198256019754259
+    }
+  },
+  {
+    "text": "I can't remember what I ordered",
+    "intent": "ask_order_info",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.3047247137041529
+    }
+  },
+  {
+    "text": "What's the pizzas selection like?",
+    "intent": "ask_pizza_menu",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.24158315395059654
+    }
+  },
+  {
+    "text": "What pizzas do you have?",
+    "intent": "ask_pizza_menu",
+    "intent_prediction": {
+      "name": "ask_pizza_without_ingredient",
+      "confidence": 0.23738011627353744
+    }
+  },
+  {
+    "text": "can you help me delete my order?",
+    "intent": "delete_order",
+    "intent_prediction": {
+      "name": "ask_order_info",
+      "confidence": 0.2366658958592849
+    }
+  },
+  {
+    "text": "I would like to remove a pub",
+    "intent": "remove_pizza",
+    "intent_prediction": {
+      "name": "remove_drink",
+      "confidence": 0.3519952199853953
+    }
+  },
+  {
+    "text": "I want four sprites",
+    "intent": "init_drink_request",
+    "intent_prediction": {
+      "name": "say_drink_amount",
+      "confidence": 0.26970217549208264
+    }
+  },
+  {
+    "text": "It's piazza Dante.",
+    "intent": "say_home_address",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.22175989553511538
+    }
+  },
+  {
+    "text": "Can we order some pizzas?",
+    "intent": "init_request",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.20787035504888401
+    }
+  },
+  {
+    "text": "Davide Frutti",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "say_home_address",
+      "confidence": 0.9006359392723825
+    }
+  },
+  {
+    "text": "Valeria Conti",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "ask_time_slots",
+      "confidence": 0.17990474834441816
+    }
+  }
+]

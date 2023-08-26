@@ -1,0 +1,1456 @@
+[
+  {
+    "text": "I'd like to know the cost of a beer.",
+    "entities": [
+      {
+        "start": 31,
+        "end": 35,
+        "value": "beer",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 31,
+        "end": 35,
+        "confidence_entity": 0.9921108484268188,
+        "value": "beer",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Can you tell me the coke price?",
+    "entities": [
+      {
+        "start": 20,
+        "end": 24,
+        "value": "coke",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 20,
+        "end": 24,
+        "confidence_entity": 0.9946205615997314,
+        "value": "coke",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "sprite",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "sprite",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9928635954856873,
+        "value": "sprite",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "A beer",
+    "entities": [
+      {
+        "start": 2,
+        "end": 6,
+        "value": "beer",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 2,
+        "end": 6,
+        "confidence_entity": 0.9957689046859741,
+        "value": "beer",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Some sprite",
+    "entities": [
+      {
+        "start": 5,
+        "end": 11,
+        "value": "sprite",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 5,
+        "end": 11,
+        "confidence_entity": 0.9943985342979431,
+        "value": "sprite",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I would like to delete a beer",
+    "entities": [
+      {
+        "start": 25,
+        "end": 29,
+        "value": "beer",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 25,
+        "end": 29,
+        "confidence_entity": 0.9955690503120422,
+        "value": "beer",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Can I delete 3 bottles of tea?",
+    "entities": [
+      {
+        "start": 13,
+        "end": 14,
+        "value": "3",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 26,
+        "end": 29,
+        "value": "tea",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 13,
+        "end": 14,
+        "confidence_entity": 0.9109920859336853,
+        "value": "3",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_name",
+        "start": 26,
+        "end": 29,
+        "confidence_entity": 0.9903053045272827,
+        "value": "tea",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 13,
+        "end": 14,
+        "value": "3",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Can I remove 2 bottles of water?",
+    "entities": [
+      {
+        "start": 13,
+        "end": 14,
+        "value": "2",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 26,
+        "end": 31,
+        "value": "water",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 13,
+        "end": 14,
+        "confidence_entity": 0.8992065787315369,
+        "value": "2",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_name",
+        "start": 26,
+        "end": 31,
+        "confidence_entity": 0.9882665276527405,
+        "value": "water",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 13,
+        "end": 14,
+        "value": "2",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want some water",
+    "entities": [
+      {
+        "start": 12,
+        "end": 17,
+        "value": "water",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 12,
+        "end": 17,
+        "confidence_entity": 0.992371678352356,
+        "value": "water",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want 5 beers",
+    "entities": [
+      {
+        "start": 7,
+        "end": 8,
+        "value": "5",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 9,
+        "end": 14,
+        "value": "beers",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 8,
+        "confidence_entity": 0.8479621410369873,
+        "value": "5",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_name",
+        "start": 9,
+        "end": 14,
+        "confidence_entity": 0.7903673648834229,
+        "value": "beer",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 8,
+        "value": "5",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want some beer",
+    "entities": [
+      {
+        "start": 12,
+        "end": 16,
+        "value": "beer",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 12,
+        "end": 16,
+        "confidence_entity": 0.9957278966903687,
+        "value": "beer",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Can I add 2 bottles of water?",
+    "entities": [
+      {
+        "start": 10,
+        "end": 11,
+        "value": "2",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 23,
+        "end": 28,
+        "value": "water",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 10,
+        "end": 11,
+        "confidence_entity": 0.8993568420410156,
+        "value": "2",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_name",
+        "start": 23,
+        "end": 28,
+        "confidence_entity": 0.9882146120071411,
+        "value": "water",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 10,
+        "end": 11,
+        "value": "2",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Can I have a coke",
+    "entities": [
+      {
+        "start": 13,
+        "end": 17,
+        "value": "coke",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 13,
+        "end": 17,
+        "confidence_entity": 0.9975146055221558,
+        "value": "coke",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Can I add a bottle of water",
+    "entities": [
+      {
+        "start": 22,
+        "end": 27,
+        "value": "water",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 22,
+        "end": 27,
+        "confidence_entity": 0.9927789568901062,
+        "value": "water",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "number 16",
+    "entities": [
+      {
+        "start": 7,
+        "end": 9,
+        "value": "16",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.9781575798988342,
+        "value": "16",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "number 12",
+    "entities": [
+      {
+        "start": 7,
+        "end": 9,
+        "value": "12",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.9514795541763306,
+        "value": "12",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "the address number is 4",
+    "entities": [
+      {
+        "start": 22,
+        "end": 23,
+        "value": "4",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 22,
+        "end": 23,
+        "confidence_entity": 0.896633505821228,
+        "value": "4",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 22,
+        "end": 23,
+        "value": "4",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "my address number is 35",
+    "entities": [
+      {
+        "start": 21,
+        "end": 23,
+        "value": "35",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 21,
+        "end": 23,
+        "confidence_entity": 0.995192289352417,
+        "value": "35",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "my home address number is 8",
+    "entities": [
+      {
+        "start": 26,
+        "end": 27,
+        "value": "8",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 26,
+        "end": 27,
+        "confidence_entity": 0.7408819794654846,
+        "value": "8",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "51 is my address number",
+    "entities": [
+      {
+        "start": 0,
+        "end": 2,
+        "value": "51",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.9885929822921753,
+        "value": "51",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "number 30",
+    "entities": [
+      {
+        "start": 7,
+        "end": 9,
+        "value": "30",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.9612459540367126,
+        "value": "30",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "do you have pizza with no vegetables?",
+    "entities": [
+      {
+        "start": 26,
+        "end": 36,
+        "value": "vegetables",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "ingredient",
+        "start": 26,
+        "end": 36,
+        "confidence_entity": 0.9801138043403625,
+        "value": "vegetables",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "do you have pizza without cheese?",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "value": "cheese",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "ingredient",
+        "start": 26,
+        "end": 32,
+        "confidence_entity": 0.8086481690406799,
+        "value": "cheese",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "pizza with no cheese?",
+    "entities": [
+      {
+        "start": 14,
+        "end": 20,
+        "value": "cheese",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "ingredient",
+        "start": 14,
+        "end": 20,
+        "confidence_entity": 0.8161486983299255,
+        "value": "cheese",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want two",
+    "entities": [
+      {
+        "start": 7,
+        "end": 10,
+        "value": "two",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 10,
+        "confidence_entity": 0.9932355284690857,
+        "value": "2",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Three",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Three",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.9918003678321838,
+        "value": "3",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want three bottles",
+    "entities": [
+      {
+        "start": 7,
+        "end": 12,
+        "value": "three",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 12,
+        "confidence_entity": 0.9871117472648621,
+        "value": "3",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Give me four",
+    "entities": [
+      {
+        "start": 8,
+        "end": 12,
+        "value": "four",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 8,
+        "end": 12,
+        "confidence_entity": 0.9943806529045105,
+        "value": "4",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want four",
+    "entities": [
+      {
+        "start": 7,
+        "end": 11,
+        "value": "four",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 11,
+        "confidence_entity": 0.9944076538085938,
+        "value": "4",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "One",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "One",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 0,
+        "end": 3,
+        "confidence_entity": 0.9277348518371582,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "at 19.30",
+    "entities": [
+      {
+        "start": 3,
+        "end": 8,
+        "value": "19.30",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 3,
+        "end": 8,
+        "confidence_entity": 0.9985809326171875,
+        "value": "7.30pm",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "9.30pm.",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "9.30pm",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9962809681892395,
+        "value": "9.30pm",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "20:30",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "20:30",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.9985276460647583,
+        "value": "8.30pm",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "at 9:00",
+    "entities": [
+      {
+        "start": 3,
+        "end": 7,
+        "value": "9:00",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 3,
+        "end": 7,
+        "confidence_entity": 0.9979446530342102,
+        "value": "9pm",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "at 21.00",
+    "entities": [
+      {
+        "start": 3,
+        "end": 8,
+        "value": "21.00",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 3,
+        "end": 8,
+        "confidence_entity": 0.9832625389099121,
+        "value": "9pm",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Corso Bettini is my home base.",
+    "entities": [
+      {
+        "start": 0,
+        "end": 13,
+        "value": "Corso Bettini",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 13,
+        "confidence_entity": 0.66,
+        "value": "Corso Bettini",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "The address I'm at is Via dei Colli.",
+    "entities": [
+      {
+        "start": 22,
+        "end": 35,
+        "value": "Via dei Colli",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 22,
+        "end": 29,
+        "confidence_entity": 0.966424286365509,
+        "value": "Via dei",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "piazza Venezia is where I'm living.",
+    "entities": [
+      {
+        "start": 0,
+        "end": 14,
+        "value": "piazza Venezia",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 14,
+        "confidence_entity": 0.9551080465316772,
+        "value": "piazza Venezia",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "My place is in Viale della Stazione.",
+    "entities": [
+      {
+        "start": 15,
+        "end": 35,
+        "value": "Viale della Stazione",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 15,
+        "end": 35,
+        "confidence_entity": 0.9647244215011597,
+        "value": "Viale della Stazione",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Piazza Duomo is the address.",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "Piazza Duomo",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9659993648529053,
+        "value": "Piazza",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "My home is in via della Ricerca.",
+    "entities": [
+      {
+        "start": 14,
+        "end": 31,
+        "value": "via della Ricerca",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 14,
+        "end": 23,
+        "confidence_entity": 0.9704968333244324,
+        "value": "via della",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "ingredient",
+        "start": 24,
+        "end": 31,
+        "confidence_entity": 0.645338237285614,
+        "value": "Ricerca",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "piazza Duomo",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "piazza Duomo",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 12,
+        "confidence_entity": 0.66,
+        "value": "piazza Duomo",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "The address where I live is corso Buonarroti.",
+    "entities": [
+      {
+        "start": 28,
+        "end": 44,
+        "value": "corso Buonarroti",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 28,
+        "end": 44,
+        "confidence_entity": 0.9432711005210876,
+        "value": "corso Buonarroti",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "You'll find me at corso Alpini.",
+    "entities": [
+      {
+        "start": 18,
+        "end": 30,
+        "value": "corso Alpini",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 18,
+        "end": 30,
+        "confidence_entity": 0.942097544670105,
+        "value": "corso Alpini",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "via Torre d'Augusto is my home address.",
+    "entities": [
+      {
+        "start": 0,
+        "end": 19,
+        "value": "via Torre d'Augusto",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 0,
+        "end": 3,
+        "confidence_entity": 0.9933146834373474,
+        "value": "via",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "address_street",
+        "start": 10,
+        "end": 19,
+        "confidence_entity": 0.9781278371810913,
+        "value": "d'Augusto",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Luca Orsu'",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "Luca Orsu'",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.9497244358062744,
+        "value": "Luca",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "client_name",
+        "start": 5,
+        "end": 9,
+        "confidence_entity": 0.6874619722366333,
+        "value": "Orsu",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Matteo Esposito",
+    "entities": [
+      {
+        "start": 0,
+        "end": 15,
+        "value": "Matteo Esposito",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 15,
+        "confidence_entity": 0.9726376533508301,
+        "value": "Matteo Esposito",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "The name is Chiara Conti",
+    "entities": [
+      {
+        "start": 12,
+        "end": 24,
+        "value": "Chiara Conti",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 12,
+        "end": 24,
+        "confidence_entity": 0.8320299983024597,
+        "value": "Chiara Conti",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "You put Marco Rossi",
+    "entities": [
+      {
+        "start": 8,
+        "end": 19,
+        "value": "Marco Rossi",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 14,
+        "end": 19,
+        "confidence_entity": 0.9669098258018494,
+        "value": "Rossi",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "The name is Alessandro Russo",
+    "entities": [
+      {
+        "start": 12,
+        "end": 28,
+        "value": "Alessandro Russo",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 12,
+        "end": 28,
+        "confidence_entity": 0.6978777050971985,
+        "value": "Alessandro Russo",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Gabriella Martinez",
+    "entities": [
+      {
+        "start": 0,
+        "end": 18,
+        "value": "Gabriella Martinez",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 18,
+        "confidence_entity": 0.9979031085968018,
+        "value": "Gabriella Martinez",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "This is Simone Alberti",
+    "entities": [
+      {
+        "start": 8,
+        "end": 22,
+        "value": "Simone Alberti",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 8,
+        "end": 14,
+        "confidence_entity": 0.8864921927452087,
+        "value": "Simone",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "client_name",
+        "start": 15,
+        "end": 22,
+        "confidence_entity": 0.7162132859230042,
+        "value": "Alberti",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Christopher Johnson here",
+    "entities": [
+      {
+        "start": 0,
+        "end": 19,
+        "value": "Christopher Johnson",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 19,
+        "confidence_entity": 0.8814640641212463,
+        "value": "Christopher Johnson",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Giorgio Gaspari is the name",
+    "entities": [
+      {
+        "start": 0,
+        "end": 15,
+        "value": "Giorgio Gaspari",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 15,
+        "confidence_entity": 0.48791009187698364,
+        "value": "Giorgio Gaspari",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "This is for Alexander Anderson",
+    "entities": [
+      {
+        "start": 12,
+        "end": 30,
+        "value": "Alexander Anderson",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 12,
+        "end": 30,
+        "confidence_entity": 0.7456719875335693,
+        "value": "Alexander Anderson",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Davide Frutti",
+    "entities": [
+      {
+        "start": 0,
+        "end": 13,
+        "value": "Davide Frutti",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 13,
+        "confidence_entity": 0.7506939768791199,
+        "value": "Davide Frutti",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "This is Leonardo Brown",
+    "entities": [
+      {
+        "start": 8,
+        "end": 22,
+        "value": "Leonardo Brown",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 8,
+        "end": 16,
+        "confidence_entity": 0.6863747835159302,
+        "value": "Leonardo",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "ingredient",
+        "start": 17,
+        "end": 22,
+        "confidence_entity": 0.6161072850227356,
+        "value": "Brown",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

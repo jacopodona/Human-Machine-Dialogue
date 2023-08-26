@@ -1,0 +1,630 @@
+[
+  {
+    "text": "What is 2 + 2?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 8,
+        "end": 9,
+        "confidence_entity": 0.9194641709327698,
+        "value": "2",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 12,
+        "end": 13,
+        "confidence_entity": 0.9187284111976624,
+        "value": "2",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 8,
+        "end": 9,
+        "value": "2",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 12,
+        "end": 13,
+        "value": "2",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "how do I install a new light fixture?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 23,
+        "end": 28,
+        "confidence_entity": 0.8971093893051147,
+        "value": "light",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 23,
+        "end": 28,
+        "value": "light",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want a pub with bell peppers",
+    "entities": [
+      {
+        "start": 9,
+        "end": 12,
+        "value": "pub",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 18,
+        "end": 30,
+        "value": "bell peppers",
+        "entity": "ingredient"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 9,
+        "end": 12,
+        "confidence_entity": 0.894932746887207,
+        "value": "pub",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "ingredient",
+        "start": 23,
+        "end": 30,
+        "confidence_entity": 0.6280097961425781,
+        "value": "peppers",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 9,
+        "end": 12,
+        "value": "pub",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "ingredient",
+        "start": 18,
+        "end": 30,
+        "value": "bell peppers",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "[pub]",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 1,
+        "end": 4,
+        "confidence_entity": 0.760890781879425,
+        "value": "pub",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 1,
+        "end": 4,
+        "value": "pub",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Get me a large one",
+    "entities": [
+      {
+        "start": 9,
+        "end": 14,
+        "value": "large",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_size",
+        "start": 9,
+        "end": 14,
+        "confidence_entity": 0.9957270622253418,
+        "value": "large",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 15,
+        "end": 18,
+        "confidence_entity": 0.8007214665412903,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 9,
+        "end": 14,
+        "value": "large",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Luca Orsu'",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "Luca Orsu'",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.9756672978401184,
+        "value": "Luca Orsu",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "You can reach me at Corso 3 Novembre.",
+    "entities": [
+      {
+        "start": 20,
+        "end": 36,
+        "value": "Corso 3 Novembre",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 20,
+        "end": 25,
+        "confidence_entity": 0.9835583567619324,
+        "value": "Corso",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "drink_amount",
+        "start": 26,
+        "end": 36,
+        "confidence_entity": 0.8941406607627869,
+        "value": "3 Novembre",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "drink_amount",
+        "start": 26,
+        "end": 27,
+        "value": "3",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "The address I'm speaking from is Via Santa Margherita.",
+    "entities": [
+      {
+        "start": 33,
+        "end": 53,
+        "value": "Via Santa Margherita",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 33,
+        "end": 42,
+        "confidence_entity": 0.8240376710891724,
+        "value": "Via Santa",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 43,
+        "end": 53,
+        "confidence_entity": 0.6783046126365662,
+        "value": "margherita",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 43,
+        "end": 53,
+        "value": "margherita",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "number 1",
+    "entities": [
+      {
+        "start": 7,
+        "end": 8,
+        "value": "1",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 8,
+        "confidence_entity": 0.8078473210334778,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 8,
+        "value": "1",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Number 8",
+    "entities": [
+      {
+        "start": 7,
+        "end": 8,
+        "value": "8",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 7,
+        "end": 8,
+        "confidence_entity": 0.36455678939819336,
+        "value": "8pm",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "1 is my address number",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "1",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.8127959966659546,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 0,
+        "end": 1,
+        "value": "1",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "my address number is 4",
+    "entities": [
+      {
+        "start": 21,
+        "end": 22,
+        "value": "4",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 21,
+        "end": 22,
+        "confidence_entity": 0.7742463946342468,
+        "value": "4",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 21,
+        "end": 22,
+        "value": "4",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "the address number is 4",
+    "entities": [
+      {
+        "start": 22,
+        "end": 23,
+        "value": "4",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 22,
+        "end": 23,
+        "confidence_entity": 0.7695345878601074,
+        "value": "4",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 22,
+        "end": 23,
+        "value": "4",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "my home address number is 8",
+    "entities": [
+      {
+        "start": 26,
+        "end": 27,
+        "value": "8",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "order_time",
+        "start": 26,
+        "end": 27,
+        "confidence_entity": 0.3733472526073456,
+        "value": "8pm",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "at 20",
+    "entities": [
+      {
+        "start": 3,
+        "end": 5,
+        "value": "20",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 3,
+        "end": 5,
+        "confidence_entity": 0.48847514390945435,
+        "value": "8pm",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "20",
+    "entities": [
+      {
+        "start": 0,
+        "end": 2,
+        "value": "20",
+        "entity": "order_time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_number",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.5147667527198792,
+        "value": "8pm",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I would like to remove one pizza",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 23,
+        "end": 26,
+        "confidence_entity": 0.6981825828552246,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want one medium cheesey removed from my order",
+    "entities": [
+      {
+        "start": 11,
+        "end": 17,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 18,
+        "end": 25,
+        "value": "cheesey",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 10,
+        "confidence_entity": 0.721823513507843,
+        "value": "1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 11,
+        "end": 17,
+        "confidence_entity": 0.9949755668640137,
+        "value": "medium",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 18,
+        "end": 25,
+        "confidence_entity": 0.9922707080841064,
+        "value": "cheesey",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 18,
+        "end": 25,
+        "value": "cheesey",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 11,
+        "end": 17,
+        "value": "medium",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

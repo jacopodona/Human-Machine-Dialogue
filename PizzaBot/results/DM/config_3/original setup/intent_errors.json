@@ -1,0 +1,10 @@
+[
+  {
+    "text": "How can I order a pizza",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.5767233371734619
+    }
+  }
+]

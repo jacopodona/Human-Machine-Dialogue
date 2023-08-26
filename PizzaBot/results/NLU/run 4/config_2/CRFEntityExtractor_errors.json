@@ -1,0 +1,264 @@
+[
+  {
+    "text": "good by",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 5,
+        "end": 7,
+        "confidence_entity": 0.9983205700843264,
+        "value": "by",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "moin",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.6174143975818789,
+        "value": "moin",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Recap my order",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.8959253201236157,
+        "value": "Recap",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "I want four sprites",
+    "entities": [
+      {
+        "start": 7,
+        "end": 11,
+        "value": "four",
+        "entity": "drink_amount"
+      },
+      {
+        "start": 12,
+        "end": 19,
+        "value": "sprites",
+        "entity": "drink_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 11,
+        "confidence_entity": 0.9999764656464061,
+        "value": "4",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 12,
+        "end": 19,
+        "confidence_entity": 0.3660387409443773,
+        "value": "sprite",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "1 is my address number",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "1",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.9280378271860844,
+        "value": "1",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 0,
+        "end": 1,
+        "value": "1",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want one bottle",
+    "entities": [
+      {
+        "start": 7,
+        "end": 10,
+        "value": "one",
+        "entity": "drink_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I'm at Via Monte Baldo.",
+    "entities": [
+      {
+        "start": 7,
+        "end": 22,
+        "value": "Via Monte Baldo",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 7,
+        "end": 16,
+        "confidence_entity": 0.9904809371927196,
+        "value": "Via Monte",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "what's the best way to get rid of ants in my kitchen?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 34,
+        "end": 38,
+        "confidence_entity": 0.861691531555811,
+        "value": "ants",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "how do I install a new light fixture?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 23,
+        "end": 28,
+        "confidence_entity": 0.999881441165255,
+        "value": "light",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 23,
+        "end": 28,
+        "value": "light",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "can you recommend a good romantic comedy movie?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 25,
+        "end": 40,
+        "confidence_entity": 0.9038842567651383,
+        "value": "romantic comedy",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "how do I re-pot a houseplant?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 12,
+        "end": 15,
+        "confidence_entity": 0.863962404542093,
+        "value": "pot",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "drink_name",
+        "start": 18,
+        "end": 28,
+        "confidence_entity": 0.5128903924390614,
+        "value": "houseplant",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Oliver Garcia",
+    "entities": [
+      {
+        "start": 0,
+        "end": 13,
+        "value": "Oliver Garcia",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "ingredient",
+        "start": 0,
+        "end": 13,
+        "confidence_entity": 0.9597671326252517,
+        "value": "Oliver Garcia",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "[Luisa Santini](client_name",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 1,
+        "end": 27,
+        "confidence_entity": 0.7901649463178628,
+        "value": "Luisa Santini](client_name",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  }
+]

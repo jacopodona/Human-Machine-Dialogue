@@ -1,0 +1,89 @@
+{
+  "ingredient": {
+    "precision": 1.0,
+    "recall": 0.9270833333333334,
+    "f1-score": 0.9621621621621621,
+    "support": 96,
+    "confused_with": {}
+  },
+  "address_street": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 109,
+    "confused_with": {
+      "pizza_type": 1,
+      "drink_amount": 1
+    }
+  },
+  "client_name": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 109,
+    "confused_with": {}
+  },
+  "drink_amount": {
+    "precision": 0.8292682926829268,
+    "recall": 0.5483870967741935,
+    "f1-score": 0.6601941747572816,
+    "support": 62,
+    "confused_with": {}
+  },
+  "address_number": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 38,
+    "confused_with": {
+      "drink_amount": 4
+    }
+  },
+  "order_time": {
+    "precision": 1.0,
+    "recall": 0.38461538461538464,
+    "f1-score": 0.5555555555555556,
+    "support": 52,
+    "confused_with": {}
+  },
+  "pizza_size": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 38,
+    "confused_with": {}
+  },
+  "pizza_type": {
+    "precision": 0.968421052631579,
+    "recall": 1.0,
+    "f1-score": 0.983957219251337,
+    "support": 92,
+    "confused_with": {}
+  },
+  "drink_name": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 68,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.9646643109540636,
+    "recall": 0.411144578313253,
+    "f1-score": 0.5765575501583949,
+    "support": 664
+  },
+  "macro avg": {
+    "precision": 0.533076593923834,
+    "recall": 0.4288984238581013,
+    "f1-score": 0.4624299013029262,
+    "support": 664
+  },
+  "weighted avg": {
+    "precision": 0.49173098040428714,
+    "recall": 0.411144578313253,
+    "f1-score": 0.4378201196724863,
+    "support": 664
+  },
+  "accuracy": 0.9124944616747895
+}

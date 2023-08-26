@@ -1,0 +1,306 @@
+[
+  {
+    "text": "[pub]",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 1,
+        "end": 4,
+        "confidence_entity": 0.9136043640426419,
+        "value": "pub",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 1,
+        "end": 4,
+        "value": "pub",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want one medium cheesey removed from my order",
+    "entities": [
+      {
+        "start": 11,
+        "end": 17,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 18,
+        "end": 25,
+        "value": "cheesey",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 10,
+        "confidence_entity": 0.9731870238061908,
+        "value": "1",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 11,
+        "end": 17,
+        "confidence_entity": 0.9997326320854029,
+        "value": "medium",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 18,
+        "end": 25,
+        "confidence_entity": 0.923543488986637,
+        "value": "cheesey",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 18,
+        "end": 25,
+        "value": "cheesey",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 11,
+        "end": 17,
+        "value": "medium",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "number 1",
+    "entities": [
+      {
+        "start": 7,
+        "end": 8,
+        "value": "1",
+        "entity": "address_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 8,
+        "confidence_entity": 0.5354378139823943,
+        "value": "1",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "drink_amount",
+        "start": 7,
+        "end": 8,
+        "value": "1",
+        "extractor": "RegexEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "My home is in via della Ricerca.",
+    "entities": [
+      {
+        "start": 14,
+        "end": 31,
+        "value": "via della Ricerca",
+        "entity": "address_street"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 14,
+        "end": 23,
+        "confidence_entity": 0.9993129422654174,
+        "value": "via della",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "ingredient",
+        "start": 24,
+        "end": 31,
+        "confidence_entity": 0.7840974137752065,
+        "value": "Ricerca",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "what's the best way to get rid of ants in my kitchen?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 34,
+        "end": 38,
+        "confidence_entity": 0.982843396905065,
+        "value": "ants",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "do you have any recommendations for a good book to read?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 43,
+        "end": 47,
+        "confidence_entity": 0.7773638767215365,
+        "value": "book",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "how do I train my dog to do tricks?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "ingredient",
+        "start": 18,
+        "end": 21,
+        "confidence_entity": 0.5390509066331822,
+        "value": "dog",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "book a flight from milan to ny",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.8250745985131857,
+        "value": "book",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "address_street",
+        "start": 19,
+        "end": 24,
+        "confidence_entity": 0.9145789163867338,
+        "value": "milan",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "client_name",
+        "start": 28,
+        "end": 30,
+        "confidence_entity": 0.9999104814140617,
+        "value": "ny",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "can you recommend a good romantic comedy movie?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "address_street",
+        "start": 34,
+        "end": 40,
+        "confidence_entity": 0.8490081087695629,
+        "value": "comedy",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "how do I change the oil in my car?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "drink_name",
+        "start": 20,
+        "end": 23,
+        "confidence_entity": 0.8142498280962732,
+        "value": "oil",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "I am Sofia Thomas",
+    "entities": [
+      {
+        "start": 5,
+        "end": 17,
+        "value": "Sofia Thomas",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 11,
+        "end": 17,
+        "confidence_entity": 0.9658365035844689,
+        "value": "Thomas",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Luca Orsu'",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "Luca Orsu'",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.7683366099654959,
+        "value": "Luca Orsu",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  }
+]

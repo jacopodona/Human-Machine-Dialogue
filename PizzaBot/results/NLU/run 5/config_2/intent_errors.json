@@ -1,0 +1,226 @@
+[
+  {
+    "text": "y",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.10430881433994467
+    }
+  },
+  {
+    "text": "I want to finalize the order",
+    "intent": "init_checkout_request",
+    "intent_prediction": {
+      "name": "delete_order",
+      "confidence": 0.23960654849167956
+    }
+  },
+  {
+    "text": "Can you take me to the checkout page?",
+    "intent": "init_checkout_request",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.19356344329182665
+    }
+  },
+  {
+    "text": "goodbye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.2794318579252747
+    }
+  },
+  {
+    "text": "How much does a marinara cost?",
+    "intent": "ask_pizza_price",
+    "intent_prediction": {
+      "name": "ask_drink_price",
+      "confidence": 0.1625989858925996
+    }
+  },
+  {
+    "text": "How much do you charge for a marinara?",
+    "intent": "ask_pizza_price",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.31975373029233584
+    }
+  },
+  {
+    "text": "What is the price of water?",
+    "intent": "ask_drink_price",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.17794621695778667
+    }
+  },
+  {
+    "text": "Could you show me the list of drinks you've got?",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.18471036666311216
+    }
+  },
+  {
+    "text": "margherita",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.3085168932930059
+    }
+  },
+  {
+    "text": "[pub]",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.6300810929492988
+    }
+  },
+  {
+    "text": "medium will do",
+    "intent": "say_pizza_size",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.22661870336470694
+    }
+  },
+  {
+    "text": "Can you show me how to get started?",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.26577557711073485
+    }
+  },
+  {
+    "text": "could you let me know about the time options?",
+    "intent": "ask_time_slots",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.20158755505246034
+    }
+  },
+  {
+    "text": "can you fill me in on the available timing choices?",
+    "intent": "ask_time_slots",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.1741383630621163
+    }
+  },
+  {
+    "text": "what times do you have available?",
+    "intent": "ask_time_slots",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.21457756994530994
+    }
+  },
+  {
+    "text": "I want to know what's in a pesto.",
+    "intent": "ask_pizza_ingredients",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.21802097283361627
+    }
+  },
+  {
+    "text": "I want to know what's in a marinara.",
+    "intent": "ask_pizza_ingredients",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.2007481158755742
+    }
+  },
+  {
+    "text": "I can't remember what I ordered",
+    "intent": "ask_order_info",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.21452706306293312
+    }
+  },
+  {
+    "text": "I think pickup is better",
+    "intent": "inform_order_pickup",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.15908353729727387
+    }
+  },
+  {
+    "text": "Let's do takeaway",
+    "intent": "inform_order_pickup",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.21698015287644845
+    }
+  },
+  {
+    "text": "can you help me delete my order?",
+    "intent": "delete_order",
+    "intent_prediction": {
+      "name": "ask_order_info",
+      "confidence": 0.20654863950898758
+    }
+  },
+  {
+    "text": "Now that I think about it, delete my order",
+    "intent": "delete_order",
+    "intent_prediction": {
+      "name": "inform_order_delivery",
+      "confidence": 0.1536738353878576
+    }
+  },
+  {
+    "text": "home delivery is fine",
+    "intent": "inform_order_delivery",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.2526939257265802
+    }
+  },
+  {
+    "text": "I want it at 7.30pm.",
+    "intent": "say_order_time",
+    "intent_prediction": {
+      "name": "inform_order_delivery",
+      "confidence": 0.19559596587478514
+    }
+  },
+  {
+    "text": "how do I bake chocolate chip cookies?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.10790734588558404
+    }
+  },
+  {
+    "text": "how do I train my dog to do tricks?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.16669317197908054
+    }
+  },
+  {
+    "text": "Matteo Esposito",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.24876595432743057
+    }
+  },
+  {
+    "text": "Eleonora Barbieri",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.24876595432743057
+    }
+  }
+]

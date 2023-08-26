@@ -1,0 +1,114 @@
+[
+  {
+    "text": "correct",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.6543871164321899
+    }
+  },
+  {
+    "text": "y",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "say_home_address",
+      "confidence": 0.16420528292655945
+    }
+  },
+  {
+    "text": "good by",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.3678570091724396
+    }
+  },
+  {
+    "text": "goodbye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.4518502950668335
+    }
+  },
+  {
+    "text": "I'd like to know the cost of a beer.",
+    "intent": "ask_drink_price",
+    "intent_prediction": {
+      "name": "ask_pizza_sizes",
+      "confidence": 0.5022262930870056
+    }
+  },
+  {
+    "text": "I don't think so",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.4228094518184662
+    }
+  },
+  {
+    "text": "I'm confused",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "say_full_name",
+      "confidence": 0.20598073303699493
+    }
+  },
+  {
+    "text": "I dont understand",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.822188138961792
+    }
+  },
+  {
+    "text": "I want four sprites",
+    "intent": "init_drink_request",
+    "intent_prediction": {
+      "name": "say_drink_amount",
+      "confidence": 0.7527603507041931
+    }
+  },
+  {
+    "text": "Can we order some pizzas?",
+    "intent": "init_request",
+    "intent_prediction": {
+      "name": "ask_pizza_with_ingredient",
+      "confidence": 0.3687399923801422
+    }
+  },
+  {
+    "text": "how do I remove a stain from my clothes?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "remove_pizza",
+      "confidence": 0.2977617681026459
+    }
+  },
+  {
+    "text": "what's the current exchange rate for euros to dollars?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_drink_list",
+      "confidence": 0.287163645029068
+    }
+  },
+  {
+    "text": "what's the current price of gold?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_drink_price",
+      "confidence": 0.44105613231658936
+    }
+  },
+  {
+    "text": "what's the weather like today?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_pizza_ingredients",
+      "confidence": 0.22545817494392395
+    }
+  }
+]

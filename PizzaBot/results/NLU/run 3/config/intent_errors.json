@@ -1,0 +1,122 @@
+[
+  {
+    "text": "of course",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.28263232111930847
+    }
+  },
+  {
+    "text": "cu",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.1908605843782425
+    }
+  },
+  {
+    "text": "Could you inform me about the price of tea?",
+    "intent": "ask_drink_price",
+    "intent_prediction": {
+      "name": "ask_pizza_price",
+      "confidence": 0.42877477407455444
+    }
+  },
+  {
+    "text": "goodevening",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5585177540779114
+    }
+  },
+  {
+    "text": "What kind of beverages do you serve here?",
+    "intent": "ask_drink_list",
+    "intent_prediction": {
+      "name": "ask_pizza_menu",
+      "confidence": 0.4472414255142212
+    }
+  },
+  {
+    "text": "a light with ham",
+    "intent": "say_pizza_type",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.6090429425239563
+    }
+  },
+  {
+    "text": "I'd like a large pizza",
+    "intent": "say_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.7897292375564575
+    }
+  },
+  {
+    "text": "I'd like a small pizza",
+    "intent": "say_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.906777024269104
+    }
+  },
+  {
+    "text": "I would like a medium pizza",
+    "intent": "say_pizza_size",
+    "intent_prediction": {
+      "name": "init_request",
+      "confidence": 0.8514612317085266
+    }
+  },
+  {
+    "text": "I can't remember what I ordered",
+    "intent": "ask_order_info",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.4560620188713074
+    }
+  },
+  {
+    "text": "What pizzas do you have?",
+    "intent": "ask_pizza_menu",
+    "intent_prediction": {
+      "name": "ask_pizza_with_ingredient",
+      "confidence": 0.41316118836402893
+    }
+  },
+  {
+    "text": "I want four sprites",
+    "intent": "init_drink_request",
+    "intent_prediction": {
+      "name": "say_drink_amount",
+      "confidence": 0.8157491683959961
+    }
+  },
+  {
+    "text": "Luca Orsu'",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.16650956869125366
+    }
+  },
+  {
+    "text": "Davide Frutti",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "say_home_address",
+      "confidence": 0.6870003938674927
+    }
+  },
+  {
+    "text": "Valeria Conti",
+    "intent": "say_full_name",
+    "intent_prediction": {
+      "name": "say_home_address",
+      "confidence": 0.3324846625328064
+    }
+  }
+]
