@@ -75,11 +75,3 @@ ngrok http 5005
 It should give an https url, go to the alexa skill endpoint and copy the URL, appending the suffix "/webhooks/alexa_assistant/webhook"
 
 To Alexa, say "Start Pizza Bot"
-### Testing the model
-
-#### NLU
-
-This command test the 2 configurations on performing Intent Classification and Entity Extraction on the nlu.yml file by performing cross validation using 5 folds.
-```
-rasa test nlu --nlu data/nlu.yml --config config_1.yml config_2.yml --cross-validation --folds 5
-```
