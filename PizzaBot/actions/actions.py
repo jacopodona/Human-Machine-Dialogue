@@ -308,9 +308,10 @@ class ActionTellPizzaPrice(Action):
                 dispatcher.utter_message(text=msg)
                 return []
             else:
-                msg = f"A {pizza.name} costs {str(pizza.price)} €.\n"
+                msg = f"A {pizza.name} costs {str(pizza.price)} €."
                 dispatcher.utter_message(text=msg)
-                return [SlotSet("pizza_type",None),FollowupAction("utter_topping_and_size_price")]
+                dispatcher.utter_message(response="utter_topping_and_size_price")
+                return [SlotSet("pizza_type",None)]
 
 class ActionTellPizzaIngredients(Action):
 
