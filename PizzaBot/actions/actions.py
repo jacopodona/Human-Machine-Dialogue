@@ -232,7 +232,7 @@ class ActionTellDrinkList(Action):
 
             # Concatenate the two parts
             result = other_drinks + ", " + last_two_drinks
-            msg= "For drinks we currently offer "+result
+            msg= "The drinks we offer are "+result
         dispatcher.utter_message(text=msg)
 
         return []
@@ -259,7 +259,7 @@ class ActionTellPizzaMenu(Action):
 
             # Concatenate the two parts
             result = other_pizzas + ", " + last_two_pizzas
-            msg= "Here is our menu:\nfor pizzas we have "+result+"."
+            msg= "Our pizzas are "+result+"."
         dispatcher.utter_message(text=msg)
 
         return []
@@ -946,7 +946,7 @@ class ActionResponseNegative(Action):
                     print("Checking out the order "+getOrderRecap(order))
                     message+=getOrderRecap(order)
                     price=computeOrderPrice(order)
-                    message+="The total price is: "+str(price)+" €"
+                    message+="The total price is "+str(price)+" €."
                     dispatcher.utter_message(text=message)
                     dispatcher.utter_message(response="utter_ask_delivery_method")
                 else: #User has just added an item to an order he already made and does not want anything else. Say goodbye
