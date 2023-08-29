@@ -1,0 +1,950 @@
+version: "3.1"
+nlu:
+- intent: response_positive
+  examples: |
+    - correct
+    - exactly
+    - yes
+    - y
+    - that sounds good
+    - indeed
+- intent: init_checkout_request
+  examples: |
+    - I'm done selecting items, I want to checkout
+    - I'm ready to check out my order
+    - I want to checkout
+    - I'd like to move forward with the checkout
+    - I want to finalize the order
+    - Where's the button to pay for my order?
+    - Let's proceed to the checkout
+    - Let's checkout
+    - I want to complete my order
+- intent: goodbye
+  examples: |
+    - have a nice day
+    - good night
+    - see you later
+    - bye
+    - bye bye
+    - goodbye
+    - good by
+    - cee you later
+    - see you around
+- intent: ask_pizza_price
+  examples: |
+    - Please provide the price of a [margherita](pizza_type).
+    - I want to know the price of a [marinara](pizza_type).
+    - How much does a [marinara](pizza_type) cost?
+    - How much do you charge for a [marinara](pizza_type)?
+    - Tell me the price of a [marinara](pizza_type).
+    - How expensive is a [margherita](pizza_type)?
+    - How much for a [light](pizza_type)?
+    - What is the cost of a [pub](pizza_type)?
+    - What's the price of a [margherita](pizza_type)?
+    - Can you tell me the price of a [diavola](pizza_type)?
+- intent: ask_drink_price
+  examples: |
+    - I'd like to know the cost of a [beer](drink_name).
+    - Tell me the cost of [tea](drink_name).
+    - What is the price of [water](drink_name)?
+    - Can you tell me the [coke](drink_name) price?
+    - Please tell me the price of [coke](drink_name).
+    - How much is [sprite](drink_name)?
+    - How much does [coke](drink_name) cost?
+    - Can you give me the price for [coke](drink_name)?
+    - Price of [beer](drink_name)?
+    - What's the price for [sprite](drink_name)?
+- intent: modify_order_time
+  examples: |
+    - I want to modify the delivery time
+    - I want to change the time
+    - I want to change the order time
+    - I want to modify the order time
+    - I want to change the delivery time
+    - I want to modify the pickup time
+    - I want to modify the time of my order
+    - Can I change the order time?
+    - Can I modify the order time?
+- intent: welcome_greet
+  examples: |
+    - moin
+    - good afternoon
+    - hey there
+    - goodmorning
+    - hello there
+    - hello
+    - let's go
+    - good evening
+    - hi
+    - hey
+    - good morning
+- intent: ask_drink_list
+  examples: |
+    - What do you have to drink?
+    - What types of drinks you offer?
+    - list of drinks
+    - What beverages do you have?
+    - What drinks do you guys have on the menu?
+    - Give me the list of available drinks
+    - list of beverages
+    - Do you have a menu for the drinks?
+    - give the drinks you have
+    - What's the drink selection like?
+- intent: say_pizza_type
+  examples: |
+    - a [cheesey](pizza_type) with [sausage](ingredient)
+    - [marinara](pizza_type)
+    - [rustic](pizza_type)
+    - A [diavola](pizza_type) with [garlic](ingredient)
+    - [margherita](pizza_type)
+    - a [pub](pizza_type) with [olives](ingredient)
+    - A [marinara](pizza_type)
+    - a [capricciosa](pizza_type) with [olives](ingredient)
+    - [diavola](pizza_type)
+    - An [hawaiian](pizza_type) with [potatoes](ingredient)
+    - [pub]
+- intent: say_pizza_size
+  examples: |
+    - [medium](pizza_size)
+    - [small](pizza_size) will do
+    - Get me a [large](pizza_size) one
+    - A [medium](pizza_size)
+    - [small](pizza_size)
+    - [medium](pizza_size) will do
+    - A [small](pizza_size)
+    - [large](pizza_size) will do
+    - I'd like a [medium](pizza_size) pizza
+    - A [large](pizza_size)
+    - [large](pizza_size)
+- intent: ask_pizzeria_location
+  examples: |
+    - could you tell me where the pizzeria is
+    - can you share the location of the pizzeria?
+    - can you provide me with the address of the pizzeria?
+    - where are you guys located?
+    - where is it located?
+    - can you let me know where the pizzeria is?
+    - could you tell me your address?
+    - where is the pizzeria situated?
+    - could you please tell me the location of the pizzeria?
+    - where is the pizzeria?
+    - what is your address?
+    - could you inform me where the pizzeria is?
+- intent: ask_pizza_sizes
+  examples: |
+    - Could you tell me about the different sizes you offer?
+    - Can you provide me with information about the pizza sizes on your menu?
+    - Could you break down the pizza sizes you have available?
+    - Do you offer pizzas in various sizes?
+    - Can you help me understand the size options for your pizzas?
+    - I'd like to know the sizes I can choose from for the pizzas. Could you give me the details?
+    - Before I place my order, I'd like to know more about the sizes of your pizzas. Can you provide some details?
+    - What's the selection of pizza sizes that I can order?
+    - What size options do you offer for your pizzas?
+    - What sizes do the pizzas have?
+    - What can you tell me about the size selections for your pizzas?
+    - What are the size choices available for your pizzas?
+- intent: say_drink_name
+  examples: |
+    - A [tea](drink_name)
+    - Some [coke](drink_name)
+    - [coke](drink_name)
+    - Some [water](drink_name)
+    - A [coke](drink_name)
+    - [sprite](drink_name)
+    - [water](drink_name)
+    - A [water](drink_name)
+    - A [sprite](drink_name)
+    - A [beer](drink_name)
+    - Some [sprite](drink_name)
+    - Some [beer](drink_name)
+- intent: response_negative
+  examples: |
+    - n
+    - wrong
+    - nope
+    - Never
+    - I don't think so
+    - incorrect
+    - don't like that
+    - Nope
+    - not correct
+    - Don't like that
+    - not what i meant
+    - not really
+    - No
+- intent: help
+  examples: |
+    - I'm confused
+    - I don't understand
+    - What can you do
+    - Can you show me how to get started?
+    - What actions I can do
+    - What can I say
+    - What should I do now?
+    - Can you tell me what should I do?
+    - What do I need to do?
+    - Help me
+    - I dont understand
+    - How can I order a pizza
+    - Can you help me?
+    - What can I do
+- intent: ask_time_slots
+  examples: |
+    - i'm curious about the time slots that I can choose from
+    - can you provide me with a list of the time slots that are currently open?
+    - could you tell me the available timings?
+    - what times do you have available?
+    - what are the time slots for takeaway?
+    - could you give me the detail on the time slots?
+    - can you let me know when the available time slots are?
+    - are there specific time options when I can order?
+    - what's the range of time slots you have?
+    - could tell me the different time slots you offer?
+    - what are the time slots for delivery?
+    - could you tell me about the available time slots?
+    - what are the available time slots?
+- intent: ask_pizza_ingredients
+  examples: |
+    - What do you put on a [cheesey](pizza_type)?
+    - What do you put on a [marinara](pizza_type)?
+    - How is a [vegetarian](pizza_type) made?
+    - Can you tell me the [hawaiian](pizza_type) ingredients?
+    - What goes into a [kebab](pizza_type)?
+    - Which ingredients are in a [pub](pizza_type)?
+    - Please list the ingredients of a [diavola](pizza_type).
+    - Can you tell me the [diavola](pizza_type) ingredients?
+    - I want to know what's in a [marinara](pizza_type).
+    - What do you put in a [capricciosa](pizza_type).
+    - What are the ingredients of a [light](pizza_type)?
+    - What goes into a [diavola](pizza_type)?
+    - How is a [margherita](pizza_type) made?
+    - Which ingredients are in a [pesto](pizza_type)?
+    - What are the ingredients of a [margherita](pizza_type)?
+    - I want to know what's in a [pesto](pizza_type).
+- intent: ask_order_info
+  examples: |
+    - Do you have my order information?
+    - Status of my order
+    - See my order information
+    - Can you remind me what I ordered
+    - What did I order?
+    - What is my order status?
+    - Do I have an order?
+    - what was my order
+    - Recap my order
+    - Repeat my order
+    - Order information
+    - tell me my order information
+    - I want to see what I ordered
+    - what's my order status?
+    - What's my order information
+- intent: ask_pizza_menu
+  examples: |
+    - I'd like to see the menu, can you show me?
+    - What kind of pizzas do you serve here?
+    - What pizzas do you guys have on the menu?
+    - What is the menu?
+    - Could you tell me the pizzas you have available?
+    - What are the pizzas?
+    - Could you show me the menu?
+    - list of pizzas
+    - Tell me the menu
+    - Could I have the menu, please?
+    - Give me the list of available pizzas
+    - Could you show me the list of pizzas you've got?
+    - Give me the list of pizzas
+    - Do you have a menu for the pizzas?
+    - Is it possible to see the menu?
+    - What types of pizzas you offer?
+    - What menu do you offer?
+    - give the pizzas you have
+- intent: inform_order_pickup
+  examples: |
+    - I think I'll do takeaway
+    - Let's do takeaway
+    - Store pickup, thanks
+    - I'll pick it up at the store
+    - Pickup
+    - I want to do takeaway
+    - I want to pickup the order
+    - I will do takeaway myself
+    - I think pickup is better
+    - I choose takeaway
+    - I will come at the pizzeria
+    - I want to pick it up personally
+    - Takeaway
+    - I will come and take it
+    - I want to come pick it up
+    - Take away
+    - I will do takeaway
+    - I will pickup
+    - I will come get it
+- intent: delete_order
+  examples: |
+    - I no longer need the order, delete it
+    - I want to delete an order
+    - I want to delete my order
+    - Delete the order
+    - Actually I changed my mind, please delete the order
+    - Now that I think about it, delete my order
+    - Please delete the order I made
+    - I want to cancel the order
+    - delete my most recent order
+    - Please cancel my order
+    - I want you to delete my order
+    - cancel the order that I made
+    - remove the order
+    - cancel my recent order
+    - Remove the order from my account
+    - remove the order that I ordered last week
+    - Actually, delete my order
+    - I want to remove the order I placed
+    - delete my order
+    - Please remove the order I just made
+- intent: remove_drink
+  examples: |
+    - I would like to delete a [beer](drink_name)
+    - I want to cancel drink
+    - I would like to remove a drink
+    - Can I remove a drink?
+    - I want to delete [coke](drink_name)
+    - I want to remove a drink
+    - I want [1](drink_amount) [beer](drink_name) removed from my order
+    - Can I remove [2](drink_amount) bottles of [water](drink_name)?
+    - I want [2](drink_amount) bottles of [coke](drink_name) removed from my order
+    - Can I remove a bottle of [water](drink_name)?
+    - I would like to remove a [tea](drink_name)
+    - I want [2](drink_amount) bottles of [coke](drink_name) removed from the order
+    - I would like to remove a [coke](drink_name)
+    - I want [1](drink_amount) [beer](drink_name) removed from the order
+    - Remove drink
+    - I want to remove another drink
+    - Can I remove a [coke](drink_name)?
+    - I want to delete a [beer](drink_name)
+    - I want to delete a bottle of [beer](drink_name)
+- intent: remove_pizza
+  examples: |
+    - I want to cancel pizza
+    - I want to remove another pizza
+    - Can I remove the [large](pizza_size) [pesto](pizza_type) pizza?
+    - I would like to remove a [rustic](pizza_type)
+    - I want one [medium](pizza_size) [cheesey](pizza_type) removed from my order
+    - I want the [small](pizza_size) [kebab](pizza_type) removed from my order
+    - Can I remove a pizza?
+    - I would like to remove one pizza
+    - I want to delete [marinara](pizza_type)
+    - I want to delete a pizza
+    - Can I remove a [vegetarian](pizza_type)?
+    - I want the [small](pizza_size) [diavola](pizza_type) removed from the order
+    - I want to remove a pizza
+    - I would like to delete a [diavola](pizza_type)
+    - Delete pizza
+    - i want to delete another pizza
+    - I would like to remove a pizza
+    - I want to delete a [capricciosa](pizza_type)
+    - Remove pizza
+- intent: stop
+  examples: |
+    - i changed my mind
+    - i dont want to do it anymore
+    - I dont want to do it anymore
+    - I dont want to order anymore
+    - i dont want pickup anymore
+    - stop, i changed my mind
+    - i dont want it anymore
+    - i dont want to do pickup
+    - i dont want to order anymore
+    - I dont want pickup anymore
+    - i dont want to order the drink anymore
+    - i changed idea
+    - I dont want to do delivery
+    - I changed my mind
+    - I dont want delivery anymore
+    - I dont want it anymore
+    - i dont want the pizza anymore
+    - I dont want to do pickup
+    - i dont want to do delivery
+    - I don't want to do that anymore
+- intent: modify_order_name
+  examples: |
+    - I want to modify the name for the delivery
+    - Can I modify the person for the pickup?
+    - Can I modify the name for the pickup?
+    - I want to change the bell name for the delivery
+    - I want to change the name of the order
+    - I want to change the pickup name
+    - Can I modify the order name?
+    - I want to modify the bell name for the delivery
+    - I want to change the name for the delivery
+    - I want to modify the pickup name
+    - I want to change the name int the order
+    - Can I modify the bell name for the delivery?
+    - Can I change the order name?
+    - I want to change the pickup person
+    - I want to modify the name int the order
+    - I want to change the name
+    - I want to modify the delivery name
+    - I want to modify the name of my order
+    - I want to change the name of my order
+    - I want to modify the pickup person
+- intent: inform_order_delivery
+  examples: |
+    - I want delivery at home
+    - can I give you my address and you deliver it?
+    - delivery please
+    - home delivery is fine
+    - Home delivery, please
+    - send it to my address
+    - I want you to bring it
+    - bring it to my address, thanks
+    - I want delivery
+    - delivery would be great
+    - I want it delivered at my house
+    - I'd like it delivered
+    - Can you send it to my house?
+    - can you deliver it to my house?
+    - i want it delivered
+    - Bring it to my house
+    - Delivery
+    - Deliver to my house
+    - i want it delivered at my house, thanks
+    - Home delivery please
+    - can you deliver it to my address?
+    - I prefer delivery
+- intent: ask_pizza_with_ingredient
+  examples: |
+    - what pizzas have [sausage](ingredient)?
+    - what pizzas do you have with [onions](ingredient)?
+    - what pizzas have [onions](ingredient)?
+    - do you have pizza with [mushrooms](ingredient) please?
+    - do you have pizza with [vegetables](ingredient)?
+    - do you have pizza with [olives](ingredient)?
+    - do you have pizza with [mozzarella](ingredient)?
+    - what pizzas have [spinach](ingredient)?
+    - what pizza has [ham](ingredient)?
+    - any pizza with [olives](ingredient)?
+    - what pizzas have [mushrooms](ingredient)?
+    - do you have pizza with [pepperoni](ingredient)?
+    - pizza with [pepperoni](ingredient) please?
+    - any pizza with [wurstel](ingredient)?
+    - do you have pizza with [wurstel](ingredient) please?
+    - what pizzas do you have with [olives](ingredient)?
+    - any pizza with [pepperoni](ingredient) please?
+    - pizza with [chicken](ingredient) please?
+    - any pizza with [onions](ingredient)?
+    - any pizza with [olives](ingredient) please?
+    - do you have pizza with [tomato sauce](ingredient)?
+    - what pizzas do you have with [pepperoni](ingredient)?
+    - any pizza with [wurstel](ingredient) please?
+    - what pizzas do you have with [mozzarella](ingredient)?
+    - any pizza with [mozzarella](ingredient) please?
+    - what pizzas have [pineapple](ingredient)?
+    - what pizza has [cheese](ingredient)?
+    - do you have pizza with [chicken](ingredient) please?
+- intent: init_drink_request
+  examples: |
+    - I would like have a drink
+    - I would like a [beer](drink_name)
+    - Can I add a drink?
+    - I want to drink [coke](drink_name)
+    - Can I add a bottle of [water](drink_name)
+    - I want to order another drink
+    - I want [4](drink_amount) bottles of [water](drink_name)
+    - I want a [coke](drink_name)
+    - I want a drink
+    - I want to add a drink
+    - I want [1](drink_amount) [beer](drink_name)
+    - i want to add another drink
+    - I want [2](drink_amount) bottles of [coke](drink_name)
+    - I want [five](drink_amount) [water](drink_name)
+    - Can I have a [coke](drink_name)
+    - I want to drink [beer](drink_name)
+    - Add drink
+    - I want some [beer](drink_name)
+    - I want some [tea](drink_name)
+    - I want to drink [sprite](drink_name)
+    - I want to order a [beer](drink_name)
+    - I want [two](drink_amount) bottles of [coke](drink_name)
+    - Can I add [two](drink_amount) bottles of [sprite](drink_name)?
+    - I want to order a drink
+    - I want a bottle of [sprite](drink_name)
+    - I want [three](drink_amount) [tea](drink_name)
+    - I want [5](drink_amount) [beers](drink_name)
+    - Can I add [2](drink_amount) bottles of [water](drink_name)?
+- intent: say_address_number
+  examples: |
+    - my home address number is [19](address_number)
+    - my address number is [4](address_number)
+    - # [52](address_number)
+    - Number [46](address_number)
+    - [25](address_number) is my address number
+    - Number [8](address_number)
+    - my address number is [35](address_number)
+    - # [78](address_number)
+    - my home address number is [6](address_number)
+    - Number [64](address_number)
+    - my home address number is [7](address_number)
+    - number [20](address_number)
+    - [36](address_number) is my address number
+    - [51](address_number) is my address number
+    - # [30](address_number)
+    - number [18](address_number)
+    - # [67](address_number)
+    - the address number is [4](address_number)
+    - number [21](address_number)
+    - [1](address_number) is my address number
+    - the address number is [6](address_number)
+    - number [52](address_number)
+    - Number [15](address_number)
+    - Number [13](address_number)
+    - # [81](address_number)
+    - my home address number is [12](address_number)
+    - the address number is [13](address_number)
+    - my address number is [16](address_number)
+    - number [1](address_number)
+    - the address number is [35](address_number)
+    - my home address number is [8](address_number)
+- intent: ask_pizza_without_ingredient
+  examples: |
+    - do you have pizza without [mozzarella](ingredient)?
+    - what pizzas do you have without [mozzarella](ingredient)?
+    - what pizzas do you have with no [olives](ingredient)?
+    - pizza with no [cheese](ingredient)?
+    - do you have pizza with no [tomato sauce](ingredient)?
+    - do you have pizza with no [mozzarella](ingredient)?
+    - pizza without [spinach](ingredient)?
+    - do you have pizza without [olives](ingredient)?
+    - pizza with no [onions](ingredient) please?
+    - pizza without [pepperoni](ingredient) please?
+    - pizza with no [mushrooms](ingredient) please?
+    - pizza without [onions](ingredient)?
+    - do you have pizza with no [mushrooms](ingredient) please?
+    - what pizzas do you have without [onions](ingredient)?
+    - any pizza with no [pepperoni](ingredient)?
+    - pizza without [chicken](ingredient) please?
+    - do you have pizza without [mushrooms](ingredient) please?
+    - what pizzas do you have with no [chicken](ingredient)?
+    - any pizza without [mozzarella](ingredient) please?
+    - do you have pizza without [cheese](ingredient)?
+    - pizza with no [olives](ingredient)?
+    - do you have pizza with no [vegetables](ingredient)?
+    - pizza with no [olives](ingredient) please?
+    - pizza with no [ham](ingredient)?
+    - pizza with no [onions](ingredient)?
+    - pizza with no [chicken](ingredient) please?
+    - any pizza without [olives](ingredient) please?
+    - pizza without [olives](ingredient)?
+    - pizza without [sausage](ingredient) please?
+    - any pizza with no [wurstel](ingredient)?
+    - what pizzas do you have with no [pepperoni](ingredient)?
+    - do you have pizza with no [pepperoni](ingredient)?
+    - what pizzas do you have without [chicken](ingredient)?
+- intent: say_drink_amount
+  examples: |
+    - I want [5](drink_amount)
+    - Give me [3](drink_amount)
+    - I want [3](drink_amount)
+    - Just [2](drink_amount)
+    - I want [1](drink_amount)
+    - I want [four](drink_amount) bottles
+    - I want [five](drink_amount) bottles
+    - I want [1](drink_amount) bottle
+    - Give me [three](drink_amount)
+    - [5](drink_amount)
+    - [Two](drink_amount)
+    - [Five](drink_amount)
+    - I want [2](drink_amount) bottles
+    - [Four](drink_amount)
+    - I want [5](drink_amount) bottles
+    - I want [2](drink_amount)
+    - I want [five](drink_amount)
+    - [One](drink_amount)
+    - Give me [5](drink_amount)
+    - I want [one](drink_amount)
+    - Give me [1](drink_amount)
+    - [4](drink_amount)
+    - [3](drink_amount)
+    - Give me [2](drink_amount)
+    - Just [one](drink_amount)
+    - I want [3](drink_amount) bottles
+    - I want [two](drink_amount) bottles
+    - I want [three](drink_amount) bottles
+    - I want [two](drink_amount)
+    - I want [four](drink_amount)
+    - Just [two](drink_amount)
+    - Just [1](drink_amount)
+    - Give me [two](drink_amount)
+    - [2](drink_amount)
+    - [Three](drink_amount)
+- intent: say_order_time
+  examples: |
+    - [9pm](order_time)
+    - [20.00](order_time)
+    - at [21:00](order_time)
+    - I want it at [7.30pm](order_time).
+    - [9.30pm](order_time).
+    - [8.30pm](order_time)
+    - at [8:30](order_time)
+    - at [9pm](order_time)
+    - [7.30pm](order_time)
+    - [21.00](order_time)
+    - [20:00](order_time)
+    - [7:30](order_time)
+    - At [8pm](order_time).
+    - at [8.30pm](order_time)
+    - [21](order_time)
+    - [19:30](order_time)
+    - at [19:30](order_time)
+    - at [8:00](order_time)
+    - at [20.00](order_time)
+    - [21:00](order_time)
+    - at [19.30](order_time)
+    - About [8.30pm](order_time).
+    - [19.30](order_time)
+    - at [8pm](order_time)
+    - at [8.00](order_time)
+    - Let's do [9pm](order_time).
+    - [8pm](order_time).
+    - at [21.00](order_time)
+    - at [20:00](order_time)
+    - [8.00](order_time)
+    - at [7.30](order_time)
+    - [8:00](order_time)
+    - at [7.30pm](order_time)
+    - [8.30](order_time)
+    - [20.30](order_time)
+    - [8:30](order_time)
+- intent: say_home_address
+  examples: |
+    - I live at [Via della Malvasia](address_street).
+    - My home address is [via Manci](address_street).
+    - [via Ezio Franceschini](address_street)
+    - I'm located at [via Maccani](address_street).
+    - I'm currently staying at [viale Fiera](address_street).
+    - My home is at [via Belenzani](address_street).
+    - [Corso Bettini](address_street) is my home base.
+    - [via Dogana](address_street)
+    - My place is [via Verdi](address_street).
+    - [via Vittorio Veneto](address_street)
+    - [Viale Trento](address_street) is where I'm located.
+    - [via Einstein](address_street)
+    - The address where I live is [corso Buonarroti](address_street).
+    - [Via Rosmini](address_street)
+    - You can find me at [via San Vigilio](address_street).
+    - [Viale delle Scienze](address_street)
+    - [Piazza Duomo](address_street) is the address.
+    - [via Torre d'Augusto](address_street) is my home address.
+    - [Corso Cavour](address_street)
+    - [via Caproni](address_street)
+    - [piazza Venezia](address_street) is where I'm living.
+    - [Via Garibaldi](address_street)
+    - [Via Diaz](address_street)
+    - My home address is [Via Oriola](address_street).
+    - My home is situated at [Viale Rovereto](address_street).
+    - Send it at [Corso Michelangelo](address_street).
+    - You can reach me at [Corso 3 Novembre](address_street).
+    - I'm at [Via Monte Baldo](address_street).
+    - [Via San Pietro](address_street) is where I reside.
+    - You can locate me at [corso Lancia](address_street).
+    - [piazza Duomo](address_street)
+    - [Piazza Fiera](address_street)
+    - [Via dei Muredei](address_street) is my home.
+    - [Via Leopardi](address_street)
+    - The address I'm at is [Via dei Colli](address_street).
+    - My home is in [via della Ricerca](address_street).
+    - My residence is [Via Roma](address_street).
+- intent: init_request
+  examples: |
+    - Add a [medium](pizza_size) [kebab](pizza_type) with [tomato sauce](ingredient)
+    - Can I place an order?
+    - i want to add another pizza
+    - I want a [medium](pizza_size)
+    - I want a [rustic](pizza_type)
+    - Order pizza
+    - I would like a [marinara](pizza_type)
+    - Get me a [cheesey](pizza_type) pizza
+    - I want a [light](pizza_type)
+    - I want to order a [small](pizza_size)
+    - I want a [pub](pizza_type)
+    - I want a [small](pizza_size)
+    - I want a [light](pizza_type) with [onions](ingredient)
+    - I want to order a [medium](pizza_size)
+    - I want to order a [small](pizza_size) [vegetarian](pizza_type)
+    - Order a [cheesey](pizza_type)
+    - I want to order a [medium](pizza_size) [marinara](pizza_type)
+    - I want a [cheesey](pizza_type) with [ham](ingredient)
+    - Add a [medium](pizza_size) [rustic](pizza_type) with [zucchini](ingredient)
+    - I would like a [capricciosa](pizza_type)
+    - I want to order a [small](pizza_size) [margherita](pizza_type)
+    - I would like a [hawaiian](pizza_type)
+    - I want to order a [large](pizza_size) [margherita](pizza_type)
+    - I want to order a [light](pizza_type)
+    - I want to make an order
+    - I want to order a [large](pizza_size) [hawaiian](pizza_type)
+    - Add a [small](pizza_size) [pesto](pizza_type) with [onions](ingredient)
+    - I want to order another pizza
+    - I want to order a [small](pizza_size) [rustic](pizza_type)
+    - I would like to make an order
+    - I want a [rustic](pizza_type) with [eggplant](ingredient)
+    - I would like to order some pizzas
+    - I would like a [diavola](pizza_type)
+    - I want to order a [medium](pizza_size) [rustic](pizza_type)
+    - I want to place an order
+    - Give me a [diavola](pizza_type)
+    - I want to order a pizza
+    - I want a [large](pizza_size)
+    - I want to order a [small](pizza_size) [cheesey](pizza_type)
+    - I want a pizza
+    - I want to order a [kebab](pizza_type)
+- intent: out_of_scope
+  examples: |
+    - can you recommend a good hair salon?
+    - how do I fix a leaky faucet?
+    - book a flight from milan to ny
+    - how do I tie a tie?
+    - are you real
+    - what's the best way to remove wallpaper?
+    - can you give me tips on gardening?
+    - how do I re-pot a houseplant?
+    - what's the recipe for a margarita cocktail?
+    - what's the best way to organize my closet?
+    - can you recommend a good meditation app?
+    - can you help me find a babysitter?
+    - What is 2 + 2?
+    - what's the best way to clean hardwood floors?
+    - do you have a sister
+    - how do I remove a stain from my clothes?
+    - do you have any recommendations for a good book to read?
+    - Who's the US President?
+    - how do I fix a flat bicycle tire?
+    - what's the current price of gold?
+    - can you help me find a plumber?
+    - can you help me plan a vacation itinerary?
+    - can you recommend a reliable car mechanic?
+    - give me the directions to time square
+    - what's the process for recycling electronics?
+    - what's the best way to clean my oven?
+    - how do I program a remote control?
+    - do you have shoes
+    - what's the weather like today?
+    - what's the current exchange rate for euros to dollars?
+    - how do I train my dog to do tricks?
+    - how do I set up a Wi-Fi router?
+    - can you recommend a good romantic comedy movie?
+    - how do I change a flat tire?
+    - how far is the square
+    - how do I start a compost bin?
+    - what is your name
+    - can you suggest a good workout routine?
+    - what's the latest news on the stock market?
+    - what's the current traffic situation in my city?
+    - what's the process for getting a passport?
+    - how do I change the oil in my car?
+    - what's the best way to get rid of ants in my kitchen?
+    - what's the process for adopting a pet?
+- intent: say_full_name
+  examples: |
+    - put [Valentina Marini](client_name)
+    - Put [Emily Martinez](client_name)
+    - Sure, my name is [Camilla Martin](client_name)
+    - Place it for [Mattia Porti](client_name)
+    - [Stefano Rossi](client_name)
+    - [Giacomo Ferretti](client_name)
+    - [Oliver Garcia](client_name)
+    - It's [Valentina Davis](client_name)
+    - [Anna Caruso](client_name)
+    - [Roberta Morelli](client_name)
+    - The name is [Alessandro Russo](client_name)
+    - [Victoria Johnson](client_name)
+    - I am [Sofia Thomas](client_name)
+    - You put [Marco Rossi](client_name)
+    - Please leave it for [Francesca Barbieri](client_name)
+    - [Samuel Johnson](client_name)
+    - This is [Simone Alberti](client_name)
+    - [Arianna Taylor](client_name
+    - [Matteo Esposito](client_name)
+    - [Steve O'Donnel](client_name
+    - This is [Leonardo Brown](client_name)
+    - Ok, I am [Joseph Wilson](client_name)
+    - [Francesco Ricci](client_name
+    - I am [Maria Bianchi](client_name)
+    - [Liam Williams](client_name)
+    - [William Smith](client_name) is my name
+    - It's [Emily Davis](client_name)
+    - [Ethan Robinson](client_name) here
+    - It's [Camilla Nomoli](client_name)
+    - My full name is [Sophie Wilson](client_name)
+    - [Michele Zanetti](client_name), please
+    - [Francesca Davis](client_name)
+    - [Sara Comprì](client_name)
+    - [Andrea Miller](client_name)
+    - Just call me [Alice Greco](client_name)
+    - [Giorgia Romano](client_name
+    - Just put [Chloe Smith](client_name)
+    - The bell name is  [Matteo Garcia](client_name)
+    - I'm [Giuliano Ricci](client_name)
+    - [Gabriella Martinez](client_name)
+    - This is for [Alexander Anderson](client_name)
+    - The name is [Chiara Conti](client_name)
+    - [Alessia Giusi](client_name)
+    - [Christopher Johnson](client_name) here
+    - [Antonio Marino](client_name)
+    - My name is [Elena Moretti](client_name)
+    - [Emily Taylor](client_name), thanks
+    - [Luisa Santini](client_name
+- synonym: 7.30pm
+  examples: |
+    - 19.30
+    - 7.30
+    - 19:30
+    - 7:30
+    - 7.30 pm
+    - 7.30 p.m.
+- synonym: 8pm
+  examples: |
+    - 20.00
+    - 8.00
+    - 8:00
+    - 20:00
+    - 8 pm
+    - 8 p.m.
+- synonym: 8.30pm
+  examples: |
+    - 20.30
+    - 8.30
+    - 20:30
+    - 8:30
+    - 8.30 pm
+    - 8.30 p.m.
+- synonym: 9pm
+  examples: |
+    - 21.00
+    - 9.00
+    - 9:00
+    - 21:00
+    - 9 pm
+    - 9 p.m.
+- synonym: margherita
+  examples: |
+    - marghe
+- synonym: diavola
+  examples: |
+    - salamino
+    - spicy
+- synonym: hawaiian
+  examples: |
+    - hawai
+    - hawaii
+    - hawaian
+- synonym: small
+  examples: |
+    - mini
+    - s
+    - smol
+    - baby
+- synonym: medium
+  examples: |
+    - standard
+    - basic
+    - m
+    - normal
+    - classic
+- synonym: large
+  examples: |
+    - maxi
+    - l
+    - big
+    - largest
+    - biggest
+    - super
+    - huge
+- synonym: beer
+  examples: |
+    - beers
+- synonym: coke
+  examples: |
+    - cokes
+    - coca-cola
+    - coca
+- synonym: tea
+  examples: |
+    - teas
+- synonym: sprite
+  examples: |
+    - sprites
+- synonym: water
+  examples: |
+    - waters
+- synonym: '1'
+  examples: |
+    - one
+    - One
+- synonym: '2'
+  examples: |
+    - two
+    - Two
+- synonym: '3'
+  examples: |
+    - three
+    - Three
+- synonym: '4'
+  examples: |
+    - four
+    - Four
+- synonym: '5'
+  examples: |
+    - five
+    - Five
+- lookup: pizza_type
+  examples: |
+    - margherita
+    - marinara
+    - diavola
+    - capricciosa
+    - hawaiian
+    - vegetarian
+    - pub
+    - rustic
+    - kebab
+    - cheesey
+    - light
+    - pesto
+- lookup: ingredient
+  examples: |
+    - tomato sauce
+    - mozzarella
+    - garlic
+    - pepperoni
+    - ham
+    - pineapple
+    - bell peppers
+    - eggplant
+    - zucchini
+    - spinach
+    - onions
+    - olives
+    - mushrooms
+    - wurstel
+    - chicken
+    - sausage
+    - potatoes
+    - BBQ sauce
+- lookup: drink_amount
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+- lookup: pizza_size
+  examples: |
+    - small
+    - large
+    - medium
+- lookup: order_time
+  examples: |
+    - 7.30pm
+    - 8pm
+    - 8.30pm
+    - 9pm
