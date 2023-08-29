@@ -69,3 +69,6 @@ ngrok http 5005
 It should give an https url, go to the alexa skill endpoint and copy the URL, appending the suffix "/webhooks/alexa_assistant/webhook"
 
 To Alexa, say "Start Pizza Bot"
+
+### Dialogue Flowchart
+![dialogue flow image](Flowchart.png)
