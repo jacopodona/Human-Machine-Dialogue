@@ -377,7 +377,7 @@ class ActionTellPizzaWithoutIngredient(Action):
                         other_pizzas = ", ".join(pizza_names[:-2])
                         # Concatenate the two parts
                         response = other_pizzas + ", " + last_two_pizzas
-                    dispatcher.utter_message(f"Our pizzas without {ingredient} are {response}.")
+                    dispatcher.utter_message(f"For pizzas without {ingredient} we have {response}.")
                     return [SlotSet("ingredient",None)]
             else:
                 dispatcher.utter_message(f"We don't put {ingredient} in any pizza.")
@@ -416,7 +416,7 @@ class ActionTellPizzaWithIngredient(Action):
                         other_pizzas = ", ".join(pizza_names[:-2])
                         # Concatenate the two parts
                         response = other_pizzas + ", " + last_two_pizzas
-                    dispatcher.utter_message(f"Our pizzas with {ingredient} are {response}.")
+                    dispatcher.utter_message(f"For pizzas with {ingredient} we have {response}.")
                     return [SlotSet("ingredient",None)]
             else:
                 dispatcher.utter_message(f"We don't put {ingredient} in any pizza.")
@@ -950,7 +950,7 @@ class ActionResponseNegative(Action):
                     dispatcher.utter_message(text=message)
                     dispatcher.utter_message(response="utter_ask_delivery_method")
                 else: #User has just added an item to an order he already made and does not want anything else. Say goodbye
-                    dispatcher.utter_message(response="utter_goodbye")
+                    dispatcher.utter_message(text="Your order has been updated correctly. Thank you for choosing us.")
             elif (previous_action == 'utter_submit_pizza'):
                 dispatcher.utter_message(text="Ok, removing this last item.")
                 return[SlotSet("pizza_type",None),SlotSet("pizza_size",None),SlotSet("ingredient", None),FollowupAction("pizza_order_form")]
